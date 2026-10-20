@@ -1,8 +1,11 @@
 namespace EtymoVocab.Core.Lookup;
 
 /// <param name="Complete">False when some ancestor data could not be fetched; such results are not cached.</param>
+/// <param name="Word">The page title (Latin entries drop macrons: <c>specio</c> for <c>speciō</c>).</param>
 public sealed record WordResult(
     string Word,
+    string Lang,
+    string LangName,
     SourceInfo Source,
     IReadOnlyList<EtymologyResult> Etymologies,
     IReadOnlyList<string> Warnings,

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.WebAssembly">
+
+  <!-- Static site: the engine runs in the browser as WebAssembly, so GitHub Pages can host it. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Required by the [JSExport]/[JSImport] source generator. -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- No ICU data: smaller download. Canonical composition is delegated to JavaScript (see Program.cs). -->
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <!-- GitHub Pages does not serve precompressed .br/.gz siblings, so do not publish them. -->
+    <CompressionEnabled>false</CompressionEnabled>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EtymoVocab.Core\EtymoVocab.Core.csproj" />
+  </ItemGroup>
+
+</Project>

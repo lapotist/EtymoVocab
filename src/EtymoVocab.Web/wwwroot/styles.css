@@ -11,6 +11,7 @@
   --warn: #8a5a00;
   --warn-soft: #fbf1dc;
   --chip: #f0eee8;
+  --on-accent: #ffffff;
   --radius: 10px;
   color-scheme: light;
 }
@@ -29,6 +30,7 @@
     --warn: #e2b866;
     --warn-soft: #34291a;
     --chip: #262a2f;
+    --on-accent: #10161d;
     color-scheme: dark;
   }
 }
@@ -46,6 +48,7 @@
   --warn: #e2b866;
   --warn-soft: #34291a;
   --chip: #262a2f;
+  --on-accent: #10161d;
   color-scheme: dark;
 }
 
@@ -107,16 +110,13 @@ a { color: var(--accent); }
 button {
   padding: 8px 14px;
   font: inherit;
-  color: #fff;
+  color: var(--on-accent);
   background: var(--accent);
   border: 0;
   border-radius: var(--radius);
   cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) button { color: #10161d; }
-}
 
 main { padding-top: 20px; padding-bottom: 32px; }
 
@@ -160,18 +160,55 @@ h3 { font-size: .8rem; margin: 18px 0 8px; color: var(--muted); font-weight: 600
 .chip .gloss { font-size: .82rem; color: var(--muted); }
 a.chip:hover { outline: 1px solid var(--accent); }
 
-.morph { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 8px; }
-.morph .plus { color: var(--muted); }
-.morph .label { font-size: .78rem; color: var(--muted); width: 100%; }
-
-.timeline { list-style: none; margin: 0; padding: 0; }
-
-.node {
-  border-left: 3px solid var(--border);
-  padding: 4px 0 4px 14px;
+button.secondary {
+  color: var(--text);
+  background: var(--chip);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  font-size: .9rem;
 }
 
-.node .lang {
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.toolbar .check { display: inline-flex; gap: 6px; align-items: center; font-size: .9rem; color: var(--muted); }
+
+/* Etymology tree: the searched word at the top, origins nested below. */
+.tree, .tree ul { list-style: none; margin: 0; padding: 0; }
+.tree ul { margin-left: 11px; padding-left: 12px; border-left: 1px solid var(--border); }
+
+.tnode > .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px 8px;
+  padding: 6px 0;
+}
+
+.twisty {
+  flex: 0 0 22px;
+  height: 22px;
+  padding: 0;
+  margin-top: 2px;
+  line-height: 22px;
+  font-size: .8rem;
+  color: var(--muted);
+  background: transparent;
+  border-radius: 6px;
+}
+.twisty.spacer { display: inline-block; }
+button.twisty:hover { background: var(--chip); }
+
+.tnode .body { flex: 1 1 220px; min-width: 0; }
+
+.tnode .edge-label { font-size: .75rem; color: var(--muted); }
+
+.tnode .lang {
   display: inline-block;
   font-size: .75rem;
   padding: 1px 8px;
@@ -179,22 +216,42 @@ a.chip:hover { outline: 1px solid var(--accent); }
   background: var(--accent-soft);
   color: var(--accent);
   margin-right: 6px;
+  vertical-align: 2px;
 }
+.tnode.proto > .row .lang { background: var(--proto-soft); color: var(--proto); }
 
-.node.proto .lang { background: var(--proto-soft); color: var(--proto); }
-.node .term { font-weight: 600; font-size: 1.05rem; overflow-wrap: anywhere; }
-.node .gloss { color: var(--muted); font-size: .9rem; }
-.node .flag { font-size: .75rem; color: var(--warn); margin-left: 6px; }
-.node .morph { margin: 6px 0 0; }
-.node.current { border-left-color: var(--accent); }
-.node.current .term { font-size: 1.2rem; }
+.tnode .term { font-weight: 600; font-size: 1.05rem; overflow-wrap: anywhere; }
+.tnode .term.current { font-size: 1.3rem; }
+.tnode .ext { margin-left: 4px; font-size: .85rem; text-decoration: none; }
+.tnode .gloss { color: var(--muted); font-size: .9rem; }
+.tnode .gloss.hint { font-style: italic; }
+.tnode .flag { font-size: .75rem; color: var(--warn); margin-left: 6px; }
+.tnode .group-label { font-size: .8rem; font-weight: 600; color: var(--muted); }
 
-.edge {
+.tnode .mask {
+  display: block;
+  margin-top: 4px;
+  padding: 6px 10px;
+  font-size: .9rem;
   color: var(--muted);
-  font-size: .8rem;
-  padding: 2px 0 2px 14px;
-  border-left: 3px solid var(--border);
+  background: repeating-linear-gradient(-45deg, var(--chip), var(--chip) 6px, transparent 6px, transparent 12px);
+  border: 1px dashed var(--border);
 }
+
+.tnode .actions { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+
+.tnode .action {
+  padding: 3px 10px;
+  font-size: .8rem;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.tnode .action.on { color: var(--warn); border-color: var(--warn); }
+.tnode .action:disabled { opacity: .6; cursor: progress; }
 
 .senses { margin: 0; padding-left: 1.4em; }
 .senses li { margin-bottom: 4px; }

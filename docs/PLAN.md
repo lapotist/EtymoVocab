@@ -1,137 +1,171 @@
-# EtymoVocab 規劃書 v0.2
+# EtymoVocab 規劃書 v0.3
 
-> 更新日期：2026-10-20。v0.1 的「離線快照 ETL」架構已被本版取代（v0.1 保留在 git 歷史中）。
+> 更新日期：2026-10-20。v0.1（離線快照 ETL）與 v0.2（自建後端）保留在 git 歷史中。
 > 標記說明：**【已查證】** 表示對照過官方文件；**【實測】** 表示本次開發中的觀察，不是正式 benchmark；**【建議】** 表示尚未驗證的設計。
 
 ## 0. 決策摘要
 
 | 項目 | 決策 | 狀態 |
 |---|---|---|
-| 資料策略 | **即時查詢公開字典**（Wiktionary），不把詞庫打包進 App；每筆結果附上引用的修訂版號 | MVP 已實作 |
-| 平台 | **後端服務是必要的**；用戶端先做 Web（MVP 測試用），之後再做 Kotlin Android 用戶端 | MVP 已實作 Web |
-| 公開 API 失效時的備援 | 本版只寫規劃（§5），**尚未實作** | 規劃中 |
-| 學習功能（SRS、測驗） | MVP 之後再做 | 規劃中 |
+| 資料策略 | **即時查詢公開字典**（Wiktionary），不打包詞庫；每筆結果附上引用的修訂版號 | 已實作 |
+| 網站部署 | **GitHub Pages 靜態網站**：查詢引擎（C#）編譯成 WebAssembly 在瀏覽器執行，由 GitHub Actions 部署 | 已實作，等待啟用 Pages 並合併到 main |
+| 詞源樹與記憶功能 | 可展開的詞源樹；可把已記住的來源遮住、需要時回看；測驗模式 | 已實作 |
+| 後端 API | 改為**選用**：給未來的 Android 用戶端與集中快取使用 | 已實作（未部署） |
+| 公開 API 失效時的備援 | 只寫規劃（§5），**尚未實作** | 規劃中 |
+| 複習排程（SRS）、帳號 | 之後再做 | 規劃中 |
 
-## 1. 為什麼「即時查詢 + 自建後端」
+## 1. 資料與平台：為什麼這樣選
 
-你的需求（使用者提出）：
+使用者的需求：
 
 - 許多 Android 單字 App 把資料打包在 App 內，內容陳舊，翻譯也常很奇怪。
-- 希望資料保持最新，並且連結到公開字典，確保正確性。
-- Etymonline 這類網站有很好的詞源圖，但無法整合進自己的搜尋引擎。
+- 希望資料保持最新，並連結到公開字典。
+- Etymonline 的詞源圖很好，但無法整合。
+- 網站要透過 GitHub Pages 部署在 lapotist.me 底下。
 
 推論與取捨：
 
-1. **「連結公開字典」本身不保證正確，可追溯性才是關鍵。** Wiktionary 是群眾編輯，也可能出錯或遭到破壞。所以每筆結果都附上 Wiktionary 修訂版號與永久連結（`oldid`），使用者可以自行查證，錯誤也能回報給上游修正。
-2. **為什麼後端服務是必要的**（即使最終主力是 Android）：
-   - **限流**【已查證】：Wikimedia 2026 年的 API 規範是，未識別的請求（只有 IP）每分鐘 10 次；有合規 User-Agent 的未登入 bot 每分鐘 200 次；並行請求不得超過 3 個；收到 429 必須遵守 `Retry-After`。由後端集中快取，同一頁全體使用者只需抓一次。
-   - **解析器會隨 Wiktionary 改變**：例如新的 `{{etymon}}` 模板語法。解析邏輯放在後端，修正後立即生效，不必等 App 上架審核。
-   - 字族、跨頁追溯、多來源整合、未來的 API 金鑰，都不適合放在每台手機上。
-3. **Etymonline**：沒有公開 API。這次讀取它的服務條款頁時被拒（HTTP 403），因此**無法查證**其授權條款；保守作法是只提供外部連結，不擷取內容。我們用 Wiktionary 的結構化詞源資料自行畫出演變圖，這也正是本專案的差異化所在。
+1. **可追溯性比「來自公開字典」更重要。** Wiktionary 是群眾編輯，也可能出錯或遭到破壞。每筆結果都附上修訂版號與永久連結（`oldid`），使用者可以自行查證，錯誤也能回報給上游修正。
+2. **從「自建後端」改為「瀏覽器內引擎」**（修正 v0.2 的建議）
+   - GitHub Pages 只能放靜態檔案。
+   - 【已查證】Wiktionary API 支援匿名 CORS（`origin=*`），允許 `Api-User-Agent` 標頭；它的 429 回應同樣帶有 CORS 標頭，且公開 `Retry-After`。
+   - Wikimedia 2026 年的限流規範【已查證】：未登入的瀏覽器使用者每分鐘 200 次。改成瀏覽器直連後，**每位訪客各自計算額度**，不再共用一台伺服器的出口 IP。【實測】共用的雲端出口 IP 經常收到 429。
+   - v0.2 主張後端必要的理由之一是「解析器修正不必等 App 上架」。對網站而言，重新部署 Pages 即生效，這個理由不成立。
+   - 引擎沿用同一份 C# `Core`，編譯成 WebAssembly，不必用 JavaScript 重寫解析器。
+3. **後端仍有價值**：
+   - Kotlin Android 用戶端可以直接使用後端，不必移植解析器。
+   - 全體使用者共用快取、持久化快取與 dump 預熱（§5 L1–L2），都需要伺服器。
+4. **Etymonline**：沒有公開 API；服務條款頁拒絕存取（HTTP 403），**無法查證授權**。因此只提供外部連結，詞源圖由我們用 Wiktionary 的結構化資料自行繪製。
 
-## 2. MVP（已完成，可運行）
+## 2. 目前版本
 
 ### 2.1 功能
 
 | 功能 | 說明 |
 |---|---|
-| 單字查詢 | 回傳詞源演變路徑（由古至今）、詞素拆解（附各部分釋義）、詞根、同源異形詞（doublet）、英文釋義、依詞義分組的中文（Mandarin）翻譯 |
-| 跨頁追溯 | 沿著祖先語言的詞條往上讀（例如 father → 中古英語 fader → 古英語 fæder → … → PIE \*ph₂tḗr），並讀取祖先詞條的構詞，例如拉丁 īnspiciō = in- + speciō |
+| 詞源樹 | 查詢的字是樹根，往下展開構詞成分（附釋義）、祖先鏈、詞根。例如 inspect ← inspicere（in- + speciō）、speciō ← \*spekjō ← \*spéḱyeti |
+| 展開來源 | 任何構詞成分或最古老的祖先，都可以按「展開來源」即時讀取該語言的詞條，繼續往下長 |
+| 記得／忘了／回看 | 按「記得」後該來源會被遮住，點一下可暫時回看，「遮回去」恢復遮住，「忘了」取消記憶。記憶狀態以「語言＋詞」為單位，同一個來源在每棵樹都會一起遮住 |
+| 測驗模式 | 遮住所有來源，逐一回想後再點開 |
+| 全部展開／收合 | 也可以只收合單一分支 |
 | 字族 | 讀取 Wiktionary 由 `{{root}}` 模板維護的分類，例如 \*speḱ- 共 323 個英文字 |
-| 搜尋建議 | 使用 MediaWiki `opensearch` |
+| 釋義與翻譯 | 英文釋義；依詞義分組的中文（Mandarin）翻譯 |
 | 來源標示 | 修訂版號、時間戳記、永久連結、CC BY-SA 4.0 |
 
 ### 2.2 架構
 
 ```
-Browser (wwwroot: 原生 JS，所有外部文字一律以 textContent 插入)
-   │  /api/words/{word}  /api/roots/family  /api/suggest
-ASP.NET Core (.NET 10) ── EtymoVocab.Api
-   │  IMemoryCache：頁面 30 分鐘、不存在的頁面 10 分鐘、結果 30 分鐘
-   │  WiktionaryApiClient：一次請求最多批次 50 頁、最多 3 個並行、
-   │                       429/5xx 只在等待時間 ≤ 5 秒時才重試，否則回 503 + Retry-After
-EtymoVocab.Core（純函式庫，與網路無關，可離線測試）
-   ├─ Wikitext：模板掃描、inline modifier（<id:…><t:…><ety:…>）、章節切分
-   ├─ Entries：詞源段落解析（散文模板 + {{etymon}}）、構詞、釋義、翻譯表
-   └─ Lookup：WordLookupService（詞源鏈追溯）、RootFamilyService
-        │
-   en.wiktionary.org MediaWiki Action API
+GitHub Pages（靜態檔案）
+  index.html + app.js（原生 JS UI，所有外部文字一律以 textContent 插入）
+  engine.js ──► _framework/（.NET WebAssembly：EtymoVocab.Web → EtymoVocab.Core）
+                     │  訪客瀏覽器直接呼叫，匿名 CORS（origin=*）＋ Api-User-Agent
+                     ▼
+              en.wiktionary.org MediaWiki Action API
+
+EtymoVocab.Core（純 .NET，可離線測試）
+  ├─ Wikitext：模板掃描、inline modifier（<id:…><t:…><ety:…>）、章節切分
+  ├─ Entries：詞源段落解析（散文模板 + {{etymon}}）、構詞、釋義、翻譯表
+  └─ Lookup：WordLookupService（英文字與任意語言詞條）、RootFamilyService、
+             MediaWikiClient（批次 50 頁、≤ 3 個並行、快取、遵守 Retry-After）
+
+EtymoVocab.Api（選用）：同一個 Core 的 JSON API，使用 IMemoryCache
 ```
 
-**一次查詢的上游成本**（上限可設定）：1 次請求取得單字頁 → 最多 3 輪祖先頁（每輪批次抓取）→ 1 次請求取得詞素與詞根釋義。預設上限為每次查詢 6 次請求；超過上限時停止展開並附上提示。
+**一次查詢的上游成本**（上限可設定）：1 次請求取得單字頁 → 最多 3 輪祖先頁（每輪批次抓取）→ 1 次請求取得詞素與詞根釋義。預設上限為每次查詢 6 次請求；超過上限時停止展開，並附上提示。
 
 **正確性規則**（寧缺勿錯）：
 
 - 祖先頁有多個同形異源詞條，又沒有 etymon id 可辨識時，標記為「同形詞未確認」，**不從這個猜測的節點繼續往上追溯，也不採用它的構詞**。
-- 詞素釋義只採用能唯一確定的來源（id 相符，或該頁只有一個詞源段落）；例如 in- 同時有「進入」與「否定」兩義時，寧可留空。
+- 詞素釋義只採用能唯一確定的來源；例如 in- 同時有「進入」與「否定」兩義時，寧可留空。
 - 仿譯（calque）與語義借用（semantic loan）不往上追溯，因為來源詞的祖先並不是這個字的祖先。
 
-### 2.3 驗證
+### 2.3 部署（GitHub Actions → GitHub Pages）
 
-- **單元測試 41 項**：使用 12 個真實 Wiktionary 頁面作為測試資料（含修訂版號，見 `tests/…/Fixtures`），涵蓋 inspect、transport、nice、bank（4 個同形詞）、hotel、spectacle、father 跨頁追溯、請求上限、上游失敗時回傳部分結果、字族。
-- **【實測】實際連線 Wiktionary 的冒煙測試**：inspect、father、transport、nice、字族 \*speḱ-、搜尋建議皆可正確回應。未被限流時，transport 冷查詢約 0.3 秒。
-- **【實測】限流**：從雲端開發容器（共用出口 IP）呼叫時，經常收到 429，`Retry-After` 約 10–59 秒，連 curl 都會被擋。服務的行為符合設計：回傳 503 並附 `Retry-After`、不重複轟炸上游、前端顯示重試卡片。**這正是 §5 備援必須排在下一優先的原因。**
+- **工作流程**：`.github/workflows/pages.yml`。
+  - Pull request：只執行測試與發佈檢查。
+  - push 到 `main`：執行測試、`dotnet publish`，再以 `upload-pages-artifact@v3` 與 `deploy-pages@v4` 部署。這是兩個 action README 中記載的搭配。
+- **一次性設定**（需由 repo 擁有者操作）：到 Settings → Pages，把 Source 設為 **GitHub Actions**。
+- **網址**：
+  - 【實測】`lapotist.me` 是由 GitHub Pages 提供服務的使用者網站（`lapotist.github.io` 會轉址到 `lapotist.me`），所以專案網站會出現在 `lapotist.me/<repo 名稱>/`。
+  - 【實測】專案路徑**區分大小寫**：例如 `azure.github.io/AppService/` 回應 200，`/appservice/` 回應 404。
+  - 目前 repo 名稱是 `EtymoVocab`，因此網址是 `lapotist.me/EtymoVocab/`。要使用 `lapotist.me/etymovocab/`，需把 repo 改名為 `etymovocab`；GitHub 會把舊的 repo 網址轉址到新名稱。
+- **路徑**：網站內所有路徑都是相對路徑，路由使用 hash（`#/w/inspect`），因此放在任何子路徑下都能運作，不需要 404 轉址。
 
-### 2.4 已知限制（MVP）
+### 2.4 驗證
+
+- **單元測試 52 項**：
+  - 使用 12 個真實 Wiktionary 頁面作為測試資料。
+  - 涵蓋：解析、跨頁追溯、任意語言詞條、同形詞 id、請求上限、部分結果、字族。
+  - MediaWiki 用戶端：批次、正規化與轉址、負向快取、瀏覽器模式的 CORS 參數與標頭、429 長等待時快速失敗、短等待時重試。
+- **【實測】端對端瀏覽器測試**（Chromium，網站放在 `/EtymoVocab/` 子路徑下，實際連線 Wiktionary）：
+  - inspect 的詞源樹約 2.1 秒出現（含引擎下載）。
+  - 按「記得」後遮住，重新整理後仍保持遮住；回看功能正常。
+  - 即時展開 speciō，取得 \*spekjō ← \*spéḱyeti（\*speḱ- + \*-yeti）。
+  - 測驗模式遮住 13 個來源；全部收合與展開正常。
+  - 手機寬度 390px 沒有水平捲動。
+- **【實測】限流**：從共用雲端 IP 測試時仍常收到 429。引擎會回傳部分結果並顯示提示，「展開來源」可以稍後補抓。有一次邊緣節點的 429 回應沒有附 CORS 標頭，瀏覽器只能把它當成網路錯誤；這種情況同樣以部分結果處理。
+- **【實測】發佈大小**：`_framework` 原始 5.4 MB，gzip 後約 2.1 MB。GitHub Pages 是否以 gzip 傳送 `.wasm` 尚未驗證，部署後需實測。
+
+### 2.5 已知限制
 
 | 限制 | 影響 | 對應規劃 |
 |---|---|---|
-| 只有記憶體快取，單一實例 | 重啟即清空；遇到限流時沒有資料可回 | §5 L1–L2 |
-| 散文詞源以啟發式規則判讀（from / of、compare 子句等） | 少數字可能多出或漏掉節點 | golden set 擴充、回報機制 |
-| 中文翻譯只讀 Mandarin 列，繁簡混雜；翻譯子頁（/translations）尚未讀取 | 部分字沒有翻譯，或顯示簡體 | §6 |
+| 快取只存在記憶體（瀏覽器分頁或伺服器程序） | 重新整理或重啟即清空；遇到限流時沒有舊資料可用 | §5 L1 |
+| 「記得」只存在本機瀏覽器（localStorage） | 無法跨裝置同步；清除網站資料就會消失 | Phase 2 帳號同步 |
+| 第一次載入約需下載 2 MB | 行動網路較慢 | 評估 Brotli 預壓縮載入器或裁減相依套件 |
+| 散文詞源以啟發式規則判讀 | 少數字可能多出或漏掉節點 | golden set 擴充、回報機制 |
+| 中文翻譯繁簡混雜；翻譯子頁（/translations）尚未讀取 | 部分字沒有翻譯，或顯示簡體 | §6 |
+| 瀏覽器端只使用內建的常用語言名稱表 | 罕見語言會顯示代碼，且無法往上追溯 | 評估按需載入 Wiktionary 語言表 |
 | 字族依字長排序（暫代詞頻） | 常用字不一定排在最前面 | §6 |
-| 標籤縮寫未展開（例如「OL.」） | 可讀性稍差 | 讀取 Wiktionary label 資料 |
-| 尚無帳號與複習功能 | — | §6 Phase 2 |
 
 ## 3. 執行方式
 
-詳見 `README.md`。部署前請把 `Wiktionary:UserAgent` 改成你自己的聯絡方式（URL 或 email），這是 Wikimedia 的 User-Agent 政策要求。
+詳見 `README.md`。
 
 ## 4. 平台路線
 
-- **現在**：Web UI 是 MVP 的驗證介面，同時提供可分享、可被搜尋引擎索引的詞條網址。
-- **下一步：Kotlin Android 用戶端**（Jetpack Compose），作為同一個 API 的薄用戶端：
-  - **不打包詞庫**。在裝置上用 Room 快取「看過的字」與複習資料，離線時可以複習看過的內容。
-  - 演變路徑用 Compose Canvas 繪製垂直時間軸（資料結構已是線性鏈 + 構詞分支，不需要圖形函式庫）。
-  - 複習排程與推播是 Android 的原生優勢，放在 Phase 2。
-- 不建議一開始就做 Kotlin Multiplatform 或 Compose for Web：成熟度與交付成本不划算。
+- **現在**：GitHub Pages 靜態網站，即主要用戶端。
+- **下一步：Kotlin Android 用戶端**（Jetpack Compose），作為 `EtymoVocab.Api` 的薄用戶端：
+  - **不打包詞庫**。在裝置上用 Room 快取看過的字與複習資料。
+  - 詞源樹沿用網站的資料模型：根節點、構詞群組、祖先鏈、詞根。用 Compose 的 LazyColumn 加縮排即可呈現，不需要圖形函式庫。
+  - 推播與複習排程是 Android 的原生優勢。
+  - 需要部署 API。替代方案是 Android 直接呼叫 Wiktionary，但那樣就得用 Kotlin 重寫解析器，不建議。
 
 ## 5. 公開 API 失效時的備援規劃（**尚未實作**）
 
 ### 5.1 失效情境與分層對策
 
-| 情境 | MVP 目前行為 | 規劃後行為 |
+| 情境 | 目前行為 | 規劃後行為 |
 |---|---|---|
-| 429 限流（`Retry-After` 長） | 回 503，前端提示重試 | L1 回傳快取中的舊資料並標示時間；L3 斷路器暫停呼叫上游 |
-| Wiktionary 中斷或逾時 | 回 503 | L1 / L2 回傳持久化快取或 dump 資料 |
-| 祖先頁抓取失敗 | 回傳部分結果並附警告（不快取） | 同左，並在背景補抓 |
-| 冷啟動，快取是空的 | 每個字都打上游 | L2 先用 dump 預熱常用字 |
-| 上游回傳遭破壞（vandalism）的內容 | 照常顯示，但附修訂版連結 | L4 設定觀察期；提供回報機制 |
+| 429 限流 | 顯示限流訊息與建議等待時間，可重試 | L1 回傳快取中的舊資料並標示時間；L3 在 `Retry-After` 期間暫停呼叫上游 |
+| 祖先頁或展開時失敗 | 回傳部分結果並附提示；節點可再按一次「展開來源」 | 同左，並在背景補抓 |
+| Wiktionary 中斷或逾時 | 錯誤卡片 | L1 回傳持久化快取；伺服器端再加 L2 dump 資料 |
+| 邊緣節點的 429 沒有 CORS 標頭 | 被視為網路錯誤 | 視為疑似限流，套用退避策略 |
+| 上游遭破壞（vandalism） | 照常顯示，但附修訂版連結 | L4 設定觀察期；提供回報機制 |
 | Wiktionary 改了模板語法 | 解析結果變少 | 解析回歸測試 + 監控「無詞源比例」 |
 
 ### 5.2 分層設計【建議】
 
 - **L1 持久化快取 + stale-while-revalidate**
-  - 頁面依 `(title, revid)` 存進 SQLite 或 PostgreSQL（目前是記憶體）。
-  - TTL 到期後先回傳舊資料，同時在背景檢查 `lastrevid`：一次請求可批次查 50 頁。
-  - 上游失敗時回傳舊資料，前端標示「資料為 X 小時前的快取」。
-- **L2 Dump 預熱**
-  - 用 Wiktionary XML dump（或 Wiktextract / kaikki 的 JSONL）匯入常用字頁面，作為冷啟動與長時間中斷時的底層資料。
-  - dump 的內容仍是原始 wikitext，所以**沿用同一套解析器**，不必維護第二套程式。
+  - 瀏覽器端：頁面依 `(title, revid)` 存進 IndexedDB。
+  - 伺服器端：存進 SQLite 或 PostgreSQL。
+  - TTL 到期後先回傳舊資料，同時在背景檢查 `lastrevid`（一次請求可批次查 50 頁）。上游失敗時回傳舊資料，並標示「資料為 X 小時前的快取」。
+- **L2 Dump 預熱（伺服器端）**：用 Wiktionary XML dump（或 Wiktextract / kaikki 的 JSONL）匯入常用字頁面，作為冷啟動與長時間中斷時的底層資料。dump 的內容仍是原始 wikitext，沿用同一套解析器。
 - **L3 斷路器與流量預算**
-  - 依 Wikimedia 規範實作 token bucket（≤ 200 次/分鐘/識別身分、≤ 3 個並行）。
-  - 連續失敗或收到長 `Retry-After` 時進入 open 狀態，只使用快取；半開狀態用單一探測請求試探上游是否恢復。
-- **L4 主動更新**
-  - 訂閱 Wikimedia EventStreams `recentchange`【已查證：SSE、可用 `Last-Event-ID` 或 `since` 重播、保留 7–31 天、需在用戶端過濾、連線 15 分鐘逾時需重連】。只處理 en.wiktionary 中、已在快取裡的標題，重新抓取這些頁面。
-  - 可設定「觀察期」，例如新修訂版保留 N 小時再採用，以降低破壞性編輯的影響。N 由實際的回退時間分布決定。
+  - token bucket 限制在每分鐘 200 次以內，並行不超過 3 個。
+  - 收到長 `Retry-After` 時進入 open 狀態，只使用快取；半開狀態用單一探測請求試探上游是否恢復。
+- **L4 主動更新（伺服器端）**
+  - 訂閱 Wikimedia EventStreams 的 `recentchange`【已查證：SSE、可用 `Last-Event-ID` 或 `since` 重播、保留 7–31 天、需在用戶端過濾、連線 15 分鐘逾時需重連】。
+  - 只重新抓取已在快取裡的標題。
+  - 可設定觀察期，用來降低破壞性編輯的影響。
 - **L5 第二來源交叉比對（選用）**
-  - Merriam-Webster Collegiate API 的回應包含 `et`（詞源）欄位【已查證】。免費使用限非商業用途，每把金鑰每天 1000 次【已查證】；能否快取或儲存回應，官方頁面未載明，**待確認**。
-  - 只作為交叉比對，分開顯示並標示來源，不混入 Wiktionary 的詞源鏈。
-- **規模化選項**：若需要更高的流量額度，可評估 Wikimedia Enterprise（商用）。Wikimedia Cloud Services（Toolforge）的伺服器端請求可豁免限流【已查證】，但須遵守其使用條款，並非一般商業部署的選項。
+  - Merriam-Webster Collegiate API 的回應包含 `et`（詞源）欄位【已查證】。免費使用限非商業用途，每把金鑰每天 1000 次【已查證】；能否快取回應，官方頁面未載明，**待確認**。
+  - 只作為交叉比對，分開顯示並標示來源。
+- **規模化選項**：Wikimedia Enterprise（商用）。Toolforge 的伺服器端請求可豁免限流【已查證】，但須遵守其使用條款。
 
 ### 5.3 驗收標準【建議】
 
-- 上游完全中斷時，曾查過的字 100% 可回應（標示為快取資料）。
+- 上游完全中斷時，曾查過的字 100% 可回應，並標示為快取資料。
 - 被 429 限流期間，不再對上游發出新請求，直到 `Retry-After` 到期。
 - 以 EventStreams 偵測到修訂後，快取在 5 分鐘內更新（需實測確認可行）。
 
@@ -139,14 +173,14 @@ EtymoVocab.Core（純函式庫，與網路無關，可離線測試）
 
 | 階段 | 內容 | 驗收【建議】 |
 |---|---|---|
-| Phase 1.5：可靠性 | §5 的 L1、L3（持久化快取、斷路器），結構化日誌與指標（上游請求數、429 次數、快取命中率） | 上游中斷演練通過 §5.3 |
-| Phase 2：學習迴圈 + Android | Kotlin Android 用戶端；帳號；以詞根家族為單位的複習（FSRS）；拆解推理題；形近陷阱題（例如 pedestrian 與 pediatric）；推播 | 記錄複習事件，用來驗證 H1 |
-| Phase 2：資料品質 | 詞頻排序（例如 ECDICT 的詞頻欄位；ECDICT 標示 MIT，但上游內容授權待確認）；以 OpenCC `s2twp` 把簡體翻譯轉成台灣用語，並標示「轉換」；讀取翻譯子頁 | golden set 精確率 ≥ 95% |
-| Phase 3 | §5 的 L2、L4；LLM 只用來改寫說明，不產生詞源事實（見 §7）；語意搜尋；包成 MCP server 供 AI Agent 查詢 | — |
+| Phase 1.5：可靠性 | 瀏覽器端 L1（IndexedDB）與 L3；部署後實測 Pages 的傳輸壓縮與首次載入時間 | 上游中斷演練通過 §5.3 |
+| Phase 2：學習迴圈 + Android | 帳號（同步「記得」狀態）；以詞根家族為單位的複習（FSRS），用目前的「記得」資料當作初始狀態；形近陷阱題（pedestrian / pediatric）；Kotlin Android 用戶端與推播 | 記錄複習事件，用來驗證 H1 |
+| Phase 2：資料品質 | 詞頻排序；以 OpenCC `s2twp` 把簡體翻譯轉成台灣用語，並標示「轉換」；讀取翻譯子頁 | golden set 精確率 ≥ 95% |
+| Phase 3 | §5 的 L2、L4；LLM 只用來改寫說明（§7）；語意搜尋；包成 MCP server | — |
 
-**H1（待驗證假設）**：以詞根家族為單位、搭配字面義推理來複習，7 天與 30 天的保留率優於逐字孤立卡片。這是需要用自己的資料驗證的假設，目前沒有結論。
+**H1（待驗證假設）**：以詞根家族為單位、搭配字面義推理與遮住後回想來複習，7 天與 30 天的保留率優於逐字孤立卡片。這是需要用自己的資料驗證的假設，目前沒有結論。
 
-## 7. LLM 使用邊界（沿用 v0.1）
+## 7. LLM 使用邊界
 
 - **允許**：
   - 把已取得的詞源鏈改寫成繁體中文敘述。
@@ -159,16 +193,16 @@ EtymoVocab.Core（純函式庫，與網路無關，可離線測試）
   - 輸出採結構化格式，每項論述都要引用來源節點。
   - 驗證器檢查輸出提到的每個形式都存在於詞源鏈中，不通過就丟棄。
   - 前端標示「AI 生成」。
-  - 預先批次生成並快取，以控制成本與延遲。
+  - 預先批次生成並快取。
 
 ## 8. 授權
 
 - **程式碼**：Apache-2.0。
-- **Wiktionary 內容**：CC BY-SA 4.0。API 回應與畫面都附上出處與修訂版號。測試資料的出處見 `tests/EtymoVocab.Core.Tests/Fixtures/README.md`。
+- **Wiktionary 內容**：CC BY-SA 4.0。畫面上附有出處與修訂版號。測試資料的出處見 `tests/EtymoVocab.Core.Tests/Fixtures/README.md`。
 - **大考中心詞彙表**：非營利使用須註明出處，營利使用須事先取得書面同意【已查證】。
 - 以上不是法律意見；商業化前請另行諮詢。
 
 ## 9. 待你決定
 
-1. **Phase 1.5（備援）與 Phase 2（Android）的先後順序。** 我的建議是先做 L1 + L3：即時資料的價值取決於上游可用時的體驗，以及上游不可用時能否降級運作。
-2. **是否計畫商業化。** 這會影響 Merriam-Webster API、大考詞彙表、Wikimedia Enterprise 的使用條件。
+1. **網址大小寫**：維持 `lapotist.me/EtymoVocab/`，或把 repo 改名為 `etymovocab`。
+2. **下一步的優先順序**：可靠性（§5 L1 + L3），或學習迴圈與 Android。我的建議是先做 L1 + L3。

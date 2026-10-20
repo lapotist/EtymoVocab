@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using EtymoVocab.Core.Wikitext;
 
@@ -9,6 +10,19 @@ public static class EntryNames
     private const char CombiningMacron = '̄';
     private const char CombiningBreve = '̆';
     private const char CombiningDiaeresis = '̈';
+
+    // Precomposed letters → base letter. A managed table instead of string.Normalize, which is a
+    // no-op when the browser build runs without ICU (InvariantGlobalization).
+    private static readonly Dictionary<char, char> MacronBreveLetters = Pairs(
+        "āaĀAēeĒEīiĪIōoŌOūuŪUȳyȲYǣæǢÆ" + "ăaĂAĕeĔEĭiĬIŏoŎOŭuŬU" + "ᾱαᾹΑῑιῙΙῡυῩΥᾰαᾸΑῐιῘΙῠυῨΥ");
+
+    private static readonly Dictionary<char, char> DiaeresisLetters = Pairs("äaÄAëeËEïiÏIöoÖOüuÜUÿyŸY");
+
+    /// <summary>
+    /// Canonical composition (NFC) for marks left after stripping (Greek α + ̓ → ἀ). The default uses
+    /// ICU; the browser host replaces it with JavaScript's <c>String.prototype.normalize</c>.
+    /// </summary>
+    public static Func<string, string> ComposeCanonical { get; set; } = s => s.Normalize(NormalizationForm.FormC);
 
     public static string? PageTitle(LanguageRegistry languages, string langCode, string term)
     {
@@ -42,22 +56,37 @@ public static class EntryNames
     /// </summary>
     private static string StripEntryDiacritics(string entryLang, string term)
     {
-        var strip = entryLang switch
+        var (stripDiaeresis, enabled) = entryLang switch
         {
-            "la" => new[] { CombiningMacron, CombiningBreve, CombiningDiaeresis },
-            "grc" or "ang" => new[] { CombiningMacron, CombiningBreve },
-            _ => [],
+            "la" => (true, true),
+            "grc" or "ang" => (false, true),
+            _ => (false, false),
         };
-        if (strip.Length == 0)
+        if (!enabled)
             return term;
 
-        var decomposed = term.Normalize(NormalizationForm.FormD);
-        var sb = new StringBuilder(decomposed.Length);
-        foreach (var c in decomposed)
+        var sb = new StringBuilder(term.Length);
+        var hasMarks = false;
+        foreach (var c in term)
         {
-            if (Array.IndexOf(strip, c) < 0)
-                sb.Append(c);
+            if (c is CombiningMacron or CombiningBreve || (stripDiaeresis && c == CombiningDiaeresis))
+                continue;
+            if (MacronBreveLetters.TryGetValue(c, out var bare) || (stripDiaeresis && DiaeresisLetters.TryGetValue(c, out bare)))
+            {
+                sb.Append(bare);
+                continue;
+            }
+            hasMarks |= CharUnicodeInfo.GetUnicodeCategory(c) == UnicodeCategory.NonSpacingMark;
+            sb.Append(c);
         }
-        return sb.ToString().Normalize(NormalizationForm.FormC);
+        return hasMarks ? ComposeCanonical(sb.ToString()) : sb.ToString();
+    }
+
+    private static Dictionary<char, char> Pairs(string pairs)
+    {
+        var map = new Dictionary<char, char>(pairs.Length / 2);
+        for (var i = 0; i + 1 < pairs.Length; i += 2)
+            map[pairs[i]] = pairs[i + 1];
+        return map;
     }
 }

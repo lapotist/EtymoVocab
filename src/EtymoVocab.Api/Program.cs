@@ -5,30 +5,33 @@ using EtymoVocab.Api.Wiktionary;
 using EtymoVocab.Core.Languages;
 using EtymoVocab.Core.Lookup;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Options;
 
+// JSON API over the same engine the static site runs in the browser. The web UI itself lives in
+// src/EtymoVocab.Web; this host is for programmatic and future Android clients.
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<WiktionaryOptions>(builder.Configuration.GetSection(WiktionaryOptions.Section));
+var wiktionary = builder.Configuration.GetSection(MediaWikiOptions.Section).Get<MediaWikiOptions>() ?? new MediaWikiOptions();
+builder.Services.AddSingleton(wiktionary);
 builder.Services.AddSingleton(builder.Configuration.GetSection("Lookup").Get<LookupOptions>() ?? new LookupOptions());
 builder.Services.AddSingleton<LanguageRegistry>();
-builder.Services.AddSingleton<WiktionaryThrottle>();
 // Entry sizes are roughly KB, so this bounds the cache at about 200 MB.
 builder.Services.AddMemoryCache(o => o.SizeLimit = 200_000);
-builder.Services
-    .AddHttpClient<IWiktionaryClient, WiktionaryApiClient>((sp, http) =>
-    {
-        var options = sp.GetRequiredService<IOptions<WiktionaryOptions>>().Value;
-        http.Timeout = TimeSpan.FromSeconds(options.TimeoutSeconds);
-        http.DefaultRequestHeaders.UserAgent.TryParseAdd(options.UserAgent);
-    })
-    .ConfigurePrimaryHttpMessageHandler(() => new SocketsHttpHandler
+builder.Services.AddSingleton<IResponseCache, MemoryResponseCache>();
+builder.Services.AddSingleton<IWiktionaryClient>(sp =>
+{
+    var logger = sp.GetRequiredService<ILogger<MediaWikiClient>>();
+    var http = new HttpClient(new SocketsHttpHandler
     {
         AutomaticDecompression = DecompressionMethods.All,
         PooledConnectionLifetime = TimeSpan.FromMinutes(10),
-    });
-builder.Services.AddTransient<WordLookupService>();
-builder.Services.AddTransient<RootFamilyService>();
+    })
+    {
+        Timeout = TimeSpan.FromSeconds(wiktionary.TimeoutSeconds),
+    };
+    return new MediaWikiClient(http, sp.GetRequiredService<IResponseCache>(), wiktionary, message => logger.LogWarning("{Message}", message));
+});
+builder.Services.AddSingleton<WordLookupService>();
+builder.Services.AddSingleton<RootFamilyService>();
 builder.Services.AddHostedService<LanguageDataLoader>();
 builder.Services.AddProblemDetails();
 builder.Services.ConfigureHttpJsonOptions(o => o.SerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All));
@@ -36,8 +39,6 @@ builder.Services.ConfigureHttpJsonOptions(o => o.SerializerOptions.Encoder = Jav
 var app = builder.Build();
 
 app.UseExceptionHandler();
-app.UseDefaultFiles();
-app.UseStaticFiles();
 
 var resultCacheDuration = TimeSpan.FromMinutes(builder.Configuration.GetValue("Lookup:ResultCacheMinutes", 30));
 
@@ -76,6 +77,16 @@ api.MapGet("/words/{word}", async (string word, WordLookupService lookup, IMemor
     if (result.Complete)
         cache.Set(key, result, new MemoryCacheEntryOptions { AbsoluteExpirationRelativeToNow = resultCacheDuration, Size = 32 });
     return Results.Ok(result);
+});
+
+api.MapGet("/entries/{lang}/{term}", async (string lang, string term, string? id, WordLookupService lookup, CancellationToken ct) =>
+{
+    if (!Titles.IsValid(lang) || !Titles.IsValid(term) || (id is not null && !Titles.IsValid(id)))
+        return Results.Problem(statusCode: StatusCodes.Status400BadRequest, title: "無效的詞條參數");
+    var result = await lookup.LookupEntryAsync(lang, term, id, ct);
+    return result is null
+        ? Results.Problem(statusCode: StatusCodes.Status404NotFound, title: "Wiktionary 沒有這個詞條", detail: term)
+        : Results.Ok(result);
 });
 
 api.MapGet("/roots/family", async (string lang, string root, string? target, RootFamilyService families, IMemoryCache cache, CancellationToken ct) =>

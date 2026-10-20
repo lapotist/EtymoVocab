@@ -74,6 +74,10 @@ public class WikitextTests
     [InlineData("la", "trānsportō", "transporto")]
     [InlineData("la-lat", "hospitālis", "hospitalis")]
     [InlineData("ang", "inscēawian", "insceawian")]
+    [InlineData("ang", "ǣfen", "æfen")]
+    [InlineData("la", "cū̆stōdiō", "custodio")] // macron and combining breve
+    [InlineData("la", "aër", "aer")]
+    [InlineData("grc", "ᾱ̓ήρ", "ἀήρ")] // macron dropped, breathing and accent kept
     [InlineData("grc", "σκέπτομαι", "σκέπτομαι")]
     [InlineData("gem-pro", "*fadēr", "Reconstruction:Proto-Germanic/fadēr")]
     [InlineData("ine-pro", "*speḱ-", "Reconstruction:Proto-Indo-European/speḱ-")]

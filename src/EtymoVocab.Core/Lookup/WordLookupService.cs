@@ -21,8 +21,26 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
 {
     public const string License = "CC BY-SA 4.0";
 
-    public Task<WordResult?> LookupAsync(string word, CancellationToken ct) =>
-        new Session(client, languages, options, ct).RunAsync(word.Trim());
+    /// <summary>An English word. Wiktionary titles are case-sensitive, so "Inspect" falls back to "inspect".</summary>
+    public Task<WordResult?> LookupAsync(string word, CancellationToken ct)
+    {
+        word = word.Trim();
+        var lower = word.ToLowerInvariant();
+        string[] candidates = lower == word ? [word] : [word, lower];
+        return new Session(client, languages, options, ct).RunAsync(candidates, "en", null);
+    }
+
+    /// <summary>
+    /// Any language's entry, e.g. Latin <c>speciō</c> or <c>*spekjō</c> (Proto-Italic), for expanding a node of the
+    /// etymology tree. With <paramref name="etymonId"/>, only the matching etymology is returned when it exists.
+    /// </summary>
+    public Task<WordResult?> LookupEntryAsync(string lang, string term, string? etymonId, CancellationToken ct)
+    {
+        var title = EntryNames.PageTitle(languages, lang, term);
+        return title is null
+            ? Task.FromResult<WordResult?>(null)
+            : new Session(client, languages, options, ct).RunAsync([title], lang, etymonId);
+    }
 
     private sealed class WorkStep(EtymStep step, string? title, string? section, string? entryLang)
     {
@@ -49,13 +67,13 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
         private readonly List<string> _warnings = [];
         private int _requestsLeft = options.MaxUpstreamRequests;
         private bool _complete = true;
+        private string _lang = "en";
+        private string _sectionName = "English";
 
-        public async Task<WordResult?> RunAsync(string word)
+        public async Task<WordResult?> RunAsync(IReadOnlyList<string> candidates, string lang, string? etymonId)
         {
-            // Wiktionary titles are case-sensitive: "Inspect" is not "inspect".
-            var candidates = new List<string> { word };
-            if (word.ToLowerInvariant() is var lower && lower != word)
-                candidates.Add(lower);
+            if (languages.SectionNameOf(lang) is not { } sectionName || languages.EntryLanguageOf(lang) is not { } entryLang)
+                return null;
 
             await FetchAsync(candidates); // failure propagates: there is nothing to show without the page
 
@@ -63,7 +81,7 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
             IReadOnlyList<EntrySection>? entries = null;
             foreach (var candidate in candidates)
             {
-                if (_pages.GetValueOrDefault(candidate) is { } p && Parse(p, "English", "en") is { Count: > 0 } e)
+                if (_pages.GetValueOrDefault(candidate) is { } p && Parse(p, sectionName, entryLang) is { Count: > 0 } e)
                 {
                     (page, entries) = (p, e);
                     break;
@@ -71,6 +89,10 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
             }
             if (page is null || entries is null)
                 return null;
+            if (etymonId is not null && entries.Where(e => e.EtymonId == etymonId).ToList() is { Count: > 0 } matching)
+                entries = matching;
+            _lang = lang;
+            _sectionName = sectionName;
 
             var chains = entries.Select(e => e.Steps.Select(NewWorkStep).ToList()).ToList();
             try
@@ -226,9 +248,12 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                     p.Pos, p.Senses, p.Translations.Select(t => new TranslationResult(t.Sense, t.Terms)).ToList())).ToList()
             )).ToList();
 
-            var permalink = $"https://en.wiktionary.org/w/index.php?title={Uri.EscapeDataString(page.Title)}&oldid={page.RevisionId}";
+            var permalink = $"https://en.wiktionary.org/w/index.php?title={Uri.EscapeDataString(page.Title)}&oldid={page.RevisionId}"
+                + "#" + Uri.EscapeDataString(_sectionName.Replace(' ', '_'));
             return new WordResult(
                 page.Title,
+                _lang,
+                languages.NameOf(_lang),
                 new SourceInfo(page.Title, page.RevisionId, page.Timestamp, permalink, License),
                 etymologies,
                 _warnings,

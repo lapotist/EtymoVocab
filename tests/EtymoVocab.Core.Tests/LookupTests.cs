@@ -100,6 +100,27 @@ public class LookupTests
     }
 
     [Fact]
+    public async Task Entry_lookup_reads_any_language_section_for_tree_expansion()
+    {
+        var result = await Service(new FixtureClient()).LookupEntryAsync("la", "speciō", null, CancellationToken.None);
+
+        Assert.NotNull(result);
+        Assert.Equal(("specio", "la", "Latin"), (result.Word, result.Lang, result.LangName));
+        Assert.EndsWith("#Latin", result.Source.Url);
+        var e = result.Etymologies.Single();
+        Assert.Equal("observe", e.Id);
+        Assert.Equal(["itc-pro:*spekjō", "ine-pro:*spéḱyeti"], e.Steps.Select(s => $"{s.Lang}:{s.Term}"));
+    }
+
+    [Fact]
+    public async Task Entry_lookup_narrows_homographs_by_etymon_id()
+    {
+        var result = await Service(new FixtureClient()).LookupEntryAsync("enm", "fader", "father", CancellationToken.None);
+
+        Assert.Equal("father", result!.Etymologies.Single().Id);
+    }
+
+    [Fact]
     public async Task Root_family_lists_category_members_with_root_gloss()
     {
         var service = new RootFamilyService(new FixtureClient(), new LanguageRegistry());

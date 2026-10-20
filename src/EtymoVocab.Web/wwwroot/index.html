@@ -6,6 +6,7 @@
   <title>EtymoVocab</title>
   <meta name="description" content="從詞源理解英文單字：詞素拆解、演變路徑與同根詞家族，資料即時取自 Wiktionary。">
   <link rel="stylesheet" href="styles.css">
+  <link rel="modulepreload" href="engine.js">
 </head>
 <body>
   <header class="top">
@@ -20,14 +21,17 @@
     </div>
   </header>
 
-  <main id="view" aria-live="polite"></main>
+  <main id="view" aria-live="polite">
+    <p class="muted">正在載入查詢引擎…</p>
+  </main>
 
   <footer class="foot">
-    詞源、釋義與翻譯即時取自 <a href="https://en.wiktionary.org/" rel="noopener">Wiktionary</a>，
+    詞源、釋義與翻譯由你的瀏覽器即時查詢 <a href="https://en.wiktionary.org/" rel="noopener">Wiktionary</a>，
     內容採 <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a> 授權；
     每筆結果都附上引用的修訂版連結。
+    <a href="https://github.com/lapotist/EtymoVocab" rel="noopener">原始碼</a>
   </footer>
 
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>

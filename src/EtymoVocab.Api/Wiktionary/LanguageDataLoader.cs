@@ -8,7 +8,7 @@ namespace EtymoVocab.Api.Wiktionary;
 /// names and entry lookups. Lookups work before (and without) this, using the curated core.
 /// </summary>
 public sealed class LanguageDataLoader(
-    IServiceScopeFactory scopes,
+    IWiktionaryClient client,
     LanguageRegistry registry,
     ILogger<LanguageDataLoader> logger) : BackgroundService
 {
@@ -20,8 +20,6 @@ public sealed class LanguageDataLoader(
         {
             try
             {
-                using var scope = scopes.CreateScope();
-                var client = scope.ServiceProvider.GetRequiredService<IWiktionaryClient>();
                 var pages = await client.GetPagesAsync(
                     [LanguageRegistry.LanguagesModule, LanguageRegistry.EtymologyLanguagesModule], stoppingToken);
                 registry.Merge(
