@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EtymoVocab</title>
+  <meta name="description" content="從詞源理解英文單字：詞素拆解、演變路徑與同根詞家族，資料即時取自 Wiktionary。">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <a class="brand" href="#/">EtymoVocab</a>
+      <form id="search" role="search" autocomplete="off">
+        <input id="q" name="q" type="search" list="suggestions" placeholder="輸入英文單字，例如 inspect"
+               autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="英文單字">
+        <datalist id="suggestions"></datalist>
+        <button type="submit">查詢</button>
+      </form>
+    </div>
+  </header>
+
+  <main id="view" aria-live="polite"></main>
+
+  <footer class="foot">
+    詞源、釋義與翻譯即時取自 <a href="https://en.wiktionary.org/" rel="noopener">Wiktionary</a>，
+    內容採 <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a> 授權；
+    每筆結果都附上引用的修訂版連結。
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

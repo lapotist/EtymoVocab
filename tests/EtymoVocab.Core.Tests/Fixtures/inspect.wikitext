@@ -1,0 +1,94 @@
+==English==
+{{wikidata lexeme|L134}}
+
+===Alternative forms===
+* {{l|en|enspect}} {{qualifier|rare}}
+
+===Etymology===
+{{root|en|ine-pro|*speḱ-}}
+From {{uder|en|la|inspectum}}, past participle of {{m|la|inspicio|inspicere|to look into}}, from {{m|la|in||in}} + {{m|la|specio|specere|to look at}}, equivalent to {{confix|en|in|spect}}.
+
+===Pronunciation===
+* {{IPA|en|/ɪnˈspɛkt/}}
+* {{audio|en|en-us-inspect.ogg|a=US}}
+* {{rhymes|en|ɛkt|s=2}}
+
+===Verb===
+{{en-verb}}
+
+# To [[examine]] [[critically]] or [[carefully]]; especially, to search out [[problems]] or determine [[condition]]; to [[scrutinize]].
+#: {{ux|en|'''Inspect''' the system for leaks.}}
+# To [[observe]] the [[status]] or [[nature]] of an [[object]] beyond what is found [[obvious]] upon its initial [[presentation]]; to '[[view]] [[within]]' the object.
+#: {{ux|en|After speaking with the building owner, hearing that the building's steam pipes were over eighty years old, and noticing areas where the pipes had been patched with duct tape, we decided to thoroughly '''inspect''' the system for leaks.}}
+#: {{ux|en|After talking with and observing his new patient for a few minutes, the doctor began to '''inspect''' his [[charge]] by means of a formal physical [[examination]].}}
+# To  examine [[officially]].
+#: {{ux|en|The general '''inspected''' the troops and their barracks.}}
+#* {{RQ:Allingham China Governess|chapter=6|passage=&lsquo;{{...}} I remember a lady coming to '''inspect''' St. Mary's Home where I was brought up and seeing us all in our lovely Elizabethan uniforms we were so proud of, and bursting into tears all over us because “it was wicked to dress us like charity children”.{{nb...}}’.}}
+
+====Synonyms====
+* {{sense|to examine critically or carefully}} ''See'' [[Thesaurus:examine]]
+
+====Derived terms====
+{{col|en|uninspected|inspectingly|inspectability|inspectable|inspectee|inspecter|inspectoscope|misinspect|preinspect|reinspect|superinspect
+|inspect the plumbing|inspector|inspection}}
+
+====Translations====
+{{trans-top|examine critically, scrutinize}}
+* Arabic: {{t+|ar|فَحَصَ}}
+*: Juba Arabic: {{t|pga|fetish}}
+* Armenian: {{t+|hy|զննել}}
+* Belarusian: {{t|be|агляда́ць|impf}}, {{t|be|агле́дзець|pf}}
+* Bulgarian: {{t+|bg|прегле́ждам}}
+* Catalan: {{t+|ca|inspeccionar}}
+* Chinese:
+*: Mandarin: {{t+|cmn|調查}}, {{t+|cmn|檢查}}
+* Dutch: {{t+|nl|inspecteren}}, {{t+|nl|onderzoeken}}
+* Esperanto: {{t|eo|inspekti}}, {{t|eo|kontroli}}
+* Finnish: {{t+|fi|tarkastaa}}, {{t|fi|[[suorittaa]] [[tarkastus]]}}, {{t+|fi|tutkia}}
+* Galician: {{t|gl|inspeccionar}}, {{t+|gl|cachear}}, {{t+|gl|rexistrar}}
+* German: {{t+|de|begutachten}}, {{t+|de|untersuchen}}, {{t+|de|inspizieren}}
+* Hindi: {{t+|hi|जाँचना}}, {{t|hi|जाँच करना}}
+* Hungarian: {{t+|hu|megvizsgál}}
+* Ingrian: {{t|izh|katsella}}
+* Italian: {{t+|it|ispezionare}}, {{t+|it|investigare}}, {{t+|it|analizzare}}
+* Japanese: {{t-needed|ja}}
+* Khmer: {{t+|km|ពិនិត្យ}}
+* Latin: {{t+|la|aspiciō}}, {{t|la|inspiciō}}
+* Māori: {{t|mi|mātātaki}}, {{t|mi|tōmene}}
+* Nepali: {{t|ne|जाँच्नु}}
+* Old English: {{t|ang|inscēawian}}, {{t|ang|smēagan}}
+* Portuguese: {{t+|pt|inspecionar}}
+* Russian: {{t+|ru|осма́тривать|impf}}, {{t+|ru|осмотре́ть|pf}}
+* Sanskrit: {{t|sa|परीक्षते}}
+* Spanish: {{t+|es|inspeccionar}}
+* Swedish: {{t+|sv|inspektera}}
+* Tagalog: {{t|tl|tingin}}
+* Thai: {{t-needed|th}}
+* Vietnamese: {{t+|vi|kiểm tra}}
+{{trans-bottom}}
+
+{{trans-top|view and examine officially}}
+* Arabic: {{t|ar|تَفَقَّدَ}}
+* Belarusian: {{t|be|інспектава́ць|impf}}, {{t|be|праінспектава́ць|pf}}
+* Bulgarian: {{t+|bg|инспектирам}}
+* Catalan: {{t+|ca|inspeccionar}}
+* Chinese:
+*: Mandarin: {{t+|cmn|调查}}
+* Esperanto: {{t|eo|inspekti}}
+* Finnish: {{t+|fi|tarkastaa}}, {{t|fi|[[suorittaa]] [[tarkastus]]}}
+* German: {{t+|de|inspizieren}}, {{t+|de|prüfen}}, {{t+|de|begutachten}}
+* Hindi: {{t+|hi|जाँच|f}}
+* Hungarian: {{t+|hu|bevizsgál}}, {{t+|hu|megtekint}}, {{t+|hu|ellenőriz}}
+* Italian: {{t+|it|ispezionare}}
+* Latin: {{t+|la|aspiciō}}, {{t|la|inspiciō}}
+* Nepali: {{t|ne|जाँच्नु}}
+* Oromo: {{t|om|sakatta'uu}}
+* Russian: {{t+|ru|инспекти́ровать|impf}}, {{t+|ru|проинспекти́ровать|pf}}
+* Spanish: {{t+|es|inspeccionar}}, {{t|es|pasar revista}}
+* Swedish: {{t+|sv|inspektera}}
+* Tagalog: {{t|tl|masid}}
+* Ukrainian: {{t|uk|інспектува́ти|impf|pf}}, {{t+|uk|проінспектува́ти|pf}}
+{{trans-bottom}}
+
+===Anagrams===
+* {{anagrams|en|a=ceinpst|incepts|pectins|peincts}}

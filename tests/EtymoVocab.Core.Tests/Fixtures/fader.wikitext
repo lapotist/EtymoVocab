@@ -1,0 +1,384 @@
+{{also|Fader|fäder}}
+==English==
+{{rfi|en}}
+
+===Pronunciation===
+* {{IPA|en|/ˈfeɪdə(ɹ)/}}
+** {{audio|en|LL-Q1860 (eng)-Persent101-fader.wav|a=US}}
+* {{rhymes|en|eɪdə(ɹ)|s=2}}
+
+===Etymology 1===
+{{ety|en|id=agent noun|:af|fade<pos:verb>|-er<id:agent noun>|text=+|tree=1}}
+
+====Noun====
+{{en-noun}}
+
+# A device used to raise and lower sound [[volume]].
+# {{lb|en|computer graphics}} A program or algorithm for fading out [[color]]s.
+
+=====Derived terms=====
+{{col|en|postfader|prefader
+|crossfader}}
+
+=====Translations=====
+{{trans-top|a device used to raise and lower sound volume}}
+* Esperanto: {{t|eo|ŝovregilo}}
+* German: {{t+|de|Lautstärkeregler|m}}, {{t|de|Schieberegler|m}}
+* Polish: {{t|pl|[[tłumik]] [[nastawny]]|m}}
+* Russian: {{t+|ru|фейдер|m}}
+{{trans-bottom}}
+
+===Etymology 2===
+{{ety|en|id=comparative|:af|fade<pos:adjective>|-er<id:comparative>|text=+|tree=1}}
+
+====Adjective====
+{{head|en|comparative adjective}}
+
+# {{en-comparative of|fade}}
+
+===Anagrams===
+* {{anagrams|en|a=adefr|Defra|Freda|fared|fear'd|feard}}
+
+==Asturian==
+
+===Pronunciation===
+{{ast-IPA}}
+
+===Verb===
+{{ast-verb}}
+
+# {{lb|ast|Western|dialectal}} {{alt form|ast|facer}}
+
+==Danish==
+
+===Etymology===
+From {{inh|da|gmq-oda|fathær}}, from {{inh|da|non|faðir}}, from {{inh|da|gem-pro|*fadēr}}, from {{inh|da|ine-pro|*ph₂tḗr}}.
+
+===Noun===
+{{da-noun|en|fædre}}
+
+# {{lb|da|now|formal}} [[father]]
+# A term of address for a [[Christian]] [[priest]].
+
+====Declension====
+{{da-decl|en|fædre|fædrene}}
+
+====Synonyms====
+* {{l|da|far}}
+
+====Derived terms====
+* {{l|da|fædreland}} (home country)
+
+====See also====
+* {{l|da|moder}}
+* {{l|da|mor}}
+* {{l|da|broder}}
+* {{l|da|bror}}
+* {{l|da|søster}}
+
+===References===
+* {{R:DDO}}
+* {{R:ODS}}
+
+{{C|da|Family}}
+
+==French==
+
+===Etymology===
+{{ety|fr|:bor|oc:fadar}}
+{{bor+|fr|oc|fadar}}.
+
+===Pronunciation===
+* {{fr-IPA}}
+* {{audio|fr|LL-Q150 (fra)-Jules78120-fader.wav}}
+* {{audio|fr|LL-Q150 (fra)-LoquaxFR-fader.wav|a=<<France>> (<<Vosges>>)}}
+* {{audio|fr|LL-Q150 (fra)-Jérémy-Günther-Heinz Jähnick-fader.wav|a=<<France>> (<<Somain>>)}}
+* {{audio|fr|LL-Q150 (fra)-Bananax47-fader.wav|a=<<France>> (<<Agen>>)}}
+
+===Verb===
+{{fr-verb}}
+
+# {{lb|fr|reflexive|informal}} to [[get stuck with]]
+
+====Conjugation====
+{{fr-conj-auto|refl=yes}}
+
+===Further reading===
+* {{R:fr:TLFi}}
+
+==German==
+
+===Pronunciation===
+* {{audio|de|De-fader.ogg|a=<<Germany>> (<<Berlin>>)}}
+
+===Adjective===
+{{head|de|comparative adjective}}
+
+# {{comparative of|de|fade}}
+
+===Adjective===
+{{head|de|adjective form}}
+
+# {{de-adj form of|fade}}
+
+==Luxembourgish==
+
+===Adjective===
+{{head|lb|adjective form}}
+
+# {{inflection of|lb|fad||f|dat}}
+
+==Middle English==
+<!--this Middle English entry was created using Template:new enm entry-->
+
+===Etymology 1===
+{{etymon|enm|id=father|:inh|ang:fæder<id:father>}}
+{{inh+|enm|ang|fæder}}, from {{inh|enm|gmw-pro|*fader}}, from {{inh|enm|gem-pro|*fadēr}}, from {{inh|enm|ine-pro|*ph₂tḗr}}.
+
+====Alternative forms====
+* {{alter|enm|fadir|fadur|fadyr|ffader}}
+* {{alter|enm|faðer|fæder||early}}; {{alter|enm|faþer|father|ffadere||late}}; {{alter|enm|feader||AB}}; {{alter|enm|faderr||Orm}}
+* {{alter|enm|feder|vader|veder||K|S|SWM}}
+
+====Pronunciation====
+* {{IPA|enm|/ˈfadər/|/ˈfaːdər/}}
+* {{IPA|enm|/ˈfaðər/|/ˈfaːðər/|aa=late}}
+* {{IPA|enm|/ˈvadər/|/ˈvaːdər/|aa=<<K>>, <<S>>, <<SWM>>}}
+
+====Noun====
+{{enm-noun|gen=fader|gen2=fadres|pl=fadres}}
+
+# A [[father]] {{gloss|male [[direct]] [[ancestor]] of someone or some [[creature]]}}
+# An [[indirect]] male ancestor {{gloss|of some being}}
+# The [[inventor]] or [[originator]] of an idea, nation or lineage.
+# A spiritual [[superordinate]], teacher, or [[leader]]:
+## A [[confessor]] {{gloss|individual who one offers confessions to}};
+## One of the [[Church Fathers]]; an author of [[patristic]] writings.
+# God/Jesus as [[father]] {{gloss|of [[Jesus]], as [[inventor]], or as [[leader]]}}.
+# {{n-g|An appellation signifying the speaker's inferiority.}}
+# {{lb|enm|rare}} A secular [[superordinate]] or [[leader]].
+# {{lb|enm|rare}} A member of the Roman [[senate]].
+
+=====Related terms=====
+{{col4|enm
+|faderhode
+|fader in lawe
+|faderles
+|faderly
+|fadren
+|forfader
+|forme fader
+|fornfader
+|godfader
+|lorfadyr
+|olde fader
+|stepfader
+}}
+
+=====Descendants=====
+* {{desc|en|father}}
+** {{desc|mh|bata|bor=1}}
+** {{desc|gul|farruh}}
+* {{desc|sco|faither|alts=1}}
+* {{desc|yol|vather}}
+
+=====References=====
+* {{R:MED Online|entry=fā̆der|pos=n|id= MED15113|accessdate=2019-02-18}}
+* {{R:Furnivall 1864|1}}
+
+===Etymology 2===
+
+====Verb====
+{{head|enm|verb|var=1}} 
+
+# {{alt form|enm|fadren}}
+
+{{c|enm|Christianity|Male family members|Parents|Religion}}
+{{cln|enm|nouns with invariant genitive singulars}}
+
+==Norwegian Bokmål==
+
+===Etymology===
+From {{inh|nb|non|faðir}}, from {{inh|nb|gem-pro|*fadēr}}, from {{inh|nb|ine-pro|*ph₂tḗr}}.
+
+===Noun===
+{{nb-noun-irreg|m|faderen|fedre|fedrene}}
+
+# [[father]] {{q|often in a religious context}}
+
+====Synonyms====
+* {{l|nb|far}}
+
+===References===
+* {{R:nb:OB}}
+
+==Norwegian Nynorsk==
+
+===Etymology===
+From {{inh|nn|non|faðir}}, from {{inh|nn|gem-pro|*fadēr}}, from {{inh|nn|ine-pro|*ph₂tḗr}}.
+
+===Pronunciation===
+* {{IPA|nn|/²faːer/|[²fɐ̞ː.ər]|[²fɐ̞ː.er]}}
+* {{IPA|nn|/²faːder/|[²fɐ̞ː.dər]|[²fɐ̞ː.der]}} {{q|literary pronunciation}}
+* {{rhymes|nn|aːer|aːder}}
+* {{hyphenation|nn|fa|der}}
+
+===Noun===
+{{nn-noun-m1|2=fedr}}
+
+# {{lb|nn|archaic|poetic}} [[father]]
+
+====Declension====
+{{nn-decl-m-c-aasen|fader|fed|gpi=fedre|dpd=fedrom}}
+
+====Synonyms====
+* {{l|nn|far}}
+* {{l|nn|pappa}}
+
+===References===
+* {{R:nn:OB}}
+
+{{C|nn|Family|Family members|Male family members|Parents}}
+
+==Old English==
+
+===Etymology===
+From {{inh|ang|gmw-pro|*fader}}, from {{inh|ang|gem-pro|*fadēr}}, from {{inh|ang|ine-pro|*ph₂tḗr}}.
+
+Old Germanic cognates: {{cog|ofs|feder}}, {{cog|osx|fadar}}, {{cog|odt|fader}}, {{cog|goh|fater}}, {{cog|non|faðir}}, {{cog|got|𐍆𐌰𐌳𐌰𐍂}}.
+
+===Pronunciation===
+* {{ang-IPA|fader}}
+
+===Noun===
+{{ang-noun|fader|m|faderas}} {{tlb|ang|Northumbrian}}
+
+# {{alternative form of|ang|fæder}}
+
+====Declension====
+{{ang-decl-noun|fader|faderas|fader|faderas|fader|fadera|fader|faderum}}
+
+==Old Frisian==
+
+===Pronunciation===
+* {{IPA|ofs|/ˈfader/}}
+
+===Noun===
+{{ofs-noun|m}}
+
+# {{alternative form of|ofs|feder}}
+
+====References====
+* {{R:ofs:Bremmer:2009|page=195}}
+
+==Polish==
+
+===Etymology===
+{{ety|pl|:bor|de:Vater|text=+|tree=1|doublet=fater}}
+
+===Pronunciation===
+{{pl-pr|-|CD=#}}
+
+===Noun===
+{{pl-noun|m-pr|f=mutra}}
+
+# {{lb|pl|Chełmno-Dobrzyń|derogatory|ethnic slur}} [[German]] person; [[Kraut]]
+#: {{hyper|pl|Niemiec}}
+
+===Further reading===
+* {{R:pl:Krasnowolski:1879||301}}
+
+{{C|pl|Germany|Male people|Nationalities}}
+
+==Scots==
+
+===Noun===
+{{sco-noun}}
+
+# {{alt form|sco|faither}}
+
+===References===
+* {{R:Dictionary of the Scots Language|pos=n|accessdate=23 May 2024|source=DOST}}
+* {{R:Dictionary of the Scots Language|pos=n|accessdate=23 May 2024|source=SND}}
+
+==Swedish==
+{{wp|sv:}}
+
+===Etymology===
+From {{inh|sv|gmq-osw|faþir}}, from {{inh|sv|non|faðir}}, from {{inh|sv|gem-pro|*fadēr}}, from {{inh|sv|ine-pro|*ph₂tḗr}}.
+
+===Pronunciation===
+* {{IPA|sv|/²fɑːdɛr/|[ˈfɑːdɛ̠r]}}
+* {{audio|sv|Sv-fader.ogg}}
+
+===Noun===
+{{sv-noun|c}}
+
+# {{lb|sv|formal}} [[father]]
+# [[father]], a term of address for a Christian [[priest]]
+# [[father]], [[creator]]
+#: {{ux|sv|Darwin - evolutionens '''fader'''.|Darwin - the '''father''' of evolution.}}
+
+====Declension====
+{{sv-infl-noun-c-r|3=fäde}}
+
+====Synonyms====
+* {{l|sv|far}}
+* {{l|sv|farsa}}
+* {{l|sv|pappa}}
+* {{l|sv|stabbe}}
+
+====Derived terms====
+{{col4|sv
+|anfader
+|faderlig
+|faderlös
+|fadermord
+|fadermördare
+|fadersarv
+|fadersbild
+|fadersbunden
+|fadersfigur
+|fadersgestalt
+|fadershand
+|fadershem
+|fadershjärta
+|fadershus
+|faderskap
+|faderskomplex
+|faderskänsla
+|faderskärlek
+|fadersnamn
+|fadersroll
+|fadersstolthet
+|fadervår
+|farfader
+|far
+|fäderne
+|morfader
+|styvfader
+|Fader Himmel
+|Himlafader
+|Fader
+|ökenfader
+|Allfader
+}}
+
+====See also====
+* {{l|sv|moder}}
+* {{l|sv|mor}}
+* {{l|sv|mamma}}
+* {{l|sv|broder}}
+* {{l|sv|bror}}
+* {{l|sv|syster}}
+
+===References===
+* {{R:svenska.se|so}}
+* {{R:svenska.se|saol}}
+* {{R:svenska.se|saob}}
+
+===Anagrams===
+* {{anagrams|sv|a=adefr|deraf|freda}}
+
+{{cln|sv|nouns with irregular plurals}}
+{{C|sv|Male family members|Parents}}

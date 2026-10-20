@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/EtymoVocab.Api/EtymoVocab.Api.csproj" />
+    <Project Path="src/EtymoVocab.Core/EtymoVocab.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/EtymoVocab.Core.Tests/EtymoVocab.Core.Tests.csproj" />
+  </Folder>
+</Solution>

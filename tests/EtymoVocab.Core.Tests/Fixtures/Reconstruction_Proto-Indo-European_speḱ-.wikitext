@@ -1,0 +1,112 @@
+{{reconstructed}}
+==Proto-Indo-European==
+{{etymon|ine-pro|id=see|pos=root}}
+
+===Root===
+{{ine-root}}<ref>{{R:ine:IEW|page=984|head=spek̑-}}</ref><ref>{{R:ine:LIV|head=*spek̑-|pages=575-576}}</ref><ref>{{R:itc:EDL|head=speciō, -ere|pages=578-579}}</ref><ref>{{R:grc:Beekes|volume=II|head=σκέπτομαι|pages=1347-1348}}</ref><ref>{{R:ine:Cheung2007|head=*spas|pages=353-354}}</ref>
+
+# {{topics|ine-pro|Vision}} to [[see]], to [[look]], to [[observe]]
+
+====Reconstruction notes====
+The Greek roots show a metathesized {{m|ine-pro||*sḱep-}}.
+
+====Derived terms====
+{{rootsee}}
+
+* {{l|ine-pro|*spéḱyeti|*spéḱ-ye-ti|pos=ye-present}}
+* {{l|ine-pro||*spḱ-néw-ti ~ *spḱ-n̥w-énti|pos=''*new''-present}}
+** {{desc|iir-pro|*spaćnáwti}}
+*** {{desc|ira-pro|*spacnáwti}}
+**** {{desc|ae-old|𐬯𐬞𐬀𐬱𐬥𐬎𐬚𐬁|pos=2pl.pres.ind.}}
+* {{l|ine-pro||*spḗḱ-s-t ~ *spéḱ-s-n̥t|pos=*s-aorist}}
+** {{desc|grk-pro|*éskēpset}}
+*** {{desc|grc|σκέψατο}}
+** {{desc|iir-pro}}
+*** {{desc|inc-pro}}
+**** {{desc|sa|अस्पष्ट|tr=áspaṣṭa|pos=3sg.mid.}}
+** {{desc|itc-pro|*speksai}}
+*** {{desc|la|spexī}}
+* {{l|ine-pro||*spéḱ-eh₂-ti|pos=eh₂-present}}
+** {{desc|gem-pro|*spehōną}} {{see desc}}
+* {{l|ine-pro||*spoḱ-éye-ti|pos=causative}}
+** {{desc|grk-pro|*skopéyō}}
+*** {{desc|grc|σκοπέω}}
+** {{desc|iir-pro|*spāćáyati}}
+*** {{desc|inc-pro|*spāśáyati}}
+**** {{desc|sa|स्पाशयति|tr=spāśáyati}}
+* {{l|ine-pro|*spéḱs|*spéḱ-s ~ *spḱ-és}}
+* {{l|ine-pro||*speḱ-u-s}}
+** {{desc|itc-pro|*spekus}}
+*** {{desc|la|specus}}
+* {{l|ine-pro||*speḱ-yeh₁-s}}
+** {{desc|itc-pro|*spekjēs}}
+*** {{desc|la|speciēs}}
+* {{l|ine-pro||*spoḱ-ó-s}}
+** {{desc|grk-pro|*spokós}}
+*** {{desc|grc|σκοπός}}
+* {{l|ine-pro||*spoḱ-éh₂}}
+** {{desctree|gem-pro|*spahō}}
+** {{desc|grk-pro|*skopā́}}
+*** {{desc|grc|σκοπή}}
+* {{l|ine-pro||*spéḱ-mn̥}}
+** {{desc|itc-pro|*spekmen}}
+*** {{desc|la|specimen}} {{q|inserted i}}
+* {{l|ine-pro||*spéḱ-tis}}
+** {{desc|grk-pro|*sképtis}}
+*** {{desc|grc|σκέψις}}
+* {{l|ine-pro||*spḱ-tós}}
+** {{desc|iir-pro|*spaštás}}
+*** {{desc|inc-pro|*spaṣṭás}}
+**** {{desc|sa|स्पष्ट|tr=spaṣṭá}}
+*** {{desc|ira-pro|*spaštáh}}
+**** {{desc|ae|𐬀𐬎𐬎𐬌𐬯𐬞𐬀𐬱𐬙𐬀}}
+**** {{desc|xpr|𐫙𐫘𐫛𐫏𐫢𐫤}}
+** {{desc|itc-pro|*spektos}}
+*** {{desc|la|spectus}}
+* {{l|ine-pro||*spéḱ-tḗr}}
+** {{desc|iir-pro|*spáštā}}
+*** {{desc|ira-pro|*spáštā}}
+*** {{desc|ae-yng|𐬯𐬞𐬀𐬱𐬙𐬀𐬭|t=protector, guardian; seer}}
+* {{l|ine-pro||*spéḱ-tro-m}}
+** {{desc|itc-pro||alt=*spektrom}}
+*** {{desc|la|spectrum}}
+* {{l|ine-pro||*spéḱ-tlo-m}}
+** {{desc|itc-pro||alt=*spektlom}}
+*** {{desc|la|speculum}}, {{l|la|specula}}
+;Unsorted formations:
+* {{desc|ira-pro}}
+** {{desc|ae|𐬯𐬞𐬀𐬴𐬌𐬙𐬌|t=sight; protection}}
+** {{desc|kho||tr=spāśś|t=look}}
+** {{desc|xbc|σπασο|ts=spās|t=service}}, {{l|xbc|ασπασο|ts=əspās}}
+** {{desc|sog|-|ts=(ə)spās|t=service, worship, respect}}
+**: {{desc|sog|𐫀𐫘𐫛𐫀𐫘|sclang=1|sc=Mani}}, {{l|sog|𐫘𐫛𐫀𐫘}}
+**: {{desc|sog|𐼰𐼼𐼾𐼰𐼼|sclang=1}}, {{l|sog|𐼼𐼾𐼰𐼼}}
+**: {{desc|sog|ܐܣܦܐܣ|tr=ʾspʾs|sc=Syrc|sclang=1}}, {{l|sog|ܣܦܐܣ|tr=spʾs}}
+** Kurdish:
+*** {{desc|ckb|سپاس}}, {{l|ckb|سوپاس}}
+*** {{desc|kmr|spas}}
+*** {{desc|sdh|سِپاس}}
+** {{desc|xpr|-|t=service|ts=(a)spās}}
+**: {{desc|xpr|𐭎𐭐𐭎𐭉|sclang=1|sc=Prti}}
+**: {{desc|xpr|𐫀𐫘𐫛𐫀𐫘|sclang=1|sc=Mani}}
+*** {{desc|xcl|սպաս|bor=1}}
+*** {{desc|xmn|𐫀𐫘𐫛𐫀𐫘|ts=aspās|t=service|bor=1}}
+** {{desc|pal|-|ts=(i)spās|t=service; thanks, gratitude}}
+**: {{desc|pal|𐭮𐭯𐭠𐭮𐭩|sclang=1|sc=Phli}}
+**: {{desc|pal|𐫙𐫘𐫛𐫀𐫘|sclang=1|sc=Mani}}
+**: {{desc|pal|tr=spʾs|sc=Phlv|sclang=1}}
+*** {{desc|fa|سپاس|tr=sepâs}} {{see desc}}
+
+====Descendants====
+* {{desc|iir-pro|*spać-}}
+** {{desc|inc-pro|*spaś-}}
+*** {{desc|sa|स्पश्}}
+** {{desc|ira-pro|*spac-}}
+*** {{desc|xbc|σπισ-|ασπισ-|σαπισ-}}
+*** {{desc|kho|tr=spāśś-|gloss=to look}}
+*** {{desc|xpr|𐫙𐫘𐫛}}
+*** {{desc|sog|𐼰𐼼𐼾𐼰𐼷𐽁|𐼰𐼼𐼾𐼷𐽁|𐼼𐼾𐼷𐽁|𐼼𐼾𐼶𐽁}}
+* {{desc|ine-toc-pro|*päk-}}
+
+===References===
+{{reflist}}
