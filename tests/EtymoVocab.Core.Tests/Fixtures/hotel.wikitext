@@ -1,0 +1,850 @@
+{{also|Hotel|hotèl|hótel|hôtel|hoṭél}}
+{{minitoc}}
+==Translingual==
+[[file:hotel flag.svg|frameless|right|border|upright]]
+
+===Noun===
+{{head|mul|noun}}
+
+# {{senseid|mul|Q9914}} {{alt case|mul|Hotel}} {{ng|of the ICAO/NATO radiotelephony alphabet}}.
+
+==English==
+[[Image:Pere Marquette Hotel.JPG|thumb|right|upright|Pere Marquette '''Hotel''']]
+{{wp}}
+
+===Alternative forms===
+* {{alter|en|hôtel||archaic}}
+
+===Etymology===
+{{ety|en|:bor|fr:hôtel|tree=1}}
+{{bor+|en|fr|hôtel}}, from {{der|en|frm|hostel}}, from {{der|en|fro|ostel}}, from {{der|en|la-lat|hospitālis||hospice, shelter, guesthouse}}, from {{der|en|la|hospitālis||hospitable}}. {{doublet|en|hostel|hospital}}.
+
+===Pronunciation===
+* {{enPR|hō-tĕl′|hō′tĕl|hō′təl}}
+* {{a|en|UK}}
+** {{IPA|en|a=RP|/həʊˈtɛl/|/əʊˈtɛl/}}
+**: The British pronunciation omitting the initial {{IPAfont|/h/}} is in imitation of the French {{m|fr|hôtel}} and is now considered old-fashioned (unless of course the speaker {{w|H-dropping|always drops {{IPAfont|/h/}}}}).
+** {{IPA|en|/hɒˈtɛl/|a=Northumbria}}
+* {{audio|en|en-us-hotel.ogg|IPA=/hoʊˈtɛl/|3={{a|en|GA}}}}
+
+* {{IPA|en|a=Southern US|/ˈhoʊ.tɛl/}}
+* {{IPA|en|a=Canada|/hoːˈtɛl/}}
+* {{IPA|en|a=North India|/ˈhoː.ʈəl/|/hoːˈʈɛːl/|/hoːˈʈeːl/}}
+* {{IPA|en|a=South India|/ˈ(h)oː.ʈəl/}}
+* {{rhymes|en|ɛl|əʊtəl|s=2}}
+* {{hyph|en|ho|tel}}
+
+===Noun===
+{{en-noun}}
+
+# {{senseid|en|mansion}}{{lb|en|now|chiefly|historical}} A large [[town house]] or [[mansion]]; a grand private [[residence]], especially in France. {{defdate|from 17th c.}}
+#* {{RQ:Wharton Age of Innocence|chapter=2|text= [T]he cream-coloured house (supposed to be modelled on the private '''hotels''' of the Parisian aristocracy) was there[.]}}
+# {{senseid|en|Q27686}}An [[establishment]] that provides [[accommodation]] and other services for paying guests; normally larger than a [[guesthouse]], and often one of a [[chain]]. {{defdate|from 17th c.}}
+#* '''1868''', "A Clergyman" (John Morison), ''Australia in 1866'', [http://books.google.com.au/books?id=hvQNAAAAYAAJ&pg=PA165&dq=%22hotel%22|%22hotels%22+australia+OR+zealand+-intitle:%22%22+-inauthor:%22%22&hl=en&sa=X&ei=2SmIT93qA-qhiAezqMDTCQ&redir_esc=y#v=onepage&q=%22hotel%22|%22hotels%22%20australia%20OR%20zealand%20-intitle%3A%22%22%20-inauthor%3A%22%22&f=false page 165],
+#*: When gold-digging commenced in California, the writer was staying at an '''hotel''' in Wellington, New Zealand, where a Yankee trader was also staying. Seated at the dining-table, the latter was discoursing of the business he was doing{{...}}.
+#* {{quote-journal|en|date=2013-06-29|volume=407|issue=8842|page=28|magazine=w:The Economist
+|titleurl=http://www.economist.com/news/asia/21580209-natural-disaster-aggravated-poor-response-high-and-wet|title=High and wet
+|passage=Floods in northern India, mostly in the small state of Uttarakhand, have wrought disaster on an enormous scale. The early, intense onset of the monsoon on June 14th swelled rivers, washing away roads, bridges, '''hotels''' and even whole villages. Rock-filled torrents smashed vehicles and homes, burying victims under rubble and sludge.|archiveurl=https://web.archive.org/web/20201101175949/https://www.economist.com/asia/2013/06/29/high-and-wet}}
+#* {{quote-journal|en|author=Dan Heching, Manuela Castro, Mauricio Torres, Alli Rosenbloom and Christian Edwards|title=Liam Payne, former One Direction member, dies after hotel balcony fall|magazine=w:CNN|url=https://www.cnn.com/2024/10/16/entertainment/liam-payne-death-one-direction|date=2024-10-16|passage=Liam Payne, a former member of the boyband One Direction, has died after falling from the third floor of a '''hotel''' in Buenos Aires, Argentina, according to local police. Payne, who was 31, leaves behind his seven-year-old son, Bear.|archiveurl=https://web.archive.org/web/20250226124457/https://www.cnn.com/2024/10/16/entertainment/liam-payne-death-one-direction/}}
+# {{lb|en|Australia|western|_|Canada}} A [[public house]] or [[pub]].
+# {{lb|en|South Asia}} A [[restaurant]]; any dining establishment.
+# {{senseid|en|Q9914}} {{lb|en|international standards}} {{alt case|mul|Hotel}} {{ng|from the {{w|NATO Phonetic Alphabet|NATO/ICAO Phonetic Alphabet}}.}}
+# The larger red property in the game of ''[[Monopoly]]'', in contradistinction to [[house]]s. {{C|en|Monopoly}}
+# The guest accommodation and dining section of a [[cruise ship]].
+
+====Synonyms====
+* See also [[Thesaurus:lodging place]]
+
+====Derived terms====
+{{col4|en|workingman's hotel
+|antihotel
+|apartelle|grippy sock hotel|asylum hotel
+|aparthotel
+|apartment hotel
+|apartotel
+|autohotel
+|bee hotel
+|boatel,botel
+|boutique hotel
+|bug hotel
+|capsule hotel
+|carrier hotel
+|cat hotel
+|casino hotel
+|condo hotel,condo-hotel
+|condotel
+|crossbar hotel|mental hotel
+|crowbar hotel
+|eco hotel,ecohotel
+|ecotel
+|floatel,flotel
+|ghost hotel
+|graybar hotel
+|green hotel
+|HoReCa
+|hotel load
+|hotel pan
+|hotel room
+|hotel-apartment
+|hoteldom
+|hotelish
+|hotelize
+|hotelkeeper
+|hotelkeeping
+|hotelless
+|hotellike
+|hotelling
+|hotelman
+|hotelside
+|hotelward,hotelwards
+|hotelware
+|hotelwide
+|hydro hotel
+|infinite hotel paradox
+|insect hotel
+|love hotel
+|medi-hotel
+|megahotel
+|military hotel
+|motel
+|motor hotel
+|multihotel
+|nonhotel
+|no-tell hotel
+|officetel
+|Patel hotel
+|pet hotel
+|pod hotel
+|public hotel
+|superhotel
+|welfare hotel
+|wellness hotel
+|where can I find a hotel
+|workingmen's hotel
+}}
+
+====Related terms====
+* {{l|en|hostel}}
+
+====Descendants====
+{{top2}}
+* {{desc|am|ሆቴል|bor=1}}
+* {{desc|as|হোটেল|bor=1}}
+* {{desc|bn|হোটেল|bor=1}}
+* {{desc|my|ဟိုတယ်|bor=1}}
+* {{desc|hi|होटल|bor=1}}
+* {{desc|ja|ホテル|tr=hoteru|bor=1}}
+* {{desc|km|ហោតិល|bor=1}}
+* {{desc|ko|호텔|bor=1}}
+* {{desc|ms|hotel|bor=1}}
+* {{desc|mi|hōtēra|bor=1}}
+* {{desc|ne|होटल|bor=1}}
+* {{desc|om|hoteela|bor=1}}
+* {{desc|fa|هوتَل|tr=hôtal|bor=1}} {{a|en|Dari}}
+* {{desc|sw|hoteli|bor=1}}
+* {{desc|ta|ஓட்டல்|ஹோட்டல்|bor=1}}
+* {{desc|th|โฮเต็ล|bor=1}}
+* {{desc|ti|ሆቴል|bor=1}}
+* {{desc|tpi|hotel|bor=1}}
+* {{desc|uk|готе́ль|bor=1}}
+* {{desc|uli|hooteel’|bor=1}}
+* {{desc|ur|ہوٹل|tr=hoṭal|bor=1}}
+{{bottom}}
+
+====Translations====
+{{trans-top|establishment providing accommodation}}{{multitrans|data=
+* Abkhaz: {{tt|ab|асасааирҭа}}
+* Afrikaans: {{tt|af|hotel}}
+* Albanian: {{tt+|sq|hotel|m}}
+* Amharic: {{tt|am|ሆቴል}}
+* Arabic: {{tt+|ar|فُنْدُق|m}}, {{tt|ar|نُزْل|m}}, {{tt|ar|أُوتِيل|m|tr=ʔōtēl}}
+*: Algerian Arabic: {{t|arq|لوتيل|tr=lotil}}
+*: Egyptian Arabic: {{tt|arz|فُنْدُق|m|tr=fundoʔ}}, {{tt|arz|أُوتِيل|m|tr=ʔotel}}, {{qualifier|archaic}} {{tt|arz|لوكاندة|f|tr=lukanda}}, {{qualifier|archaic}} {{tt|arz|بنسيون|m|tr=bansiyon}}
+*: Hijazi Arabic: {{tt|acw|فُنْدُق|m|tr=fundug}}
+*: Moroccan Arabic: {{tt|ary|أوطيل|m|tr=ʔuṭil}}, {{tt|ary|فندق|m|tr=fandaq}}
+*: South Levantine Arabic: {{tt|ajp|فندق|m|tr=funduʔ}}, {{tt|ajp|أوتيل|m|tr=ʔōtēl}}
+* Armenian: {{tt+|hy|հյուրանոց}}
+* Aromanian: {{tt|rup|utel|m}}
+* Assamese: {{tt|as|হোটেল}}
+* Asturian: {{tt+|ast|hotel|m}}
+* Azerbaijani: {{tt|az|mehmanxana}}, {{tt|az|otel}}
+* Bashkir: {{tt|ba|ҡунаҡхана}}
+* Basque: {{tt+|eu|hotel}}, {{tt|eu|ostatu}}
+* Belarusian: {{tt|be|гатэ́ль|m}}, {{tt|be|гасці́ніца|f}}, {{t|be|гасьці́ніца|f}}
+* Bengali: {{tt+|bn|হোটেল}}
+* Bulgarian: {{tt|bg|хоте́л|m}}
+* Burmese: {{tt+|my|ဟိုတယ်}}
+* Carpathian Rusyn: {{t|rue|готе́л|m}}
+* Catalan: {{tt+|ca|hotel|m}}
+* Cherokee: {{tt|chr|ᏧᏂᏒᏍᏗᎢ}}
+* Chinese:
+*: Cantonese: {{tt|yue|旅館|tr=leoi5 gun2}}, {{tt|yue|酒店|tr=zau2 dim3}}
+*: Dungan: {{tt|dng|кифон}}
+*: Hakka: {{tt|hak|旅館|tr=lî-kón, lî-kòn}}
+*: Hokkien: {{tt+|nan-hbl|旅館|tr=lí-koán, lú-koán}}, {{tt+|nan-hbl|旅社|tr=lú-siā, lír-siǎ, lí-siā, lír-siā}}
+*: Mandarin: {{tt+|cmn|賓館|tr=bīnguǎn}}, {{tt+|cmn|酒店|tr=jiǔdiàn}} <i>[fancy one, with its own restaurant]</i>, {{tt+|cmn|旅館|tr=lǚguǎn}} <i>[(cheaper one; motel, etc.]</i>, {{tt+|cmn|飯店|tr=fàndiàn}}, {{tt+|cmn|招待所|tr=zhāodàisuǒ}}, {{tt+|cmn|旅社|tr=lǚshè}}
+*: Wu: {{tt|wuu|飯店}}
+* Czech: {{tt+|cs|hotel|m}}
+* Danish: {{tt+|da|hotel|n}}
+* Dhivehi: {{tt|dv|ހޮޓާ}}
+* Dutch: {{tt+|nl|hotel|n}}
+* Esperanto: {{tt+|eo|hotelo}}
+* Estonian: {{tt+|et|hotell}}
+* Extremaduran: {{t|ext|otel|m}}, {{t|ext|posá|f}}
+* Fijian: {{tt+|fj|otela}}
+* Finnish: {{tt+|fi|hotelli}}
+* French: {{tt+|fr|hôtel|m}}
+* Frisian:
+*: North Frisian: {{qualifier|Mooring}} {{tt|frr|hotäl}}
+* Galician: {{tt+|gl|hotel|m}}
+* Georgian: {{tt|ka|სასტუმრო}}
+* German: {{tt+|de|Hotel|n}}, {{tt+|de|Gasthof|m}}
+* Greek: {{tt+|el|ξενοδοχείο|n}}
+* Greenlandic: {{tt|kl|hoteli}}
+* Gujarati: {{tt|gu|હોટેલ}}, {{tt|gu|હોટલ}}
+* Haitian Creole: {{tt|ht|otèl}}
+* Hausa: {{tt|ha|hotel}}
+* Hawaiian: {{tt|haw|hōkele}}
+* Hebrew: {{tt+|he|מָלוֹן|m|tr=malón}}, {{tt+|he|בֵּית מָלוֹן|m|tr=beit malón}} 
+* Hindi: {{tt+|hi|होटल|m}}, {{t|hi|मेहमानख़ाना|m}}
+* Hungarian: {{tt+|hu|szálloda}}, {{tt+|hu|hotel}}
+* Icelandic: {{tt+|is|hótel|n}}, {{tt+|is|gistihús|n}}, {{tt+|is|gistiheimili|n}}
+* Ido: {{tt+|io|hotelo}}
+* Indonesian: {{tt+|id|hotel}}
+* Irish: {{tt|ga|óstán|m}}
+* Italian: {{tt+|it|albergo|m}}, {{tt+|it|hotel|m}}
+* Japanese: {{tt+|ja|ホテル|tr=hoteru}}, {{tt+|ja|宿|tr=やど, yado}}, {{tt+|ja|旅館|tr=りょかん, ryokan}} {{qualifier|traditional}}
+* Kannada: {{tt|kn|ಹೋಟೆಲು}}
+* Kazakh: {{tt|kk|қонақ үй}}, {{tt|kk|мейманхана}}, {{tt|kk|отель}}
+* Khmer: {{tt+|km|សណ្ឋាគារ}}, {{tt+|km|ហោតិល}}, {{tt|km|អូតែល}}, {{tt|km|ផ្ទះសំណាក់}}, {{tt|km|សណ្ឋាគារដ្ឋាន}}
+* Korean: {{tt+|ko|호텔}}, {{tt+|ko|여관(旅館)}}, {{tt+|ko|려관(旅館)}} {{qualifier|North Korea}}, {{tt|ko|객사(客舍)}} {{qualifier|common in North Korea}}
+* Kurdish:
+*: Northern Kurdish: {{tt+|kmr|ûtêl}}, {{tt+|kmr|dîwanxane}}, {{tt+|kmr|mêvanxane}}, {{t+|kmr|otêl}}, {{t+|kmr|hotêl}}
+* Kyrgyz: {{tt+|ky|мейманкана}}, {{tt+|ky|гостиница}}, {{tt+|ky|отель}}, {{tt|ky|конокчу}}
+* Lao: {{tt+|lo|ໂຮງແຮມ}}
+* Latin: {{tt|la|deversorium|n}}
+* Latvian: {{tt|lv|viesnīca|f}}, {{tt|lv|hotelis|m}}
+* Lithuanian: {{tt+|lt|viešbutis|m}}
+* Lü: {{tt|khb|ᦷᦣᧂᦶᦃᧅᧈᦶᦂᧁᧉ}}
+* Luxembourgish: {{tt+|lb|Hotel|m}}
+* Macedonian: {{tt+|mk|хоте́л|m}}
+* Malagasy: {{tt+|mg|hotely}}
+* Malay: {{tt+|ms|hotel}}
+* Malayalam: {{tt|ml|ഹോട്ടൽ}}, {{tt|ml|ഹൊട്ടേൽ}}
+* Maltese: {{tt+|mt|lukanda|m}}
+* Māori: {{tt|mi|hōtēra}}
+* Marathi: {{tt|mr|हॉटेल}}
+* Mauritian Creole: {{t|mfe|lotel}}
+* Melanau:
+*: Central Melanau: {{tt|mel|util}}
+* Mòcheno: {{tt|mhn|birtshaus|n}}
+* Mongolian:
+*: Cyrillic: {{tt|mn|зочид буудал}}
+* Navajo: {{tt|nv|tsáskʼeh bá hooghan}}
+* Nepali: {{tt|ne|होटल}}
+* Norwegian:
+*: Bokmål: {{tt+|nb|hotell|n}}
+*: Nynorsk: {{tt|nn|hotell|n}}
+* Odia: {{tt|or|ହୋଟେଲ୍}}
+* Old English: {{tt|ang|gasthus|n}}
+* Oromo: {{tt|om|hoteela}}
+* Pannonian Rusyn: {{t|rsk|готел|m}}
+* Pashto: {{tt+|ps|هوټل|m|tr=hoṭal}}, {{tt|ps|مهمانخانه|f|tr=mehmānxāna}}
+* Persian:
+*: Dari: {{tt|prs|هوتَل}}, {{tt|prs|مِهْمَانْخَانَه}}
+*: Iranian Persian: {{tt|fa-ira|هُتِل}}, {{tt|fa-ira|مِهْمانْخانِه}} {{qualifier|guesthouse}}
+* Plautdietsch: {{tt|pdt|Hotel|n}}
+* Polish: {{tt+|pl|hotel|m}}
+* Portuguese: {{tt+|pt|hotel|m}}
+* Punjabi: {{tt|pa|ਹੋਟਲ}}
+* Réunion Creole French: {{t|rcf|lotèl}}
+* Romani: {{tt|rom|hotèlo|m}}
+* Romanian: {{tt+|ro|hotel|m}}
+* Russian: {{tt+|ru|гости́ница|f}}, {{tt+|ru|оте́ль|m|tr=otɛ́lʹ}}
+* Scottish Gaelic: {{tt|gd|taigh-òsta|m}}
+* Serbo-Croatian:
+*: Cyrillic: {{tt|sh|хо̀тел|m}}
+*: Latin: {{tt+|sh|hòtel|m}}
+* Sicilian: {{tt+|scn|albergu|m}}
+* Sinhalese: {{tt|si|හෝටලය}}, {{tt|si|නවාතැන}}
+* Slovak: {{tt+|sk|hotel|m}}
+* Slovene: {{tt+|sl|hotel|m}}
+* Southern Altai: {{tt|alt|гостиница}}, {{tt|alt|отель}}, {{tt|alt|коночылык}}
+* Spanish: {{tt+|es|hotel|m}}, {{tt+|es|albergue|m}}
+* Swahili: {{tt+|sw|hoteli}}
+* Swedish: {{tt+|sv|hotell|n}}
+* Tagalog: {{tt|tl|hotel}}, {{tt|tl|otel}}
+* Tajik: {{tt|tg|меҳмонхона}}, {{tt+|tg|ҳотел}}, {{tt|tg|отел}}
+* Tamil: {{tt+|ta|ஓட்டல்}}, {{t|ta|ஹோட்டல்}}
+* Tatar: {{tt+|tt|кунакханә}}
+* Telugu: {{tt|te|హోటల్}}
+* Thai: {{tt+|th|โรงแรม}}, {{tt+|th|โฮเต็ล}}
+* Tibetan: {{tt|bo|འགྲུལ་ཁང}}, {{tt|bo|མགྲོན་ཁང}}
+* Tigrinya: {{tt|ti|ሆቴል}}
+* Tok Pisin: {{t|tpi|haus pasindia}}
+* Turkish: {{tt+|tr|otel}}, {{tt+|tr|konakçı}}
+* Turkmen: {{tt|tk|myhmanhana}}, {{tt|tk|otel}}, {{tt|tk|gostinisa}}
+* Udmurt: {{tt|udm|кунокуа}}
+* Ukrainian: {{tt+|uk|готе́ль|m}}, {{tt|uk|гости́ниця|f}}
+* Ulithian: {{t|uli|hooteel’}}
+* Urdu: {{tt|ur|ہوٹَل|m}}, {{t|ur|مِہْمان خانَہ|m}}
+* Uyghur: {{tt|ug|مېھمانخانا}}, {{tt|ug|ساراي}}
+* Uzbek: {{tt+|uz|mehmonxona}}, {{tt|uz|gostinitsa}}, {{tt+|uz|otel}}
+* Vietnamese: {{tt+|vi|khách sạn}} ({{tt|vi|客棧}}), {{tt+|vi|lữ quán}} ({{tt|vi|旅館}}), {{tt|vi|ô ten}}
+* Volapük: {{tt+|vo|lotidöp}}
+* Welsh: {{tt+|cy|gwesty}}
+* Yiddish: {{tt|yi|האָטעל|m}}
+* Zhuang: {{tt|za|lijgvanj}}, {{tt|za|hekdiemq}}, {{tt|za|fanden}}
+{{trans-bottom}}
+
+{{trans-top|red property in the game of ''Monopoly''}}
+* Basque: {{tt+|eu|hotel}}
+* Catalan: {{tt+|ca|hotel|m}}
+* Italian: {{tt+|it|albergo|f}}
+* Macedonian: {{tt+|mk|хоте́л|m}}
+* Swedish: {{tt+|sv|hotell|n}}
+{{trans-bottom}}
+
+{{trans-top|Australian/NZ English: public house}}
+}}
+{{trans-bottom}}
+
+===See also===
+* {{l|en|inn}}
+* {{l|en|motel}}
+
+===Anagrams===
+* {{anagrams|en|a=ehlot|Holte|Thole|helot|hetol|lothe|thole}}
+
+{{C|en|Buildings|Hotels}}
+
+==Albanian==
+
+===Etymology===
+{{bor+|sq|fr|hôtel}}.
+
+===Pronunciation===
+* {{IPA|sq|/hɔtɛl/}}
+
+===Noun===
+{{sq-noun|m|hotele|hoteli|hotelet}}
+
+# {{l|en|hotel}}
+
+====Declension====
+{{sq-noun-m|e}}
+
+==Asturian==
+{{wp|ast:}}
+
+===Etymology===
+{{dercat|ast|frm|fro|la-lat|la}}
+Borrowed from {{bor|ast|fr|hôtel}}.
+
+===Pronunciation===
+{{ast-pr}}
+
+===Noun===
+{{ast-noun|m|hoteles}}
+
+# [[#English|hotel]]
+
+==Catalan==
+
+===Etymology===
+{{bor+|ca|fr|hôtel}}, from {{der|ca|la|hospitāle}}. {{doublet|ca|hospital|hostal}}.
+
+===Pronunciation===
+* {{ca-IPA|ê}}
+* {{audio|ca|LL-Q7026 (cat)-Unjoanqualsevol-hotel.wav|a=Catalonia}}
+
+===Noun===
+{{ca-noun|m}}
+
+# {{l|en|hotel}}
+
+{{C|ca|Buildings}}
+
+==Czech==
+{{wp|cs:}}
+
+===Etymology===
+{{ety|cs|:bor|fr:hôtel|text=+|tree=1}}
+
+===Pronunciation===
+* {{cs-IPA}}
+* {{audio|cs|Cs-hotel.ogg}}
+
+===Noun===
+{{cs-noun|m-in}}
+
+# {{l|en|hotel}}
+
+====Declension====
+{{cs-ndecl|m.hard.locplích:ech}}
+
+====Derived terms====
+{{col|cs|hotýlek}}
+
+===Further reading===
+* {{R:cs:PSJC}}
+* {{R:cs:SSJC}}
+* {{R:cs:IJP}}
+
+{{C|cs|Buildings|Housing}}
+
+==Danish==
+
+===Etymology===
+From {{bor|da|fr|hôtel}}.
+
+===Noun===
+{{da-noun|et|er|stem=hotell}}
+
+# {{l|en|hotel}}
+
+===Further reading===
+* {{R:DDO}}
+
+{{C|da|Buildings}}
+
+==Dutch==
+{{wp|nl:}}
+
+===Alternative forms===
+* {{alt|nl|hôtel||obsolete}}
+
+===Etymology===
+Borrowed from {{bor|nl|fr|hôtel}}, from {{der|nl|frm|hostel}}, from {{der|nl|fro|ostel}}, from {{der|nl|la|hospitālis}}. {{doublet|nl|hospitaal}}.
+
+===Pronunciation===
+* {{IPA|nl|/ɦoːˈtɛl/}}
+* {{audio|nl|Nl-hotel.ogg}}
+* {{hyphenation|nl|ho|tel}}
+* {{rhymes|nl|ɛl}}
+
+===Noun===
+{{nl-noun|n|-s|++}}
+
+# {{l|en|hotel}}
+
+====Derived terms====
+{{col|nl
+|badhotel
+|berghotel
+|bijenhotel
+|boetiekhotel
+|botel
+|familiehotel
+|hotelbed
+|hotelbediende
+|hoteleigenaar
+|hotelgast
+|hotelhouder
+|hotelier
+|hotelkamer
+|hotelketen
+|hotellobby
+|hotelmanager
+|hotelreservering
+|hotelschool
+|strandhotel
+}}
+
+====Related terms====
+{{col|nl
+|motel
+}}
+
+====Descendants====
+* {{desc|af|hotel}}
+* {{desc|djk|oteli|bor=1}}
+* {{desc|id|bor=1|hotel}}
+* {{desc|fy|hotel|bor=1}}
+
+===Anagrams===
+* {{l|nl|holte}}
+
+{{C|nl|Buildings}}
+
+==Galician==
+
+===Etymology===
+{{bor+|gl|fr|hôtel}}, from {{der|gl|la|hospitāle}}.
+
+===Pronunciation===
+{{gl-pr|họtèl}}
+* {{audio|gl|gl-hotel.ogg}}
+* {{hyph|gl|ho|tel}}
+
+===Noun===
+{{gl-noun|m}}
+
+# {{l|en|hotel}}
+#: {{ux|gl|'''Hotel''' de cinco estrelas..|Five-star '''hotel'''..}}
+
+===Further reading===
+* {{R:gl:DRAG}}
+
+==Hungarian==
+
+===Etymology===
+Borrowed from {{bor|hu|de|Hotel}}, from {{der|hu|fr|hôtel}}, from {{der|hu|fro|hostel}}, from {{der|hu|la|hospitāle}}. <ref>{{R:TotfalusiEty 2005}}</ref>
+
+===Pronunciation===
+* {{hu-IPA}}
+* {{hyphenation|hu|ho|tel}}
+* {{rhymes|hu|ɛl|s=2}}
+
+===Noun===
+{{hu-noun|ek}}
+
+# [[#English|hotel]]
+#: {{syn|hu|szálloda|szálló}}
+
+====Declension====
+{{hu-infl-nom|hotele|e|-}}{{hu-pos-etek|hotel|j|jei}}
+Less commonly:<ref>[https://e-nyelv.hu/2023-02-08/hotelok-hotelek/ Hotelok, hotelek] (e-nyelv.hu)</ref>
+{{hu-infl-nom|hotelo|o|-}}{{hu-pos-otok|hotel|j|jai}}
+
+====Derived terms====
+{{col4|hu|title=Compound words
+|hotelcímke
+|hotelportás
+|hotelszámla
+|hotelszoba
+|mamahotel
+|rovarhotel
+}}
+
+===References===
+<references/>
+
+===Further reading===
+* {{R:ErtSz}}
+
+{{topics|hu|Hotels|Buildings}}
+
+==Indonesian==
+{{wp|id:}}
+
+===Etymology===
+From {{bor|id|nl|hotel}}, from {{der|id|fr|hôtel}}, from {{der|id|frm|hostel}}, from {{der|id|fro|ostel}}; inherited from {{der|id|la-lat|hospitālis|hospitālis, hospitāle|hospice, shelter, guesthouse}}, noun use of {{der|id|la|hospitālis||hospitable; pertaining to a host or guest}}.
+
+===Pronunciation===
+{{id-pr|hotèl|audio=LL-Q9240 (ind)-Xbypass-hotel.wav}}
+
+===Noun===
+{{id-noun|head=hotèl}}
+
+# {{l|en|hotel}}, an establishment that provides accommodation and other services for paying guests; normally larger than a guesthouse, and often one of a chain
+
+====Derived terms====
+{{id-der|lang=id|210+31}}
+{{col3|id|title=Compound words
+|hotel apartemen
+|hotel apung
+|hotel bandar
+|hotel bandara
+|hotel berbintang
+|hotel bisnis
+|hotel bujet
+|hotel butik
+|hotel kapsul
+|hotel kasino
+|hotel keluarga
+|hotel kota
+|hotel mandiri
+|hotel melati
+|hotel pantai
+|hotel pilgrim
+|hotel pribadi
+|hotel prodeo
+|hotel residensial
+|hotel resor
+|hotel semiresidensial
+|hotel tira
+|hotel transit
+}}
+
+====Related terms====
+* {{l|id|hostel}}
+
+===Further reading===
+* {{R:KBBI Daring}}
+
+==Italian==
+{{wp|it:}}
+
+===Alternative forms===
+* {{alt|it|otello}}
+
+===Etymology===
+{{bor+|it|fr|hôtel}}, from {{der|it|frm|hostel|t=hostel”, “inn}}, from {{der|it|fro|ostel|t=shelter}}, from {{der|it|la|hospitālis|t=pertaining to hospitality}}. {{doublet|it|ospedale|ospitale}}.
+
+===Pronunciation===
+{{it-pr|hotèl}}
+
+===Noun===
+{{it-noun|m|#}}
+
+# {{l|en|hotel}}(s)
+# {{n-g|the letter [[H]] in the [[Appendix:Italian spelling alphabet|Italian spelling alphabet]]}}
+
+====Synonyms====
+* {{l|it|albergo}}
+
+====Related terms====
+* {{l|it|ostello}}
+
+====Descendants====
+* {{desc|cim|hotèl|bor=1}}
+
+{{C|it|Buildings}}
+
+==Malay==
+{{wp|ms:}}
+
+===Etymology===
+From {{bor|ms|en|hotel}}.
+
+===Noun===
+{{ms-noun}}
+
+# [[#English|hotel]] {{gloss|establishment that provides accommodation for paying guests}}
+
+==Polish==
+{{wp|pl:}}
+
+===Etymology===
+{{ety|pl|:bor|fr:hôtel|text=+|tree=1|doublet=hostel,szpital}}
+
+===Pronunciation===
+{{pl-pr|a=Pl-hotel.ogg;LL-Q809 (pol)-Olaf-hotel.wav}}
+
+===Noun===
+{{pl-noun|m-in|dim=hotelik}}
+
+# [[#English|hotel]]
+
+====Declension====
+{{pl-decl-noun-m-in|hote|l|u|genp=hoteli/hotelów}}
+
+====Derived terms====
+{{col|pl|title=adjective|hotelowy}}
+
+====Related terms====
+{{col|pl|title=adjective|hotelarski}}
+{{col|pl|title=nouns|hotelarz|hotelarka|hotelarstwo|hoteling}}
+
+===Further reading===
+* {{R:pl:WSJP}}
+* {{R:pl:PWN}}
+
+{{C|pl|Buildings|Hotels}}
+
+==Portuguese==
+
+===Etymology===
+{{bor+|pt|fr|hôtel}}, from {{der|pt|la|hospitāle}}.<ref>{{R:pt:Infopédia}}</ref> {{doublet|pt|hospital|hospedal}}.
+
+===Pronunciation===
+{{pt-IPA|hotél}}
+* {{audio|pt|LL-Q5146 (por)-Santamarcanda-hotel.wav|a=<<Portugal>> (<<Porto>>)}}
+* {{rhymes|pt|ɛl|q1=Portugal|ɛw|q2=Brazil|s=2}}
+* {{hyphenation|pt|ho|tel}}
+
+===Noun===
+{{pt-noun|m}}
+
+# {{l|en|hotel}}
+
+====Derived terms====
+{{col|pt|hoteleiro}}
+
+===References===
+<references/>
+
+===Further reading===
+* {{R:pt:Priberam}}
+
+{{C|pt|Buildings}}
+
+==Romanian==
+[[Image:Buenos Aires - Puerto Madero - Hilton Hotel - 20071208.jpg|thumb|Hotel]]
+{{wp|ro:}}
+
+===Etymology===
+{{bor+|ro|fr|hôtel}}, from {{der|ro|la|hospitale}}. {{doublet|ro|spital}}.
+
+===Pronunciation===
+* {{IPA|ro|/hoˈtel/}}
+* {{audio|ro|LL-Q7913 (ron)-Andreea Teodoraa-hotel.wav}}
+
+===Noun===
+{{ro-noun|n|hoteluri}}
+
+# {{l|en|hotel}}
+
+====Declension====
+{{ro-noun-n}}
+
+====Related terms====
+* {{l|ro|hotelier}}
+
+{{C|ro|Buildings}}
+
+==Serbo-Croatian==
+
+===Pronunciation===
+* {{IPA|sh|/xǒtel/}}
+* {{hyphenation|sh|ho|tel}}
+
+===Noun===
+{{sh-noun|hòtel|m-in}}
+
+# {{l|en|hotel}}
+
+====Declension====
+{{sh-decl-noun
+|hòtel|hoteli
+|hotèla|hotela
+|hotelu|hotelima
+|hotel|hotele
+|hotele|hoteli
+|hotelu|hotelima
+|hotelom|hotelima
+}}
+
+{{C|sh|Buildings}}
+
+==Slovak==
+
+===Etymology===
+{{ety|sk|:bor|fr:hôtel|text=+|tree=1}}
+
+===Pronunciation===
+* {{sk-IPA|hoTel}}
+* {{audio|sk|LL-Q9058 (slk)-TomášPolonec-hotel.wav|a=Bratislava}}
+
+===Noun===
+{{sk-noun|m-in|gen=hotela|pl=hotely|genpl=hotelov|decl=stroj}}
+
+# {{l|en|hotel}}
+
+====Declension====
+{{sk-ndecl|m-in|hotela|loc_sg=hoteli}}
+
+===References===
+* {{R:sk:SDK}}
+
+{{C|sk|Buildings}}
+
+==Slovene==
+
+===Etymology 1===
+Borrowed from {{bor|sl|fr|hôtel}}.
+
+====Pronunciation====
+* {{sl-IPA|hotél}}
+
+====Noun====
+{{sl-noun|hotél|m-an}}
+
+# [[#English|hotel]]
+
+=====Declension=====
+{{sl-decl-noun-m|hotél|a=1}}
+
+====Further reading====
+* {{R:Fran}}
+
+===Etymology 2===
+{{nonlemma}}
+
+====Participle====
+{{head|sl|participle|head=hóteł}}
+
+# {{infl of|sl|hoteti||m|s|l-participle}}
+
+{{C|sl|Buildings}}
+
+==Spanish==
+
+===Etymology===
+{{ety|es|:bor|fr:hôtel|text=+|tree=1|doublet=hospital,hostal}}
+
+===Pronunciation===
+{{es-pr}}
+
+===Noun===
+{{es-noun|m}}
+
+# {{l|en|hotel}}
+#* {{quote-journal|es|author=CNN|title=En imágenes: algunos episodios de la vida de Liam Payne|magazine=w:CNN en Español|url=https://cnnespanol.cnn.com/2024/10/17/imagenes-liam-payne-one-direction-trax/|date=2024-10-17|passage=El cantante Liam Payne murió a los 31 años tras caer desde el tercer piso de un '''hotel''' de Buenos Aires, Argentina, informó la policía local.|archiveurl=https://web.archive.org/web/20251010020608/https://cnnespanol.cnn.com/2024/10/17/imagenes-liam-payne-one-direction-trax/|archivedate=10 October 2025}}
+
+====Derived terms====
+{{col|es|hotelero}}
+
+===See also===
+{{col|es|title=See also
+|albergue<g:m>
+|casa de huéspedes<g:f>
+|hospedaje<g:m>
+|hostal<g:m>
+|pensión<g:m>
+|posada<g:f>
+}}
+
+===Further reading===
+* {{R:es:DRAE}}
+
+{{C|es|Buildings|Businesses}}
+
+==Tagalog==
+
+===Etymology===
+{{ety|tl|:bor|en:hotel|tree=1|text=++|doublet=otel,ospital}}
+
+===Pronunciation===
+{{tl-pr|hotél}}
+
+===Noun===
+{{tl-noun|hotél|b=+}}
+
+# {{l|en|hotel}}
+#: {{syn|tl|otel}}
+
+====Related terms====
+{{col|tl|apartel}}
+
+===Further reading===
+* {{R:KWF Diksiyonaryo}}
+* {{R:Pambansang Diksiyonaryo}}
+
+{{C|tl|Buildings|Hotels}}
+
+==Tok Pisin==
+
+===Etymology===
+Borrowed from {{bor|tpi|en|hotel}}.
+
+===Noun===
+{{head|tpi|noun}}
+
+# [[#English|hotel]]
+
+{{C|tpi|Buildings|Hotels}}
+
+==Vilamovian==
+
+===Etymology===
+From {{bor|wym|fr|hôtel}}.
+
+===Pronunciation===
+* {{audio|wym|Wym-hotel (wersja Józefa Gary).ogg}}
+
+===Noun===
+{{wym-noun}}
+
+# [[#English|hotel]]

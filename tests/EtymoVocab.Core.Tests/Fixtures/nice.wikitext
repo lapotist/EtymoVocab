@@ -1,0 +1,472 @@
+{{also|Appendix:Variations of "nice"}}
+==English==
+
+===Alternative forms===
+* {{alt|en|nyc||non-standard}}
+* {{alt|en|noice||slang}}
+
+===Pronunciation===
+* {{IPA|en|/naɪ̯s/|a=RP,GA}}
+** {{audio|en|en-us-nice.ogg|a=US}}
+* {{IPA|en|/naːs/|a=[[w:Southern accent (United States)|Inland Southern US]],ZA,[[w:Monophthongization|/aɪ̯/-ungliding]]}}
+* {{IPA|en|/nɑ̟ɪ̯s/|/nɒ̈ɪ̯s/|a=AU}}
+* {{IPA|en|/nɑ̟e̝s/|/nɒ̈e̝s/|a=NZ}}
+* {{IPA|en|/nɐɪ̯s/|/nɜɪ̯s/|/nʌɪ̯s/|/nəɪ̯s/|a=Scotland,IE,[[w:Falkland Islands English|Falkland Islands]],Canada,Canadian raising}}
+* {{rhymes|en|aɪs|s=1}}
+* {{hyph|en|nice}}
+* {{homophones|en|gneiss}}
+
+===Etymology 1===
+{{root|en|ine-pro|*skey-}}
+From {{inh|en|enm|nyce}}, {{m|enm|nice}}, {{m|enm|nys}}, from {{der|en|fro|nice}}, {{m|fro|niche}}, {{m|fro|nisce||simple, foolish, ignorant}}, from {{der|en|la|nescius||ignorant, not knowing}}; compare {{m|la|nesciō||to know not, be ignorant of}}, from {{m|la|ne||not}} + {{m|la|sciō||to know}}.
+
+====Adjective====
+{{en-adj|er}}
+
+# {{lb|en|chiefly|informal}} [[pleasant|Pleasant]], [[satisfactory]], [[complimentary]]. {{defdate|from 18th c.}}
+#* {{RQ:Montgomery Anne of Green Gables|passage="It's a lot '''nicer''' than going round by the road; that is so dusty and hot," said Diana practically, peeping into her dinner basket and mentally calculating if the three juicy, toothsome, raspberry tarts reposing there were divided among ten girls, how many bites each girl would have.}}
+#* {{quote-song|en|year=1998|artist=w:Baha Men|title=w:Who Let the Dogs Out?
+|passage=When the party was '''nice''', the party was jumpin' (Hey, Yippie, Yi, Yo)}}
+#* {{quote-journal|en|author=Rachel Cooke|quotee={{w|David Lodge (author)|David Lodge}}|title=Nice work|work=w:The Observer|date=2008-04-19|url=https://www.theguardian.com/books/2008/apr/20/fiction.davidlodge|issn=0029-7712|passage=What's difficult is when you think someone is saying something '''nice''' about you, but you're not quite sure.|archiveurl=https://web.archive.org/web/20210623031448/https://www.theguardian.com/books/2008/apr/20/fiction.davidlodge}}
+# {{lb|en|chiefly|informal}} Of a person: [[friendly]], [[attractive]]. {{defdate|from 18th c.}}
+#: {{ux|en|You weren’t '''nice''' to me this morning.}}
+#* {{quote-journal|en|date=2016-02-13|work=The Daily Journal|volume=83|issue=37|page=A11|author=Gene Lyons|quotee=anonymous|title=Understanding the 'Bernie Bros'|url=https://www.newspapers.com/image/494323555/|text=Yes, please tell me how Shillary is the '''nicest''' corporate oligarchical servant, and how she will lovingly sell out the people who voted for her to her banker masters, with a twinkle in her fellating eye.}}
+# [[respectable|Respectable]]; [[virtuous]]. {{defdate|from 18th c.}}
+#: {{ux|en|What is a '''nice''' person like you doing in a place like this?}}
+#* {{RQ:Hornby High Fidelity|page=14|passage=She was so '''nice''', in fact, that she wouldn't let me put my hand underneath or even on top of her bra, and so I finished with her, although obviously I didn't tell her why.}}
+# {{lb|en|with ''[[and]]''|chiefly|informal}} {{n-g|Shows that the given adjective is desirable, or acts as a mild [[intensifier]]}}; [[pleasantly]], [[quite]]. {{defdate|from 18th c.}}
+#: {{ux|en|The soup is '''nice''' and hot.}}
+#* {{RQ:Lincoln Pratt's Patients|chapter=8|passage=We toted in the wood and got the fire going '''nice''' and comfortable. Lord James still set in one of the chairs and Applegate had cabbaged the other and was hugging the stove.}}
+# {{lb|en|chiefly|informal}} Giving a favorable review or having a favorable impression.
+#: {{ux|en|For ''Candy Crush Saga'', the critics were far '''nicer''' than the audience (7.9/10 vs. 3.1/10).|ref=[https://www.metacritic.com/game/candy-crush-saga/]}}
+# {{lb|en|chiefly|informal}} Showing [[refinement]] or [[delicacy]], [[proper]], [[seemly]]
+#: {{ux|en|a '''nice''' way of putting it}}
+# {{lb|en|obsolete}} [[silly|Silly]], [[ignorant]]; [[foolish]]. {{defdate|14th|17th c.}}
+#* {{RQ:Shakespeare Taming of the Shrew|act=3|scene=1|passage=Old fashions please me best; I am not so '''nice'''<br>To change true rules for odd inventions.}}
+# {{lb|en|now|rare}} [[particular|Particular]] in one's conduct; [[scrupulous]], [[painstaking]]; [[choosy]]. {{defdate|from 14th c.}}
+#* {{RQ:Montaigne Florio Essayes|chapter=2|book=II|passage=There is nothing he seemed to be more carefull of than of his honesty, and observe a kinde of decencie of his person, and orderly decorum in his habits, were it on foot or on horsebacke. He was exceeding '''nice''' in performing his word or promise.}}
+#* {{RQ:Fielding Tom Jones|passage=Mr Blifil, I am confident, understands himself better than to think of seeing my niece any more this morning, after what hath happened. Women are of a '''nice''' contexture; and our spirits, when disordered, are not to be recomposed in a moment.}}
+#* {{quote-book|en|year=1999|translator=Joyce Crick|author=w:Sigmund Freud|title=w:The Interpretation of Dreams|location=Oxford|year_published=2008|page=83
+|passage=But if I dispense with the dreams of neurotics, my main material, I cannot be too '''nice''' {{transterm|de|wählerisch}} in my dealings with the remainder.}}
+# {{lb|en|dated}} Having [[particular]] tastes; [[fussy]], [[fastidious]]. {{defdate|from 14th c.}}
+#* {{quote-book|en|author=Joseph Bosworth; T. Northcote Toller|title=w:An Anglo-Saxon Dictionary|edition=2nd|location=Oxford|year=1898|entry=cís|url=https://www.google.co.nz/books/edition/An_Anglo_Saxon_Dictionary/rEy6MHD0R5EC|publisher=w:Oxford University Press|page=156|passage=''Choice, '''nice''' in eating''; fastidiosus in edendo.}}
+# {{lb|en|obsolete}} [[particular|Particular]] as regards [[rule]]s or qualities; [[strict]]. {{defdate|16th|19th c.}}
+#* {{RQ:Austen Emma
+|volume=II
+|chapter=14
+|passage=“Well, my dear,” he deliberately began, “considering we never saw her before, she seems a very pretty sort of young lady; and I dare say she was very much pleased with you. She speaks a little too quick. A little quickness of voice there is which rather hurts the ear. But I believe I am '''nice'''; I do not like strange voices; and nobody speaks like you and poor Miss Taylor. ..."}}
+#* {{quote-book|en|year=1818|author=w:Jane Austen|title=w:Persuasion|chapter=16
+|passage="Good company requires only birth, education and manners, and with regard to education is not very '''nice'''. Birth and good manners are essential."}}
+# [[show|Showing]] or [[require|requiring]] [[great]] [[precision]] or [[sensitive]] [[discern]]ment; [[subtle]]. {{defdate|from 16th c.}}
+#* {{quote-book|en|year=1914|author=w:Saki|title=s:Laura
+|passage="It's her own funeral, you know," said Sir Lulworth; "it's a '''nice''' point in etiquette how far one ought to show respect to one's own mortal remains."}}
+#* {{quote-book|en|year=1974|author=w:Lawrence Durrell|title=Monsieur|page=131|publisher=Faber & Faber|year_published=1992
+|passage=It would be a '''nice''' theological point to try and establish whether Ophis is Moslem or gnostic.}}
+#* {{quote-book|en|year=2006|author=w:Clive James|title=North Face of Soho|page=242|publisher=Picador|year_published=2007
+|passage=Why it should have attained such longevity is a '''nice''' question.}}
+# {{lb|en|obsolete}} Easily injured; [[delicate]]; [[dainty]].
+# {{lb|en|obsolete}} [[doubtful|Doubtful]], as to the outcome; [[risky]]. {{defdate|16th|19th c.}}
+#* {{RQ:Shakespeare Henry 4-1|act=IV|scene=i|passage=[W]ere it good / To ſet the exact wealth of al our ſtates / Al at one caſt? to ſet ſo rich a maine / On the '''nice''' hazard of one doubtfull houre?|translation=Is it good / To bet all of our wealth / On one throw of the dice? To place so high a stake / On the '''risky''' hazard of one doubtful hour?}}
+#* {{quote-journal|en|date=28 Jul 1822|author=T. Creevey|journal=Reminiscences
+|passage=It has been a damned '''nice''' thing - the nearest run thing you ever saw in your life.}}
+
+=====Usage notes=====
+Sometimes used [[sarcastically]] to mean the [[opposite]] or to [[connote]] [[excess]]:
+
+* {{quote-journal|en|year=1710|author=w:Jonathan Swift|journal={{w|The Examiner (1710–1714)|The Examiner}} No. XIV
+|passage=I have strictly observed this rule, and my imagination this minute represents before me a certain great man famous for this talent, to the constant practice of which he owes his twenty years’ reputation of the most skilful head in England, for the management of '''nice''' affairs.}}
+* {{quote-av|en|year=1930|author=w:H.M. Walker|title=w:The Laurel-Hardy Murder Case
+|passage=Here's another '''nice''' mess you've gotten us into.}}
+* {{quote-song|en|year=1973|author=Cockerel Chorus|title=Nice One, Cyril!
+|passage='''Nice''' one, Cyril!}}
+
+=====Synonyms=====
+* {{sense|easy to like: person}} {{l|en|charming}}, {{l|en|delightful}}, {{l|en|friendly}}, {{l|en|kind}}, {{l|en|lovely}}, {{l|en|pleasant}}, {{l|en|sweet}}
+* {{sense|easy to like: thing}} {{l|en|charming}}, {{l|en|delightful}}, {{l|en|lovely}}, {{l|en|pleasant}}
+* {{sense|having a pleasant taste or aroma}} {{l|en|appetising}}/[[appetizing]], [[delicious]], [[moreish]] {{qualifier|informal}}, [[scrummy]] {{qualifier|slang}}, [[scrumptious]] {{qualifier|slang}}, [[tasty]]
+* {{sense|subtle}} {{l|en|fine}}, {{l|en|subtle}}
+
+=====Antonyms=====
+* {{antsense|easy to like: person}} {{l|en|horrible}}, {{l|en|horrid}}, {{l|en|nasty}}
+* {{antsense|easy to like: thing}} {{l|en|horrible}}, {{l|en|horrid}}, {{l|en|nasty}}
+* {{antsense|having a pleasant taste or aroma}} {{l|en|awful}}, {{l|en|disgusting}}, {{l|en|foul}}, {{l|en|horrible}}, {{l|en|horrid}}, {{l|en|nasty}}, {{l|en|nauseating}}, {{l|en|putrid}}, {{l|en|rancid}}, {{l|en|rank}}, {{l|en|sickening}}, {{l|en|distasteful}}, {{l|en|gross}}, {{l|en|unsatisfactory}}
+* {{antsense|respectable; virtuous}} {{l|en|naughty}}
+
+=====Derived terms=====
+{{col4|en|title=Terms derived from ''nice'' (adjective)|have a nice life|{{l|en|nice and}} + adjective|nice and easy|nice guy|nice guys finish last|nice-nice| nice list|nicely|nicen|niceness|nicety|sugar and spice and everything nice|have a nice day|have a nice day syndrome|make nice|Minnesota nice|nice as ninepence|nice as pie|nice guy syndrome|nice Nelly|nice one|nice to meet you|nice try|nice weather for ducks|nice-but-dim|nice-looking|nice-nelly|nice-Nelly|nice-nellyism|nice-Nellyism|nice-to-have|nicey-nice|play nice|this is why we can't have nice things|nice cream|nice knowing you|nice work if you can get it|nicefem|niceish|niceling|nicery|Niceville|outnice|overnice|seminice|supernice|ultranice|unnice
+|nice going| totally nice day| buy nice or buy twice}}
+
+=====Related terms=====
+* {{l|en|nicety}}
+
+=====Descendants=====
+{{top2}}
+* {{desc|nl|nice|bor=1}}
+* {{desc|de|nice|bor=1}}
+* {{desc|da|nice|bor=1}}
+* {{desc|ja|ナイス|bor=1}}
+* {{desc|ko|나이스|bor=1}}
+* {{desc|pl|najs|bor=1}}
+* {{desc|es|nice|bor=1}}
+* {{desc|sv|najs|nice|bor=1}}
+* {{desc|no|-|bor=1}}
+** {{desc|nb|nice}}
+* {{desc|cy|neis|bor=1}}
+{{bottom}}
+
+=====Translations=====
+{{trans-top-see|pleasant, satisfactory|cool}}
+* American Sign Language: {{t|ase|OpenB@BasePalm-PalmDown-OpenB@CenterChesthigh-PalmUp OpenB@Finger-PalmDown-OpenB@CenterChesthigh-PalmUp}}
+* Arabic: {{t+|ar|حَسَّن}}, {{t+|ar|لَطِيف}}
+* Asturian: {{t|ast|prestosu}}, {{t+|ast|guapu}}, {{t|ast|atopadizu}}, {{t|ast|afayadizu}}, {{t+|ast|curru}} {{q|a person}}, {{t|ast|alcontradizu}}, {{t|ast|xidu}} {{q|Llanes}}
+* Azerbaijani: {{t+|az|gözəl}}, {{t+|az|qəşəng}}
+* Basque: {{t|eu|atsegin}}
+* Belarusian: {{t+|be|до́бры}}, {{t|be|мі́лы}}, {{t|be|прые́мны}}, {{t|be|фа́йны}}
+* Belizean Creole: {{t|bzj|nais}}
+* Bulgarian: {{t+|bg|симпати́чен}}, {{t+|bg|мил}}, {{t+|bg|любе́зен}}, {{t+|bg|прия́тен}}, {{t|bg|го́тин|m}}
+* Catalan: {{t+|ca|agradable}}
+* Chickasaw: {{t|cic|chokma}} {{q|to be nice}}
+* Chinese:
+*: Mandarin: {{t+|cmn|美好|tr=měihǎo de|alt=美好的}}
+* Czech: {{t+|cs|hezký}}, {{t+|cs|příjemný}}, {{t+|cs|milý}}
+* Dutch: {{t+|nl|leuk}}, {{t+|nl|aangenaam}}, {{t+|nl|fijn}}
+* Esperanto: {{t+|eo|agrabla}}
+* Estonian: {{t|et|meeldiv}}
+* Finnish: {{t+|fi|kiva}}, {{t+|fi|mukava}}, {{t+|fi|sympaattinen}}
+* French: {{t+|fr|gentil}}, {{t+|fr|sympathique}}, {{t+|fr|sympa}}, {{t+|fr|agréable}}
+* German: {{t+|de|freundlich}}, {{t+|de|sympathisch}}, {{t+|de|lieb}}, {{t+|de|nett}}
+*: Alemannic German: {{t|gsw|nett}}
+* Greek: {{t+|el|καλός}}
+* Hebrew: {{t+|he|נֶחְמָד|tr=nekhmád}}
+* Hindi: {{t+|hi|अच्छा}}
+* Hungarian: {{t+|hu|kellemes}}, {{t+|hu|szép}}
+* Icelandic: {{t+|is|fínn}}
+* Irish: {{t|ga|deas|id=nice}}
+* Italian: {{t+|it|simpatico}}, {{t+|it|piacevole}}, {{t+|it|gentile}}
+* Japanese: {{t+|ja|良い|tr=いい, ii}}, {{t+|ja|素敵|tr=すてき, suteki}}, {{t+|ja|快い|tr=こころよい, kokoroyoi}}
+* Kapampangan: {{t|pam|mayap}}
+* Korean: {{t+|ko|좋은}}
+* Latin: {{t|la|lepidus}}
+* Louisiana Creole: {{t|lou|joli}}, {{t|lou|jenti}}, {{t|lou|vayan}}
+* Māori: {{t|mi|hūmārika}}, {{t|mi|hūmārie}}
+* Marathi: {{t|mr|छान}}
+* Middle English: {{t|enm|wynly}}
+* Norman: {{t|nrf|genti}}
+* Norwegian: {{t+|no|hyggelig}}, {{t|no|sympatisk}}
+* Old English: {{t|ang|wynlīċ}}
+* Persian: {{t+|fa|دلپذیر|tr=delpazir}}, {{t+|fa|ناز|tr=nâz}}
+* Polish: {{t+|pl|miły}}, {{t+|pl|przyjemny}}, {{t+|pl|fajny}}, {{t+|pl|dobry}}
+* Portuguese: {{t+|pt|bonito}}, {{t+|pt|agradável}}, {{t+|pt|simpático}}
+* Romanian: {{t+|ro|simpatic}}
+* Russian: {{t+|ru|ми́лый}}, {{t+|ru|прия́тный}}, {{t+|ru|хоро́ший}}
+* Scottish Gaelic: {{t|gd|snog}}, {{t|gd|gasta}}
+* Slovak: {{t|sk|príjemný}}, {{t|sk|milý}}
+* Somali: {{t+|so|fiican}}
+* Spanish: {{t+|es|paja}} {{q|Peru}}, {{t|es|chulisnais}} {{q|Puerto Rico}}, {{t+|es|piola}}, {{t+|es|genial}}, {{t+|es|fachero}} {{q|River Plate}}, {{t+|es|buena onda}}, {{t+|es|nais}} {{q|Latin America}}, {{t|es|nice}} {{q|Latin America}}, {{t+|es|vergón}} {{q|may be vulgar}}, {{t|es|pipirináis}}
+* Swahili: {{t+|sw|nzuri}}
+* Swedish: {{t+|sv|vänlig}}, {{t+|sv|sympatisk}}, {{t+|sv|trevlig}}
+* Thai: {{t+|th|ดี|tr=dii}}
+* Tok Pisin: {{t|tpi|naispela}}
+* Turkish: {{t+|tr|hoş}}, {{t+|tr|güzel}}, {{t+|tr|iyi}}
+* Ukrainian: {{t+|uk|до́брий}}, {{t|uk|фа́йний}}, {{t|uk|приє́мний}}, {{t|uk|ми́лий}}
+* Vietnamese: {{t+|vi|tốt}}
+* Welsh: {{t+|cy|neis}}
+{{trans-bottom}}
+
+{{trans-top-see|attractive, friendly|kind|pretty|beautiful|lovely|sympathetic|pleasant|gentle|well-intentioned|amiable|affable|friendly}}
+* American Sign Language: {{t|ase|OpenB@BasePalm-PalmDown-OpenB@CenterChesthigh-PalmUp OpenB@Finger-PalmDown-OpenB@CenterChesthigh-PalmUp}}
+* Asturian: {{t|ast|atentu}}, {{t|ast|guapu}}, {{t+|ast|galán}}, {{t|ast|melgueru}}, {{t+|ast|curru}}, {{t+|ast|falante}}
+* Basque: {{t|eu|eder}}
+* Belarusian: {{t|be|мі́лы}}, {{t|be|фа́йны}}
+* Bulgarian: {{t+|bg|ху́бав}}, {{t+|bg|краси́в}}, {{t|bg|го́тин|m}}
+* Catalan: {{t+|ca|bonic}}
+* Czech: {{t+|cs|hezký}}, {{t+|cs|pěkný}}, {{t+|cs|krásný}}
+* Danish: {{t+|da|pæn}}
+* Dutch: {{t+|nl|aantrekkelijk}}, {{t+|nl|mooi}}, {{t+|nl|knap}}
+* Esperanto: {{t+|eo|ĝentila}}
+* Estonian: {{t|et|kena}}
+* Finnish: {{t+|fi|nätti}}, {{t+|fi|viehättävä}}, {{t+|fi|mukava}}, {{t+|fi|kiva}}
+* French: {{t+|fr|beau}}, {{t+|fr|joli}}
+* German: {{t+|de|schön}}, {{t+|de|hübsch}}, {{t+|de|nett}}
+* Greek: {{t+|el|ωραίος}}
+* Hebrew: {{t+|he|יָפֶה|tr=yafé}}, {{t+|he|נָאֶה|tr=na'é}}
+* Hungarian: {{t+|hu|szép}}
+* Irish: {{t|ga|deas|id=nice}}
+* Italian: {{t+|it|bello}}
+* Japanese: {{t+|ja|綺麗|tr=[[きれい]], [[キレイ]], kirei}}, {{t+|ja|優しい|tr=yasashii}}
+* Kapampangan: {{t|pam|maganaka}}
+* Korean: {{t+|ko|착하다}}
+* Latin: {{t+|la|pulcher}}
+* Māori: {{t|mi|ranginamu}}
+* Norwegian: {{t+|no|pen}}
+* Persian: {{t+|fa|پسندیده|tr=pasandide}}, {{t+|fa|ناز|tr=nâz}}
+* Portuguese: {{t+|pt|bom}}, {{t+|pt|agradável}}
+* Russian: {{t+|ru|симпати́чный}}, {{t+|ru|ми́лый}}
+* Scottish Gaelic: {{t|gd|snog}}, {{t|gd|laghach}}, {{t|gd|lurach}}, {{t|gd|brèagha}}
+* Slovak: {{t|sk|pekný}}, {{t|sk|krásny}}
+* Spanish: {{t+|es|bueno}}, {{t+|es|majo}}, {{t+|es|buena gente}}, {{t+|es|nais}} {{q|Americas}}, {{t|es|nice}} {{q|Latin America}}, {{t+|es|vergón}} {{q|may be vulgar}}, {{t|es|[[que]] [[le]] [[trata]] [[bien]] [[a]]}}
+* Swahili: {{t+|sw|nzuri}}
+* Swedish: {{t+|sv|fin}}, {{t+|sv|vacker}}
+* Telugu: {{t+|te|ఆకర్షణీయమైన}}
+* Tok Pisin: {{t|tpi|naispela}}
+* Turkish:
+*: Ottoman Turkish: {{t|ota|یخشی|tr=yahşi}}
+* Ukrainian: {{t|uk|ми́лий}}, {{t|uk|фа́йний}}, {{t|uk|прива́бливий}}
+* Welsh: {{t+|cy|neis}}
+{{trans-bottom}}
+
+{{trans-top|having a pleasant taste or aroma}}
+* Arabic: {{t|ar|طَيِّب}}, {{t|ar|عَطِر}}
+* Asturian: {{t|ast|ricu}}, {{t|ast|gustosu}}, {{t|ast|saborgosu}}, {{t+|ast|bonu}}, {{t+|ast|arumosu}}
+* Bulgarian: {{t+|bg|вкусен}}
+* Dutch: {{t+|nl|lekker}}, {{t+|nl|aangenaam}}
+* Estonian: {{t+|et|maitsev}}
+* Finnish: {{t+|fi|maukas}} {{q|tasty}}, {{t+|fi|hyvä}}, {{t+|fi|herkullinen}}
+* French: {{t+|fr|bon}}
+* German: {{t+|de|lecker}}, {{t+|de|angenehm}}
+* Greek: {{t+|el|νόστιμος}}
+* Hebrew: {{t+|he|נָעִים|tr=na'ím}}
+* Italian: {{t+|it|buono}}
+* Māori: {{t|mi|kakara}}
+* Persian: {{t+|fa|خوشمزه|tr=xošmaze}}, {{t+|fa|خوشبو|tr=xošbô}}
+* Polish: {{t+|pl|miły}}
+* Portuguese: {{t+|pt|agradável}}
+* Russian: {{q|tasty}} {{t+|ru|вку́сный}}
+* Scottish Gaelic: {{t|gd|math}}
+* Spanish: {{t+|es|rico}}, {{t+|es|bueno}}
+* Swahili: {{t+|sw|nzuri}}
+* Swedish: {{t+|sv|god}}, {{t+|sv|smaklig}}, {{t+|sv|läcker}}
+* Telugu: {{t+|te|పసందైన}}
+{{trans-bottom}}
+
+{{trans-top|showing or requiring great precision or sensitive discernment}}
+* Bulgarian: {{t+|bg|чувствителен}}, {{t+|bg|точен}}
+* Dutch: {{t+|nl|fijn}}
+* Finnish: {{t|fi|hienovarainen}}, {{t|fi|[[tarkkuus|tarkkuutta]] [[vaativa]]}}
+* German: {{t+|de|heikel}}, {{t+|de|prekär}} {{q|exalted}}, {{t+|de|knifflig}} {{q|coll.}}
+* Latin: {{t|la|mundus}}
+* Norwegian: {{t+|no|fin}}
+* Russian: {{t+|ru|то́нкий}}
+* Swahili: {{t+|sw|nzuri}}
+* Swedish: {{t+|sv|fin}}
+{{trans-bottom}}
+
+{{checktrans-top}}
+* Chinese:
+*: Mandarin: {{t-check|cmn|宜人的}} (yírén de)
+* Vietnamese: {{t+check|vi|đẹp}}
+* Woiwurrung: {{t-check|wyi|boorrd up}}
+{{trans-bottom}}
+
+====Adverb====
+{{en-adv|er}}
+
+# {{lb|en|[[w:flat adverb|flat adverb]]|colloquial}} [[nicely|Nicely]].
+#: {{syn|en|nice-like#Adverb<qq:similar degree of informality>}}
+#: {{ux|en|Children, I told you to [[play#Verb|play]] '''nice'''. Don't make me come out there and [[set straight#Verb|set you straight]].}}
+#: {{ux|en|He dresses [[real#Adverb|real]] '''nice'''.}}
+#: {{ux|en|She smells [[real#Adverb|real]] '''nice'''.}}
+#* {{quote-book|en|year=2002|author=w:Gina Riley; w:Jane Turner|title=That's Unusual: Scripts from Kath and Kim, Series 2|page=245|passage=This riesling's going down '''nice'''.}}
+
+====Interjection====
+{{en-intj|head=!}}
+
+# {{n-g|Used to signify a job [[well]] [[done]].}}
+#: {{syn|en|nice one|nice job|good job|Thesaurus:well done}}
+#: {{ux|en|'''Nice!''' I couldn't have done better.}}
+# {{n-g|Used to signify [[approval]].}}
+#: {{near-syn|en|Thesaurus:yay}}
+#: {{ux|en|Is that your new car? '''Nice!'''}}
+
+=====Translations=====
+{{trans-top|interjection used to signify approval}}
+* Arabic:
+*: Gulf Arabic: {{t|afb|حلو}}
+* Asturian: {{t|ast|pimpanudo}}, {{t|ast|guapo}}
+* Bulgarian: {{t+|bg|хубаво}}, {{t+|bg|чуде́сно}}
+* Czech: {{t+|cs|hezky}}, {{t+|cs|pěkně}}
+* Dutch: {{t+|nl|mooi}}, {{t+|nl|netjes}}, {{t+|nl|goed zo}}
+* Finnish: {{t|fi|hyvin tehty}}, {{t+|fi|kiva}}
+* Hebrew: {{t+|he|נֶחְמָד|m|tr=nekhmád}}
+* Hungarian: {{t+|hu|szép}}
+* Polish: {{t+|pl|fajnie}}
+* Portuguese: {{t+|pt|ótimo}}, {{t+|pt|beleza}}
+* Romanian: {{t+|ro|frumos}}, {{t+|ro|drăguț}}
+* Spanish: {{t|es|ananay}} {{q|Bolivia, Ecuador}}, {{t|es|[[bueno]] [[fuese]]}} {{qualifier|must be nice}}, {{t|es|[[debe]] [[de]] [[ser]] [[lindo]]}} {{qualifier|must be nice}}, {{t+|es|chapó}}, {{t+|es|bien}}, {{t|es|muy bien}}, {{t+|es|genial}}, {{t+|es|guay}} {{q|Spain}}, {{t+|es|chachi}} {{q|Spain, dated}}, {{t+|es|chido}} {{q|Mexico}}, {{t+|es|padre}} {{q|Mexico}}, {{t+|es|chévere}} {{q|South America}}
+* Swedish: {{t+|sv|snygg|alt=snyggt}}, {{qualifier|slang}} {{t+|sv|najs}}
+{{trans-bottom}}
+
+====Noun====
+{{en-noun|-}}
+
+# [[niceness]].
+#* {{quote-book|en|year=2000|title=Midnight Come Again |author=Dana Stabenow |page=111 |ISBN=0312978766 |passage=She had refused as kindly as she know how, using up as much '''nice''' as she had energy for because she was glad of his company when three o'clock rolled around and she started thinking about September. }}
+#* {{quote-book|en|year=2013 |title=What Great Teachers Do Differently: 17 Things That Matter Most |author=Todd Whitaker  |page= |ISBN=1317925912 |passage=We could debate forever about whether we have enough of one or too much of another. But I know one thing for sure: We never have too much '''nice'''.  }}
+#* {{quote-book|en|year=2014|title=How Much Is Too Much?  |author=Jean Illsley Clarke; Connie Dawson; David Bredehoft  |page= |ISBN=0738216828 |passage=It is the absence of rules and too much '''nice''' that are more likely to produce terror. }}
+
+===Etymology 2===
+Name of a Unix program used to invoke a script or program with a specified priority, with the implication that running at a lower priority is "nice" (kind, etc.) because it leaves more resources for others.
+
+====Verb====
+{{en-verb}}
+{{wp|+ (Unix)}}
+
+# {{lb|en|transitive|computing|Unix}} To [[run]] a [[process]] with a specified (usually lower) [[priority]].
+
+=====Derived terms=====
+{{col|en|renice}}
+
+===Further reading===
+* {{R:Webster 1913}}
+* {{R:Century}}
+* {{R:OneLook}}
+* [https://web.archive.org/web/20120308131357/http://www.nicedefinition.com/Definition/Word/Nice/Nice.aspx Nice] at NiceDefinition.com
+
+===Anagrams===
+* {{anagrams|en|a=cein|Ince|Niec|cien|cine|cine-|icen}}
+
+{{C|en|Personality}}
+
+==Czech==
+
+===Pronunciation===
+* {{cs-IPA|nyce}}
+* {{rhymes|cs|ɪtsɛ|s=2}}
+* {{hyphenation|cs|ni|ce}}
+
+===Noun===
+{{head|cs|noun form}}
+
+# {{infl of|cs|nika||dat//loc|s}}
+
+===Anagrams===
+* {{l|cs|Ince}}
+
+==Dutch==
+
+===Etymology===
+Borrowed from {{bor|nl|en|nice}}.
+
+===Adjective===
+{{nl-adj}}
+
+# {{lb|nl|slang}} {{l|en|nice}}
+#: {{ux|nl|Haar nieuwe album is echt '''nice'''.|Her new album is really '''nice'''.}}
+
+====Declension====
+{{nl-decl-adj}}
+
+==French==
+
+===Etymology===
+{{inh+|fr|fro|nice}}, inherited from {{inh|fr|la|nescius}}.
+
+===Pronunciation===
+* {{fr-IPA}}
+* {{audio|fr|LL-Q150 (fra)-LoquaxFR-nice.wav|a=<<France>> (<<Vosges>>)}}
+* {{rhymes|fr|is|s=1}}
+
+===Adjective===
+{{fr-adj}}
+
+# {{lb|fr|archaic}} [[candid]], [[naive]]
+#* {{quote-book|fr|author=w:Colette|title=La retraite sentimentale|year=1907|pageurl=https://archive.org/details/laretraitesentim00cole/page/41/mode/1up|page=41|passage=Oui, crédulement, vous ne comprenez pas? Entendez donc que j'ai cru, plus '''nice''' qu'une pensionnaire, au pouvoir exclusif de cet inconnu que je fuyais !}}
+
+====Derived terms====
+* {{l|fr|nicet}}
+
+===Further reading===
+* {{R:fr:TLFi}}
+
+==German==
+
+===Etymology===
+{{ubor|de|en|nice}}.
+
+===Pronunciation===
+* {{IPA|de|/naɪ̯s/}}
+* {{audio|de|De-nice.ogg|a=<<Germany>> (<<Berlin>>)}}
+
+===Adjective===
+{{de-adj|comp:+[rare].sup:+est[extremely rare]}}<!-- ''nicere'' is barely attested in Ngrams, ''niceste(n)'' aren't attested at all -->
+
+# {{lb|de|colloquial}} [[good]], [[#English|nice]]
+#* {{quote-web|de|work=ZEITmagazin|title=Die Zukunft, das ist die grüne Samtcouch|date=2020-12-08|url=https://www.zeit.de/zeit-magazin/mode-design/2020-12/ikea-katalog-70-jahre-analog-digital-abschied|author=Sara Tomšić|passage=Na gut. Und auch, wenn ich nur das eine Regal hatte – in der Schule konnte ich durch dich mitreden. Ja, Pax, voll '''nice''' und geräumig, der Poäng-Sessel, mega gemütlich.|t=Fine. And even if I only had that one shelf – thanks to you, I had a say in conversations at school. Oh, Pax, all '''nice''' and spacious, and the Poäng armchair, super comfortable.|archiveurl=https://web.archive.org/web/20240709194740/https://www.zeit.de/zeit-magazin/mode-design/2020-12/ikea-katalog-70-jahre-analog-digital-abschied|archivedate=9 July 2024}}
+#* {{quote-song|de|artist=Fatoni & Dexter|title=Feeling|year=2021|passage=Ich steh' im Club / Seh' ziemlich '''nice''' aus / Ah, wobei, die Schuhe / Ne, scheiß drauf, ich seh' '''nice''' aus|t=I'm at the club / Lookin' pretty '''good''' / Actually, these shoes / Nah, fuck it, I look '''good'''}}
+
+====Declension====
+{{de-adecl|comp:+[rare].sup:+est[extremely rare]}}
+
+===Further reading===
+* {{R:de:Duden}}
+* {{R:de:DWDS}}
+* {{R:de:OWID|407578}}
+
+==Middle English==
+
+===Adjective===
+{{head|enm|adjective|var=1}} 
+
+# {{alt form|enm|nyce}}
+
+==Spanish==
+
+===Etymology===
+{{ety|es|:ubor|en:nice|text=+|tree=1}}
+
+===Pronunciation===
+{{es-pr|nais|hyph=nice}}
+
+===Adjective===
+{{es-adj|pl=#}}
+
+# {{l|en|nice}}
+#: {{alti|es|nais}}
+#: {{syn|es|chulisnais|pipirináis}}
+
+====Usage notes====
+{{es-unadapted}}
+
+===Further reading===
+* {{R:es:DA}}
+
+==Swedish==
+
+===Etymology===
+{{bor+|sv|en|nice}}.
+
+===Adjective===
+{{head|sv|adjective}}
+
+# {{lb|sv|slang}} {{alt form of|sv|najs|t=nice}}
+
+==Turkish==
+
+===Etymology===
+{{inh+|tr|ota|نیچه|tr=niçe|t=how much}}, from {{inh|tr|trk-oat|نچه|tr=nẹçe}} from {{inh|tr|trk-pro|*nēče}}, equative form of {{m|trk-pro|*nē|t=what}}. See {{m|tr|ne|t=what}}, cognate to {{cog|xqa|ناجا|tr=nēčē|t=how much}}, {{cog|gag|nicä}}, {{cog|az|neçə}}.
+
+===Pronunciation===
+* {{tr-IPA|'nice}}
+* {{hyph|tr|ni|ce}}
+
+===Adjective===
+{{tr-adj}}
+
+# [[many]]
+#: {{syn|tr|çok }}
+
+===Adverb===
+{{head|tr|adverb}}
+
+# {{lb|tr|dialectal|or|poetic}} [[how]]
+#: {{syn|tr|nasıl}}
+# {{lb|tr|dialectal|or|poetic}} [[how many]]
+#* {{quote-song|tr|year=2002|author=Duman|title=Kırmış Kalbini|text=Kahpe dölün soyu <br> Ele vermiş seni <br> '''Nice''' yıllar boyu <br> Kırmış kalbini|t=That bastard of treacherous offspring stock <br> S/He peached against you <br> For all these years along <br> S/He had broken your heart}}
+
+====Derived terms====
+{{col3|tr|nice yıllara|nicelik|nicel}}
+
+===Further reading===
+* {{R:tr:TDK}}
+* {{R:lugatim}}
+* {{R:tr:Nişanyan}}

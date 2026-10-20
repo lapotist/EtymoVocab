@@ -1,0 +1,171 @@
+==English==
+{{wp}}
+
+===Etymology===
+{{root|en|ine-pro|*speḱ-}}
+From {{inh|en|enm|spectacle}}, from {{der|en|frm|spectacle}}, from {{der|en|la|spectāculum||a show, spectacle}}, from {{m|la|spectō||to see, behold}}, frequentative of {{m|la|speciō||to see}}. See {{m|en|species}}. {{doublet|en|spectaculum}}.
+
+===Pronunciation===
+* {{IPA|en|/ˈspɛktəkl̩/}}
+* {{hyph|en|spec|ta|cle}}
+* {{audio|en|LL-Q1860 (eng)-Mélange a trois-spectacle.wav|a=UK}}
+
+===Noun===
+{{en-noun}}
+
+# {{lb|en|countable}} An exciting or extraordinary scene, exhibition, performance etc.
+#: {{syn|en|pageant|show}}
+#: {{ux|en|The horse race was a thrilling '''spectacle'''.}}
+#* {{quote-book|en|passage=But scarcely was it set upon the table when the whole was carried off and plundered by the people who came to see the '''spectacle''' of the entertainment|author={{w|Robert Southey}}|page=555|url=https://www.google.com/books/edition/Choice_passages/RsE_AQAAMAAJ?hl=en&gbpv=1&dq=choiceness&pg=PA555&printsec=frontcover|title=Choice passages|publisher=Reaves and Turner|year=1876|editor=John Wood Warter}}
+#* {{RQ:Shakespeare Henry 6-1|act=I|scene=vi|page=100|column=1|passage=VVith ſcoffes and ſcornes, and contumelious taunts, / In open Market-place produc't they me, / To be a publique '''ſpectacle''' to all: / Here, ſayd they, is the Terror of the French, / The Scar-Crovv that affrights our Children ſo.}}
+#* '''22 March 2012''', Scott Tobias, AV Club ''The Hunger Games''[https://web.archive.org/web/20120324175255/http://www.avclub.com/articles/the-hunger-games,71293/]
+#*: In movie terms, it suggests Paul Verhoeven in Robocop/Starship Troopers mode, an R-rated bloodbath where the grim '''spectacle''' of children murdering each other on television is bread-and-circuses for the age of reality TV, enforced by a totalitarian regime to keep the masses at bay.
+# {{lb|en|uncountable}} Drama and excitement in a display, product, performance, exhibition, etc.
+#: {{ux|en|I enjoyed her presentation, but it needs more '''spectacle'''.}}
+# {{lb|en|countable}} An embarrassing or unedifying scene or situation.
+#: {{ux|en|He made a '''spectacle''' out of himself.}}
+# {{lb|en|countable}} {{attributive form of|en|spectacles}}.
+#* {{quote-journal|en|author=Peleg Parsley Bell|title=Seeing the World. Letter No. 5. {{...|By Peleg Parsley Bell.}} Still in London.|journal=w:The Flag of Our Union|volume=XIII|issue=33|location=Boston, Mass.|publisher=[[w:Maturin Murray Ballou|M{{quote-gloss|aturin}} M{{quote-gloss|urray}} Ballou]]|date=14 August 1858|page=260|pageurl=https://archive.org/details/sim_flag-of-our-union_1858-08-14_13_33/page/260/mode/1up|column=2|passage=Some very interesting relics of Adam and Eve were shown us, that were brought from America; such as a fine-tooth comb, made of thorns, a part of a pair of leather '''spectacle''' frames, without glasses, a boot jack made of ebony, and a set of pawpaws of props, with the backs filled with a hard substance, resembling lava.}}
+# {{lb|en|countable|zoology}} The [[brille]] of a [[snake]].
+# {{lb|en|countable|rail transport}} A frame with different coloured lenses on a [[semaphore]] [[signal]] through which light from a lamp shines at night, often a part of the signal arm.
+
+====Synonyms====
+* {{sense|optical instrument}} {{l|en|glasses}}, {{l|en|eyeglasses}}, {{l|en|specs}}
+
+====Derived terms====
+{{col|en|minispectacle|spectacled|spectacleless|spectaclelike|spectaclemaker|spectaclemaking
+|bespectacled
+|counterspectacle
+|make a public spectacle of oneself
+|make a spectacle of oneself
+|spectacle case
+|spectacles, testicles, wallet and watch
+|superspectacle
+}}
+
+====Related terms====
+* {{l|en|species}}
+* {{l|en|spectacular}}
+* {{l|en|speculate}}
+
+====Translations====
+{{trans-top|something exciting or extraordinary}}
+* Arabic: {{t|ar|مَشْهَد|m}}, {{t|ar|مَسْرَحِيَّة|f}}
+* Azerbaijani: {{t+|az|tamaşa}}
+* Bashkir: {{t|ba|тамаша}}
+* Belarusian: {{t+|be|відо́вішча|n}}, {{t|be|спекта́кль|m}}
+* Bhojpuri: {{t|bho|तमासा}}
+* Bulgarian: {{t+|bg|зре́лище|n}}, {{t+|bg|спекта́къл|m}}
+* Catalan: {{t+|ca|espectacle|m}}
+* Chinese:
+*: Mandarin: {{t+|cmn|奇觀}}
+* Czech: {{t+|cs|podívaná|f}}
+* Danish: {{t|da|skue|n}}
+* Dutch: {{t+|nl|spektakel|n}}
+* Esperanto: {{t+|eo|spektaklo}}
+* Finnish: {{t+|fi|näytelmä}}, {{t+|fi|näky}}, {{t+|fi|spektaakkeli}}
+* French: {{t+|fr|spectacle|m}}
+* Galician: {{t+|gl|espectáculo|m}}
+* German: {{t+|de|Spektakel|n}}, {{t+|de|Schauspiel|n}}
+* Greek: {{t+|el|θέαμα|n}}
+*: Ancient Greek: {{t|grc|θέαμα|n}}
+* Hungarian: {{t+|hu|látvány}}, {{t+|hu|látnivaló}}, {{t+|hu|látványosság}}
+* Italian: {{t+|it|spettacolo|m}}
+* Japanese: {{t+|ja|壮観|tr=そうかん, sōkan}}, {{t+|ja|光景|tr=こうけい, kōkei}}, {{t|ja|スペクタクル|tr=supekutakuru}}
+* Kazakh: {{t|kk|көрініс}}
+* Korean: {{t+|ko|광경(光景)}}, {{t|ko|스펙터클}}
+* Kyrgyz: {{t+|ky|көрүнүш}}
+* Latin: {{t+|la|spectāculum|n}}
+* Latvian: {{t|lv|izstāde|f}}, {{t|lv|ekspozīcija|f}}
+* Norwegian:
+*: Bokmål: {{t|nb|skue|n}}
+* Persian:
+*: Iranian Persian: {{t|fa-ira|مَنْظَرِه}}, {{t|fa-ira|تَماشا}}, {{t|fa-ira|نَمایِش}}
+* Polish: {{t+|pl|widowisko|n}}, {{t+|pl|spektakl|m}}
+* Portuguese: {{t+|pt|espetáculo|m}}, {{t+|pt|show|m}}, {{t+|pt|mostra|f}}
+* Punjabi:
+*: Gurmukhi: {{t|pa|ਤਮਾਸ਼ਾ|m}}
+* Romanian: {{t+|ro|spectacol|n}}
+* Russian: {{t+|ru|зре́лище|n}}, {{t+|ru|спекта́кль|m}}, {{t+|ru|представле́ние|n}}
+* Slovak: {{t|sk|podívaná|f}}
+* Spanish: {{t+|es|espectáculo|m}}
+* Swedish: {{t+|sv|spektakel|n}}, {{t+|sv|syn|c}}
+* Tajik: {{t|tg|манзара}}, {{t+|tg|тамошо}}, {{t|tg|намоиш}}
+* Turkish: {{t+|tr|manzara}}, {{t+|tr|temaşa}}
+* Turkmen: {{t|tk|tomaşa}}
+* Ukrainian: {{t|uk|видо́вище|n}}, {{t|uk|видо́висько|n}}, {{t|uk|спекта́кль|m}}
+* Uyghur: {{t|ug|تاماشا}}, {{t|ug|كۆرۈنۈش}}
+* Uzbek: {{t+|uz|tomosha}}, {{t+|uz|manzara}}, {{t+|uz|koʻrinish}}
+{{trans-bottom}}
+
+{{trans-top|an embarrassing situation}}
+* Finnish: {{t+|fi|näytös}}
+* Portuguese: {{t+|pt|espectáculo|m}}
+* Spanish: {{t+|es|espectáculo|m}}, {{t+|es|papelón|m}} {{qualifier|colloquial}}
+* Swedish: {{t+|sv|spektakel|n}}
+{{trans-bottom}}
+
+{{trans-see|optical instrument|spectacles}}
+
+{{trans-top|aid to intellectual sight}}
+* Finnish: {{t+|fi|peili}}, {{t+|fi|silmälasit|p}}
+{{trans-bottom}}
+
+{{checktrans-top}}
+* Vietnamese: {{t+check|vi|cảnh tượng}}, {{t+check|vi|cảnh tượng}}, {{t-check|vi|sự trình diễn}}, {{t-check|vi|sự biểu diễn}}, {{t+check|vi|kính}}
+{{trans-bottom}}
+
+===Further reading===
+* {{R:Century}}
+* {{pedia|Railway semaphore signal}}
+* {{R:Webster 1913}}
+
+==French==
+
+===Etymology===
+{{root|fr|ine-pro|*speḱ-}}
+{{ety|fr|:inh|frm:spectacle<ety:inh<fro:spectacle<ety:bor<la:spectaculum>>>>|tree=1}}
+From {{der|fr|la|spectaculum}}, from {{m|la|spectare|t=to look}}.
+
+===Pronunciation===
+* {{fr-IPA}}
+* {{hyphenation|fr|spec|ta|cle}}
+* {{audio|fr|Fr-spectacle.ogg}}
+* {{audio|fr|LL-Q150 (fra)-DSwissK-spectacle.wav|a=<<Switzerland>> (<<Valais>>)}}
+* {{audio|fr|LL-Q150 (fra)-LoquaxFR-spectacle.wav|a=<<France>> (<<Vosges>>)}}
+* {{audio|fr|LL-Q150 (fra)-Poslovitch-spectacle.wav|a=<<France>> (<<Vosges>>)}}
+
+===Noun===
+{{fr-noun|m}}
+
+# a [[show]], a {{l|en|spectacle}}, a [[performance]], a [[concert]]
+#: {{ux|fr|Ils ont estimé qu'il est divertissant et qu'il se démarque nettement du '''spectacle''' actuel.|They thought it was entertaining and that there was a clear difference between it and the current '''show'''.}}
+# a [[sight]], a [[showing]], a [[display]]
+#: {{ux|fr|Devant un tel '''spectacle''' ils se jetèrent à genoux pleurant les morts de leurs compatriotes.|They went down on their knees crying for the deaths of their fellow countrymen at this atrocious '''sight'''.}}
+
+====Derived terms====
+* {{l|fr|s'offrir en spectacle}}
+* {{l|fr|se donner en spectacle}}
+
+====Descendants====
+{{top2}}
+* {{desc|cs|spektákl|bor=1}}
+* {{desctree|de|Spektakel|id=row|bor=1}}
+* {{desc|pl|spektakl|bor=1}}
+* {{desc|ro|spectacul|spectacol|bor=1}}
+* {{desctree|ru|спекта́кль|bor=1}}
+{{bottom}}
+
+===Further reading===
+* {{R:fr:TLFi}}
+
+==Middle English==
+
+===Noun===
+{{head|enm|noun}}
+
+# something that helps understanding
+#* {{RQ:Chaucer Canterbury Tales|Wife of Bath's Tale|passage=Pouert a spectacle is, as thynketh me / Through which one may his very frendes se}}
+
+====Descendants====
+* {{desc|en|spectacle}}

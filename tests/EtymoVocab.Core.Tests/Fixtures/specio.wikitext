@@ -1,0 +1,99 @@
+==Esperanto==
+{{wp|eo:}}
+
+===Etymology===
+{{ety|eo|:bor|it:specie<alt:spècie><ety:uder<la:speciēs>>|text=2|tree=1}} Compare {{cog|de|Spezies}}, {{cog|fr|espèce}}. Related to {{m|eo|specifa||specific}}. {{doublet|eo|spico}}.
+
+===Pronunciation===
+{{eo-pr|a=LL-Q143 (epo)-Lepticed7-#.wav;LL-Q143 (epo)-Robin van der Vliet-#.wav|hyph=speci‧o}}
+
+===Noun===
+{{eo-head}}
+
+# {{senseid|eo|Q7432}} {{lb|eo|biology|taxonomy}} [[species]]
+
+====Derived terms====
+* {{l|eo|subspecio||subspecies}}
+
+===See also===
+{{col4|eo
+|tipo<qq:“type, kind”>
+|speco
+}}
+
+==Latin==
+
+===Alternative forms===
+* {{alt|la|spiciō}}
+
+===Etymology===
+{{ety|la|title=speciō|:inh|itc-pro:*spekjō<id:observe>|id=observe}}
+{{inh+|la|itc-pro|*spekjō}}, from {{der|la|ine-pro|*spéḱyeti}}.<ref name=EDL>{{R:itc:EDL|pages=578-9|head=speciō, -ere|passage=*spekje/o-}}</ref>
+
+{{lg|cognate|Cognates}} include {{cog|grc|σκέπτομαι}}, {{cog|ae|𐬯𐬞𐬀𐬯𐬫𐬈𐬌𐬙𐬌}}, and {{cog|sa|पश्यति|tr=páśyati}}.
+
+===Pronunciation===
+* {{la-IPA|speciō}}
+* {{hyph|la|spe|ci|ō}}
+
+===Verb===
+{{la-verb|3|speciō|spex|spect}}
+
+# {{lb|la|OL.|rare}} to [[observe]], [[watch]], [[look at]]
+#: {{syn|la|cōnspicor|īnspectō|īnspiciō|intueor|invīsō|spectō|suspiciō|tueor|videō|vīsō}}
+#* {{Q|la|Varro|De Lingua Latina|82|quote=''Spectare'' dictum ab antiquo, quo etiam Ennius usus: "Quos Epulo postquam '''spexit'''" . . . et quod in auguriis etiam nunc augures dicunt avem '''specere'''. Consuetudo com<m>unis quae cum praeverbi<nowiki><i></nowiki>s coniun<c>ta fuerunt etiam nunc servat, ut aspicio, conspicio, respicio, suspicio, despicio|t=''Spectare'' derives from an old word, which Ennius also used: "After Epulo '''saw''' them" . . . and because even now, in the taking of auguries, some augurs say '''''specere''''' [to '''watch'''] a bird. Common custom still preserves compounds joined with preverbs, such as ''aspicio'', ''conspicio'', ''respicio'', ''suspicio'', ''despicio''}}
+#* {{Q|la|Festus|De Verborum Significatione|446|2|thru=5|quote=''spicit'' quoque sine praepositione dixerunt antiqui . . . et ''spexit''. Ennius lib. XVI: quos ubi rex Epulo spexit de cotibus celsis|t=The ancients also used to say '''''spicit''''' ['''sees'''] without a preposition and '''''spexit''''' ['''saw''']. Ennius. Book 19: "When the king Epulo '''saw''' them from the high rocks"}}
+
+====Conjugation====
+{{la-conj|3|speciō|spex|spect}}
+
+====Derived terms====
+{{col|la|title=prefixed verbs
+|aspiciō
+|cōnspiciō
+|cōnspicor
+|dēspiciō
+|dispiciō
+|īnspiciō
+|perspiciō
+|praespiciō
+|prōspiciō
+|respiciō
+|retrospiciō
+|suspiciō
+|trānspiciō
+}}
+
+{{col|la|title=other parts of speech
+|speciālis
+|speciēs
+|specillum
+|specimen
+|spectō
+|spectrum
+|specula
+|speculum
+}}
+
+===References===
+{{reflist}}
+
+===Further reading===
+* {{R:la:L&S|spĕcĭo}}
+* {{R:la:Georges|volume=2|column=2749}}
+* {{R:la:DMLBS|specere}}
+* {{R:la:Gaffiot|page=1463|column=3}}
+* {{R:la:LaNe|speciō|specio}}
+
+{{cln|la|unprefixed third conjugation verbs}}
+{{C|la|Vision}}
+
+==Venetan==
+
+===Etymology===
+{{inh+|vec|la-vul|speclum}}, from {{der|vec|la|speculum}}. Compare {{cog|it|specchio|spècchio}}.
+
+===Noun===
+{{vec-noun|spec|m|io|i|head=spècio}}
+
+# {{senseid|vec|Q35197}} [[mirror]] {{gl|smooth reflecting surface}}

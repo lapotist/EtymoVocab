@@ -1,0 +1,30 @@
+==Latin==
+
+===Etymology===
+{{ety|la|title=īnspiciō|:af|in-<id:in>|speciō|text=+|tree=1}}
+
+===Pronunciation===
+* {{la-IPA|īnspiciō}}
+
+===Verb===
+{{la-verb|3|īnspiciō|īnspex|īnspect}}
+
+# to [[examine]] or [[inspect]]
+#: {{syn|la|aspiciō|lūstrō|perlūstrō|recēnseō|circumspiciō|cōnspiciō|obeō|arbitror|cōnsīderō|reputō|exsequor}}
+# to [[look into]], [[look upon]], [[consider]] or [[contemplate]]
+#: {{syn|la|videō|intueor|tueor|vīsō|spectō|īnspectō|suspiciō|speciō|invīsō}}
+# to [[observe]]
+#: {{syn|la|perlustrō|conspicio|cū̆stōdiō|curo|intueor|animadverto|servo}}
+
+====Conjugation====
+{{la-conj|3|īnspiciō|īnspex|īnspect}}
+
+====Derived terms====
+* {{l|la|īnspector}}
+
+===References===
+* {{R:la:L&S}}
+* {{R:la:Elementary Lewis}}
+* {{R:la:du Cange}}
+* {{R:la:Gaffiot}}
+* {{R:la:M&A}}

@@ -1,0 +1,97 @@
+{{also|faeder|fäder}}
+==English==
+
+===Noun===
+{{en-noun}}
+
+# {{alternative spelling of|en|faeder}}.
+#* {{quote-journal|en|author=Joop Jukema; w:Theunis Piersma|title=Kleine mannelijke Kemphanen met vrouwelijk broedkleed: bestaat er een derde voortplantingsstrategie, ''de faar''?|journal=Limosa|publisher=[[w:Sovon|Sovon Dutch Centre for Field Ornithology]]|year=2004|volume=77|page=3|passage=Linear dimensions (mm) of female, intermediate ('''fæder''') and male Ruffs, respectively, all measured by Joop Jukema. The material on females and males was all collected during the spring migrations of 2002 and 2003. All birds, except one '''fæder''' of 1 year old, were adult.}}
+#* {{quote-journal|en|author=Yvonne I[ngje] Verkuil; Joop Jukema; Jennifer A. Gill; Natalia Karlionova; Johannes Melter; Jos C[orstiaan] E[lbert] W[outer] Hooijmeijer; w:Theunis Piersma|title=Non-breeding fæder Ruffs ''Philomachus pugnax'' associate according to sex, not morphology|journal=w:Bird Study|publisher=w:British Trust for Ornithology|year=2008|volume=55|issue=3|page=421|doi=10.1080/00063650809461529|passage=The fraction of '''fæders''' was estimated in five morphometric data sets that were collected over four decades in four different countries in three different seasons (comprising 9133 Ruffs). The regression of '''fæder'''–female fractions was tested against the null model assuming that the number of '''fæders''' is 1.0% of females.}}
+#* {{quote-book|en|author=Neil Calbrade; Chas Holt; Graham Austin; Heidi Mellan; Richard Hearn; David Stroud; Simon Wotton; Andy Musgrove|chapter=Waders|title=Waterbirds in the UK 2008/09: The Wetland Bird Survey|location=Thetford, Norfolk|publisher={{w|British Trust for Ornithology}}, {{w|Royal Society for the Protection of Birds}} and {{w|Joint Nature Conservation Committee}} in association with {{w|Wildfowl & Wetlands Trust}}|month=June|year=2010|section=section “Ruff: ''Philomachus pugnax''”|page=128|column2=|isbn=978-1-906204-33-4|issn=1755-6384|passage=The survival costs to '''fæders''' linked to the use of sub-optimal habitats as a result of competition from their larger counterparts may be compensated by higher breeding success.}}
+#* {{quote-journal|en|author=Lucie Emilie Schmaltz; Cédric Juillet; Joost Marius Tinbergen; Yvonne Ingje Verkuil; Joslyn Corstiaan Elbert Wouter Hooijmeijer; w:Theunis Piersma|title=Apparent annual survival of staging ruffs during a period of population decline: insights from sex and site-use related differences|journal=Population Ecology|publisher=[[w:Springer Science+Business Media|Springer]]|date=21 October 2014|year_published=2015|volume=57|section=section “Field methods and data collection”|page=615|column=1|doi=10.1007/s10144-015-0511-4|passage=As females are a third smaller than males, most birds could easily be assigned a sex, while the '''fæders''', female-mimicking males, were discriminated using wing length (Jukema and Piersma 2006).}}
+#* {{quote-book|en|author=Clemens Küpper|editors=w:Todd K. Shackelford; Viviana A. Weekes-Shackelford|entry=Ruff Shorebird, The|title=Encyclopedia of Evolutionary Psychological Science|publisher=[[w:Springer Science+Business Media|Springer]]|year=2016|doi=10.1007/978-3-319-16999-6_3414-1|isbn=978-3-31-916999-6|passage='''Fæder''' males travel with females and, like Satellites, they are nonterritorial and nonagonistic.}}
+
+===Anagrams===
+* {{anagrams|en|a=adeefr|Fareed|Freeda|ad-free|afeerd|deafer|feared}}
+
+==Middle English==
+
+===Noun===
+{{head|enm|noun|var=1}}
+
+# {{tlb|enm|Early ME}} {{alt form|enm|fader}}
+
+==Old English==
+
+===Alternative forms===
+* {{alter|ang|fader||Northumbrian}}
+* {{alter|ang|feder||Northumbrian|Mercian}}
+* {{alter|ang|fador||Northumbrian|Mercian}}
+* {{alter|ang|fadur|feadur|fieder|fædyr|fædir}}
+
+===Etymology===
+{{etymon|ang|id=father|:inh|gmw-pro:*fader<id:father>}}
+From {{inh|ang|gmw-pro|*fader}}, from {{inh|ang|gem-pro|*fadēr}}, from {{inh|ang|ine-pro|*ph₂tḗr}}.
+
+Old Germanic cognates: {{cog|ofs|feder}}, {{cog|osx|fadar}}, {{cog|odt|fader}}, {{cog|goh|fater}}, {{cog|non|faðir}}, {{cog|got|𐍆𐌰𐌳𐌰𐍂}}.
+
+===Pronunciation===
+* {{ang-IPA|fæder}}
+* {{rhymes|ang|æ.der|s=2}}
+
+===Noun===
+{{ang-noun||m}}
+
+# [[father]]
+#* {{quote-book|ang|text=''Til biþ sē þe his trēowe ġehealdeþ, · ne sċeal nǣfre his torn tō ryċene<br/>beorn of his brēostum ācȳþan, · nemþe hē ǣr þā bōte cunne,<br/>eorl mid elne ġefremman. · Wel bið þām þe him āre sēċeð,<br/>frōfre tō '''fæder''' on heofonum, · þǣr ūs eal sēo fæstnung stondeð.''|t=Good is that keeps his belief, should not ever unfold his wrath,<br/>fighter of his breasts, too quickly, unless before this help he would<br/>know how to help out a man with strength. It's good for him who seeks<br/>help from '''the Father''' in heavens, where this whole fastening stands for us.|title=The Wanderer|year=10th century}}
+
+====Declension====
+{{ang-decl-noun
+|fæder|fæderas
+|fæder|fæderas
+|fæder,[[fæderes]]{{sup|1}}|fædera
+|fæder,[[fædere]]{{sup|1}}|fæderum
+}}
+{{sup|1}} Rare.
+
+====Derived terms====
+{{col|ang
+|ǣrfæder
+|eald fæder,ealdfæder
+|fæderæþelu
+|fæderen
+|fæderēþel
+|fæderfeoh
+|fæderġeard
+|fæderġestrēon
+|fæderlēas
+|fæderlīċ
+|fæderslaga
+|fæderswica
+|fēorþa fæder
+|fēsterfæder
+|forefæder
+|fōstorfæder
+|fulwihtfæder
+|godfæder
+|hēafodfæder
+|hēahfæder
+|mynsterfæder
+|nēahfæder
+|sōþfæder
+|stēopfæder
+|þridda fæder
+|wuldorfæder
+}}
+
+====Related terms====
+{{col|ang
+|fædera
+|faþu
+}}
+
+====Descendants====
+* {{desctree|enm|fader}}
+* {{desc|bor=1|en|faeder}}
+
+{{topics|ang|Male family members}}

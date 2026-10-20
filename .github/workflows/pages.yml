@@ -1,0 +1,60 @@
+# Builds the static site (src/EtymoVocab.Web: .NET WebAssembly + plain HTML/JS) and deploys it to
+# GitHub Pages. Pull requests only build and test; pushes to main also deploy.
+#
+# One-time repository setup: Settings → Pages → Build and deployment → Source: "GitHub Actions".
+# The site is served at <user-site-domain>/<repository-name>/ (case-sensitive), e.g. lapotist.me/EtymoVocab/.
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  # Never cancel a deployment in progress; superseded pull request builds can be cancelled.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Test
+        run: dotnet test --configuration Release
+
+      - name: Publish static site
+        run: dotnet publish src/EtymoVocab.Web --configuration Release --output publish
+
+      - name: Check site output
+        run: |
+          test -f publish/wwwroot/index.html
+          test -f publish/wwwroot/_framework/dotnet.js
+          du -sh publish/wwwroot
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: publish/wwwroot
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

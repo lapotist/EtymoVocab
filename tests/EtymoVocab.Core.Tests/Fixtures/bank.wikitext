@@ -1,0 +1,1937 @@
+{{also|Appendix:Variations of "bank"}}
+{{minitoc}}
+==English==
+
+===Alternative forms===
+* {{alt|en|banck|bancke|banke||obsolete}}
+
+===Pronunciation===
+* {{a|en|non-æ-tensing}}
+** {{IPA|en|/ˈbæŋk/|[ˈbæŋk]|a=RP,GA,AU!Australia}}
+** {{IPA|en|/ˈbaŋk/|[ˈbaŋk]|a=SSB,Northern England,Scotland,Wales}}
+** {{IPA|en|/ˈbɛŋk/|[ˈbɛŋk]|a=NZ}}
+* {{a|en|æ-tensing}}
+** {{IPA|en|/ˈbeɪ̯ŋk/|[ˈbeɪ̯ŋk]|;|/ˈbɛ̃ŋk/|[ˈbɛ̃ŋk]|a=US,CA}}
+*** {{audio|en|en-us-bank.ogg|a=US}}
+* {{rhymes|en|æŋk|s=1}}
+* {{hyph|en|bank}}
+
+===Etymology 1===
+{{etymon|en|id=institution|:der|frm:banque<id:bank>|tree=1}}
+[[File:Bank of England Building, London, UK - Diliff.jpg|thumb|The {{w|Bank of England}} is one of the first modern central '''banks''' ({{senseno|en|Q22687}}), established in 1694.]]
+
+{{inh+|en|enm|banke}}, from {{der|en|frm|banque}}, from {{der|en|it|banca||counter, moneychanger's bench or table}}, from {{der|en|lng|bank||bench, counter}}, from {{der|en|gmw-pro|*banki}}, from {{der|en|gem-pro|*bankiz||bench, counter}}, from {{der|en|ine-pro|*bʰeg-||to turn, curve, bend, bow}}. {{doublet|en|bench|banc|banco}}.
+
+For the bench-bank relation, compare typologically {{m+|ru|ла́вка}}, {{m|ru|прила́вок}}.
+
+====Noun====
+{{en-noun|~}}
+
+# {{senseid|en|Q22687}} {{lb|en|countable}} An [[institution]] where one can place and borrow [[money]] and take care of [[financial]] affairs.
+#* {{quote-journal|en|date=2013-06-01|volume=407|issue=8838|page=71|magazine=w:The Economist
+|title=[http://www.economist.com/news/finance-and-economics/21578670-peer-peer-lending-needs-new-name-end-peer-show End of the peer show]
+|passage=Finance is seldom romantic. But the idea of peer-to-peer lending comes close. This is an industry that brings together individual savers and lenders on online platforms.{{...}}'''Banks''' and credit-card firms are kept out of the picture. Talk to enough people in the field and someone is bound to mention the “democratisation of finance”.}}
+# {{lb|en|countable}} A [[branch office]] of such an institution.
+#: {{syn|en|Lombard house<q:archaic>}}
+# {{lb|en|countable}} An underwriter or [[controller]] of a [[card game]].
+#: {{syn|en|banker|banque}}
+# {{lb|en|countable}} A fund from [[deposits]] or [[contributions]], to be used in transacting [[business]]; a [[joint]] [[stock]] or [[capital]].
+#* {{RQ:Bacon Essayes|chapter=Of Usury|passage=Let it be no '''bank''' or common stock, but every man be master of his own money.}}
+# {{lb|en|gambling|countable}} The sum of money etc. which the [[dealer]] or [[banker]] has as a [[fund]] from which to draw [[stake]]s and pay [[loss]]es.
+# {{lb|en|slang|uncountable}} [[money|Money]]; [[profit]].
+#* {{quote-book|en|year=2010|author=Paul Bouchard|title=Enlistment|page=113|passage=Military dude was working for a drug dealer, right? and making good '''bank''' with it—he was making good money.}}
+# {{lb|en|countable}} In certain games, such as [[domino]]s, a fund of [[piece]]s from which the players are allowed to draw.
+# {{lb|en|countable|mostly|in combination}} A [[safe]] and [[guaranteed]] place of [[storage]] for and [[retrieval]] of important items or goods.
+#: {{co|en|[[blood bank|blood '''bank''']]; [[data bank|data '''bank''']]; [[sperm bank|sperm '''bank''']]}}
+# {{lb|en|countable}} A device used to store coins or currency.
+#: {{ux|en|If you want to buy a bicycle, you need to put the money in your piggy '''bank'''.}}
+# {{lb|en|countable|music}} A collection of instrument data on a digital [[synthesizer]].
+#: {{ux|en|All of the drum kits are on '''bank''' 1.}}
+
+=====Derived terms=====
+{{col4|en|title=Terms derived from ''bank'' (noun: financial institution; repository; etc)
+|antibank|bank craps|bank engine|bank roll|bank-robber|de-bank|favor bank|narrow bank|power bank
+|bank card,bankcard| diaper bank|wildcat bank
+|bank charge
+|bank cheque|member bank| safe as the Bank of England
+|bank clerk|DINB
+|bank court|at the bank|bad bank|bank account|bank balance|autobank|bancorporation|bankability|bankbook|bankerage|bankful|bankfull|Bankhead|Brooksbank|claybank|codbank|Fairbank|Fairbanks|potbank|railbank|serobank|Stonebank|testbank|trunkback|unbanked
+|bank credit|warm bank|bank discount|bank-bursting|pig bank
+|bank draft|letter bank
+|Bank Giro,bank giro
+|Bank Holiday,bank holiday
+|bank interest| pay by bank
+|bank job
+|banklike
+|baby bank
+|bank machine
+|bank manager|bankfare|monobank|subbank
+|bank mix
+|bank money
+|bank night
+|bank note,banknote
+|bankocracy| gold bank|trading bank
+|bank of deposit|bank bill|nappy bank
+|bank of issue
+|bank of mum and dad
+|bank paper
+|bank parlour
+|bank post
+|bank rate
+|bank receipt
+|bank reserves
+|bank robber
+|bank robbery
+|bankroll
+|bank run
+|bank statement
+|bankster
+|bank stock
+|bank switching
+|bank token
+|bank transfer
+|bankward
+|Barclays Bank
+|biobank
+|blood bank
+|bottle bank
+|branch bank
+|break the bank
+|central bank
+|clearing bank
+|coin bank
+|commercial bank
+|cry all the way to the bank
+|cryobank
+|cyberbank
+|cuss bank
+|data bank,databank
+|direct bank
+|egg bank
+|Eurobank
+|European Central Bank
+|eye bank,eyebank
+|food bank
+|gene bank
+|in bank
+|interbank
+|intrabank
+|investment bank
+|joint-stock bank
+|land bank,landbank
+|laugh all the way to the bank
+|load bank
+|mechanical bank
+|megabank
+|memory bank
+|merchant bank
+|microbank
+|multibank
+|national bank
+|neobank
+|netbank
+|nonbank
+|optical bank
+|overbanked
+|penny bank
+|phone bank<!--banking institution-->
+|photobank
+|piggy bank
+|powerbank
+|prime bank
+|private bank
+|reserve bank
+|run on the bank
+|Russian Bank
+|savings bank
+|seed bank
+|shadow bank
+|soundbank
+|spank bank
+|sperm bank
+|state bank
+|superbank
+|Swiss bank
+|take to the bank
+|time bank,timebank
+|treebank
+|trustee savings bank
+|voicebank
+|vote bank
+|wank bank
+|World Bank
+|zombie bank
+|bank effect|bank shot|bank slip|bank-a-ball|challenger bank|court in bank|e-bank|heat bank|make bank|mutual savings bank|paper bank|retail bank|savings-bank|universal bank}}
+
+=====Related terms=====
+{{col3|en|bancassurance|banco|bankrupt}}
+
+=====Descendants=====
+''Some may be via other European languages.''
+{{top4}}
+* {{desc|bi|bang}}
+* {{desc|pis|benk}}
+* {{desc|tpi|beng}}
+* {{desc|sq|bankë|bor=1}}
+* {{desc|as|বেংক|bor=1}}
+* {{desc|bdy|banggu|bor=1}}
+** {{desc|en|bungoo|bor=1}}
+* {{desc|bn|ব্যাংক|bor=1}}
+* {{desc|bol|banki|bor=1}}
+* {{desc|my|ဘဏ်|bor=1}}
+* {{desc|ny|banki|bor=1}}
+* {{desc|fj|baqe|bor=1}}
+* {{desc|gu|બેંક|bor=1}}
+* {{desc|ha|banki|bor=1}}
+* {{desc|haw|panakō|bor=1}}
+* {{desc|hi|बैंक|tr=baiṅk|bor=1}}
+* {{desc|id|bank|bor=1}}
+* {{desc|ja|バンク|tr=banku|bor=1}}
+* {{desc|kam|mbengi|bor=1}}
+* {{desc|kn|ಬ್ಯಾಂಕ್|bor=1}}
+* {{desc|ki|bengi|bor=1}}
+* {{desc|luy|ebank|bor=1}}
+* {{desc|ms|bank|bor=1}}
+* {{desc|mi|pēke|bor=1}}
+* {{desc|mr|बँक|bor=1}}
+* {{desc|mer|mbengi|bor=1}}
+* {{desc|ne|बैंक|bor=1}}
+* {{desc|pa|-|bor=1}}
+* {{desc|pa|ਬੈਂਕ|sclang=1}}
+* {{desc|pa|بَینْک|sclang=1}}
+* {{desc|so|banki|bangi|bor=1}}
+* {{desc|sw|benki|bor=1}}
+* {{desc|ta|பாங்கி|வங்கி|bor=1|der2=1}}
+* {{desc|te|బ్యాంకు|bor=1}}
+* {{desc|th|แบงก์|bor=1}}
+* {{desc|to|pangikē|bor=1}}
+* {{desc|uli|baaengk|bor=1}}
+* {{desc|unm|mpenk|bor=1}}
+* {{desc|ur|بینک|tr=baiṅk|bor=1}}
+* {{desc|cy|banc|bor=1}}
+{{bottom}}
+
+=====Translations=====
+{{trans-top|institution}} {{multitrans|data=
+* Abkhaz: {{tt|ab|абанк}}
+* Afrikaans: {{tt+|af|bank}}
+* Albanian: {{tt+|sq|bankë|f}}, {{qualifier|definite}} {{tt+|sq|banka|f}}
+* Amharic: {{tt|am|ባንክ}}
+* Apache:
+*: Western Apache: {{tt|apw|zhááli bikih}}
+* Arabic: {{tt|ar|مَصْرِف|m}}, {{tt+|ar|بَنْك|m}}
+* Armenian: {{tt+|hy|բանկ}}, {{tt+|hy|դրամատուն}}
+* Assamese: {{tt|as|বেংক}}
+* Asturian: {{tt|ast|bancu|m}}, {{tt|ast|banca|f}}
+* Australian Kriol: beingk
+* Azerbaijani: {{tt+|az|bank}}, {{tt|az|sərrafxana}}
+*: South Azerbaijani: {{tt|az|صرافخانه}}
+* Basque: {{tt|eu|banku}}
+* Belarusian: {{tt+|be|банк|m}}
+* Bengali: {{tt+|bn|ব্যাংক}}
+* Bislama: {{tt|bi|bang}}
+* Bole: {{tt|bol|banki}}
+* Breton: {{tt+|br|bank|m}}
+* Bulgarian: {{tt+|bg|ба́нка|f}}
+* Burmese: {{tt+|my|ဘဏ်}}
+* Carpathian Rusyn: {{tt|rue|ба́нка|f}}
+* Catalan: {{tt+|ca|banc|m}}
+* Chechen: {{tt|ce|банк}}
+* Cherokee: {{tt|chr|ᎠᏕᎳᏗᏗᎢ}}
+* Chichewa: {{tt|ny|banki}}
+* Chinese:
+*: Cantonese: {{tt+|yue|銀行}}
+*: Dungan: {{tt|dng|йинхон}}
+*: Eastern Min: {{tt|cdo|銀行}}
+*: Hakka: {{tt|hak|銀行|tr=ngiùn-hòng}}
+*: Hokkien: {{tt|nan-hbl|銀行|tr=gîn-hâng, gûn-hâng, gîrn-hâng}}
+*: Jin: {{t|cjy|銀行}}
+*: Mandarin: {{tt+|cmn|銀行}}
+*: Wu: {{tt|wuu|銀行}}
+* Circassian:
+*: West Circassian: {{tt|ady|ахъщэзэблэхъущ}}
+* Comorian:
+*: Ngazidja Comorian: {{tt|zdj|banki|c9}}
+* Crimean Tatar: {{tt|crh|bank}}
+* Czech: {{tt+|cs|banka|f}}
+* Danish: {{tt+|da|bank|c}}
+* Dusun:
+*: Central Dusun: {{tt|dtp|bank}}
+* Dutch: {{tt+|nl|bank|f}}
+* Elfdalian: {{tt|ovd|baunka|f}}
+* Esperanto: {{tt|eo|banko}}
+* Estonian: {{tt+|et|pank}}
+* Faroese: {{tt+|fo|banki|m}}
+* Finnish: {{tt+|fi|pankki}}
+* French: {{tt+|fr|banque|f}}
+* Frisian:
+*: West Frisian: {{tt|fy|bank}}
+* Fula:
+*: Adlam: {{tt|ff|𞤦𞤢𞤲𞤳𞤭}}
+*: Latin: {{tt|ff|banki}}
+* Galician: {{tt+|gl|banco|m}}, {{tt+|gl|banca|f}}
+* Georgian: {{tt|ka|ბანკი}}
+* German: {{tt+|de|Bank|f}}
+* Greek: {{tt+|el|τράπεζα|f}}
+* Greenlandic: {{tt|kl|banki}}
+* Guianese Creole: {{t|gcr|bank}}
+* Gujarati: {{tt|gu|બેંક}}
+* Hausa: {{tt+|ha|banki}}
+* Hawaiian: {{tt|haw|panakō}}
+* Hebrew: {{tt+|he|בַּנְק|m|tr=bank}}
+* Hiligaynon: {{tt|hil|bangko}}, {{tt|hil|talagoan-pilak}}
+* Hindi: {{tt+|hi|बैंक|tr=baiṅk|m}}
+* Hungarian: {{tt+|hu|bank}}
+* Icelandic: {{tt+|is|banki|m}}
+* Ido: {{tt+|io|banko}}
+* Indonesian: {{tt+|id|bank}}
+* Interlingua: {{tt|ia|banca}}
+* Irish: {{tt+|ga|banc}}
+* Italian: {{tt+|it|banca|f}}, {{tt+|it|banco|m}}
+* Japanese: {{tt+|ja|銀行|tr=ぎんこう, ginkō}}, {{tt+|ja|バンク|tr=banku}}
+* Javanese: {{tt|jv|bang}}
+* Kamba: {{tt|kam|mbengi}}
+* Kannada: {{tt+|kn|ಬ್ಯಾಂಕ್}}
+* Kazakh: {{tt|kk|банк}}
+* Khmer: {{tt+|km|ធនាគារ}}
+* Kikuyu: {{tt|ki|fengi}}
+* Korean: {{tt+|ko|은행(銀行)}}
+* Kurdish:
+*: Northern Kurdish: {{tt+|kmr|banke}}
+* Kven: {{t|fkv|pankko }}
+* Kyrgyz: {{tt+|ky|банк}}
+* Lakota: {{tt|lkt|mázaska thípi}}, {{tt|lkt|mázaskaothi}}
+* Lao: {{tt+|lo|ທະນາຄານ}}
+* Latin: {{tt|la|argentāria|f}}
+* Latvian: {{tt|lv|banka|f}}
+* Lithuanian: {{tt+|lt|bankas|m}}
+* Lü: {{tt|khb|ᦷᦣᧂᦵᦍᦇᦹᧃ}}
+* Luhya: {{tt|luy|ebank}}
+* Luxembourgish: {{tt|lb|Bank|f}}
+* Macedonian: {{tt|mk|банка|f}}
+* Malay: {{tt+|ms|bank}}
+* Malayalam: {{tt+|ml|ബാങ്ക്}}
+* Maltese: {{tt|mt|bank|m}}
+* Māori: {{tt|mi|pēke}}
+* Marathi: {{tt|mr|बँक}}
+* Mauritian Creole: {{t|mfe|labank}}
+* Melanau:
+*: Central Melanau: {{tt|mel|beng}}
+* Meru: {{tt|mer|mbengi}}
+* Mòcheno: {{tt|mhn|pònk|f}}
+* Mongolian:
+*: Cyrillic: {{tt+|mn|банк}}
+*: Mongolian script: {{tt|mn|ᠪᠠᠩᠺᠢ}}, {{tt|mn|ᠪᠠᠩᠬᠢ}}
+* Nepali: {{tt|ne|बैंक}}
+* Nivkh: {{t|niv|ч’ӽасидыф}}
+* Norman: {{tt|nrf|banque|f}} {{qualifier|Jersey}}
+* Norwegian:
+*: Bokmål: {{tt+|nb|bank|m}}
+* Occitan: {{t+|oc|banca|f}}
+* Odia: {{tt+|or|ବାଙ୍କ୍}}
+* Oromo: {{tt|om|baankii}}
+* Pali: {{t|pi|dhanāgāra|n}}
+* Pannonian Rusyn: {{t|rsk|банка|f}}
+* Pashto: {{tt+|ps|بانک|m|tr=bānk}}
+* Persian:
+*: Dari: {{tt|prs|بَانْک}}
+*: Iranian Persian: {{tt|fa-ira|بانْک}}
+* Plautdietsch: {{tt|pdt|Bank|f}}
+* Polish: {{tt+|pl|bank|m-in}}
+* Portuguese: {{tt+|pt|banco|m}}
+* Punjabi: {{tt|pa|ਬੈਂਕ}}
+* Romanian: {{tt+|ro|bancă|f}}
+* Romansh: {{t|rm|banca|f}}
+* Russian: {{tt+|ru|банк|m}}
+* Sami:
+*: Northern Sami: {{tt|se|báŋku}}
+*: Skolt Sami: {{tt|sms|baŋkk}}
+* Samoan: {{t|sm|faletupe}}
+* Sanskrit: {{t|sa|धनागार|n}}
+* Sardinian: {{t|sc|banca|f}}
+* Scots: {{tt|sco|baunk}}
+* Scottish Gaelic: {{tt|gd|banca|m}}, {{tt|gd|taigh-malairt|m}}, {{tt|gd|taigh-rèidh|m}}
+* Serbo-Croatian:
+*: Cyrillic: {{tt|sh|ба̀нка|f}}
+*: Latin: {{tt+|sh|bànka|f}}
+* Shan: {{tt+|shn|ယေးငိုၼ်း}}
+* Sicilian: {{t+|scn|vancu|m}}
+* Sinhalese: {{tt|si|බැංකුව}}
+* Slovak: {{tt|sk|banka|f}}
+* Slovene: {{tt+|sl|banka|f}}
+* Sorbian:
+*: Lower Sorbian: {{tt|dsb|banka|f}}
+* Southern Altai: {{t|alt|банк}}
+* Spanish: {{tt+|es|banca|f}}, {{tt+|es|banco|m}}
+* Sranan Tongo: {{t|srn|bangi}}
+* Swahili: {{tt+|sw|benki}}
+* Swedish: {{tt+|sv|bank|c}}
+* Tagalog: {{tt+|tl|bangko}}
+* Tahitian: {{tt|ty|fare moni}}
+* Tajik: {{tt+|tg|бонк}}
+* Tamil: {{tt+|ta|வங்கி}}, {{t|ta|வைப்பகம்}}
+* Tatar: {{tt|tt|банк}}
+* Telugu: {{tt+|te|బ్యాంకు}}
+* Thai: {{tt+|th|ธนาคาร}}
+* Tibetan: {{tt|bo|དངུལ་ཁང}}
+* Tigrinya: {{tt|ti|ባንክ}}
+* Tok Pisin: {{tt|tpi|beng}}, {{tt|tpi|haus moni}}
+* Tongan: {{tt|to|fale pa'anga}}
+* Turkish: {{tt+|tr|banka}}
+*: Ottoman Turkish: {{tt|ota|صرافخانه|tr=serrāfḫāne}}, {{t|ota|بانقه|tr=bānḳa}}, {{t|ota|بانك|tr=bānk}}
+* Turkmen: {{tt+|tk|bank}}
+* Ukrainian: {{tt+|uk|банк|m}}
+* Ulithian: {{t|uli|baaengk}}
+* Unami: {{t|unm|mpenk}}
+* Urdu: {{tt|ur|بَینْک|m}}, {{tt|ur|مَصْرِف|m}}
+* Uyghur: {{tt+|ug|بانكا}}
+* Uzbek: {{tt+|uz|bank}}
+* Venetan: {{t|vec|banca|f}}
+* Vietnamese: {{tt+|vi|ngân hàng}} ({{tt|vi|銀行}}), {{tt+|vi|nhà băng}}
+* Volapük: {{tt+|vo|bank}}
+* Welsh: {{tt+|cy|banc}}
+* Yakut: {{tt|sah|баан}}
+* Yiddish: {{tt|yi|באַנק|m|f}}
+* Yup'ik: {{tt|esu|akiliurvik}}
+* Zhuang: {{tt|za|ngaenzhangz}}, {{tt|za|yinzhangz}}
+{{trans-bottom}}
+
+{{trans-top|branch office}}
+* Afrikaans: {{t|af|banktak}}
+* Arabic: {{tt|ar|مَصْرِف|m}}, {{tt+|ar|بَنْك|m}}
+* Armenian: {{tt+|hy|բանկ}}, {{tt+|hy|դրամատուն}}
+* Asturian: {{tt|ast|bancu|m}}
+* Basque: {{tt|eu|banketxe}}
+* Breton: {{tt+|br|ti-bank|m}}
+* Bulgarian: {{tt|bg|банк}}
+* Burmese: {{tt+|my|ဘဏ်တိုက်}}
+* Catalan: {{tt+|ca|banc|m}}
+* Chinese:
+*: Mandarin: {{tt+|cmn|銀行}}
+* Crimean Tatar: {{tt|crh|bank}}
+* Czech: {{tt+|cs|banka|f}}
+* Danish: {{tt+|da|bank}}, {{tt|da|bankfilial}}
+* Dutch: {{tt+|nl|bank|f}}
+* Esperanto: {{tt|eo|banko}}
+* Estonian: {{tt+|et|pank}}
+* Finnish: {{tt+|fi|pankki}}
+* French: {{tt+|fr|banque|f}}
+* Frisian:
+*: West Frisian: {{tt|fy|bank}}
+* German: {{tt+|de|Bank|f}}
+* Greek: {{tt+|el|τράπεζα|f}}, {{tt+|el|υποκατάστημα|n}}
+* Hebrew: {{tt+|he|בַּנְק|m|tr=bank}}
+* Hungarian: {{t+|hu|bankfiók}}
+* Icelandic: {{tt+|is|banki|m}}, {{tt|is|bankaútibú|n}}
+* Indonesian: {{tt+|id|bank}}
+* Interlingua: {{tt|ia|banca}}
+* Italian: {{tt+|it|banca|f}}
+* Japanese: {{tt+|ja|銀行|tr=ぎんこう, ginkō}}, {{tt+|ja|バンク|tr=banku}}, {{t+|ja|支店|tr=shiten}}
+* Korean: {{tt+|ko|은행(銀行)}}
+* Lü: {{t-needed|khb}}
+* Macedonian: {{tt|mk|ба́нка|f}}
+* Marathi: {{t|mr|बँक|f}}
+* Norman: {{tt|nrf|banque|f}} {{qualifier|Jersey}}
+* Norwegian:
+*: Bokmål: {{tt+|nb|bank|m}}
+* Plautdietsch: {{tt|pdt|Bank|f}}
+* Polish: {{tt+|pl|bank|m-in}}
+* Portuguese: {{tt+|pt|banco|m}}
+* Russian: {{tt+|ru|банк|m}}
+* Serbo-Croatian:
+*: Cyrillic: {{tt|sh|банка|f}}
+*: Latin: {{tt+|sh|banka|f}}
+* Sicilian: {{t|scn|succursali|f}}
+* Slovak: {{tt|sk|banka|f}}, {{tt|sk|pobočka|f}}
+* Slovene: {{tt+|sl|banka|f}}
+* Sorbian:
+*: Lower Sorbian: {{tt|dsb|banka|f}}
+* Spanish: {{tt+|es|banco|m}}, {{tt+|es|sucursal|f}}
+* Swedish: {{tt+|sv|bank|c}}, {{tt+|sv|bankkontor|n}}
+* Turkish: {{tt+|tr|banka}}
+* Ukrainian: {{tt+|uk|банк|m}}
+* Volapük: {{tt+|vo|bank}}
+* Zhuang: {{tt|za|ngaenzhangz}}
+{{trans-bottom}}
+
+{{trans-top|controller of a card game}}
+* Afrikaans: {{t+|af|bank}}
+* Bulgarian: {{t+|bg|банка|f}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Czech: {{tt+|cs|bank|m}}, {{tt+|cs|bankéř|m}}
+* Finnish: {{tt+|fi|pankki}}, {{tt|fi|pelinhoitaja}}
+* Portuguese: {{tt+|pt|banqueiro|m}}
+* Russian: {{tt+|ru|банк|m}}, {{tt+|ru|банкомёт|m}}
+* Sicilian: {{t+|scn|vancu|m}}
+* Spanish: {{tt+|es|banca|f}}
+{{trans-bottom}}
+
+{{trans-top|fund used in transacting business}}
+* Afrikaans: {{t+|af|bank}}
+* Bulgarian: {{t+|bg|каса|f}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Finnish: {{tt+|fi|kassa}}
+* Portuguese: {{tt+|pt|caixa|f}}
+* Sicilian: {{t+|scn|cascia|f}}
+{{trans-bottom}}
+
+{{trans-top|gambling: banker's funds}}
+* Afrikaans: {{t+|af|bank}}
+* Bulgarian: {{t-needed|bg}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Czech: {{tt+|cs|bank}}
+* Finnish: {{tt+|fi|pankki}}
+* German: {{tt+|de|Bank|f}}
+* Polish: {{tt+|pl|bank|m}}
+* Portuguese: {{tt+|pt|banca|f}}
+* Russian: {{tt+|ru|банк|m}}
+* Slovak: {{t+|sk|bank|m}}
+{{trans-bottom}}
+
+{{trans-top|fund of pieces to draw from}}
+* Afrikaans: {{t+|af|bank}}
+* Bulgarian: {{t+|bg|банка|f}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Finnish: {{tt|fi|nostokasa}} {{qualifier|dominos}}
+* Polish: {{tt+|pl|bank|m}}
+* Portuguese: {{tt+|pt|monte|m}}
+{{trans-bottom}}
+
+{{trans-top|storage for important goods}}
+* Afrikaans: {{t+|af|bank}}
+* Armenian: {{tt+|hy|բանկ}}
+* Breton: {{tt|br|bankad|m}}
+* Bulgarian: {{tt+|bg|храни́лище|n}}
+* Catalan: {{tt+|ca|banc|m}}, {{tt+|ca|magatzem|m}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Czech: {{tt+|cs|banka|f}}
+* Danish: {{tt|da|-bank}}
+* Dutch: {{tt|nl|-bank|f}}
+* Esperanto: {{tt|eo|deponejo}}
+* Finnish: {{tt+|fi|pankki|alt=-pankki}}
+* French: {{tt+|fr|banque|f}}
+* German: {{tt+|de|Bank|f}}
+* Greek: {{tt+|el|τράπεζα|f}}
+* Interlingua: {{tt|ia|banca}}
+* Italian: {{tt+|it|banca|f}}
+* Macedonian: {{tt|mk|ба́нка|f}}
+* Norwegian:
+*: Bokmål: {{tt+|nb|bank|m}}
+* Persian: {{tt+|fa|بانْک|tr=bânk}}
+* Polish: {{tt+|pl|bank|m-in}}
+* Portuguese: {{tt+|pt|banco|m}}
+* Russian: {{tt+|ru|банк|m}}, {{tt+|ru|храни́лище|n}}, {{tt+|ru|склад|m}}
+* Sicilian: {{t+|scn|dammusu|m}}
+* Slovak: {{tt|sk|banka|f}}
+* Spanish: {{tt+|es|banco|m}}, {{tt+|es|almacén|m}}
+* Swedish: {{tt+|sv|bank|c}}
+* Tamil: {{t+|ta|வங்கி}}, {{t|ta|வைப்பகம்}}
+{{trans-bottom}}
+
+{{trans-top|device used to store coins or currency}}
+* Bulgarian: {{t-needed|bg}}
+* Catalan: {{tt+|ca|guardiola|f}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Czech: {{tt+|cs|pokladnička|f}}
+* Finnish: {{tt+|fi|säästöpossu}}
+* German: {{tt+|de|Sparschwein|n}}
+* Japanese: {{tt+|ja|貯金箱|tr=ちょきんばこ, chokinbako}}
+* Portuguese: {{tt+|pt|cofre|m}}
+* Sicilian: {{t|scn|caruseḍḍu|m}}
+* Spanish: {{tt+|es|hucha|f}}
+* Thai: {{tt|th|กระปุกออมสิน}}
+}}
+{{trans-bottom}}
+
+====Verb====
+{{en-verb}}
+
+# {{lb|en|intransitive}} To deal with a bank or [[financial]] [[institution]], or for an institution to provide financial services to a client.
+#: {{ux|en|He '''banked''' with Barclays.}}
+#* {{RQ:Adams Hitchhiker|passage=the sort of face you would happily '''bank''' with}}
+# {{lb|en|transitive}} To put into a bank {{gloss|financial institution}}.
+#: {{ux|en|I’m going to '''bank''' the money.}}
+# {{lb|en|transitive}} To store in a bank {{gloss|storage}}.
+#* {{quote-web|en|url=https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/combined-regulation-text/index.html|title={{w|HIPAA}} Administrative Simplification|site=hhs.gov|date=March 2013|author=lw:en:U.S. Department of Health and Human Services
+|text=the procurement, '''banking''' or transplantation of cadaveric organs, eyes, or tissue}}
+# {{lb|en|transitive|slang}} To [[conceal]] in the [[rectum]] for use in [[prison]].
+#: {{ux|en|Johnny '''banked''' some coke for me.}}
+# {{lb|en|transitive|finance}} To provide [[banking]] services to.
+#: {{ux|en|They proposed an ambitious plan to '''bank''' people in remote rural communities.}}
+#* {{see citations|en}}
+
+=====Derived terms=====
+{{col|en
+|bankable
+|banked
+|banker
+|banking
+|bank on
+|debank
+|double-banked
+}}
+
+=====Translations=====
+{{trans-top|to deal with a bank or financial institution}} {{multitrans|data=
+* Bulgarian: {{t-needed|bg}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Finnish: {{tt|fi|[[olla]] [[pankin]] [[asiakas]]}}
+* Portuguese: {{t-needed|pt}}
+* Spanish: {{tt|es|tener la cuenta en}}
+{{trans-bottom}}
+
+{{trans-top|to put into bank}}
+* Bulgarian: {{tt+|bg|внасям}}, {{tt+|bg|влагам}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Finnish: {{tt+|fi|tallettaa}}
+* Greek: {{tt+|el|καταθέτω}}
+* Italian: {{tt+|it|depositare}}
+* Norman: {{tt|nrf|bantchi}} {{qualifier|Jersey}}
+* Portuguese: {{tt+|pt|depositar}}
+* Romanian: {{tt+|ro|depune}}
+* Russian: {{t-check|ru|[[класть]] в [[банк]]}} <!-- was "[[класть]] в [[банк#Russian|банк]]" - assumed sum-of-parts; if an idiom, remove the wikilinks to the individual words. see [[User:Kephir/gadgets/xte#Translation_fixing]] -->
+* Spanish: {{tt+|es|ahorrar}}, {{tt+|es|depositar}}, {{qualifier|Spain}} {{tt+|es|ingresar}}
+* Swedish: {{tt+|sv|sätta in}}
+}}
+{{trans-bottom}}
+
+===Etymology 2===
+{{etymon|en|id=river edge}}
+[[File:Perfume River Bank, as seen from Trường Tiền Bridge, 2019.jpg|thumb|A river '''bank''' ({{senseno|en|Q2897058}})]]
+
+From {{inh|en|enm|bank}}, {{m|enm|banke}}, from {{inh|en|ang|*banca|t=bench}} (attested in {{cog|ang|hōbanca|t=couch}} and {{inh|en|ang|banc|t=bank, hillock, embankment}}, from {{inh|en|gmw-pro|*bankō}}, from {{inh|en|gem-pro|*bankô}}. Akin to {{cog|non|bakki|t=elevation, hill}}, {{cog|no|bakke|t=slope, hill}}.
+
+====Noun====
+{{en-noun}}
+
+# {{senseid|en|Q2897058}} {{lb|en|hydrology}} An [[edge]] of [[river]], [[lake]], or other [[watercourse]].
+#* {{RQ:Shakespeare Julius Caesar|I|i|passage=Tiber trembled underneath her '''banks'''.}}
+#* {{quote-journal|en|date=June 8, 1943|title=Jap Remnants Suffer Heavy Casualties: Alerts In Chungking
+|url=https://archive.org/details/dli.granth.10715/|journal=w:The Bombay Chronicle|volume=XXXI|issue=134|page=1|pageurl=https://archive.org/details/dli.granth.10715/
+|text=On the opposite '''bank''' of the river other Chinese units attacked Taoshih and Yunmeng north-west of Hankow.}}
+#* {{quote-journal|en|author=Ian Jack|title=Is this the end of Britishness|titleurl=http://www.theguardian.com/politics/commentisfree/2014/sep/16/-sp-is-this-the-end-of-britishness|journal=The Guardian|date=16 September 2014
+|passage=Just upstream of Dryburgh Abbey, a reproduction of a classical Greek temple stands at the top of a wooded hillock on the river’s north '''bank'''.|archiveurl=https://web.archive.org/web/20261013071747/https://www.theguardian.com/politics/commentisfree/2014/sep/16/-sp-is-this-the-end-of-britishness|archivedate=13 October 2026}}
+# {{senseid|en|shoal such as sandbank}} {{lb|en|nautical|hydrology}} An [[elevation]] under the sea; a shallow area of shifting [[sand]], [[gravel]], [[mud]]{{,}} and so forth
+#: {{syn|en|bar<id:shoal such as sandbank>}}
+#: {{co|en|the '''banks''' of Newfoundland}}
+# {{senseid|en|slope}} {{lb|en|geography}} A [[slope]] of earth, sand, etc.; an [[embankment]].
+# {{senseid|en|incline}} {{lb|en|aviation}} The [[incline]] of an aircraft, especially during a turn.
+# {{senseid|en|hill}} {{lb|en|rail}} An [[incline]], a [[hill]].
+#* {{quote-journal|en|year=1940|month=December|author=O. S. M. Raw|title=The Rhodesia Railways&mdash;II|journal=Railway Magazine|page=640|text=This is the hardest duty on the railway, for the trains are heavy and there are some long 1 in 40 '''banks'''.}}
+#* {{quote-journal|en|date=2025 November 12|author='Mystery Shopper'|title=Is Devon the cream of the crop?|journal=RAIL|issue=1048|page=48|text=It's just as quick out of the blocks. The five-car unit has three engines, giving it 2,820hp to play with, so the once-'feared' Devon '''banks''' of Hemerdon, Rattery and Dainton are child's play to these trains.}}
+# {{senseid|en|clouds}} A [[mass]] of [[cloud]]s.
+#: {{ux|en|The '''bank''' of clouds on the horizon announced the arrival of the predicted storm front.}}
+# {{senseid|en|coal face}} {{lb|en|mining}} The face of the coal at which miners are working.
+# {{senseid|en|deposit}} {{lb|en|mining}} A deposit of ore or coal, worked by excavations above water level.
+# {{senseid|en|ground}} {{lb|en|mining}} The ground at the top of a shaft.
+#: {{ux|en|Ores are brought to '''bank'''.}}
+
+=====Derived terms=====
+{{col3|en
+|Agnes Bank
+|Almondbank
+|Astwood Bank
+|at bank
+|bank and bank
+|bank beaver
+|bank cod
+|bank cress
+|bank fishing
+|bank pool
+|bank swallow
+|Bank Top
+|bank up<!--a verb, but derived from the noun-->
+|bank vole
+|bank-fish
+|bank-high
+|bank-hook
+|bank-martin
+|bank-run|mudbank
+|banked slalom
+|bankhead
+|banking
+|bankless
+|bankline
+|Banks
+|Banks Creek
+|Banks Pocket
+|bankside
+|banksman
+|banky
+|beetle bank
+|Black Bank
+|Christon Bank
+|Clay Banks
+|clay-bank
+|cloud bank
+|Clydebank
+|creekbank
+|Cut Bank
+|cutbank
+|Daisy Bank
+|Dogger Bank
+|Duffieldbank
+|earthbank
+|embank
+|Eskbank
+|fog bank,fogbank
+|footbank
+|Galabank
+|Georges Bank
+|Grand Bank
+|Grand Banks
+|hedgebank
+|Hest Bank
+|imbank
+|Jodrell Bank
+|Kenton Bank Foot
+|Kents Bank
+|Lawley Bank
+|left bank
+|loading bank
+|Lovely Banks
+|Maoribank
+|mole-bank
+|Moss Bank
+|Moss Bank
+|Normandy bank
+|overbank
+|oyster bank,oysterbank
+|peat bank
+|phone-bank
+|Quarry Bank
+|Red Bank
+|Redbanks
+|right bank
+|river bank,riverbank
+|Russian bank
+|sandbank
+|seabank
+|snowbank
+|South Bank
+|spoil bank
+|stopbank
+|streambank
+|Taiwan Banks
+|Ten Mile Bank
+|turf bank
+|Tweedbank
+|unbank
+|warping bank
+|West Bank| Left Bank
+}}
+
+=====Related terms=====
+{{col|en|bench}}
+
+=====Translations=====
+{{trans-top|edge of river or lake}} {{multitrans|data=
+* Arabic: {{tt|ar|ضِفَّة|f}}
+* Armenian: {{tt+|hy|ափ}}
+* Bajau:
+*: West Coast Bajau: {{tt|bdr|sedi suang}}, {{tt|bdr|timbang}}
+* Bashkir: {{tt|ba|яр}}
+* Belarusian: {{tt+|be|бе́раг|m}}
+* Bidayuh:
+*: Bau Bidayuh: {{tt|sne|tobing}}, {{tt|sne|tobing}}
+* Breton: {{tt+|br|ribl|m}}
+* Bulgarian: {{tt+|bg|бряг|m}}
+* Burmese: {{tt+|my|ကမ်း}}
+* Catalan: {{tt+|ca|riba|f}}
+* Chamicuro: {{tt|ccc|ijlapi}}
+* Cherokee: {{tt|chr|ᎠᎹᏳᏟᏗ}}
+* Chinese:
+*: Mandarin: {{tt+|cmn|岸|tr=àn}}
+* Czech: {{tt+|cs|břeh|m}}
+* Danish: {{tt+|da|bred|c}}
+* Dutch: {{tt+|nl|oever|m}}
+* Esperanto: {{tt+|eo|bordo}}
+* Estonian: {{tt+|et|pank}}, {{tt|et|kallas}}
+* Finnish: {{tt+|fi|penkka}}, {{tt+|fi|törmä}}, {{tt+|fi|äyräs}}, {{tt|fi|töyräs}}, {{tt+|fi|ranta}}, {{tt+|fi|rantapenger}}
+* French: {{tt+|fr|rive|f}}
+* Frisian:
+*: West Frisian: {{tt|fy|wâl}}
+* Galician: {{tt+|gl|ribeira|f}}, {{tt|gl|riba|f}}
+* German: {{tt+|de|Ufer|n}}
+* Greek: {{tt+|el|όχθη|f}}
+*: Ancient Greek: {{tt|grc|ὄχθη|f}}
+* Haitian Creole: {{tt|ht|bò (rivyè)}}
+* Hebrew: {{tt+|he|גדה|f|tr=gada}}
+* Hungarian: {{t+|hu|part}}
+* Icelandic: {{tt+|is|bakki|m}}, {{tt+|is|árbakki|m}} (of a river)
+* Interlingua: {{tt|ia|ripa}}
+* Iranun: {{tt|ill|pangebah}}
+* Irish: {{tt+|ga|bruach|m}}
+*: Old Irish: {{tt|sga|bruach|n}}
+* Italian: {{tt+|it|riva|f}}, {{tt+|it|sponda|f}}, {{tt+|it|argine|m}}, {{tt+|it|ripa|f}}
+* Japanese: {{tt+|ja|岸|tr=きし, kishi}}, {{tt+|ja|バンク|tr=banku}}
+* Javanese: {{tt+|jv|pinggir}}
+* Kannada: {{tt+|kn|ದಡ}}
+* Khmer: {{tt+|km|មាត់}}
+* Korean: {{tt+|ko|둑}}
+* Lao: {{tt|lo|ຕະລິ່ງ}}, {{tt|lo|ຕະຫຼິ່ງ}}, {{tt|lo|ຫຼິ່ງ}}, {{tt|lo|ຝັ່ງ}}
+* Latin: {{tt|la|rīpa|f}}
+* Latvian: {{tt+|lv|krasts|m}}
+* Lithuanian: {{tt|lt|krantas|m}}
+* Macedonian: {{tt|mk|брег|m}}
+* Malay: {{tt+|ms|tebing}}
+* Māori: {{tt|mi|parenga}}, {{tt|mi|pareparenga}}, {{tt|mi|tarawāhi}}
+* Melanau:
+*: Central Melanau: {{tt|mel|pegak}}, {{tt|mel|tebieng}}
+* Middle English: {{tt|enm|bank}}
+* Norwegian:
+*: Bokmål: {{tt|nb|bredd|m|f}}
+*: Nynorsk: {{tt|nn|bredd|f}}, {{tt|nn|breidd|f}}
+* Old Church Slavonic: {{tt|cu|брѣгъ|m}}
+* Old East Slavic: {{tt|orv|берегъ|m}}, {{tt|orv|брѣгъ|m}}
+* Old English: {{tt|ang|ōfer|m}}
+* Old Norse: {{tt|non|bakki|m}}
+* Pali: {{tt|pi|tīra|n}}, {{tt|pi|kūla|n}}
+* Plautdietsch: {{tt|pdt|Eewa|n}}
+* Polabian: {{tt|pox|brig|m}}
+* Polish: {{tt+|pl|brzeg|m-in}}
+* Portuguese: {{tt+|pt|margem|f}}, {{tt+|pt|ribeira|f}}
+* Romanian: {{tt+|ro|mal|n}}, {{tt+|ro|țărm|n}}
+* Russian: {{tt+|ru|бе́рег|m}}, {{tt+|ru|брег|m}} {{qualifier|archaic or poetic}}
+* Scottish Gaelic: {{tt|gd|bruach|f}}
+* Serbo-Croatian:
+*: Cyrillic: {{tt|sh|бре̑г|m}}, {{tt|sh|брије̑г|m}}
+*: Latin: {{tt+|sh|brȇg|m}}, {{tt+|sh|brijȇg|m}}
+* Slovak: {{tt|sk|breh|m}}
+* Slovene: {{tt|sl|breg|m}}, {{tt|sl|nabrežje|n}}
+* Slovincian: {{tt|zlw-slv|brzég|m}}
+* Sorbian:
+*: Lower Sorbian: {{tt|dsb|brjog|m}}
+*: Upper Sorbian: {{tt|hsb|brjóh|m}}
+* Spanish: {{tt+|es|ribera|f}}, {{tt+|es|orilla|f}}
+* Swedish: {{tt+|sv|bank|c}}
+* Thai: {{tt+|th|ตลิ่ง}}, {{tt+|th|ฝั่ง}}
+* Turkish: {{t+|tr|kıran}}
+* Ukrainian: {{tt|uk|бе́ріг|m}}, {{tt+|uk|бе́рег|m}}
+* Uzbek: {{tt+|uz|bank}}
+* Vietnamese: {{tt+|vi|bờ}}
+* Yiddish: {{tt|yi|ברעג}}
+* Yup'ik: {{tt|esu|ekvik}}
+{{trans-bottom}}
+
+{{trans-top|an underwater area of higher elevation, a sandbank}}
+* Bulgarian: {{tt+|bg|плитчина}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Danish: {{tt+|da|banke}}
+* Finnish: {{tt+|fi|matalikko}}, {{tt+|fi|hiekkasärkkä}}, {{tt+|fi|särkkä}}
+* French: {{tt+|fr|banc|m}}
+* German: {{tt+|de|Bank|f}}
+* Greek: {{tt|el|αμμοσύρτις|f}}
+* Indonesian: {{tt+|id|gosong}}
+* Italian: {{tt+|it|banco|m}} (of sand)
+* Māori: {{tt|mi|tāhuna}}
+* Norwegian: {{tt+|no|banke|m}}
+* Portuguese: {{tt+|pt|banco|m}}
+* Russian: {{tt+|ru|о́тмель|f}}, {{tt+|ru|ба́нка|f}}
+* Slovak: {{tt|sk|plytčina}}
+* Spanish: {{tt+|es|banco|m}}, {{tt+|es|bajío|m}}
+* Swedish: {{tt+|sv|bank|c}}
+{{trans-bottom}}
+
+{{trans-top|embankment, an earth slope}}
+* Bulgarian: {{tt+|bg|рид}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Danish: {{tt+|da|vold}}
+* Egyptian: {{t-egy|jḫmt|h=i-x-m-t-N36|f}}
+* Esperanto: {{tt|eo|teramaso}}
+* Finnish: {{tt+|fi|valli}}, {{tt+|fi|pengerrys}}, {{tt+|fi|penger}}, {{tt|fi|töyräs}}
+* German: {{tt+|de|Bank|f}}
+* Greek: {{tt+|el|ανάχωμα|n}}, {{tt+|el|πλαγιά|f}}
+* Hawaiian: {{t|haw|kuāuna}} {{qualifier|of taro fields}}
+* Italian: {{tt+|it|cumulo|m}}
+* Latin: {{tt+|la|agger|m}}
+* Māori: {{tt|mi|tahataha}}
+* Portuguese: {{tt+|pt|talude|m}}
+* Romanian: {{tt+|ro|pantă|f}}
+* Russian: {{tt+|ru|вал|m}}, {{tt+|ru|на́сыпь|f}}
+* Slovene: {{tt|sl|breg|m}}
+* Spanish: {{tt+|es|talud|m}}, {{tt+|es|terraplén|m}}
+* Swedish: {{tt+|sv|bank|c}}
+* Welsh: {{tt|cy|tyle|m}}
+{{trans-bottom}}
+
+{{trans-top|incline of an aircraft}}
+* Bulgarian: {{tt|bg|вира́ж|m}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Dutch: {{tt+|nl|helling|f}}
+* Finnish: {{tt+|fi|kallistus}}
+* Italian: {{tt+|it|sbandamento|m}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{tt+|ru|вира́ж|m}}
+* Spanish: {{tt+|es|ladeo|m}}
+}}
+{{trans-bottom}}
+
+====Verb====
+{{en-verb}}
+
+# {{lb|en|intransitive|aviation}} To [[roll]] or [[incline]] laterally in order to [[turn]].
+#* {{quote-web|en|url=https://www.nytimes.com/2026/10/02/world/middleeast/flydubai-attack-timeline.html?smid=nytcore-android-share|work=The New York Times|passage=Mr. Hayoun, the plumber, 50, heard Ms. Manes scream “He’s stabbing him!” His first thought, he said, was that one passenger was attacking another. “And at the very moment I stand up and step out of my seat, the plane '''banks''' — '''banks''' very sharply to the left — and then levels out again,” he told Kan 11, Israel’s public broadcaster. “That shook me.”|title=The Mother’s Scream That Sent Passengers to the Rescue|date=2026-10-02|author=David M. Halbfinger|accessdate=2026-10-05|author2=Natan Odenheimer|author3=Adam Rasgon|author4=Johnatan Reiss|author5=Aaron Boxerman}}
+# {{senseid|en|to cause banking}} {{lb|en|transitive}} To cause (an aircraft) to '''bank'''.
+# {{lb|en|transitive}} To form into a bank or heap, to [[bank up]].
+#: {{co|en|to '''bank''' sand}}
+# {{lb|en|intransitive|of clouds}} To form a [[bank]]; to gather in masses.
+#: {{syn|en|bank up}}
+#* {{quote-book|en|date=2011-12-14|author=Sandra Birdsell|title=The Chrome Suite|publisher=Emblem Editions|isbn=9781551996851
+|text={{...}} clouds '''banking''' above the gravel road, their flat slate-blue bottoms threatening freezing rain or an early snowfall.}}
+# {{lb|en|transitive}} To cover the embers of a fire with ashes in order to retain heat.
+# {{lb|en|transitive}} To raise a mound or dike about; to enclose, defend, or fortify with a bank; to [[embank]].
+#* {{RQ:Pliny Holland Historie of the World
+|passage=''Aristoma∣chus'' would haue them to be stript from their leaues in winter, & in any hand to be '''banked''' well about, that the water stand not there in any hollow furrow or hole lower than the other ground}}
+# {{lb|en|transitive|obsolete}} To pass by the banks of.
+#* {{quote-book|en|year=c. 1595|author=w:William Shakespeare| title={{w|King John (play)|King John}}| section=act 5, scene 2| passage=Have I not heard these islanders shout out / ''Vive le roi!'' as I have '''banked''' their towns?}}
+# {{lb|en|rail|UK}} To provide additional power for a train ascending a bank (incline) by attaching another locomotive.
+#* {{quote-journal|en|year=1942|month=March|title=Notes and News: Locomotive Notes|journal=Railway Magazine|page=93|text=Some interesting facts have recently been made known by the L.N.E.R. concerning the 178-ton Garratt 2-8-0 + 0-8-2 engine No. 2395, which since construction in 1925 has spent the whole of its working life '''banking''' coal trains up the 3 miles of 1 in 40 between Wentworth junction and West Silkstone, on the Worsborough branch, near Barnsley.}}
+#* {{quote-journal|en|year=1960|month=July|title=Motive Power Miscellany: Western Region|journal=Trains Illustrated|page=443|text=[...] the [[4-4-0]] unhappily stalled after a stop on Reading Old Bank with its eight-coach load and the Reading Up Line pilot, a "Hall", had to '''bank''' the train into Reading General.}}
+#* {{quote-journal|en|year=1960|month=September|author=P. Ransome-Wallis|title=Modern motive power of the German Federal Railway: Part One|journal=Trains Ilustrated|page=558|text=Soon after leaving Bebra the line rises, mostly at 1 in 74, for 7 miles to Cornberg and all trains of over 400 tons are '''banked'''.}}
+
+=====Derived terms=====
+* {{l|en|bank-and-turn indicator}}, {{l|en|turn-and-bank indicator}}
+
+=====Translations=====
+{{trans-top|to incline laterally in order to turn}} {{multitrans|data=
+* Bulgarian: {{tt|bg|наклонявам се}}
+* Catalan: {{tt+|ca|inclinar}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Dutch: {{tt|nl|doen hellen}}, {{tt+|nl|rollen}}
+* Finnish: {{tt+|fi|kallistua}}
+* Hebrew: {{t+|he|נטה|m|tr=natá}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{tt+|ru|накреня́ться|impf}}
+* Spanish: {{tt+|es|ladearse}}
+{{trans-bottom}}
+
+{{trans-top|to make incline in turn}}
+* Bulgarian: {{t-needed|bg}}
+* Catalan: {{tt+|ca|decantar}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Finnish: {{tt+|fi|kallistaa}}
+* Portuguese: {{t-needed|pt}}
+* Spanish: {{tt+|es|ladear}}, {{t+|es|peraltar}}
+{{trans-bottom}}
+
+{{trans-top|to form into a bank}}
+* Bulgarian: {{tt+|bg|натрупвам}}, {{tt|bg|правя насип}}
+* Catalan: {{tt+|ca|apilar}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Finnish: {{tt+|fi|kasata}}
+* Portuguese: {{t-needed|pt}}
+* Spanish: {{tt+|es|amontonar}}, {{tt+|es|apilar}}, {{t+|es|recoger}}, {{t+|es|juntar}}
+{{trans-bottom}}
+
+{{trans-top|to cover in ashes}}
+* Bulgarian: {{t-needed|bg}}
+* Catalan: {{tt+|ca|encendrar}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Finnish: {{tt|fi|[[peittää]] [[tuhka]]lla}}
+* Māori: {{tt|mi|kāpui}}, {{tt|mi|whakapopō}}, {{tt|mi|tāmou}}, {{tt|mi|kōmou}}, {{tt|mi|kōmau}}
+* Portuguese: {{t-needed|pt}}
+}}
+{{trans-bottom}}
+
+===Etymology 3===
+{{ety|en|id=row|:inh|enm:bank}}
+From {{inh|en|enm|bank}}, {{m|enm|banke}}, from {{der|en|fro|banc|t=bench}}, from {{der|en|frk|*banki}}, from {{der|en|gem-pro|*bankiz|t=bench}}. Akin to {{cog|ang|benċ|t=bench}}.
+
+====Noun====
+{{en-noun}}
+
+# A row or panel of items stored or grouped together.
+#: {{co|en|a '''bank''' of switches}}
+#: {{co|en|a '''bank''' of [[pay phone]]s}}
+#* {{quote-web|en|date=December 10, 2011
+|author=Marc Higginson
+|title=Bolton 1 - 2 Aston Villa
+|work=BBC Sport
+|url=http://news.bbc.co.uk/sport2/hi/football/eng_prem/16015783.stm
+|page=
+|passage=Wanderers were finally woken from their slumber when Kevin Davies brought a fine save out of Brad Guzan while, minutes after the restart, Klasnic was blocked out by a '''bank''' of Villa defenders.|archiveurl=https://web.archive.org/web/20261008070004/http://news.bbc.co.uk/sport2/hi/football/eng_prem/16015783.stm|archivedate=8 October 2026}}
+# A row of keys on a musical keyboard or the equivalent on a typewriter keyboard.
+# {{lb|en|computing}} A [[contiguous]] block of [[memory]] that is of fixed, hardware-dependent size, but often larger than a [[page]] and partitioning the memory such that two distinct banks do not overlap.
+# {{lb|en|pinball}} A [[set]] of multiple [[adjacent]] [[drop target]]s.
+
+=====Synonyms=====
+* {{sense|row or panel of items}} (''row'') [[line]], [[rank]], [[tier]]; (''panel'') [[block]], [[grid]], [[panel]]
+
+=====Derived terms=====
+* {{l|en|double-bank}}
+* {{l|en|filter bank}}, {{l|en|filterbank}}
+* {{l|en|optical bank}}
+* {{l|en|phone bank}}
+
+=====Translations=====
+{{trans-top|row or panel of items}} {{multitrans|data=
+* Bulgarian: {{t-needed|bg}}
+* Catalan: {{tt+|ca|filera|f}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Danish: {{tt+|da|række}}, {{tt+|da|batteri}}
+* Finnish: {{tt+|fi|rivi}}, {{tt+|fi|kenttä}}, {{tt+|fi|asema}}
+* French: {{tt+|fr|rang|m}}
+* Greek: {{tt+|el|συστοιχία|f}}
+* Irish: {{t|ga|múr|m}}
+* Portuguese: {{t-needed|pt}}
+* Slovak: {{tt|sk|rad}}
+* Spanish: {{tt+|es|hilera|f}}
+{{trans-bottom}}
+
+{{trans-top|row of keys on a musical or typewriter keyboard}}
+* Bulgarian: {{t-needed|bg}}
+* Catalan: {{tt+|ca|teclat|m}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Finnish: {{qualifier|on a musical instrument}} {{tt|fi|kosketinrivi}}, {{qualifier|on a typewriter}} {{tt|fi|näppäinrivi}}
+* Portuguese: {{t-needed|pt}}
+* Spanish: {{tt+|es|hilera|f}}, {{tt+|es|teclado|m}}
+}}
+{{trans-bottom}}
+
+====Verb====
+{{en-verb}}
+
+# {{lb|en|transitive|order and arrangement}} To [[arrange]] or [[order]] in a row.
+
+===Etymology 4===
+{{ety|en|id=bench|:der<unc>|fr:banc}}
+Probably from {{der|en|fr|banc}}. Of {{der|en|gem}} origin, and akin to English {{m|en|bench}}.
+
+====Noun====
+{{en-noun}}
+
+# A [[bench]], as for rowers in a galley; also, a tier of oars.
+#* {{quote-book|en|year=1658|author=w:Edmund Waller|title=he Passion of Dido for Æneas
+|passage=Placed on their '''banks''', the lusty Trojans sweep / Neptune's smooth face, and cleave the yielding deep.}}
+# A bench or seat for [[judge]]s in [[court]].
+# The regular [[term]] of a court of law, or the full court sitting to hear arguments upon questions of law, as distinguished from a sitting at [[nisi prius]], or a court held for jury trials. See {{m|en|banc}}<ref>{{R:Burrill Law Dictionary}}</ref>
+# {{lb|en|archaic|printing}} A kind of [[table]] used by [[printer]]s.
+# {{lb|en|music}} A bench, or row of keys belonging to a [[keyboard]], as in an [[organ]].<ref>{{R:Knight AMD}}</ref>
+
+=====Derived terms=====
+{{col|en|Bank Royal|Common Bank}}
+
+=====Related terms=====
+{{col|en|banc|banquette|frank bank}}
+
+===References===
+{{reflist}}
+* {{R:Lexico}}
+
+===Anagrams===
+* {{anagrams|en|a=abkn|Knab|knab|nabk}}
+
+{{C|en|Banking|Buildings}}
+{{cln|en|terms derived from the Proto-Indo-European root *bʰeg- (bend)}}
+
+==Afrikaans==
+
+===Pronunciation===
+* {{IPA|af|/baŋk/}}
+
+===Etymology 1===
+From {{inh|af|nl|bank}}, from {{inh|af|dum|banc}}, from {{inh|af|odt|*banc}}, from {{inh|af|gem-pro|*bankiz}}.
+
+====Noun====
+{{af-noun|e|bankie}}
+
+# {{l|en|bench}}, {{l|en|couch}}
+
+=====Derived terms=====
+* {{l|af|onder stoele of banke wegsteek}}
+* {{l|af|toonbank}}
+
+===Etymology 2===
+{{etymon|af|id=institution|:inh|nl:bank<id:institution>}}
+From {{inh|af|nl|bank}}, from {{inh|af|dum|banc}}, from {{der|af|it|banco}}, from {{der|af|goh|bank}}, from {{der|af|gem-pro|*bankiz}}.
+
+====Noun====
+{{af-noun|e|bankie}}
+
+# {{l|en|bank}} {{gloss|financial institution}}
+# {{lb|af|games|gambling}} {{l|en|bank}}, a [[player]] who controls a [[deposit]] in some [[card game]]s or [[board game]]s and in [[gambling]]
+
+====Verb====
+{{af-verb}}
+
+# {{lb|af|transitive}} to [[deposit]], to {{l|en|bank}}
+# {{lb|af|intransitive}} to {{l|en|bank}}
+
+{{C|af|Chairs|Banking}}
+
+==Azerbaijani==
+{{wp|az:}}
+{{az-variant|банк|بانک}}
+
+===Etymology===
+{{etymon|az|:bor|ru:банк}}
+{{bor+|az|ru|банк}}. {{intnat|az}} ultimately from {{der|az|fr|banque}}.
+
+===Pronunciation===
+* {{az-IPA|bank*}}
+* {{az-IPA|a=nonstandard}}
+* {{audio|az|LL-Q9292 (aze)-Azerbaijani audiorecordings-bank.wav|a=Baku}}
+
+===Noun===
+{{az-noun}}
+
+# {{l|en|bank}} {{gl|financial institution}}
+
+====Declension====
+{{az-decl-noun|a|c}}
+
+===Further reading===
+* {{R:az:ADIL|page=218}}
+
+{{C|az|Banking}}
+
+==Breton==
+
+===Etymology===
+{{etymon|br|:der|gmw-pro:*banki}}
+Ultimately from {{der|br|gmw-pro|*banki}}. {{etystub|br}}
+
+===Pronunciation===
+* {{IPA|br|/ˈbãŋk/}}
+
+===Noun===
+{{br-noun|m|p=bankeier|p2=bankoù}}
+
+# [[bench]]
+# {{l|en|bank}}
+#: {{syn|br|arc'hanti|ti-bank}}
+
+====Derived terms====
+* {{l|br|bank-ilinek}}
+* {{l|br|bank-tosel}}
+* {{l|br|gourvezvank}}
+* {{l|br|kartenn-vank}}
+* {{l|br|ti-bank}}
+
+{{C|br|Banking|Chairs}}
+
+==Crimean Tatar==
+
+===Etymology===
+{{etymon|crh|:bor|fr:banque}}
+Borrowed from {{bor|crh|fr|banque}}.
+
+===Noun===
+{{crh-noun}}
+
+# {{l|en|bank}} {{gloss|financial institution}}
+
+====Declension====
+{{crh-latin-noun|nıñ|qa|nı|ta|tan}}
+
+==Danish==
+
+===Pronunciation===
+* {{IPA|da|/ˈbɑŋˀɡ/}}
+
+===Etymology 1===
+{{etymon|da|id=institution|:bor|fr:banque}}
+Borrowed from {{bor|da|fr|banque}}, from {{der|da|it|banco||bench}}.
+
+====Noun====
+{{da-noun|en|er}}
+
+# {{l|en|bank}} (financial institution, branch office, controller of a game, a safe and guaranteed place of storage)
+
+=====Declension=====
+{{da-noun-infl|en|er}}
+
+=====Derived terms=====
+* {{l|da|bankanvisning}}<!-- draft, cheque -->
+* {{l|da|bankier}}
+* {{l|da|bankør}}<!-- banker in a casino -->
+
+=====Descendants=====
+* {{desc|fo|banki|bor=1}}
+* {{desc|kl|banki|bor=1}}
+* {{desc|is|banki|bor=1}}
+
+===Etymology 2===
+From {{der|da|de|Bank||bench}}.
+
+====Noun====
+{{head|da|noun|g=c}}
+
+# only used in certain expressions
+
+=====Derived terms=====
+* {{l|da|over en bank}}<!-- wholesale -->
+
+====Noun====
+{{da-noun|et}}
+
+# [[knock]] (an abrupt rapping sound)
+# ({{g|p}}) a [[beating]]
+
+=====Declension=====
+{{da-noun-infl|et}}
+
+=====Synonyms=====
+* {{sense|beating}} {{l|da|tæsk}}, {{l|da|tæv}}
+
+====Verb====
+{{head|da|verb form}}
+
+# {{infl of|da|banke||imp}}
+
+===References===
+* {{R:DDO}}
+
+{{C|da|Buildings}}
+
+==Dutch==
+
+===Pronunciation===
+* {{IPA|nl|/bɑŋk/}}
+* {{audio|nl|Nl-bank.ogg}}
+* {{hyphenation|nl|bank}}
+* {{rhymes|nl|ɑŋk|s=1}}
+
+===Etymology 1===
+From {{inh|nl|dum|banc}}, from {{inh|nl|odt|*banc}}, from {{inh|nl|gmw-pro|*banki}}, from {{inh|nl|gem-pro|*bankiz}}.
+
+====Noun====
+{{nl-noun|f|-en|+}}
+
+# [[bench]]
+#: {{uxi|nl|Ik zit graag op die '''bank''' in het park.|I like sitting on that '''bench''' in the park.}}
+#: {{uxi|nl|Zet die bloemen op het '''bankje''' naast de deur.|Put those flowers on the little '''bench''' next to the door.}}
+#: {{uxi|nl|De oude mannen zaten op de '''banken''' en praatten.|The old men sat on the '''benches''' and talked.}}
+# {{lb|nl|Netherlands}} [[couch]], [[sofa]]
+#: {{syn|nl|sofa}}
+#: {{uxi|nl|We hebben een nieuwe '''bank''' gekocht voor de woonkamer.|We bought a new '''couch''' for the living room.}}
+#: {{uxi|nl|Het '''bankje''' is perfect voor de kinderkamer.|The little '''sofa''' is perfect for the kids' room.}}
+#: {{uxi|nl|De '''banken''' in die winkel zijn erg comfortabel.|The '''couches''' in that store are very comfortable.}}
+# place where [[seashell]]s are found
+# [[shallow]] part of the [[sea]] near the [[coast]]
+
+=====Derived terms=====
+{{col|nl
+|aanrechtbank
+|bankgegeven
+|bankschroef
+|bankstel
+|bankwerker
+|bankzaak
+|bankzitter
+|buitenbank
+|door de bank genomen<!-- on average -->
+|elfenbank
+|ligbank
+|massagebank
+|mosselbank
+|oesterbank
+|niet onder stoelen of banken steken
+|tuinbank
+|voetenbank
+|zandbank
+|zitbank
+|zonnebank
+|Schoolbank
+}}
+
+=====Descendants=====
+* {{desc|af|bank}}
+* {{desc|jvd|bang}}
+* {{desc|dcr|bank|banki}}
+* {{desc|arw|bañka|bor=1}}
+* {{desc|pap|banki|bor=1}}
+* {{desc|srn|bangi|bor=1}}
+** {{desc|djk|bangi|bor=1}}
+** {{desc|hns|bángi|bor=1}}
+** {{desc|jvn|bangi|bor=1}}
+** {{desc|car|bangi|bor=1}}
+** {{desc|srm|bángi|bor=1}}
+
+===Etymology 2===
+{{etymon|nl|id=institution|:inh|dum:banc<id:institution><ety:der<it:banco>>}}
+From {{inh|nl|dum|banc}}, from {{der|nl|it|banco}}, from {{der|nl|goh|bank}}, from {{der|nl|gmw-pro|*banki}}, from {{der|nl|gem-pro|*bankiz}}, related to Etymology 1 above.
+
+====Noun====
+{{nl-noun|f|-en|+}}
+
+# a {{l|en|bank}} {{gloss|financial institution}}
+#: {{uxi|nl|Ik moet naar de '''bank''' om wat geld op te nemen.|I need to go to the '''bank''' to withdraw some money.}}
+#: {{uxi|nl|Het '''bankje''' in het dorp is elke zondag gesloten.|The small '''bank''' in the village is closed every Sunday.}}
+#: {{uxi|nl|De '''banken''' zijn gesloten op nationale feestdagen.|The '''banks''' are closed on national holidays.}}
+# {{lb|nl|games|gambling}} the {{l|en|bank}}, a [[player]] who controls a [[deposit]] in some [[card game]]s or [[board game]]s and in [[gambling]]
+# a [[banknote]], especially 100 Dutch [[guilders]] {{q|also in the diminutives ''[[bankie]]'' or ''[[bankje]]''.}}
+# a bank, collection and/or [[repository]]
+
+=====Derived terms=====
+{{col|nl|title=financial
+|bankautomaat
+|bankbediende
+|bankbedrijf
+|bankberover
+|bankbiljet
+|bankbreker
+|bankbreuk
+|bankdirecteur
+|bankdisconto
+|bankenlobby
+|bankgarantie
+|bankgebouw
+|bankgeheim
+|bankgeld
+|bankgiro
+|bankhouder
+|bankier
+|bankinstelling
+|bankje
+|bankkrach
+|bankloper
+|bankmedewerker
+|banknoot
+|bankoctrooi
+|bankoverval
+|bankovervaller
+|bankpapier
+|bankpost
+|bankrekening
+|bankrente
+|bankroet
+|bankroof
+|bankrover
+|banksaldo
+|bankschat
+|bankspecie
+|bankstaat
+|bank van lening
+|bankverkeer
+|bankwerker
+|bankwet
+|bankwezen
+|beleggingsbank
+|circulatiebank
+|depositobank
+|durfbank
+|girobank
+|grootbank
+|investeringsbank
+|nutsbank
+|spaarbank
+|staatsbank
+|systeembank
+|wisselbank
+|zakenbank
+}}
+
+{{col|nl|title=other
+|bloedbank
+|databank
+|eicelbank
+|spermabank
+|zaadbank
+}}
+
+=====Descendants=====
+* {{desc|af|bank}}
+* {{desc|djk|banku|bor=1}}
+* {{desc|hns|bánk|bor=1}}
+* {{desc|ms|bank|bor=1}}
+** {{desc|id|bank}}
+** {{desc|dtp|bank|bor=1}}
+** {{desc|mel|bank|bor=1}}
+** {{desc|mak|bank|bor=1}}
+** {{desc|jv|bang|bor=1}}
+** {{desc|su|bank|bor=1}}
+* {{desc|pap|banki|bor=1}} {{q|dated}}
+* {{desc|srm|bánku|bor=1}}
+* {{desc|srn|bangi|bor=1}}
+** {{desc|tri|banku|bor=1}}
+* {{desc|fy|bank|bor=1}}
+
+{{C|nl|Buildings}}
+
+==Guianese Creole==
+
+===Etymology===
+From {{inh|gcr|fr|banque}}.
+
+===Noun===
+{{head|gcr|noun}}
+
+# {{l|en|bank}} {{gl|financial institution}}
+
+===References===
+* {{R:gcr:Barthelemi:1995|page=51}}
+
+==Hungarian==
+
+===Etymology===
+{{etymon|hu|:der|de:Bank<id:institution>}}
+From {{der|hu|de|Bank}}, from {{der|hu|it|banca}}.<ref>{{R:TotfalusiEty 2005}}</ref>
+
+===Pronunciation===
+* {{hu-IPA}}
+* {{audio|hu|Hu-bank.ogg}}
+* {{rhymes|hu|ɒŋk|s=1}}
+
+===Noun===
+{{hu-noun|ok}}
+
+# {{l|en|bank}} {{gloss|financial institution}}
+#: {{syn|hu|pénzintézet}}
+# {{lb|hu|gambling}} {{l|en|bank}} {{gloss|the sum of money etc. which the dealer or banker has as a fund from which to draw stakes and pay losses}}
+
+====Declension====
+{{hu-infl-nom|banko|o}}{{hu-pos-otok|bank|j|jai}}
+
+====Derived terms====
+{{col4|hu
+|bankár
+|banki
+|bankos
+}}
+{{col4|hu|title=Compound words
+|bankjegy
+|bankrabló
+|bankszámla
+|bankszámlakivonat
+|jegybank
+|Világbank
+}}
+{{col4|hu|title=Expressions
+|adja a bankot
+|központi bank
+}}
+
+===References===
+{{reflist}}
+
+===Further reading===
+* {{R:ErtSz}}
+* {{R:Nagyszotar}}
+
+{{topics|hu|Banking|Buildings}}
+
+==Icelandic==
+
+===Etymology===
+{{deverbal|is|banka||to knock, to beat}}.
+
+===Pronunciation===
+* {{is-IPA}}
+* {{rhymes|is|auŋ̊k|s=1}}
+
+===Noun===
+{{is-noun|@@}}
+
+# [[knock]], [[blow]]
+
+====Declension====
+{{is-ndecl|n.sg}}
+
+==Indonesian==
+{{wp|id:}}
+
+===Etymology===
+{{etymon|id|:ubor|nl:bank<id:institution>}}
+{{ubor|id|nl|bank|t=bank}}. {{doublet|id|banco|bangku}}.
+
+===Pronunciation===
+{{id-pr|bang|audio=LL-Q9240 (ind)-Xbypass-bank.wav|hmp=bang}}
+
+===Noun===
+{{id-noun}}
+
+# {{l|en|bank}}:
+## {{lb|id|banking|finance}} an institution where one can place and borrow money and take care of financial affairs
+## a safe and guaranteed place of storage for and retrieval of important items or goods
+
+====Synonyms====
+* {{l|id|gedung uang}}
+* {{l|id|rumah uang}}
+
+====Derived terms====
+{{col|id|title=Affixations
+|perbankan
+}}
+{{col2|id|title=Compounds
+|bank dalam
+|bank berantai
+|bank data
+|bank daya
+|bank desa
+|bank devisa
+|bank digital
+|bank elektronik
+|bank garansi
+|bank gelap
+|bank koresponden
+|bank mata
+|bank memori
+|bank pasar
+|bank pembangunan
+|bank penerbit
+|bank perdagangan
+|bank perkreditan rakyat
+|bank plecit
+|bank sampah
+|bank sentral
+|bank soal
+|bank sperma
+|bank syariah
+|bank tabungan
+|bank titil
+|bank umum
+|Bank Pembangunan Asia
+|bank terasosiasi
+|bank penerima kuasa
+|bank darah
+|bank perantara investasi
+|bank terspesialisasi
+|bank koperasi
+|bank korporatif
+|bank pendebit
+|bank kustodian
+|bank koresponden penyimpanan
+|bank koresponden depositori
+|bank pembayar
+|bank mobil
+|bank lantatur
+|bank asing
+|bank dagang asing
+|bank gen
+|bank genom
+|bank plasma nutfah
+|bank pelaksana
+|bank industri
+|bank dalam bank
+|bank perantara
+|bank perantara khusus
+|Bank Internasional untuk Rekonstruksi dan Pembangunan
+|Bank Internasional untuk Pemulihan dan Pembangunan
+|bank investasi
+|bank Islamis
+|bank emiten
+|bank pemimpin
+|bank berlisensi
+|bank dagang
+|bank simpanan bersama
+|bank tabungan bersama
+|bank tabungan nasional
+|bank luar negeri
+|bank pembuka
+|bank induk
+|bank bayar
+|bank receh
+|bank utama
+|bank besar
+|bank swasta
+|bank swasta nasional
+|bank penerima
+|bank referensi
+|bank pembangunan daerah
+|bank pengirim
+|bank wakil
+|bank responden
+|bank retail
+|bank sekunder
+|bank biji
+|bank kulit
+|bank negara
+|bank subsidiari
+|bank universal
+|bank dunia
+|Bank Dunia
+|diskonto bank
+|masalah manajemen bank
+|surat berharga bank
+|pernyataan bank
+|supervisi bank
+|kegagalan bank
+|tanggal keluar surat berharga bank
+|falsafah manajemen bank
+|cadangan primer bank
+|kotak simpan bank
+|telebank
+|kriteria kelayakan bank
+}}
+
+===Further reading===
+* {{R:KBBI Daring}}
+* {{cite-book|id|author=Bunbunan E. J. Hutampea|title=Kamus Keuangan|trans-title=Dictionary of Finance|passage=bank|page=5|year=1993|publisher=Pusat Pembinaan dan Pengembangan Bahasa, Departemen Pendidikan dan Kebudayaan|location=Jakarta|isbn=9794593192|author2=Soemarso S. R.|author3=Jan Hoesada|author4=Indriani Eko Yulianto|author5=Meity Taqdir Qodratillah|author6=T. B. Gultom}}
+
+==Malay==
+{{wp|ms:}}
+
+===Etymology===
+{{etymon|ms|:ubor|en:bank<id:institution>}}
+{{dercat|ms|dum|it|goh|gmw-pro|gem-pro}}
+{{ubor|ms|en|bank}}, spelled earlier as {{m|ms|beng}} and {{m|ms|بيڠک}}.<ref>Shellabear, W. G. (1916). ''An English-Malay Dictionary''. Internet Archive. Retrieved February 22, 2024, from https://archive.org/details/englishmalaydict00shelrich/page/38/mode/2up</ref><ref>Ahmad, Z. A. & salawati282. (1964, February 1). ''Koleksi kamus ZA’BA''. AnyFlip. Retrieved February 22, 2024, from https://anyflip.com/mnzoo/mfcf/basic</ref> {{doublet|ms|bangku}}.
+
+===Pronunciation===
+{{ms-IPA|bèngḱ|bangḱ}}
+* {{rhymes|ms|ɛŋk|aŋk|s=1}}
+* {{hyph|ms|bank}}
+
+===Noun===
+{{ms-noun|j=بڠک}}
+
+# A {{l|en|bank}}:
+## An [[institution]] that offers various [[financial]] [[service]]s.
+##: {{uxi|ms|'''bank''' asing|t=foreign '''bank'''}}
+##: {{uxi|ms|'''bank''' tempatan|t=local '''bank'''}}
+##: {{uxi|ms|'''bank''' antarabangsa|t=international '''bank'''}}
+## A [[stock]] or [[reserve]] of something for use when it is needed.
+##: {{uxi|ms|'''bank''' darah|t=blood '''bank'''}}
+
+====Derived terms====
+{{col|ms|title=Affixations
+|perbankan<t:[[banking]]>
+}}
+{{col|ms|title=Compounds
+|bank darah<t:[[blood bank]]>|bank data<t:[[databank]]>|bank eksport-import|bank Islam<t:Islamic bank>|bank jurubank|bank kerajaan|bank koperasi|bank konsortium|bank luar pesisir<t:[[offshore bank]]>|bank mata|bank negara<t:national bank>|bank pusat<t:[[central bank]]>|bank pembangunan<t:development bank>|bank perdagangan<t:commercial bank>|bank pertanian<t:agricultural bank>|bank saudagar|bank simpanan<t:savings bank>|Bank Sotong<t:{{w|CIMB}}
+>|Bank Harimau<t:{{w|Maybank}}>|bank pelaburan<t:investment bank>
+}}
+
+===References===
+{{reflist}}
+
+===Further reading===
+* {{R:PRPM}}
+
+==Maltese==
+
+===Etymology===
+{{ety|mt|:bor|it:banco|text=+|tree=1}}
+
+===Pronunciation===
+* {{IPA|mt|/bank/}}
+* {{rhymes|mt|ank|s=1}}
+
+===Noun===
+{{mt-head|noun|g=m|p=banek}}
+
+# {{l|en|bank}} {{gl|financial building or institution}}
+#: {{syn|mt|mislef}}
+# {{l|en|bank}} {{gl|an underwater area of higher elevation, a sandbank}}
+
+===Noun===
+{{mt-head|noun|g=m|p=bankijiet|dim=bnajjak,banketta}}
+
+# [[bench]]
+# [[counter]] {{gl|table or board on which business is transacted}}
+# [[worktable]]
+# [[judge]]'s [[seat]]
+
+===Related terms===
+{{col|mt|banka|bankabbli|bankarju|bankarotta|bankier|bankun|bbankja|bnajka}}
+
+==Middle English==
+
+===Etymology===
+From {{der|enm|ang|hobanca|hōbanca|couch}} and {{der|enm|ang|banc||bank, hillock, embankment}}, from {{der|enm|gem-pro|*bankô}}. Akin to {{cog|non|bakki||elevation, hill}}, {{cog|no|bakke||slope, hill}}.
+
+===Noun===
+{{enm-noun}}
+
+# the bank of a river or lake
+
+====Descendants====
+* {{desc|en|bank}}
+
+====References====
+* {{R:MED Online|entry=bank(e |pos=n.(1) |id=MED3585}}
+
+==Norwegian Bokmål==
+{{wp|nb:}}
+
+===Pronunciation===
+* {{IPA|nb|/bɑŋk/}}
+
+===Etymology 1===
+{{etymon|nb|id=institution|:bor|fr:banque}}
+Borrowed from {{bor|nb|fr|banque}}, from {{der|nb|it|banco||bench}}, {{m|it|banca}}.
+
+====Noun====
+{{nb-noun-m1}}
+
+# a {{l|en|bank}} {{q|financial institution}}
+
+=====Derived terms=====
+{{col3|nb
+|bankboks
+|bankhvelv
+|bankkonto
+|bankran
+|blodbank
+|forretningsbank
+|sentralbank
+|sparebank
+|Verdensbanken
+}}
+
+===Etymology 2===
+From the verb {{m|nb|banke}}.
+
+====Noun====
+{{nb-noun-m1}}
+
+# a [[beat]], [[knock]], [[throb]]
+
+=====Derived terms=====
+* {{l|nb|hjertebank}}
+
+===Etymology 3===
+
+====Verb====
+{{head|nb|verbf}}
+
+# {{infl of|nb|banke||imp}}
+
+===References===
+* {{R:nb:OB}}
+* {{R:nb:NAOB|bank_4}}
+* {{R:nb:NAOB|bank_5}}
+
+{{C|nb|Buildings}}
+
+==Norwegian Nynorsk==
+{{wp|nn:}}
+
+===Etymology===
+{{etymon|nn|:bor|fr:banque}}
+Borrowed from {{bor|nn|fr|banque}}, from {{der|nn|it|banco||bench}}, {{m|it|banca}}.
+
+===Pronunciation===
+* {{IPA|nn|/bɑŋk/}}
+
+===Noun===
+{{nn-noun-m1}}
+
+# a {{l|en|bank}} {{q|financial institution}}
+
+====Derived terms====
+{{col3|nn
+|bankboks
+|bankkonto
+|bankkvelv
+|bankran
+|blodbank
+|forretningsbank
+|sentralbank
+|sparebank
+}}
+
+===References===
+* {{R:nn:OB}}
+
+{{C|nn|Buildings}}
+
+==Old High German==
+
+===Alternative forms===
+* {{l|goh|panch}}
+
+===Etymology===
+{{etymon|goh|id=bench|:inh|gmw-pro:*banki<id:bench>}}
+{{dercat|goh|gem-pro|ine-pro|inh=1}}
+From {{der|goh|gmw-pro|*banki}}.
+
+===Noun===
+{{goh-noun|f}}
+
+# [[bench]]
+
+====Descendants====
+* {{desc|gmh|banc|bank}}
+** {{desc|bar|Bånk}}
+** {{desctree|de|Bank}}
+** {{desc|lb|Bänk}}
+** {{desc|pdc|Bank}}
+* {{desc|fro|banc|bor=1}}
+** {{desc|fr|banc}} {{see desc}}
+** {{desc|nrf|banc}}
+** {{desc|bor=1|enm|bank|banke}}
+*** {{desc|en|bank}} {{see desc}}
+** {{desc|gl|banco|bor=1}}
+** {{desc|es|banco|bor=1}} {{see desc}}
+* {{desc|bor=1|roa-oit|banco|banca}}
+** {{desc|it|banco|banca}} {{see desc}}
+*** {{desc|it|banchetto|der=1}} {{see desc}}
+** {{desc|gkm|πάγκος|bor=1}}
+*** {{desc|el|πάγκος}}
+** {{desc|frm|banque|bor=1}} {{see desc}}
+** {{desc|de|Bank|bor=1}} {{see desc}}
+* {{desc|bor=1|la-med|bancus|banca}}
+: {{desctree|lng|panch}}
+
+==Polish==
+{{wp|pl:}}
+
+===Etymology===
+{{dercat|pl|gmw-pro|gem-pro|ine-pro}}
+{{intnat|pl}}; compare {{cog|en|bank}}, {{cog|fr|banque}}, {{cog|de|Bank}}, ultimately from {{der|pl|lng|bank}}.<ref>{{R:pl:Bruckner|passage=z włosk. ''banco'', ‘stół wekslarski’, a to z niem. ''Bank''}}</ref><ref>{{R:pl:Bańkowski}}</ref>
+
+===Pronunciation===
+{{pl-pr|a=LL-Q809 (pol)-Poemat-bank.wav}}
+
+===Noun===
+{{pl-noun|m-in}}
+
+# {{l|en|bank}} {{gl|financial building, institution, or staff}}
+#: {{coi|pl|[[bank centralny|'''bank''' centralny]]|[[central bank|central '''bank''']]}}
+#: {{coi|pl|'''bank''' emisyjny|issuing '''bank'''}}
+#: {{coi|pl|'''bank''' hipoteczny|mortgage '''bank'''}}
+#: {{coi|pl|[[bank inwestycyjny|'''bank''' inwestycyjny]]|[[investment bank|investment '''bank''']]}}
+#: {{coi|pl|[[bank komercyjny|'''bank''' komercyjny]]|[[commercial bank|commercial '''bank''']]}}
+# {{l|en|bank}} {{gl|a safe and guaranteed place of storage for and retrieval of important items or goods}}
+#: {{coi|pl|[[bank danych|'''bank''' danych]]|[[databank|data'''bank''']]}}
+#: {{coi|pl|[[bank genów|'''bank''' genów]]|[[gene bank|gene '''bank''']]}}
+#: {{coi|pl|[[bank czasu |'''bank''' czasu]]|[[time bank|time '''bank''']]}}
+#: {{coi|pl|[[bank energii|'''bank''' energii]]/[[powerbank]]|[[powerbank|power'''bank''']]}}
+#: {{coi|pl|'''bank''' spermy|[[sperm bank|sperm '''bank''']]}}
+# {{lb|pl|gambling|card games}} {{l|en|bank}} {{gl|a fund of pieces from which the players are allowed to draw}}
+#: {{coi|pl|trzymać '''bank'''|to keep '''bank'''}}
+
+====Declension====
+{{pl-decl-noun-m-in}}
+
+====Derived terms====
+{{col|pl|title=adjective/adverb|jak w banku}}
+{{col|pl|title=adjectives|bankierski|banknotowy|bankomatowy|bankowy}}
+{{col|pl|title=adverb|bankowo}}
+{{col|pl|title=noun|bankier|bankierka|bankierowa|bankierówna|bankierstwo|banknocik|banknot|bankokracja|bankomat|bankowiec|bankowość|bankowóz|bankructwo|bankrut|bankrutka}}
+{{col|pl|title=particle|na bank}}
+{{col|pl|title=verbs|[[rozbijać bank]] {{g|impf}}, [[rozbić bank]] {{g|pf}}|[[bankrutować]] {{g|impf}}, [[pobankrutować]] {{g|pf}}, [[zbankrutować]] {{g|pf}}}}
+
+===References===
+{{reflist}}
+
+===Further reading===
+* {{R:pl:WSJP}}
+* {{R:pl:PWN}}
+
+{{C|pl|Banking|Buildings}}
+
+==Slovene==
+
+===Noun===
+{{head|sl|noun form|head=bánk}}
+
+# {{infl of|sl|bánka||gen|d|;|gen|p}}
+
+==Swedish==
+
+===Etymology===
+From {{der|sv|nl|bank}}, {{der|sv|de|Bank}} or {{der|sv|nds|bank}}, all from {{der|sv|it|banco}}, from {{der|sv|goh|banc}}, from {{der|sv|gmw-pro|*banki}}, from {{der|sv|gem-pro|*bankiz}}.
+
+===Pronunciation===
+* {{IPA|sv|/ˈbaŋːk/}}
+* {{audio|sv|Sv-bank.ogg}}
+
+===Noun===
+{{sv-noun|c}}
+
+# a bank {{gloss|financial institution, branch of such an institution}}
+# a bank {{gloss|place of storage}}
+# a bank {{gloss|of a river of lake}}
+# a [[sandbank]]
+
+====Declension====
+{{sv-infl-noun-c-er}}
+
+====Derived terms====
+{{col3
+|sv|affärsbank
+|bankdirektör
+|bankir
+|bankkontor
+|bankman
+|bankrånare
+|bankvalv
+|[[blodbank]]<!--blood bank-->
+|centralbank
+|databank
+|handelsbank
+|investeringsbank
+|investmentbank
+|matbank
+|provinsbank
+|riksbank
+|[[spermabank]]<!--sperm bank-->
+|[[strandbank]]<!--river bank-->
+|världsbank
+|Västbanken
+}}
+
+====Descendants====
+* {{desc|ovd|baunka|bor=1}}
+* {{desc|fi|pankki|bor=1}}
+
+===References===
+* {{R:svenska.se|saob}}
+
+{{C|sv|Buildings|Finance|Landforms}}
+
+==Turkish==
+
+===Etymology===
+{{ety|tr|:bor|fr:banc|text=+|tree=1}}
+
+===Pronunciation===
+* {{tr-IPA||[ˈbɑŋk]}}
+* {{hyphenation|tr|bank}}
+
+===Noun===
+{{tr-noun|ı|lar}}
+
+# [[bench]] {{gloss|long seat}}
+
+====Declension====
+{{tr-infl-noun-c|a|poss=1}}
+
+==Turkmen==
+{{tk-variant|c=банк|l=bank|a=بانک}}
+
+===Etymology===
+{{rfe|tk}}
+
+===Noun===
+{{tk-noun|y|lar}}
+
+# {{l|en|bank}} {{rfclarify|tk}}
+
+====Declension====
+{{tk-decl-noun-auto|a|c}}
+
+====Derived terms====
+{{col|tk
+|merkezi bank
+}}
+
+==Volapük==
+
+===Noun===
+{{vo-noun}}
+
+# {{l|en|bank}} {{gloss|financial institution}}
+
+====Declension====
+{{vo-decl-noun}}

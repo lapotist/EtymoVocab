@@ -1,0 +1,255 @@
+{{also|Father}}
+==English==
+{{wp|<dab>}}
+
+===Etymology===
+{{root|en|ine-pro|*peh₂-}}
+{{etymon|en|id=male parent|:inh|enm:fader<id:father>|tree=1|text=++}} {{doublet|en|ayr|faeder|athair|padre|pater|père}}.
+
+===Pronunciation===
+* {{a|en|UK}}
+** {{enPR|fä'''th''ə(r)|a=RP}}, {{IPA|en|/ˈfɑː.ðə(ɹ)/}}
+*** {{audio|en|LL-Q1860 (eng)-Back ache-father.wav|a=London}}
+** {{enPR|fä'və(r)|a=th-fronting}}, {{IPA|en|/ˈfɑː.və(ɹ)/}}
+** {{enPR|fă'''th''ə(r)|a=Northumbria,Geordie,else obsolete}} {{IPA|en|/ˈfa.ðə(ɹ)/|/ˈfa.ðɐ/}}<ref>{{R:Krapp English Language in America|II|pages=50-51}}</ref>
+** {{enPR|fă'''th''ər|a=Scotland}}, {{IPA|en|/ˈfa.ðɚ/}}
+* {{enPR|fä'''th''ər|a=GA}}, {{IPA|en|/ˈfɑ.ðɚ/}}
+** {{audio|en|En-us-father.ogg|a=California}}
+* {{enPR|fä'''th''ər|a=CA}}, {{IPA|en|/ˈfɑ.ðɚ/|[ˈfɑ.ðɚ]|[ˈfɒ.ðɚ]|q2=Atlantic Canada|q3=Standard Canadian}}
+* {{enPR|fä'''th''ə|a=AusE,NZ}}, {{IPA|en|/ˈfɐː.ðə/}}
+* {{enPR|fä'''th''ər|a=IE,Western Pennsylvania,older New York City}}, {{IPA|en|/ˈfɒːðɚ/}}
+* {{enPR|fä'''th''ər|a=Central New England}}, {{IPA|en|/ˈfɔ.ðɚ/}}
+* {{IPA|en|a=NY,Italian American,somewhat <<dated>>|[ˈfɑɾə]}}
+* {{enPR|fä'də(r)|a=India}} {{IPA|en|/ˈfɑː.d̪ə(r)/}}
+** {{audio|en|LL-Q1860 (eng)-Sravani Jampana-father.wav|a=[[w:Vijayawada|Vijayawada, Andhra Pradesh]]}}
+* {{enPR|fā'''th''ə(r)|a=obsolete}}, {{IPA|en|/ˈfeɪ.ðə(ɹ)/}}<ref>{{R:en:Dobson:1957|II|6|467}}</ref>
+* {{homophones|en|farther|aa=most <<non-rhotic>> accents}}
+* {{hyphenation|en|fa|ther}}
+* {{rhymes|en|ɑːðə(ɹ)|s=2}}
+The development of the {{IPAchar|/ɑː/}} vowel (outside of those accents which also have it in {{m|en|[[rather]], [[lather]]}}) is irregular and has not been conclusively explained.
+
+===Noun===
+{{en-noun}}
+
+# {{senseid|en|Q7565}}A [[male]] [[parent]], especially of a human; a male who [[parents]] a [[child]] (which he has [[sire|sired]], [[adopt|adopted]], [[foster|fostered]], etc.).
+#: {{ux|en|My '''father''' was a strong influence on me.}}
+#: {{ux|en|My friend Tony just became a '''father'''.}}
+#* {{RQ:KJV|Proverbs|10|1|passage=The Pꝛouerbes of Solomon: A wiſe ſonne maketh a glad '''father''': but a fooliſh sonne ''is'' the heauineſſe of his mother.}}
+#* {{RQ:Churchill Celebrity|chapter=5| passage=When this conversation was repeated in detail within the hearing of the young woman in question, and undoubtedly for his benefit, Mr. Trevor threw shame to the winds and scandalized the Misses Brewster then and there by proclaiming his '''father''' to have been a country storekeeper.}}
+#* {{Q|en|year=1905|{{w|E. M. Forster}}|{{w|Where Angels Fear to Tread}}|, chapter 7|quote="Ah, but how beautiful (my baby boy) is! And he is '''mine''', '''mine''' for ever. Even if he hates me he will be '''mine'''. He cannot help it, he is made out of me; I am his father."}}
+#* {{quote-web
+|en
+|date=August 01, 1980
+|origdate=1 May 1980
+|author=[[w:Chiang Ching-kuo|Ching-kuo Chiang]]
+|title=President Chiang Ching-kuo continues his period of mourning and finds that visits to countryside and people give him renewed strength
+|archiveurl=https://web.archive.org/web/20200517074534/https://taiwantoday.tw/print.php?unit=4&post=5149
+|archivedate=17 May 2020
+|work=w:Taiwan Today
+|text=My personal success or failure is insignificant; the rise or fall of the nation is my responsibility and must not be shirked. Upon introspection, I feel I am firmer than ever in confidence that the Communists will be defeated. These are feelings which will comfort '''Father's''' soul in Heaven.}}
+#* {{quote-song|en|lyricist=w:Cécile Corbel| composer=w:Cécile Corbel; {{w|Simon Caby| lang=fr}}| format={{w|CD}}| publisher={{w|ヤマハミュージックコミュニケーションズ|Yamaha Music Communications|lang=ja}}| artist=w:Cécile Corbel|title=My First Borrowing| date=Apr 7 2010|album= {{lang|ja|借りぐらし}} Kari-gurashi| trans-album=The Borrowers|text='''Father''', dear '''father'''<br>Will you be proud of me?<br>I wish I could be<br>Just like you.}}
+#* {{quote-video game|en|developer=w:BioWare|title=w:Mass Effect 3|genre=[[science fiction|Science Fiction]]|location=Redwood City|publisher=Electronic Arts|year=2012|system=PC|scene=Apollo Cafe, Presidium Commons, {{w|Citadel (Mass Effect)|Citadel}}|oclc=962368035|text=Shepard: The bartender over there?<br>{{w|Liara T'Soni|Liara}}: The matriarch hired by the {{w|Asari (Mass Effect)|asari}} government to track my movements?<br>Shepard: She's your '''father'''.<br>Liara: I know.}}
+#* {{quote-journal|en|author=Jessie Yeung and Isaac Yee|title=Laos detains foreign hostel staff over backpacker methanol poisonings as families and travelers demand answers|magazine=w:CNN|url=https://www.cnn.com/2024/11/27/asia/laos-detains-hostel-staff-methanol-poisoning-intl-hnk/index.html|date=2024-11-27|passage=
+Speaking to reporters at Melbourne airport, their '''fathers''' thanked supporters and praised efforts from the Australian government, according to Nine News.|archiveurl=https://web.archive.org/web/20260517164251/https://www.cnn.com/2024/11/27/asia/laos-detains-hostel-staff-methanol-poisoning-intl-hnk/index.html|archivedate=17 May 2026}}
+#* {{quote-journal|en|author=Madeline Holcombe|title=How to be a dad to sons today, according to experts|magazine=w:CNN|url=https://www.cnn.com/2025/06/15/health/dads-sons-lessons-wellness|date=2025-06-15|passage=
+“There was just this opportunity with a '''father'''-son dynamic to really nurture,” she said. “If the boys are starting to learn that they’re not supposed to be girls and they’re not supposed to be too much like their mothers, or too close to their mothers, then the '''father''' really can step in.”|archiveurl=https://web.archive.org/web/20250919070049/https://www.cnn.com/2025/06/15/health/dads-sons-lessons-wellness|archivedate=19 September 2025}}
+# A male ancestor more remote than a parent; a progenitor; especially, a first ancestor.
+#* {{RQ:KJV|1 Kings|2|10|passage=So Dauid ſlept with his '''fathers''', and was buried in the citie of Dauid.}}
+#* {{RQ:KJV|Romans|4|16|passage=Therefoꝛe ''it is'' of faith, that it might bee by grace; to the ende the pꝛomiſe might be ſure to all the ſeede, not to that onely which is of the Law, but to that alſo which is of the faith of Abꝛaham, who is the '''father''' of vs all,}}
+# {{non-gloss|A term of respectful address for an elderly man.}}
+#: {{ux|en|Come, '''father'''; you can sit here.}}
+# {{non-gloss|A term of respectful address for a priest.}}
+#* {{RQ:Shakespeare Measure|III|ii|passage=Bless you, good '''father''' friar!}}
+# A person who plays the role of a father in some way.
+#: {{ux|en|My brother was a '''father''' to me after my parents got divorced.}}
+#: {{ux|en|The child is '''father''' to the man.}}
+#* {{RQ:KJV|Job|29|16|passage=I was a '''father''' to the pooꝛe: and the cauſe which I knewe not, I ſearched out.}}
+#* {{RQ:KJV|Genesis|45|8|passage=So now it was not you ''that'' sent me hither, but God: and he hath made me a '''father''' to Pharaoh, and loꝛd of all his houſe, and a ruler thꝛoughout all the land of Egypt.}}
+# A pioneering figure in a particular field.
+#: {{ux|en|Albert Einstein is the '''father''' of modern physics.}}
+# Something that is the greatest or most significant of its kind.
+#* {{quote-journal|en|year=1991|journal=The Nairobi Law Monthly
+|passage=Soon after the announcement of this year&#39;s election results, Mereka said that &quot;the '''father''' of all battles had just begun.&quot; His dispute with Muite goes back to March last year {{...}}}}
+#* {{quote-journal|en|year=2002|journal=Financial Management
+|passage=&quot;If UK GDP slows by 1 per cent, there is the mother and '''father''' of all recessions. It was exciting, but very bizarre, working in such an environment.&quot;}}
+#* {{quote-book|en|year=2012|author=Zubairu Wai|title=Epistemologies of African Conflicts: Violence, Evolutionism, and the War in Sierra Leone|publisher=Palgrave Macmillan|isbn=9781137280794|page=93
+|passage=“The '''Father''' of All Battles”<br>On March 23, 1991, a band of armed insurgents attacked the town of Bomaru {{...}}}}
+# Something inanimate that begets.
+#* {{quote-book|en|page=88|author=w:Richard Lovelace|title= Amyntor's Grove, His Chloris, Arigo, and Gratiana. An Elogie.|year=1649|publisher= Thomas Harper|url= https://books.google.co.nz/books?id=LnlMAAAAcAAJ |passage=But may the Sun and gentle weather, / When you are both growne ripe together, / Load you with fruit, such as your '''Father''' / From you with all the joyes doth gather: / And may you when one branch is dead / Graft ſuch another in it's ſtead,{{...}} }}
+# {{lb|en|Christianity}} A member of a [[church council]].
+#* {{quote-book|en|year=2003|author={{w|Francis Christopher Oakley|Francis Oakley}}| title=The Conciliarist Tradition: Constitutionalism in the Catholic Church, 1300–1870| isbn=9780199265282| pages=37–8| text=In proceeding in this fashion, the '''fathers''' assembled at Pisa were following the generally accepted canonistic teaching of the day {{...}}}}
+#* {{quote-book|en|year=2009|author=Peter Chidi Okuma|title=Empowerment of the Catholic Laity in the Nigerian Political Situation{{nb...}}|isbn=9783631581827|page=177|pageurl=https://books.google.co.uk/books?id=MWwW32sk95YC&pg=PA177|text=On the part of the '''fathers''' of the synod, over 50 bishops, from every continent, spoke on different ‘group forms’ of the lay apostolate, whereas about 38 '''fathers''' made their own interventions in writing to the General Secretary.}}
+#* {{quote-book|en|year=2014|author=Ronald D. Witherup|title=The Word of God at Vatican II: Exploring Dei Verbum|isbn=9780814635568|page=31|pageurl=https://books.google.co.uk/books?id=nv5yBgAAQBAJ&pg=PA31|text=Remember that the '''fathers''' of Vatican II had rejected the first draft of the constitution on revelation entirely.}}
+# {{lb|en|computing}} The [[archive]]d older [[version]] of a [[file]] that immediately precedes the current version, and was itself derived from the [[grandfather]].
+#* {{quote-book|en|year=2004|author=Ray Bradley|title=The Ultimate Computing Glossary for Advanced Level|page=31
+|passage=Three generations of file are usually kept, being the grandfather, '''father''' and son files.}}
+#* {{quote-book|en|year=2007|author=O. Ray Whittington; Patrick R. Delaney|title=Wiley CPA Exam Review 2008: Auditing and Attestation|page=556
+|passage=The file from which the '''father''' was developed with the transaction files of the appropriate day is the grandfather.}}
+
+====Synonyms====
+* {{sense|parent}} ''see'' [[Thesaurus:father]]
+* {{sense|most significant thing}} ''see'' {{l|en|mother}} ''and'' {{l|en|granddaddy}}
+
+====Antonyms====
+* {{qualifier|with regards to gender}} [[mother]]
+* {{qualifier|with regards to ancestry}} [[son]], [[daughter]], [[child]]
+
+====Hypernyms====
+* {{sense|a male parent}} {{l|en|parent}}
+
+====Derived terms====
+{{col|en|adoptive father
+|All-Father|White Father
+|allofather
+|baby father,babyfather
+|be gathered to one's fathers
+|biofather
+|birthfather,birth father
+|birthing father
+|bonus father
+|city father
+|co-father
+|conscript father
+|Cowley Father
+|elderfather
+|eldfather
+|Father Amir
+|father-bother merger
+|Father Christmas
+|father confessor
+|fathercraft
+|father-daughter day
+|fatherdom
+|Father Emir
+|fatherer
+|fatherese
+|father figure,father-figure
+|father-fucker,fatherfucker
+|fatherhood
+|father hunger
+|father in law,father-in-law
+|fatherkin
+|fatherkins
+|fatherland
+|father lasher
+|fatherless
+|fatherlike
+|fatherline
+|fatherliness
+|fatherling
+|father longlegs
+|fatherly
+|fatherness
+|father of chapel
+|Father of Lies
+|father of the House
+|father of the nation
+|father-out-law
+|Father's Day
+|fathership
+|father-slayer
+|father superior
+|Father Time
+|father-to-be
+|father tongue
+|forefather
+|forthfather
+|foster father
+|founding father
+|from father to son
+|gestational father
+|ghostly father
+|godfather
+|God the Father
+|gold star father
+|grandfather
+|great-grandfather
+|Heavenly Father
+|highfather
+|housefather
+|how's your father
+|it is a wise child that knows his own father
+|like father, like son
+|like father like son
+|longfather
+|lorefather
+|merfather
+|motherfather
+|nonfather
+|nursing father
+|one's father was born before one
+|penny-father
+|shrift father
+|shriftfather
+|single father
+|step-father
+|stepfather
+|surrogate father
+|unfather
+|wolf father
+|you kiss your father with that mouth
+
+}}
+
+====Related terms====
+* {{l|en|Father}}
+* {{l|en|Jupiter}}
+* {{l|en|paternal}}
+
+====Translations====
+{{see translation subpage|Noun}}
+
+===Verb===
+{{en-verb}}
+
+# To be a father to; to [[sire]].
+#* {{RQ:Shakespeare Henry 6-1|page=117|column=2|act=IV|scene=v|passage=Well go too, we'll haue no Baſtards liue, / Eſpecially ſince ''Charles'' muſt '''Father''' it.}}
+# {{lb|en|figuratively}} To give rise to.
+#* {{RQ:Shakespeare Cymbeline|page=387|column=1|act=II|scene=ii|passage=Cowards '''father''' Cowards & Baſe things Syre Bace;}}
+# To [[act]] as a father; to [[support]] and [[nurture]].
+#* {{RQ:Shakespeare Cymbeline|act=IV|scene=ii|page=390|column=2|passage=I good youth, / And rather '''Father''' thee, then Maſter thee:}}
+#* {{quote-book|en|author=w:John Eldredge|title=[[w:Wild at Heart (Eldredge book)|Wild at Heart]]|chapter=John Answers Your ''Wild at Heart'' Questions|page=220|publisher=Nelson Books|edition=Expanded|year=2021|origyear=2001|isbn=9781400225262|passage=What have you learned since writing ''Wild at Heart'' that you would now go back and change (if you could) about how you '''fathered''' your three boys?}}
+# To provide with a father.
+#* {{RQ:Shakespeare Julius Caesar|act=II|scene=i|page=116|column=2|passage=Thinke you, I am no ſtronger then my Sex / Being ſo '''Father'd''', and ſo Husbanded?}}
+#* {{quote-book|en|author=James George Frazer|title=Adonis, Attis, Osiris|year=1906|volume=2|page=209|text=The relations of the sexes were so loose and vague that children could not be '''fathered''' on any particular man.}}
+# To [[adopt]] as one's own.
+#* {{quote-book|en|year=1713|publisher=w:Jonathan Swift|title=Imitation of Horace|section=Book I. Ep. VII
+|passage=Kept company with men of wit / Who often '''fathered''' what he writ.}}
+
+====Derived terms====
+*{{l|en|fatherer}}
+
+====Translations====
+{{see translation subpage|Verb}}
+
+===See also===
+* {{l|en|beget}}
+* {{l|en|grandpa}}
+* {{l|en|pater}}
+* {{l|en|paternal}}
+* {{l|en|sire}}
+
+===References===
+<references/>
+
+===Anagrams===
+* {{anagrams|en|a=aefhrt|Hafter|afther|trefah|hafter|fareth}}
+
+{{topics|en|Male family members|Parents}}
+
+==Middle English==
+
+===Noun===
+{{head|enm|noun|var=1}}
+
+# {{lb|enm|Late ME}} {{alt form|enm|fader}}
+
+==Scots==
+
+===Noun===
+{{head|sco|noun}}
+
+# {{alt form|sco|faither}}
+
+===References===
+* {{R:Dictionary of the Scots Language|entry=father|pos=n|accessdate=23 May 2024|source=DOST}}

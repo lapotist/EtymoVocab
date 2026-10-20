@@ -1,0 +1,628 @@
+{{also|transport|Transport|transpòrt}}
+==English==
+{{wp|<dab>}}
+
+===Etymology===
+{{ety|en|tree=1|:inh|enm:transporten<ety:bor<fro:transporter>>|:af<surf>|trans-<id:across, beyond>|port<id:carry>}}
+{{inh+|en|enm|transporten}}, a borrowing from {{der|en|fro|transporter|t=carry or convey across}}, from {{der|en|la|trānsportō|trānsportāre|to carry over, take across, carry, convey, remove, transport}}, from {{af|la|trāns-<id:beyond><t:across, over, to the farther side of>|portō<id:carry><t:to bear, carry, convey, take>|nocat=1}}. {{surf|en|trans-<id:across, beyond><t:beyond, across, through>|port<id:carry><t:to carry, bear, or convey; to bring>}}.
+
+===Pronunciation===
+; Verb
+* {{enPR|trănspôrtʹ|tränspôrtʹ|a=RP}}, {{IPA|en|/tɹænsˈpɔːt/|/tɹɑːnˈspɔːt/}}
+* {{enPR|trănspôrtʹ|a=GenAm,non-æ-tensing}}, {{IPA|en|/tɹænsˈpɔɹt/}}
+** {{IPA|en|/tɹeə̯nsˈpɔɹt/|/tɹɛə̯nsˈpɔɹt/|a=æ-tensing}}
+* {{IPA|en|/ˈtɹænsˈpo(ː)ɹt/|a=rhotic,non-horse-hoarse}}
+* {{IPA|en|/ˈtɹænsˈpoət/|a=non-rhotic,non-horse-hoarse}}
+* {{audio|en|en-us-transport-verb.ogg|a=US}}
+* {{audio|en|LL-Q1860 (eng)-Tesco250-transport (verb1).wav|a=UK|IPA=/tɹɑːnˈspɔːt/}}
+* {{audio|en|LL-Q1860 (eng)-Tesco250-transport (verb2).wav|a=UK|IPA=/tɹænsˈpɔːt/}}
+* {{rhymes|en|ɔː(ɹ)t|s=2}}
+* {{hyphenation|en|trans|port}}
+
+; Noun
+* {{enPR|trănsʹpôrt|tränsʹpôrt|a=RP}}, {{IPA|en|/ˈtɹæns.pɔːt/|/ˈtɹɑːnspɔːt/}}
+* {{enPR|trănsʹpôrt|a=GenAm,non-æ-tensing}}, {{IPA|en|/ˈtɹæns.pɔɹt/}}
+** {{IPA|en|/ˈtɹeə̯ns.pɔɹt/|/ˈtɹɛə̯ns.pɔɹt/|a=æ-tensing}}
+* {{IPA|en|/ˈtɹæns.po(ː)ɹt/|a=rhotic,non-horse-hoarse}}
+* {{IPA|en|/ˈtɹæns.poət/|a=non-rhotic,non-horse-hoarse}}
+* {{audio|en|en-us-transport-noun.ogg|a=US}}
+* {{audio|en|LL-Q1860 (eng)-Tesco250-transport (noun1).wav|a=UK|IPA=/ˈtɹɑːnspɔːt/}}
+* {{audio|en|LL-Q1860 (eng)-Tesco250-transport (noun2).wav|a=UK|IPA=/ˈtɹæns.pɔːt/}}
+* {{rhymes|en|ænspɔː(ɹ)t|s=2}}
+* {{hyph|en|trans|port}}
+
+===Verb===
+{{en-verb}}
+
+# To [[carry]] or [[bear]] from one place to another; to [[remove]]; to [[convey]].
+#: {{ux|en|to '''transport''' goods; to '''transport''' troops}}
+#* {{quote-journal|en|date=2021 January 13|author=Dr Joseph Brennan|title=Spectacular funiculars|journal=RAIL, issue 922|page=53|text=But the village's growth was curbed by the cliffs that restricted onward exploration for visitors, while goods such as coal and lime, which had arrived by water, were being '''transported''' up the severe incline to the town of Lynton by horse and cart.}}
+# {{lb|en|historical}} To [[deport]] to a [[penal colony]].
+# {{lb|en|figuratively}} To [[move]] (someone) to [[strong]] [[emotion]]; to [[carry away]].
+#: {{ux|en|Music '''transports''' the soul.}}
+#* {{RQ:Fletcher Shakespeare Two Noble Kinsmen|i|1|Thes. Pray you kneele not,<br>I was '''transported''' with your Speech, and suffer'd<br>Your knees to wrong themselves; I have heard the fortunes<br>Of your dead Lords, which gives me such lamenting<br>As wakes my vengeance, and revenge for 'em.<br>}}
+#* {{RQ:Milton Paradise Lost|book=9|passage=[They] laugh as if '''transported''' with some fit / Of passion.|year=1873}}
+#* {{RQ:South Twelve Sermons|passage=We shall then be '''transported''' with a nobler {{...}} wonder.}}
+
+====Conjugation====
+{{en-conj|old=1}}
+
+====Synonyms====
+* {{sense|carry or bear from one place to another}} {{l|en|convey}}, {{l|en|ferry}}, {{l|en|move}}, {{l|en|relocate}}, {{l|en|shift}}, {{l|en|ship}}
+* {{sense|historical: deport to a penal colony}} {{l|en|banish}}, {{l|en|deport}}, {{l|en|exile}}, {{l|en|expatriate}}, {{l|en|extradite}}
+* {{sense|move someone to strong emotion}} {{l|en|carry away}}, {{l|en|enrapture}}
+
+====Translations====
+{{trans-top|carry or bear from one place to another}}
+* Arabic: {{t|ar|نَقَلَ}}
+* Asturian: {{t+|ast|tresportar}}
+* Bulgarian: {{t+|bg|пренасям}}, {{t+|bg|превозвам}}, {{t+|bg|транспортирам}}
+* Catalan: {{t+|ca|transportar}}
+* Chinese:
+*: Literary Chinese: {{t|lzh-lit|饋}}{{attn|lzh|check whether this should be lzh-lit ("Literary Chinese") or lzh ("Classical Chinese", < c. 200 AD)}}
+*: Mandarin: {{t+check|cmn|輸送}}
+* Czech: {{t|cs|dopravit}}
+* Danish: {{t|da|transportere}}
+* Dutch: {{t+|nl|overbrengen}}, {{t+|nl|voeren}}, {{t+|nl|vervoeren}}, {{t+|nl|transporteren}}
+* Esperanto: {{t|eo|transporti}}
+* Finnish: {{t+|fi|kuljettaa}}, {{t+|fi|siirtää}}, {{t+|fi|kantaa}}, {{t+|fi|rahdata}}, {{t+|fi|liikuttaa}}, {{t+|fi|viedä}}
+* French: {{t+|fr|reporter}}, {{t+|fr|transporter}}
+* Galician: {{t+|gl|transportar}}
+* German: {{t+|de|transportieren}}, {{t+|de|befördern}}
+* Greek: {{t+|el|μετακινώ}}, {{t|el|οχούμαι}}
+*: Ancient Greek: {{t|grc|μετακομίζω}}, {{t|grc|ὀχοῦμαι}}
+* Hindi: {{t+|hi|ढोना}}
+* Hungarian: {{t+|hu|szállít}}, {{t+|hu|fuvaroz}}
+* Irish: {{t|ga|iompair}}
+* Italian: {{t+|it|trasportare}}
+* Japanese: {{t+check|ja|運送|tr=うんそうする, unsō surú|alt=運送する}} <!-- was "[[運送]]する" - assumed inflected form or vocalised spelling; please verify if linking is acceptable. see [[User:Kephir/gadgets/xte#Translation_fixing]] -->, {{t+check|ja|輸送|tr=ゆそうする, yusō-suru|alt=輸送する}}
+* Kannada: {{t+|kn|ರವಾನೆ}}
+* Kavalan: {{t|ckv|saqut}}
+* Korean: {{t+|ko|수송하다}}
+* Lao: {{t|lo|ຂົນສົ່ງ}}
+* Latin: {{t|la|vectō}}, {{t|la|trānsportō}}
+* Latvian: {{t|lv|transportēt}}, {{t|lv|pārvest}}
+* Malay: {{t+|ms|angkut}}
+* Norwegian: {{t+|no|føre}}
+*: Bokmål: {{t|nb|transportere}}
+*: Nynorsk: {{t|nn|transportere}}, {{t|nn|føre}}
+* Occitan: {{t+|oc|transportar}}
+* Paiwan: {{t|pwn|sakuc}}
+* Persian: {{t|fa|ترابری کردن|tr=tarâbari kardan}}, {{t|fa|ترانسپورت کردن|tr=trânsport kardan}}, {{t+|fa|ترابردن|tr=tarābordan}}
+* Polish: {{t+|pl|przewozić|impf}}
+* Portuguese: {{t+|pt|transportar}}
+* Puyuma: {{t|pyu|akutr}}
+* Quechua: {{t|qu|astay}}
+* Romanian: {{t+|ro|transporta}}, {{t+|ro|căra}}
+* Russian: {{t+|ru|перевози́ть|impf}}, {{t+|ru|перевезти́|pf}}
+* Sanskrit: {{t+|sa|वहति}}
+* Shan: {{t|shn|တေႃႉသူင်ႇ}}
+* Sorbian:
+*: Lower Sorbian: {{qualifier|by vehicle, abstract}} {{t|dsb|wózyś|impf}}, {{qualifier|by vehicle, concrete}} {{t|dsb|wjasć|impf}}
+* Spanish: {{t+|es|transportar}}
+* Swahili: {{t+|sw|safirisha}}
+* Swedish: {{t+|sv|befordra}}, {{t+|sv|forsla}}, {{t+|sv|frakta}}, {{t+|sv|transportera}}
+* Telugu: {{t+|te|రవాణా}}
+* Thai: {{t+|th|ขนส่ง}}
+* Welsh: {{t+|cy|cludo}}, {{t|cy|transbortio}}
+{{trans-bottom}}
+
+{{trans-top|historical: deport to a penal colony}}
+* Bulgarian: {{t|bg|изпращам на каторга}}
+* Catalan: {{t+|ca|deportar}}
+* Chinese:
+*: Mandarin: {{t+|cmn|流放}}
+* Danish: {{t|da|deportere}}
+* Dutch: {{t+|nl|deporteren}}, {{t+|nl|wegvoeren}}
+* Finnish: {{t+|fi|karkottaa}}
+* Galician: {{t|gl|deportar}}
+* Greek: {{t+|el|εξορίζω}}, {{t|el|εκπατρίζω}}
+* Italian: {{t+|it|deportare}}
+* Japanese: {{t|ja|追放する|tr=tsuihō-suru}}
+* Latvian: {{t|lv|izsūtīt}}
+* Norwegian:
+*: Bokmål: {{t|nb|deportere}}
+*: Nynorsk: {{t|nn|deportere}}
+* Polish: {{t|pl|zsyłać|impf}}
+* Portuguese: {{t+|pt|exilar}}
+* Russian: {{t+|ru|ссыла́ть|impf}}, {{t+|ru|сосла́ть|pf}}
+* Spanish: {{t+|es|exiliar}}
+* Swedish: {{t+|sv|deportera}}
+* Tamil: {{t|ta|நாடு கடத்தல்}}
+{{trans-bottom}}
+
+{{trans-top|move someone to strong emotion}}
+* Bulgarian: {{t+|bg|увличам}}
+* Dutch: {{t+|nl|meeslepen}}, {{t|nl|in vervoering brengen}}, {{t+|nl|vervoeren}}
+* Finnish: {{t|fi|[[viedä]] [[mukanaan]]}}, {{t+|fi|liikuttaa}}, {{t|fi|hurmioitua}}
+* Galician: {{t+|gl|transportar}}
+* Greek: {{t|el|συνεπαίρνω/συνεπαίρνομαι}}, {{t|el|εκστασιάζω/εκστασιάζομαι}}
+* Italian: {{t+|it|trasportare}}
+* Latvian: {{t|lv|aizraut}}, {{t|lv|sajūsmināt}}
+* Russian: {{t+|ru|охватить}}
+* Swedish: {{t+|sv|hänföra}}, {{t|sv|hänrycka}}, {{t+|sv|rycka}} med
+{{trans-bottom}}
+
+===Noun===
+{{wp}}
+{{en-noun|~}}
+
+# An act of [[transporting]]; [[conveyance]].
+#: {{ux|en|The '''transport''' of goods is not included in the price given on the website.}}
+# The state of being [[transported]] by emotion; [[rapture]].
+#* '''1919''', Elisabeth P. Stork (translator), ''Heidi'', Johanna Spyri, [http://www.gutenberg.org/files/20781/20781-h/20781-h.htm page 53]:
+#*: {{quote|en|In her '''transport''' at finding such treasures, Heidi even forgot Peter and his goats.}}
+# A [[vehicle]] used to transport ([[passenger]]s, [[mail]], [[freight]], [[troops]] etc.)
+# {{lb|en|Canada}} A [[tractor-trailer]].
+# The [[system]] of transporting passengers, etc. in a [[particular]] [[region]]; the vehicles used in such a system.
+#: {{ux|en|The local '''transport''' received a big boost as part of the mayor's infrastructural plans.}}
+# A [[device]] that moves [[recording]] [[tape]] across the [[read]]/[[write]] [[head]]s of a [[tape recorder]] or [[video recorder]] etc.
+# {{lb|en|historical}} A deported [[convict]].
+
+====Synonyms====
+* {{sense|act of transporting}} {{l|en|conveyance}}, {{l|en|ferry|ferrying}}, {{l|en|move|moving}}, {{l|en|relocation}}, {{l|en|shift|shifting}}, {{l|en|ship|shipping}}
+* {{sense|state of being transported by emotion}} {{l|en|rapture}}
+* {{sense|(''military'') vehicle used to transport troops}} {{l|en|}}{{attn|en|no synonyms listed}}
+* {{sense|vehicle used to transport passengers, mail or freight}} {{l|en|}}{{attn|en|no synonyms listed}}
+* {{sense|system of transporting people}} {{see|en|public transport|noast=1}}
+* {{sense|device that moves recording tape across the heads of a recorder}} {{l|en|}}{{attn|en|no synonyms listed}}
+* {{sense|historical: deported convict}} {{l|en|deportee}}, {{l|en|exile}}, {{l|en|expatriate}}
+
+====Translations====
+{{trans-top-see|act of transporting|transportation|transportment}}
+* Arabic: {{t|ar|نَقْل|m}}
+* Bulgarian: {{t+|bg|прена́сяне|n}}, {{t+|bg|прево́зване|n}}, {{t+|bg|транспо́рт|m}}
+* Catalan: {{t+|ca|transport|m}}
+* Chinese:
+*: Mandarin: {{t+|cmn|運輸}}
+* Czech: {{t+|cs|doprava|f}}
+* Danish: {{t+|da|transport|c}}, {{t|da|befordring|c}}
+* Dutch: {{t+|nl|vervoer|n}}, {{t+|nl|transport|n}}
+* Finnish: {{t+|fi|kuljettaminen}}, {{t+|fi|kuljetus}}, {{t+|fi|siirtäminen}}, {{t+|fi|siirto}}
+* French: {{t+|fr|transport|m}}
+* Galician: {{t+|gl|transporte|m}}
+* German: {{t+|de|Beförderung|f}}, {{t+|de|Spedition|f}}
+* Greek: {{t+|el|μεταφορά|f}}, {{t+|el|μετακίνηση|f}}
+* Hindi: {{t+|hi|ढोना|m}}, {{t+|hi|परिवहन|m}}
+* Hungarian: {{t+|hu|szállítás}}
+* Ido: {{t+|io|transporto}}
+* Italian: {{t+|it|trasporto|m}}, {{t+|it|porto|m}}
+* Japanese: {{t+|ja|運送|tr=うんそう, unsō}}, {{t+|ja|輸送|tr=ゆそう, yusō}}
+* Korean: {{t|ko|운송(運送)}}, {{t+|ko|수송(輸送)}}
+* Latvian: {{t|lv|transports|m}}, {{t|lv|pārvešana|f}}
+* Macedonian: {{t|mk|превоз|m}}
+* Malay: {{t+|ms|pengangkutan}}, {{t|ms|transpor}}
+* Norwegian:
+*: Bokmål: {{t+|nb|transport}}
+*: Nynorsk: {{t|nn|transport}}
+* Persian:
+*: Iranian Persian: {{t|fa-ira|تَرابَری}}
+* Polish: {{t+|pl|transport|m}}, {{t+|pl|przewóz|m}}
+* Portuguese: {{t+|pt|transporte|m}}
+* Romanian: {{t+|ro|transportare}}
+* Russian: {{t+|ru|перево́зка|f}}, {{t+|ru|транспортиро́вка|f|}}
+* Scottish Gaelic: {{t|gd|còmhdhail|f}}, {{t|gd|giùlan|m}}
+* Slovak: {{t+|sk|doprava|f}}
+* Spanish: {{t+|es|transporte|m}}
+* Swedish: {{t+|sv|befordran|c}}, {{t+|sv|frakt|c}}, {{t+|sv|förflyttning|c}}, {{t+|sv|transport|c}}
+* Tamil: {{t+|ta|போக்குவரத்து}}
+* Telugu: {{t+|te|రవాణా}}
+{{trans-bottom}}
+
+{{trans-top|state of being transported by emotion}}
+* Bulgarian: {{t+|bg|увлече́ние|n}}
+* Danish: {{t|da|transportering|c}}
+* Dutch: {{t+|nl|vervoering|f}}
+* Finnish: {{t+|fi|hurmio}}
+* French: {{t+|fr|transport|m}}
+* Hindi: {{t+|hi|परिवहन|m}}
+* Italian: {{t+|it|trasporto|m}}
+* Latvian: {{t|lv|aizrautība|f}}, {{t|lv|sajūsma|f}}
+* Russian: {{t+|ru|увлече́ние|n}}
+* Swedish: {{t+|sv|anfall|n}}, {{t+|sv|extas|c}}, {{t+|sv|hänförelse|c}}, {{t+|sv|utbrott|n}}
+{{trans-bottom}}
+
+{{trans-top|vehicle used to transport passengers, mail or freight}}
+* Armenian: {{t+|hy|փոխադրամիջոց}}, {{t+|hy|տրանսպորտ}}
+* Azerbaijani: {{t+|az|nəqliyyat}}, {{t|az|nəqliyyat vasitəsi}}, {{t+|az|minik}}
+* Bulgarian: {{t+|bg|транспо́рт|m}}
+* Danish: {{t+|da|køretøj|n}} {{qualifier|on land}}, {{t+|da|fartøj|n}}, {{t|da|transportskib}}, {{t|da|transportfly}}
+* Dutch: {{t+|nl|transport|n}}, {{t|nl|vrachtvoertuig}}
+* Esperanto: {{t+|eo|transporto}}, {{t+|eo|transportilo}}
+* Finnish: {{t+|fi|kulkuväline}}, {{t+|fi|kulkuneuvo}}, {{t|fi|kuljetusväline}}
+* French: {{t+|fr|transport|m}}
+* German: {{t+|de|Beförderung|f}}
+* Greek: {{t+|el|όχημα|n}}
+* Hindi: {{t+|hi|वाहन|m}}
+* Japanese: {{t|ja|輸送機関|tr=ゆそうきかん, yusōkikan}}, {{t+|ja|乗り物|tr=のりもの, norimono}}
+* Kazakh: {{t|kk|көлік}}
+* Latvian: {{t|lv|transportlīdzeklis|m}}
+* Polish: {{t+|pl|transport|m}}
+* Romanian: {{t|ro|mijloc de transport}}
+* Russian: {{t+|ru|тра́нспорт|m}}, {{t+|ru|тра́нспортное сре́дство|n}}
+* Spanish: {{t+|es|transporte|m}}
+* Swedish: {{t+|sv|transportfartyg|n}}, {{t+|sv|transportflygplan|n}}, {{t+|sv|transportfordon|n}}
+{{trans-bottom}}
+
+{{trans-top|military: vehicle used to transport troops}}
+* Czech: {{t+|cs|transportér|m}}
+* Dutch: {{t+|nl|troepentransport}}
+* Finnish: {{t|fi|kuljetusväline}}
+* French: [[transport]] {{g|m}} [[de]] [[troupe]]s
+* Polish: {{t+|pl|transporter|m}}
+* Russian: {{t+|ru|транспортёр|m}}
+* Swedish: {{t+|sv|transportfartyg|n}}, {{t+|sv|transportflygplan|n}}, {{t+|sv|transportfordon|n}}
+{{trans-bottom}}
+
+{{trans-see|public transport}}
+
+{{trans-top|device that moves recording tape across the heads of a recorder}}
+* Finnish: {{t+|fi|kuljetin}}
+{{trans-bottom}}
+
+{{trans-top|historical: deported convict}}
+* Bulgarian: {{t+|bg|като́ржник|m}}
+* Catalan: {{t+|ca|deportat|m}}
+* Dutch: {{t|nl|strafgevangene}}
+* Finnish: {{t+|fi|karkotettu}}
+* Japanese: {{t+|ja|追放|tr=ついほう, tsuihō}}
+* Latvian: {{t|lv|katordznieks|m}}
+* Russian: {{t+|ru|ка́торжник|m}}
+* Spanish: {{t+|es|deportado|m}}
+* Swedish: {{t+|sv|deporterad}} {{t|sv|straffånge}}
+{{trans-bottom}}
+
+{{checktrans-top}}<!--Note: some of these translations are verbs and some are nouns-->
+* Arabic: {{t-check|ar|نَقْل|m}}
+* Hungarian: {{t+check|hu|szállítás}}, {{t+check|hu|fuvarozás}}, {{t+check|hu|közlekedés}}
+* Italian: {{t+check|it|trasporto|m}}
+{{trans-bottom}}
+
+===Derived terms===
+{{col4|en|transport caf|means of transport|active transport|air transport|auto transport truck|copper transport disease|Metropolis light transport|mode of transport|rail transport|transport café|transport poverty|transport protein|transport rider|transport safety board|transport ship|transport stage|transport vesicle|public transport|transport interchange|cyber transport|cyber transport system|cyber transport systems|parallel transport|light rail transport system|transport tetany|biotransport|chemotransport|cotransport|countertransport|electrotransport|hydrotransport|magnetotransport|mistransport|nanotransport|paleotransport|pretransport|retransport|retrotransport|teletransport|thermotransport|transportal|transportance|transportant|transportin|transportless|transportment|transportome|attack transport|tape transport}}
+
+===Related terms===
+{{col|en
+|antitransport
+|transportability
+|transportable
+|transportage
+|transportation
+|transporter
+|transportive
+}}
+
+{{cln|en|heteronyms}}
+{{C|en|Transport}}
+
+==Catalan==
+
+===Etymology===
+{{ety|ca|:deverbal|transportar<t:to transport>}}
+{{deverbal|ca|transportar|t=to transport}}
+
+===Pronunciation===
+* {{ca-IPA|ô}}
+* {{audio|ca|LL-Q7026 (cat)-Marvives-transport.wav|a=Barcelona}}
+* {{hyph|ca|trans|port}}
+
+===Noun===
+{{ca-noun|m}}
+
+# {{l|en|transport}}
+
+===Further reading===
+* {{R:ca:IEC2}}
+* {{R:ca:GDLC}}
+* {{R:ca:DNV}}
+* {{R:ca:DCVB}}
+
+==Dutch==
+
+===Etymology===
+{{ety|nl|:inh|dum:transport<ety:bor<frm:transport<ety:inh<fro:transport<ety:deverbal<transporter>>>>>>}}
+From {{inh|nl|dum|transport}}, from {{der|nl|frm|transport}}, from {{der|nl|fro|transport}}, from {{m|fro|transporter|t=to carry or convey across}}, from {{der|nl|la|trānsportō|trānsportāre}}, from {{m|la|trāns-|t=across, over, to the farther side of}} + {{m|la|portō|t=to bear, carry, convey, take}}.
+
+===Pronunciation===
+* {{IPA|nl|/trɑnsˈpɔrt/}}
+* {{audio|nl|Nl-transport.ogg}}
+* {{rhymes|nl|ɔrt|s=2}}
+* {{hyph|nl|trans|port}}
+
+===Noun===
+{{nl-noun|n|-en|+}}
+
+# {{l|en|transport}}
+
+====Synonyms====
+* {{l|nl|vervoer}}
+
+====Descendants====
+* {{desc|af|transport}}
+* {{desc|gyn|transport|bor=1}}
+* {{desc|id|bor=1|transpor}}
+
+==Estonian==
+{{wp|et:}}
+
+===Etymology===
+{{ety|et|:der|la:trānsportō}}
+{{intnat|et}}; ultimately from {{der|et|la|trānsportō}}.
+
+===Pronunciation===
+{{rfp|et}}
+{{rfap|et}}
+* {{hyph|et|trans|port}}
+
+===Noun===
+{{et-noun|transpordi|transporti}}
+
+# {{l|en|transport}}
+#: {{syn|et|veondus}}
+
+====Declension====
+{{et-decl-riik|transpor|t|d|i}}
+
+====Derived terms====
+* {{l|et|ühistransport}}
+
+===Further reading===
+* {{R:PSV}}
+* {{R:EKSS}}
+* {{R:et:EÕS}}
+* {{R:Sõnaveeb}}
+
+{{C|et|Transport}}
+
+==French==
+
+===Etymology===
+{{ety|fr|tree=1|:inh|frm:transport<ety:inh<fro:transport<ety:deverbal<transporter>>>>}}
+
+===Pronunciation===
+* {{fr-IPA}}
+* {{audio|fr|Fr-transport.ogg|a=France|IPA=[lə tʁɑ̃s.pɔʁ]|text=le transport}}
+* {{audio|fr|LL-Q150 (fra)-Poslovitch-transport.wav|a=<<France>> (<<Vosges>>)}}
+* {{audio|fr|LL-Q150 (fra)-X-Javier-transport.wav|a=<<France>> (<<Massy>>)}}
+* {{rhymes|fr|ɔʁ|s=2}}
+* {{hmp|fr|transports}}
+* {{hyph|fr|trans|port}}
+
+===Noun===
+{{fr-noun|m}}
+
+# {{l|en|transport}}
+
+====Derived terms====
+{{col3|fr
+|mal des transports
+|moyen de transport
+|titre de transport
+|transport en commun
+}}
+
+===Further reading===
+* {{R:fr:TLFi}}
+
+==Norwegian Bokmål==
+{{wp|no:}}
+
+===Etymology===
+From {{der|nb|la-med|transportus}}, from {{der|nb|la|transportare}}.
+
+===Noun===
+{{nb-noun-m1}}
+
+# {{l|en|transport}}, [[transportation]]
+
+====Derived terms====
+{{col3|nb
+|godstransport
+|sjøtransport
+|transportbånd
+|transportfly
+|transportmiddel
+|transportskip
+|transportåre
+}}
+
+===References===
+* {{R:nb:OB}}
+
+==Norwegian Nynorsk==
+{{wp|nn:}}
+
+===Etymology===
+From {{der|nn|la-med|transportus}}, from {{der|nn|la|transportare}}.
+
+===Noun===
+{{nn-noun-m1}}
+
+# {{l|en|transport}}, [[transportation]]
+
+====Derived terms====
+{{col3|nn
+|godstransport
+|sjøtransport
+|transportfly
+|transportmiddel
+|transportskip
+}}
+
+===References===
+* {{R:nn:OB}}
+
+==Polish==
+{{wp|pl:}}
+
+===Etymology===
+{{ety|pl|:bor|fr:transport<ref:{{R:pl:WSWO}} !!! {{R:pl:USJP}}>|text=+|tree=1|etydate=1661<ref:{{cite-book|title=Merkuriusz polski ordynaryjny|year=1661|url=http://buwcd.buw.uw.edu.pl/e_zbiory/ckcp/merkuriusz/start/start.htm|page=16}}>}} Compare {{cog|szl|transport}}.
+
+===Pronunciation===
+{{pl-pr|a=Pl-transport.ogg|mp=#}}
+
+===Noun===
+{{pl-noun|m-in}}
+
+# {{lb|pl|uncountable}} {{l|en|transport}} {{gl|act of transporting}}
+#: {{syn|pl|przewóz|transfer}}
+#* {{quote-book|pl |year=2025|location=Warszawa |author= |title=Poradnik bezpieczeństwa|trans-title=Safety Handbook|publisher=Ministerstwo Spraw Wewnętrznych i Administracji |page=21 |text=Jeśli chcesz skorzystać z '''transportu''', prześlij bliskim numer rejestracyjny pojazdu, którym podróżujesz i aktualny adres miejsca, w którym jesteś. {{...}} |t=If you want to use '''transportation''', send your loved ones the registration number of the vehicle you are using and the address of your current location. {{...}} }}
+# {{lb|pl|countable}} {{l|en|transport}} {{gl|vehicle used to transport passengers, mail or freight}}
+# {{lb|pl|countable}} [[load]], [[cargo]] {{gl|that which is transported}}
+#: {{syn|pl|fracht|ładunek}}
+# {{lb|pl|countable}} {{l|en|transport}} {{gl|system of transporting passengers, etc. in a particular region}}
+# {{lb|pl|uncountable}} {{l|en|transport}} {{gl|branch of the economy dealing with transport}}
+# {{lb|pl|uncountable}} {{l|en|transport}} {{gl|subject of study dealing with transport}}
+# {{lb|pl|uncountable}} {{l|en|transport}} {{gl|all means and activities related to the transport of people and cargo}}
+# {{lb|pl|countable}} [[transportee]]s {{gl|escorted group of people}}
+# {{lb|pl|uncountable|geology}} {{l|en|transport}} {{gl|relocation of rock weathering products by water, wind and ice}}
+# {{lb|pl|uncountable|finances}} [[transfer]] {{gl|relocation of a sum from one side of an account or ledger to another}}
+# {{lb|pl|uncountable|engineering}} [[transfer]] {{gl|relocation of energy}}
+
+====Declension====
+{{pl-decl-noun-m-in}}
+
+====Derived terms====
+{{col|pl|title=adjective|transportowy}}
+{{col|pl|title=nouns|transportowiec|transportówka}}
+{{col|pl|title=verbs|transportować|przetransportować|przetransportowywać|przytransportować|wytransportować}}
+
+====Related terms====
+{{col|pl|title=adjective|transporterowy}}
+{{col|pl|title=nouns|transporter|transporterka|transportacja}}
+
+====Descendants====
+* {{desc|csb|transpòrt|bor=1}}
+
+===References===
+{{reflist}}
+
+===Further reading===
+* {{R:pl:WSJP}}
+* {{R:pl:PWN}}
+* {{R:pl:SJP1861}}
+* {{R:pl:SJP1900||98|7}}
+
+{{C|pl|Transport}}
+
+==Romanian==
+
+===Alternative forms===
+* {{alt|ro|транспорт||new cyrl}}
+
+===Etymology===
+{{ety|ro|text=*|:bor|fr:transport}}
+
+===Pronunciation===
+* {{IPA|ro|/transˈport/}}
+* {{audio|ro|LL-Q7913 (ron)-Andreea Teodoraa-transport.wav}}
+* {{rhymes|ro|ort|s=2}}
+* {{hyph|ro|trans|port}}
+
+===Noun===
+{{ro-noun|n|transporturi}}
+
+# {{l|en|transport}}
+
+====Declension====
+{{ro-noun-n-uri}}
+
+===Further reading===
+* {{R:DEX}}
+
+==Serbo-Croatian==
+
+===Noun===
+{{sh-noun|trànsport|m-in}}
+
+# {{l|en|transport}}, [[conveyance]]
+# {{l|en|transport}} (vehicle)
+
+====Declension====
+{{sh-decl-noun
+|transport|transporti
+|transporta|transporta
+|transportu|transportima
+|transport|transporte
+|transporte|transporti
+|transportu|transportima
+|transportom|transportima
+}}
+
+==Silesian==
+
+===Etymology===
+{{ety|szl|tree=1|text=*|:bor|de:Transport}} Compare {{cog|pl|transport}}.
+
+===Pronunciation===
+{{szl-pr|a=LL-Q30319 (szl)-Vxern-#.wav}}
+
+===Noun===
+{{szl-noun|m-in}}
+
+# {{l|en|transport}}
+
+====Declension====
+{{rfinfl|szl|noun}}
+
+===Further reading===
+* {{R:szl:silling}}
+* {{R:szl:ZPJŚ|+|144}}
+
+{{C|szl|Transport}}
+
+==Swedish==
+
+===Etymology===
+{{ety|sv|:bor|fr:transport}}
+{{bor+|sv|fr|transport}}.
+
+===Pronunciation===
+{{rfp|sv}}
+* {{audio|sv|Sv-transport.ogg}}
+* {{hyph|sv|trans|port}}
+
+===Noun===
+{{sv-noun|c}}
+
+# {{l|en|transport}} {{gl|something to be moved}}
+# {{l|en|transport}} {{gl|a preliminary sum to be carried to the next page}}
+# {{l|en|transport}} {{gl|promotion to a new job or task}}
+
+====Declension====
+{{sv-infl-noun-c-er}}
+
+====Related terms====
+* {{l|sv|transportera}}
+
+====See also====
+* {{l|sv|befordran}}
+* {{l|sv|export}}
+* {{l|sv|import}}
+* {{l|sv|kommunikation}}
+* {{l|sv|minnessiffra}}
+* {{l|sv|spedition}}
+* {{l|sv|trafik}}
+* {{l|sv|åkeri}}
+
+===Further reading===
+* {{R:sv:SAOB}}
+
+==Turkish==
+
+===Etymology===
+{{ety|tr|:inh|ota:ترانسپورط<tr:transport><ety:uder<fr:transport>>|text=2|tree=1}}
+
+===Pronunciation===
+* {{tr-IPA||[tɾɑnsˈpɔɾt]}}
+{{rfap|tr}}
+* {{rhymes|tr|oɾt|s=2}}
+* {{hyph|tr|trans|port}}
+
+===Noun===
+{{tr-noun|u|lar}}
+
+# {{l|en|transport}}
+
+====Declension====
+{{tr-infl-noun-c|o}}
