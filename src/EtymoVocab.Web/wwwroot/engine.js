@@ -32,6 +32,7 @@ async function call(name, ...args) {
 
 export const preload = load;
 export const lookupWord = (word) => call('LookupWord', word);
+export const lookupRelated = (word) => call('LookupRelated', word);
 export const lookupEntry = (lang, term, etymonId) => call('LookupEntry', lang, term, etymonId ?? null);
 export const rootFamily = (lang, root) => call('RootFamily', lang, root);
 export const suggest = (prefix) => call('Suggest', prefix);

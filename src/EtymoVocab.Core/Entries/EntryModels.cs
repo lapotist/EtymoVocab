@@ -34,7 +34,13 @@ public sealed record TermRef(string Lang, string Term);
 
 public sealed record TranslationGroup(string Sense, IReadOnlyList<string> Terms);
 
-public sealed record PartOfSpeech(string Pos, IReadOnlyList<string> Senses, IReadOnlyList<TranslationGroup> Translations);
+/// <summary>Explicit dictionary relations, scoped to a part of speech and sense; never inferred from etymology.</summary>
+public sealed record LexicalRelation(string Kind, string Sense, IReadOnlyList<string> Terms);
+
+public sealed record PartOfSpeech(string Pos, IReadOnlyList<string> Senses, IReadOnlyList<TranslationGroup> Translations)
+{
+    public IReadOnlyList<LexicalRelation> Relations { get; init; } = [];
+}
 
 /// <summary>An "Etymology N" block of one language section, with the parts of speech under it.</summary>
 public sealed class EntrySection

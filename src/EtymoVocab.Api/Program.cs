@@ -79,6 +79,17 @@ api.MapGet("/words/{word}", async (string word, WordLookupService lookup, IMemor
     return Results.Ok(result);
 });
 
+api.MapGet("/words/{word}/relations", async (string word, WordLookupService lookup, CancellationToken ct) =>
+{
+    word = word.Trim();
+    if (!Titles.IsValid(word))
+        return Results.Problem(statusCode: StatusCodes.Status400BadRequest, title: "無效的查詢字詞");
+    var result = await lookup.LookupRelatedAsync(word, ct);
+    return result is null
+        ? Results.Problem(statusCode: StatusCodes.Status404NotFound, title: "Wiktionary 沒有這個英文詞條", detail: word)
+        : Results.Ok(result);
+});
+
 api.MapGet("/entries/{lang}/{term}", async (string lang, string term, string? id, WordLookupService lookup, CancellationToken ct) =>
 {
     if (!Titles.IsValid(lang) || !Titles.IsValid(term) || (id is not null && !Titles.IsValid(id)))
