@@ -40,6 +40,15 @@ public static partial class Engine
     });
 
     [JSExport]
+    public static Task<string> LookupRelated(string word) => Run(async () =>
+    {
+        if (!IsValidTitle(word))
+            return Fail(400, "無效的查詢字詞");
+        var result = await Words.LookupRelatedAsync(word, CancellationToken.None);
+        return result is null ? Fail(404, "Wiktionary 沒有這個英文詞條", word) : Ok(result, EngineJson.Default.WordResult);
+    });
+
+    [JSExport]
     public static Task<string> LookupEntry(string lang, string term, string? etymonId) => Run(async () =>
     {
         if (!IsValidTitle(lang) || !IsValidTitle(term))

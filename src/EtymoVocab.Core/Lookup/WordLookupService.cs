@@ -30,6 +30,15 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
         return new Session(client, languages, options, ct).RunAsync(candidates, "en", null);
     }
 
+    /// <summary>Discovery only: one page request for definitions and lexical relations; ancestry is fetched on demand.</summary>
+    public Task<WordResult?> LookupRelatedAsync(string word, CancellationToken ct)
+    {
+        word = word.Trim();
+        var lower = word.ToLowerInvariant();
+        string[] candidates = lower == word ? [word] : [word, lower];
+        return new Session(client, languages, options, ct).RunAsync(candidates, "en", null, enrich: false);
+    }
+
     /// <summary>
     /// Any language's entry, e.g. Latin <c>speciō</c> or <c>*spekjō</c> (Proto-Italic), for expanding a node of the
     /// etymology tree. With <paramref name="etymonId"/>, only the matching etymology is returned when it exists.
@@ -70,7 +79,7 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
         private string _lang = "en";
         private string _sectionName = "English";
 
-        public async Task<WordResult?> RunAsync(IReadOnlyList<string> candidates, string lang, string? etymonId)
+        public async Task<WordResult?> RunAsync(IReadOnlyList<string> candidates, string lang, string? etymonId, bool enrich = true)
         {
             if (languages.SectionNameOf(lang) is not { } sectionName || languages.EntryLanguageOf(lang) is not { } entryLang)
                 return null;
@@ -97,8 +106,11 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
             var chains = entries.Select(e => e.Steps.Select(NewWorkStep).ToList()).ToList();
             try
             {
-                await ResolveAncestorsAsync(chains);
-                await ResolveGlossesAsync(entries, chains);
+                if (enrich)
+                {
+                    await ResolveAncestorsAsync(chains);
+                    await ResolveGlossesAsync(entries, chains);
+                }
             }
             catch (UpstreamUnavailableException)
             {
@@ -245,7 +257,10 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                     _glosses.GetValueOrDefault((r.Lang, r.Root, r.EtymonId)), Url(r.Lang, r.Root))).ToList(),
                 entry.Doublets.Select(d => new TermResult(d.Lang, WikitextCleaner.PlainTerm(d.Term), Url(d.Lang, d.Term))).ToList(),
                 entry.PartsOfSpeech.Select(p => new PartOfSpeechResult(
-                    p.Pos, p.Senses, p.Translations.Select(t => new TranslationResult(t.Sense, t.Terms)).ToList())).ToList()
+                    p.Pos, p.Senses, p.Translations.Select(t => new TranslationResult(t.Sense, t.Terms)).ToList())
+                    {
+                        Relations = p.Relations.Select(r => new RelationResult(r.Kind, r.Sense, r.Terms)).ToList(),
+                    }).ToList()
             )).ToList();
 
             var permalink = $"https://en.wiktionary.org/w/index.php?title={Uri.EscapeDataString(page.Title)}&oldid={page.RevisionId}"

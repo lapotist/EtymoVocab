@@ -50,7 +50,12 @@ public sealed record RootResult(string Lang, string LangName, string Root, strin
 
 public sealed record TermResult(string Lang, string Term, string? Url);
 
-public sealed record PartOfSpeechResult(string Pos, IReadOnlyList<string> Senses, IReadOnlyList<TranslationResult> Translations);
+public sealed record PartOfSpeechResult(string Pos, IReadOnlyList<string> Senses, IReadOnlyList<TranslationResult> Translations)
+{
+    public IReadOnlyList<RelationResult> Relations { get; init; } = [];
+}
+
+public sealed record RelationResult(string Kind, string Sense, IReadOnlyList<string> Terms);
 
 public sealed record TranslationResult(string Sense, IReadOnlyList<string> Mandarin);
 
