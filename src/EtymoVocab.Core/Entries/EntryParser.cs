@@ -52,7 +52,7 @@ public static partial class EntryParser
             if (PartOfSpeechTitles.Contains(headings[i].Title))
             {
                 var owner = etymologyHeadings.Count <= 1 ? 0 : current;
-                sections[owner].PartsOfSpeech.Add(ReadPartOfSpeech(text, headings, i, languages));
+                sections[owner].PartsOfSpeech.Add(ReadPartOfSpeech(text, headings, i, langCode, languages));
             }
         }
         return sections;
@@ -260,7 +260,7 @@ public static partial class EntryParser
         return note.Length > 2 ? note : null;
     }
 
-    private static PartOfSpeech ReadPartOfSpeech(string text, IReadOnlyList<Heading> headings, int index, LanguageRegistry languages)
+    private static PartOfSpeech ReadPartOfSpeech(string text, IReadOnlyList<Heading> headings, int index, string langCode, LanguageRegistry languages)
     {
         var definitions = WikiSections.OwnText(text, headings, index);
         var senses = definitions.Split('\n')
@@ -279,7 +279,10 @@ public static partial class EntryParser
                 break;
             }
         }
-        return new PartOfSpeech(headings[index].Title, senses, translations);
+        return new PartOfSpeech(headings[index].Title, senses, translations)
+        {
+            Relations = LexicalRelationReader.Read(text, headings, index, langCode, languages),
+        };
     }
 
     /// <summary>Mandarin rows of the per-sense translation tables (<c>{{trans-top|sense}} … {{trans-bottom}}</c>).</summary>

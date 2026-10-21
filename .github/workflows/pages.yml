@@ -32,6 +32,13 @@ jobs:
       - name: Test
         run: dotnet test --configuration Release
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Test map layout
+        run: npm test
+
       - name: Publish static site
         run: dotnet publish src/EtymoVocab.Web --configuration Release --output publish
 

@@ -1,6 +1,12 @@
 # EtymoVocab
 
-以詞源（etymology）為核心的英文單字搜尋引擎。查一個字會展開它的**詞源樹**：怎麼拆解、從哪些語言一路演變而來（例如 PIE → 拉丁 → 古法語 → 中古英語 → 英語），再沿著詞根找到整個字族。
+從**同義詞與反義詞**出發的英文單字探索工具。先比較意思，再挑一個感興趣的字，透過**橫向互動詞源地圖**追溯來源，找到整個字族。
+
+1. **發現單字**：搜尋後並排顯示同義詞與反義詞，保留詞性、詞義和不同詞源詞條的區別；點 ↔ 可繼續查相關字的同反義詞。
+2. **探索來源**：點單字開啟大地圖，向右追溯語言演變與構詞。支援拖曳、方向鍵平移、按鈕或 ＋／− 縮放、顯示全圖與全螢幕。
+3. **展開字族**：在詞根按「找同根詞」，將同一詞根分類的字加入同一張地圖，每次加入最多 8 個；也可開啟完整字族清單與篩選。虛線表示詞根關聯或同根詞，不代表直接演變關係。
+
+同義、反義描述意思，同根詞描述來源，兩者不混為一談。同反義詞取自詞條內明確的 Wiktionary 模板與章節，不推測缺漏，也不自動追查 Thesaurus 子頁。
 
 記住某個來源後按「記得」，它就會被遮住，讓你專心看還沒記住的部分；忘了的時候點一下就能回看。也可以開啟「測驗」模式，把所有來源都遮住。
 
@@ -29,7 +35,7 @@ python3 -m http.server 8080 -d publish/wwwroot   # 任何靜態伺服器都可�
 
 ```
 src/EtymoVocab.Core/   Wikitext 解析、詞條解析、詞源鏈追溯、MediaWiki 用戶端（純 .NET，可離線測試）
-src/EtymoVocab.Web/    靜態網站：Core 編譯成 WebAssembly 在瀏覽器執行（engine.js），UI 是原生 JS（app.js）
+src/EtymoVocab.Web/    靜態網站：Core 編譯成 WebAssembly（engine.js），原生 JS UI（app.js）與橫向地圖排版（map-layout.js）
 src/EtymoVocab.Api/    選用的 ASP.NET Core JSON API，使用同一個 Core（給未來的 Android 或集中快取）
 tests/EtymoVocab.Core.Tests/
 ```
@@ -40,9 +46,10 @@ tests/EtymoVocab.Core.Tests/
 
 ```bash
 dotnet test
+npm test     # 地圖排版測試，需 Node.js 22+；不需安裝 npm 套件
 ```
 
-測試只使用 `tests/EtymoVocab.Core.Tests/Fixtures` 中錄下的真實 Wiktionary 頁面，以及模擬的 HTTP 回應，不連網。
+56 項 .NET 測試使用 `tests/EtymoVocab.Core.Tests/Fixtures` 中錄下的真實 Wiktionary 頁面，以及模擬的 HTTP 回應，不連網。3 項 JavaScript 測試涵蓋分支不重疊、收合／展開和重複來源防循環。網站本身沒有新增 npm 執行時相依套件。
 
 ## 選用的 JSON API
 
@@ -53,6 +60,7 @@ dotnet run --project src/EtymoVocab.Api
 | 端點 | 說明 |
 |---|---|
 | `GET /api/words/{word}` | 英文字的詞源樹資料、釋義、中文翻譯、來源修訂版 |
+| `GET /api/words/{word}/relations` | 只讀取單字頁，取得依詞性與詞義分組的同反義詞、釋義與來源；不預先抓取祖源頁 |
 | `GET /api/entries/{lang}/{term}?id=` | 任一語言的詞條（用來展開詞源樹的節點），例如 `/api/entries/la/speciō` |
 | `GET /api/roots/family?lang=ine-pro&root=*speḱ-` | 同詞根字族 |
 | `GET /api/suggest?q=insp` | 標題建議 |
