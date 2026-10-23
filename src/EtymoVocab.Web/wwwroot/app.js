@@ -363,7 +363,9 @@ class EtymologyMap {
     });
     this.relatedOptions.replaceChildren(
       el('section', { class: 'map-related-group' }, el('h3', {}, '同根詞'),
-        roots.size ? el('div', { class: 'chips' }, [...roots.values()].map(node => el('button', {
+        roots.size ? el('div', { class: 'chips' }, [...roots.values()].map(node => {
+          const term = isMasked(node) ? '已遮住的詞根' : node.familyRoot || node.term;
+          return el('button', {
           type: 'button', class: 'secondary', 'data-related-key': `family:${node.key}`,
           disabled: node.familyLoading || node.familyExhausted,
           onclick: async () => {
