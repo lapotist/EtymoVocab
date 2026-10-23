@@ -9,7 +9,14 @@ public sealed record WordResult(
     SourceInfo Source,
     IReadOnlyList<EtymologyResult> Etymologies,
     IReadOnlyList<string> Warnings,
-    bool Complete);
+    bool Complete)
+{
+    /// <summary>The original page title when an unambiguous inflected entry resolved to a lemma.</summary>
+    public string? ResolvedFrom { get; init; }
+
+    /// <summary>Explicit base forms offered when the entry has its own meanings or multiple possible lemmas.</summary>
+    public IReadOnlyList<string> BaseForms { get; init; } = [];
+}
 
 public sealed record SourceInfo(string Title, long RevisionId, DateTimeOffset RevisionTimestamp, string Url, string License);
 

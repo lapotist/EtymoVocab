@@ -263,6 +263,7 @@ public static partial class EntryParser
     private static PartOfSpeech ReadPartOfSpeech(string text, IReadOnlyList<Heading> headings, int index, string langCode, LanguageRegistry languages)
     {
         var definitions = WikiSections.OwnText(text, headings, index);
+        var inflections = InflectionReader.Read(definitions, langCode);
         var senses = definitions.Split('\n')
             .Where(line => line.Length > 1 && line[0] == '#' && line[1] is not (':' or '*' or '#'))
             .Select(line => PlainTextRenderer.Render(line[1..], languages))
@@ -282,6 +283,8 @@ public static partial class EntryParser
         return new PartOfSpeech(headings[index].Title, senses, translations)
         {
             Relations = LexicalRelationReader.Read(text, headings, index, langCode, languages),
+            Lemmas = inflections.Lemmas,
+            OnlyInflections = inflections.OnlyInflections,
         };
     }
 

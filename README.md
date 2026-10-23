@@ -8,6 +8,8 @@
 
 同義、反義描述意思，同根詞描述來源，兩者不混為一談。同反義詞取自詞條內明確的 Wiktionary 模板與章節，不推測缺漏，也不自動追查 Thesaurus 子頁。
 
+搜尋時會依 Wiktionary 的詞形定義追查原形，例如 `walked → walk`、`went → go`，讓不同時態也能找到原形的同反義詞與詞源地圖。只有全部釋義都指向同一原形時才自動切換，並標示原查詢字與原形；若單字也有獨立意思（例如 `saw`），或可能對應多個原形，會保留原詞條並提供原形連結。
+
 記住某個來源後按「記得」，它就會被遮住，讓你專心看還沒記住的部分；忘了的時候點一下就能回看。也可以開啟「測驗」模式，把所有來源都遮住。
 
 資料**由瀏覽器即時查詢 Wiktionary**，不打包詞庫，每筆結果都附上所引用的修訂版號。規劃與取捨見 [docs/PLAN.md](docs/PLAN.md)。
@@ -49,7 +51,7 @@ dotnet test
 npm test     # 地圖排版測試，需 Node.js 22+；不需安裝 npm 套件
 ```
 
-56 項 .NET 測試使用 `tests/EtymoVocab.Core.Tests/Fixtures` 中錄下的真實 Wiktionary 頁面，以及模擬的 HTTP 回應，不連網。3 項 JavaScript 測試涵蓋分支不重疊、收合／展開和重複來源防循環。網站本身沒有新增 npm 執行時相依套件。
+.NET 測試使用 `tests/EtymoVocab.Core.Tests/Fixtures` 中錄下的真實 Wiktionary 頁面、合成詞形詞條，以及模擬的 HTTP 回應，不連網；涵蓋規則與不規則詞形、原形追查、歧義、缺頁、循環參照及請求上限。3 項 JavaScript 測試涵蓋分支不重疊、收合／展開和重複來源防循環。網站本身沒有新增 npm 執行時相依套件。
 
 ## 選用的 JSON API
 
@@ -60,7 +62,7 @@ dotnet run --project src/EtymoVocab.Api
 | 端點 | 說明 |
 |---|---|
 | `GET /api/words/{word}` | 英文字的詞源樹資料、釋義、中文翻譯、來源修訂版 |
-| `GET /api/words/{word}/relations` | 只讀取單字頁，取得依詞性與詞義分組的同反義詞、釋義與來源；不預先抓取祖源頁 |
+| `GET /api/words/{word}/relations` | 讀取單字頁並依明確詞形定義追查原形，取得依詞性與詞義分組的同反義詞、釋義與來源；不預先抓取祖源頁 |
 | `GET /api/entries/{lang}/{term}?id=` | 任一語言的詞條（用來展開詞源樹的節點），例如 `/api/entries/la/speciō` |
 | `GET /api/roots/family?lang=ine-pro&root=*speḱ-` | 同詞根字族 |
 | `GET /api/suggest?q=insp` | 標題建議 |

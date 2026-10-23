@@ -27,16 +27,16 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
         word = word.Trim();
         var lower = word.ToLowerInvariant();
         string[] candidates = lower == word ? [word] : [word, lower];
-        return new Session(client, languages, options, ct).RunAsync(candidates, "en", null);
+        return new Session(client, languages, options, ct).RunAsync(candidates, "en", null, resolveInflections: true);
     }
 
-    /// <summary>Discovery only: one page request for definitions and lexical relations; ancestry is fetched on demand.</summary>
+    /// <summary>Discovery only: reads definitions and lexical relations, following explicit inflections without fetching ancestry.</summary>
     public Task<WordResult?> LookupRelatedAsync(string word, CancellationToken ct)
     {
         word = word.Trim();
         var lower = word.ToLowerInvariant();
         string[] candidates = lower == word ? [word] : [word, lower];
-        return new Session(client, languages, options, ct).RunAsync(candidates, "en", null, enrich: false);
+        return new Session(client, languages, options, ct).RunAsync(candidates, "en", null, enrich: false, resolveInflections: true);
     }
 
     /// <summary>
@@ -78,8 +78,9 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
         private bool _complete = true;
         private string _lang = "en";
         private string _sectionName = "English";
+        private string? _resolvedFrom;
 
-        public async Task<WordResult?> RunAsync(IReadOnlyList<string> candidates, string lang, string? etymonId, bool enrich = true)
+        public async Task<WordResult?> RunAsync(IReadOnlyList<string> candidates, string lang, string? etymonId, bool enrich = true, bool resolveInflections = false)
         {
             if (languages.SectionNameOf(lang) is not { } sectionName || languages.EntryLanguageOf(lang) is not { } entryLang)
                 return null;
@@ -103,6 +104,16 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
             _lang = lang;
             _sectionName = sectionName;
 
+            try
+            {
+                if (resolveInflections)
+                    (page, entries) = await ResolveInflectionsAsync(page, entries, sectionName, entryLang);
+            }
+            catch (UpstreamUnavailableException)
+            {
+                _complete = false;
+                Warn("原形詞條暫時無法從 Wiktionary 取得，請稍後重試。");
+            }
             var chains = entries.Select(e => e.Steps.Select(NewWorkStep).ToList()).ToList();
             try
             {
@@ -120,6 +131,44 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
             return Build(page, entries, chains);
         }
 
+        private async Task<(WikiPage, IReadOnlyList<EntrySection>)> ResolveInflectionsAsync(
+            WikiPage page, IReadOnlyList<EntrySection> entries, string sectionName, string entryLang)
+        {
+            var original = page;
+            var originalEntries = entries;
+            var visited = new HashSet<string>(StringComparer.Ordinal) { page.Title };
+            while (true)
+            {
+                var parts = entries.SelectMany(e => e.PartsOfSpeech).ToList();
+                var lemmas = parts.SelectMany(p => p.Lemmas).Distinct(StringComparer.Ordinal).ToList();
+                if (parts.Count == 0 || parts.Any(p => !p.OnlyInflections) || lemmas.Count != 1)
+                    break;
+                var title = lemmas[0];
+                if (!visited.Add(title))
+                {
+                    Warn("詞形參照形成循環，保留原查詢詞條。");
+                    return (original, originalEntries);
+                }
+                if (!await FetchAsync([title]))
+                    break;
+                if (_pages.GetValueOrDefault(title) is not { } lemmaPage
+                    || Parse(lemmaPage, sectionName, entryLang) is not { Count: > 0 } lemmaEntries
+                    || !lemmaEntries.Any(e => e.PartsOfSpeech.Count > 0))
+                {
+                    Warn($"Wiktionary 尚無可讀取的原形詞條：{title}。");
+                    break;
+                }
+                if (lemmaPage.Title != title && !visited.Add(lemmaPage.Title))
+                {
+                    Warn("詞形參照形成循環，保留原查詢詞條。");
+                    return (original, originalEntries);
+                }
+                (page, entries) = (lemmaPage, lemmaEntries);
+            }
+            _resolvedFrom = page.Title == original.Title ? null : original.Title;
+            return (page, entries);
+        }
+
         private async Task<bool> FetchAsync(IEnumerable<string> titles)
         {
             var need = titles.Where(t => !_pages.ContainsKey(t)).Distinct(StringComparer.Ordinal).Take(MaxBatch).ToList();
@@ -127,7 +176,7 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                 return true;
             if (_requestsLeft <= 0)
             {
-                Warn("已達單次查詢的上游請求上限，部分祖源未展開。");
+                Warn("已達單次查詢的上游請求上限，部分詞條未展開。");
                 return false;
             }
             _requestsLeft--;
@@ -272,7 +321,12 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                 new SourceInfo(page.Title, page.RevisionId, page.Timestamp, permalink, License),
                 etymologies,
                 _warnings,
-                _complete);
+                _complete)
+            {
+                ResolvedFrom = _resolvedFrom,
+                BaseForms = entries.SelectMany(e => e.PartsOfSpeech).SelectMany(p => p.Lemmas)
+                    .Where(term => term != page.Title).Distinct(StringComparer.Ordinal).ToList(),
+            };
         }
 
         private StepResult ToStep(WorkStep s)

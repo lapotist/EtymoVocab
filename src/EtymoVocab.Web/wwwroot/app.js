@@ -641,6 +641,8 @@ async function renderWord(word) {
     el('div', { class: 'page-heading' },
       el('div', {}, el('p', { class: 'eyebrow' }, '01 / DISCOVER'), el('h1', { class: 'word-title' }, result.word)),
       el('a', { class: 'primary-link', href: exploreHref(result.word) }, `探索 ${result.word} 的詞源 →`)),
+    inflectionNote(result),
+    ...result.warnings.map(w => el('div', { class: 'notice' }, w)),
     el('div', { class: 'filter-row' }, posFilter, result.etymologies.length > 1 ? etyFilter : null),
     definition,
     el('p', { class: 'muted small' }, '點單字開啟詞源地圖；點 ↔ 繼續找它的同反義詞。'),
@@ -648,6 +650,15 @@ async function renderWord(word) {
     sourceNote(result),
   );
   draw();
+}
+
+function inflectionNote(result, exploring = false) {
+  if (!result.resolvedFrom && !result.baseForms?.length) return null;
+  return el('div', { class: 'notice' },
+    result.resolvedFrom ? el('p', {}, `「${result.resolvedFrom}」是詞形變化，以下顯示原形「${result.word}」的資料。`) : null,
+    result.baseForms?.length ? el('p', {}, '詞條也列出以下原形，可繼續查詢：',
+      result.baseForms.map((term, index) => el('span', {}, index ? '、' : '',
+        el('a', { href: exploring ? exploreHref(term) : wordHref(term) }, term)))) : null);
 }
 
 function sourceNote(result) {
@@ -689,6 +700,7 @@ async function renderExplore(word) {
     el('div', { class: 'page-heading' },
       el('div', {}, el('p', { class: 'eyebrow' }, '02 / EXPLORE THE ORIGINS'), el('h1', { class: 'word-title' }, result.word)),
       el('p', { class: 'muted small' }, '沿著來源向右探索，在詞根上找同根詞。')),
+    inflectionNote(result, true),
     ...(result.etymologies.length > 1 ? [el('div', { class: 'filter-row' }, el('label', {}, '不同詞源分開探索 ', selector))] : []),
     ...result.warnings.map((w) => el('div', { class: 'notice' }, w)),
     content,

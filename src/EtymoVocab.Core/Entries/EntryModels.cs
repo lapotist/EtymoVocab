@@ -40,6 +40,8 @@ public sealed record LexicalRelation(string Kind, string Sense, IReadOnlyList<st
 public sealed record PartOfSpeech(string Pos, IReadOnlyList<string> Senses, IReadOnlyList<TranslationGroup> Translations)
 {
     public IReadOnlyList<LexicalRelation> Relations { get; init; } = [];
+    public IReadOnlyList<string> Lemmas { get; init; } = [];
+    public bool OnlyInflections { get; init; }
 }
 
 /// <summary>An "Etymology N" block of one language section, with the parts of speech under it.</summary>
