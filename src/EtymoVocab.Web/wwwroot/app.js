@@ -1,5 +1,7 @@
 import * as engine from './engine.js';
 import { layoutTree, edgePath } from './map-layout.js';
+import { mapGeometry, zoomScroll } from './map-viewport.js';
+import { relatedGroups, addRelatedWord } from './map-related.js';
 
 // All Wiktionary-derived text is inserted with textContent (via el()), never as HTML.
 
@@ -219,18 +221,25 @@ function walk(node, visit) {
 // Horizontal etymology map
 
 class EtymologyMap {
-  constructor(tree) {
+  constructor(tree, etymology) {
     this.tree = tree;
+    this.relatedGroups = relatedGroups(etymology, tree.term);
     this.zoom = 1;
-    this.pan = { x: 24, y: 24 };
     this.stage = el('div', { class: 'map-stage' });
+    this.canvas = el('div', { class: 'map-canvas' }, this.stage);
     this.viewport = el('div', {
-      class: 'map-viewport', tabindex: '0', role: 'region', 'aria-label': '互動詞源地圖，拖曳移動，方向鍵平移，加減鍵縮放',
-    }, this.stage);
+      class: 'map-viewport', tabindex: '0', role: 'region', 'aria-label': '互動詞源地圖，可水平與垂直捲動、拖曳移動，方向鍵捲動，加減鍵縮放',
+    }, this.canvas);
     this.zoomLabel = el('output', { class: 'zoom-label', 'aria-label': '地圖縮放比例' }, '100%');
+    this.relatedOptions = el('div', { class: 'map-related-options' });
+    this.relatedStatus = el('p', { class: 'muted small', role: 'status', 'aria-live': 'polite' });
+    this.relatedPanel = el('details', { class: 'map-related', open: true },
+      el('summary', {}, '將相關字加入地圖'),
+      el('p', { class: 'muted small' }, '同義／反義表示意思；同根詞表示共同來源。按 ＋ 加入，再在新單字上展開來源。'),
+      this.relatedOptions, this.relatedStatus);
     this.element = el('div', { class: 'map-panel' },
       el('div', { class: 'map-controls' },
-        el('span', { class: 'map-direction' }, '單字 → 來源 → 同根詞'),
+        el('span', { class: 'map-direction' }, '單字 → 來源 · 加入同義、反義與同根詞'),
         el('div', { class: 'map-buttons' },
           el('button', { type: 'button', class: 'secondary', 'aria-label': '縮小地圖', onclick: () => this.zoomBy(1 / 1.2) }, '−'),
           this.zoomLabel,
@@ -242,24 +251,29 @@ class EtymologyMap {
               if (document.fullscreenElement) await document.exitFullscreen();
               else await this.element.requestFullscreen();
             } catch { this.element.classList.toggle('map-expanded'); }
+            this.fit();
           } }, '切換全螢幕'))),
+      this.relatedPanel,
       this.viewport,
       el('div', { class: 'map-legend' },
-        el('span', {}, '拖曳或方向鍵移動 · ＋／− 縮放'),
+        el('span', {}, '捲動、拖曳或方向鍵移動 · ＋／− 縮放'),
         el('span', { class: 'legend-origin' }, '實線：來源／構詞'),
-        el('span', { class: 'legend-family' }, '虛線：詞根關聯／同根詞')));
+        el('span', { class: 'legend-family' }, '虛線：詞根關聯／同根詞'),
+        el('span', { class: 'legend-related' }, '點線：同義／反義')));
     this.stats = el('p', { class: 'muted small' });
     let drag;
     this.viewport.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'touch') return; // Let the browser handle touch scrolling.
       if (event.button !== 0 || event.target.closest('button, a, input, select')) return;
-      drag = { x: event.clientX - this.pan.x, y: event.clientY - this.pan.y, id: event.pointerId };
+      const rect = this.viewport.getBoundingClientRect();
+      if (event.clientX - rect.left >= this.viewport.clientWidth || event.clientY - rect.top >= this.viewport.clientHeight) return;
+      drag = { x: event.clientX + this.viewport.scrollLeft, y: event.clientY + this.viewport.scrollTop, id: event.pointerId };
       this.viewport.setPointerCapture(event.pointerId);
       this.viewport.classList.add('dragging');
     });
     this.viewport.addEventListener('pointermove', event => {
       if (!drag || drag.id !== event.pointerId) return;
-      this.pan = { x: event.clientX - drag.x, y: event.clientY - drag.y };
-      this.transform();
+      this.viewport.scrollTo(drag.x - event.clientX, drag.y - event.clientY);
     });
     const endDrag = () => { drag = null; this.viewport.classList.remove('dragging'); };
     this.viewport.addEventListener('pointerup', endDrag);
@@ -267,10 +281,10 @@ class EtymologyMap {
     this.viewport.addEventListener('lostpointercapture', endDrag);
     this.viewport.addEventListener('keydown', event => {
       if (event.target !== this.viewport) return;
-      const moves = { ArrowLeft: [60, 0], ArrowRight: [-60, 0], ArrowUp: [0, 60], ArrowDown: [0, -60] };
+      const moves = { ArrowLeft: [-60, 0], ArrowRight: [60, 0], ArrowUp: [0, -60], ArrowDown: [0, 60] };
       if (moves[event.key]) {
         event.preventDefault();
-        this.pan.x += moves[event.key][0]; this.pan.y += moves[event.key][1]; this.transform();
+        this.viewport.scrollBy(...moves[event.key]);
       } else if (event.key === '+' || event.key === '=') { event.preventDefault(); this.zoomBy(1.2); }
       else if (event.key === '-') { event.preventDefault(); this.zoomBy(1 / 1.2); }
       else if (event.key === '0') { event.preventDefault(); this.fit(); }
@@ -288,6 +302,8 @@ class EtymologyMap {
     const focusLabel = focused?.getAttribute('aria-label') || focused?.textContent;
     const anchorKey = anchor?.key || focusKey;
     const previous = anchorKey && this.layout?.nodes.find(point => point.node.key === anchorKey);
+    const scroll = { x: this.viewport.scrollLeft, y: this.viewport.scrollTop };
+    const previousOffset = this.geometry || { offsetX: 0, offsetY: 0 };
     const cards = new Map();
     const collect = (node, ancestors = new Set()) => {
       if (ancestors.has(node.key)) return;
@@ -306,7 +322,8 @@ class EtymologyMap {
     this.layout.edges.forEach(edge => {
       const path = document.createElementNS(svg.namespaceURI, 'path');
       path.setAttribute('d', edgePath(edge));
-      path.setAttribute('class', edge.to.node.kind === 'family' || edge.to.node.rootReference ? 'family-edge' : 'origin-edge');
+      path.setAttribute('class', edge.to.node.relatedRelation ? 'related-edge' :
+        edge.to.node.kind === 'family' || edge.to.node.rootReference ? 'family-edge' : 'origin-edge');
       svg.append(path);
     });
     this.stage.prepend(svg);
@@ -317,11 +334,10 @@ class EtymologyMap {
       card.style.left = `${point.x}px`; card.style.top = `${point.y}px`;
     });
     const current = previous && this.layout.nodes.find(point => point.node.key === anchorKey);
-    if (current) {
-      this.pan.x += (previous.x - current.x) * this.zoom;
-      this.pan.y += (previous.y - current.y) * this.zoom;
-    }
     this.transform();
+    if (current) this.viewport.scrollTo(
+      scroll.x + (current.x - previous.x) * this.zoom + this.geometry.offsetX - previousOffset.offsetX,
+      scroll.y + (current.y - previous.y) * this.zoom + this.geometry.offsetY - previousOffset.offsetY);
     if (focused && focusKey) {
       const card = [...cards.values()].find(item => item.dataset.key === focusKey);
       const replacement = card && [...card.querySelectorAll('button, a')].find(item => (item.getAttribute('aria-label') || item.textContent) === focusLabel);
@@ -334,37 +350,109 @@ class EtymologyMap {
       total += 1;
       if (memory.remembered.has(n.key)) remembered += 1;
     });
-    this.stats.textContent = total ? `${total} 個來源 · 已記住 ${remembered} 個。點詞根的「找同根詞」，把更多單字加入地圖。` : 'Wiktionary 尚未提供結構化來源，可查看下方的詞源原文。';
+    this.stats.textContent = total ? `${total} 個來源 · 已記住 ${remembered} 個。從上方加入相關字，或在詞根上找同根詞。` : 'Wiktionary 尚未提供結構化來源，仍可從上方加入相關字。';
+    this.renderRelatedOptions();
+  }
+
+  renderRelatedOptions() {
+    const focusedKey = document.activeElement?.dataset.relatedKey;
+    const roots = new Map();
+    walk(this.tree, node => {
+      const key = `${node.lang}:${node.familyRoot || node.term}`;
+      if (node.family && !roots.has(key)) roots.set(key, node);
+    });
+    this.relatedOptions.replaceChildren(
+      el('section', { class: 'map-related-group' }, el('h3', {}, '同根詞'),
+        roots.size ? el('div', { class: 'chips' }, [...roots.values()].map(node => el('button', {
+          type: 'button', class: 'secondary', 'data-related-key': `family:${node.key}`,
+          disabled: node.familyLoading || node.familyExhausted,
+          onclick: async () => {
+            this.revealNode(node);
+            await this.loadFamily(node);
+            this.focusNode(node);
+          },
+        }, node.familyLoading ? '讀取字族中…' : node.familyExhausted ? `已加入全部 ${node.familyRoot || node.term} 同根詞` : `＋ ${node.familyRoot || node.term} 的同根詞`)))
+          : el('p', { class: 'muted small' }, '這個詞條未列出可查詢的詞根。')),
+      ...this.relatedGroups.map(group => {
+        const present = new Set(this.tree.children.find(child => child.key === group.key)?.children.map(child => child.term));
+        return el('section', { class: 'map-related-group' },
+          el('h3', {}, `${group.label} · ${POS[group.pos] || group.pos}${group.sense ? ' · ' + group.sense : ''}`),
+          el('div', { class: 'chips' }, group.terms.map(term => el('button', {
+            type: 'button', class: 'secondary', disabled: present.has(term),
+            'data-related-key': `${group.key}:${term}`, 'aria-label': `${present.has(term) ? '已加入' : '加入'}${group.label} ${term}`,
+            onclick: () => {
+              const node = addRelatedWord(this.tree, group, term);
+              if (!node) return;
+              this.relatedStatus.textContent = `已將${group.label} ${term} 加入地圖。`;
+              this.render(this.tree);
+              this.focusNode(node);
+            },
+          }, `${present.has(term) ? '已加入' : '＋'} ${term}`))));
+      }),
+      ...(!this.relatedGroups.length ? [el('p', { class: 'muted small' }, 'Wiktionary 尚未列出這個詞條的同義詞或反義詞。')] : []));
+    if (focusedKey) {
+      const button = [...this.relatedOptions.querySelectorAll('button')].find(item => item.dataset.relatedKey === focusedKey);
+      (button && !button.disabled ? button : this.relatedPanel.querySelector('summary')).focus({ preventScroll: true });
+    }
+  }
+
+  revealNode(target) {
+    const reveal = node => {
+      if (node === target || node.children.some(reveal)) {
+        node.collapsed = false;
+        return true;
+      }
+      return false;
+    };
+    reveal(this.tree);
+  }
+
+  focusNode(node) {
+    const point = this.layout?.nodes.find(item => item.node === node);
+    if (!point) return;
+    this.viewport.scrollTo((point.x + point.width / 2) * this.zoom + this.geometry.offsetX - this.viewport.clientWidth / 2,
+      (point.y + point.height / 2) * this.zoom + this.geometry.offsetY - this.viewport.clientHeight / 2);
   }
 
   transform() {
-    this.stage.style.transform = `translate(${this.pan.x}px, ${this.pan.y}px) scale(${this.zoom})`;
+    if (!this.layout) return;
+    this.geometry = mapGeometry(this.layout, { width: this.viewport.clientWidth, height: this.viewport.clientHeight }, this.zoom);
+    this.canvas.style.width = `${this.geometry.width}px`;
+    this.canvas.style.height = `${this.geometry.height}px`;
+    this.stage.style.left = `${this.geometry.offsetX}px`;
+    this.stage.style.top = `${this.geometry.offsetY}px`;
+    this.stage.style.transform = `scale(${this.zoom})`;
     this.zoomLabel.textContent = `${Math.round(this.zoom * 100)}%`;
   }
 
   zoomBy(factor) {
+    if (!this.layout) return;
     const zoom = Math.min(1.8, Math.max(.12, this.zoom * factor));
-    const center = { x: this.viewport.clientWidth / 2, y: this.viewport.clientHeight / 2 };
-    this.pan = { x: center.x - (center.x - this.pan.x) * zoom / this.zoom, y: center.y - (center.y - this.pan.y) * zoom / this.zoom };
+    const scroll = zoomScroll(this.layout, { width: this.viewport.clientWidth, height: this.viewport.clientHeight },
+      { x: this.viewport.scrollLeft, y: this.viewport.scrollTop }, this.zoom, zoom);
     this.zoom = zoom; this.transform();
+    this.viewport.scrollTo(scroll.x, scroll.y);
   }
 
   fit() {
     if (!this.layout) return;
     this.zoom = Math.max(.12, Math.min(1, (this.viewport.clientWidth - 32) / this.layout.width, (this.viewport.clientHeight - 32) / this.layout.height));
-    this.pan = { x: (this.viewport.clientWidth - this.layout.width * this.zoom) / 2, y: (this.viewport.clientHeight - this.layout.height * this.zoom) / 2 };
     this.transform();
+    this.viewport.scrollTo(0, 0);
   }
 
   focusWord() {
+    if (!this.layout) return;
     this.zoom = 1;
-    this.pan = { x: -16, y: this.viewport.clientHeight / 2 - this.layout.nodes[0].y - this.layout.nodes[0].height / 2 };
     this.transform();
+    const word = this.layout.nodes[0];
+    this.viewport.scrollTo(word.x + this.geometry.offsetX - 24,
+      word.y + word.height / 2 + this.geometry.offsetY - this.viewport.clientHeight / 2);
   }
 
   setAll(collapsed) {
     walk(this.tree, (n) => { n.collapsed = collapsed && n.kind !== 'word'; });
-    this.render();
+    this.render(this.tree);
   }
 
   renderNode(node) {
@@ -393,7 +481,8 @@ class EtymologyMap {
 
     const label = node.kind === 'step'
       ? (RELATION[node.relation] || node.relation) + (node.note ? `（${node.note}）` : '')
-      : node.kind === 'part' ? '構詞成分' : node.kind === 'root' ? '詞根關聯' : node.kind === 'family' ? '同根詞（共同來源）' : '探索中的單字';
+      : node.kind === 'part' ? '構詞成分' : node.kind === 'root' ? '詞根關聯' : node.kind === 'family' ? '同根詞（共同來源）'
+        : node.kind === 'related' ? (node.relatedRelation === 'synonym' ? '同義詞（意思相近）' : '反義詞（意思相反）') : '探索中的單字';
     const head = [
       label ? el('div', { class: 'edge-label' }, label) : null,
       el('span', { class: 'lang' }, node.langName),
@@ -424,7 +513,7 @@ class EtymologyMap {
         node.familyLoading ? '讀取字族中…' : node.familyExhausted ? '已加入全部同根詞' : node.familyMembers ? '加入更多同根詞' : '找同根詞'));
       actions.push(el('a', { class: 'action', href: node.family }, '字族清單'));
     }
-    if (node.kind === 'family') actions.push(el('a', { class: 'action', href: exploreHref(node.term) }, '探索詞源'));
+    if (node.kind === 'family' || node.kind === 'related') actions.push(el('a', { class: 'action', href: exploreHref(node.term) }, '探索詞源'));
     if (node.lookup && !node.loaded) {
       actions.push(el('button', {
         type: 'button', class: 'action', disabled: node.loading,
@@ -490,13 +579,15 @@ class EtymologyMap {
       const present = new Set(node.children.filter(n => n.kind === 'family').map(n => n.term));
       const more = node.familyMembers.filter(term => term !== this.tree.term && !present.has(term)).slice(0, 8);
       node.children.push(...more.map(term => ({
-        key: `family:${node.key}:${term}`, kind: 'family', term, langName: 'English', maskable: false, children: [],
+        key: `family:${node.key}:${term}`, kind: 'family', term, lang: 'en', langName: 'English', maskable: false, children: [],
+        lookup: { lang: 'en', term, id: null },
         url: 'https://en.wiktionary.org/wiki/' + encodeURIComponent(term) + '#English',
       })));
       node.collapsed = false;
       node.familyExhausted = node.familyMembers.filter(term => term !== this.tree.term).length <= present.size + more.length;
-      node.message = more.length ? `已加入 ${present.size + more.length} 個同根詞；可繼續加入。` : '已顯示所有可用的同根詞。';
+      node.message = more.length ? `已加入 ${present.size + more.length} 個同根詞。${node.familyExhausted ? '已顯示所有可用的同根詞。' : '可繼續加入。'}` : '已顯示所有可用的同根詞。';
       if (node.familyTotal > node.familyMembers.length) node.message += ` 此分類共 ${node.familyTotal} 筆，目前取得前 ${node.familyMembers.length} 筆。`;
+      this.relatedStatus.textContent = node.message;
     } catch (error) {
       node.message = `${error.message}，可再按「找同根詞」重試。`;
     } finally {
@@ -555,12 +646,10 @@ function renderEtymologyCard(result, ety, index, total, views) {
   if (total > 1) card.append(el('h2', {}, `詞源 ${index + 1}` + (ety.id ? `：${ety.id}` : '')));
   if (ety.uncertain) card.append(el('div', { class: 'notice' }, 'Wiktionary 將此詞源標示為不確定。'));
 
-  if (ety.steps.length || ety.morphology.length || ety.roots.length) {
-    const tree = new EtymologyMap(buildTree(result, ety));
-    views.push(tree);
-    card.append(tree.element, tree.stats);
-    tree.render();
-  }
+  const tree = new EtymologyMap(buildTree(result, ety), ety);
+  views.push(tree);
+  card.append(tree.element, tree.stats);
+  tree.render();
 
   if (ety.doublets.length > 0) {
     card.append(el('h3', {}, '同源異形詞（doublet）'),
