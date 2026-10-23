@@ -653,7 +653,8 @@ async function renderWord(word) {
 }
 
 function inflectionNote(result, exploring = false) {
-  if (!result.resolvedFrom && !result.baseForms?.length) return null;
+  // Native replaceChildren() turns null into visible text; an empty fragment inserts nothing.
+  if (!result.resolvedFrom && !result.baseForms?.length) return document.createDocumentFragment();
   return el('div', { class: 'notice' },
     result.resolvedFrom ? el('p', {}, `「${result.resolvedFrom}」是詞形變化，以下顯示原形「${result.word}」的資料。`) : null,
     result.baseForms?.length ? el('p', {}, '詞條也列出以下原形，可繼續查詢：',
