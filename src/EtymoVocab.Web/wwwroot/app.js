@@ -373,7 +373,8 @@ class EtymologyMap {
             await this.loadFamily(node);
             this.focusNode(node);
           },
-        }, node.familyLoading ? '讀取字族中…' : node.familyExhausted ? `已加入全部 ${node.familyRoot || node.term} 同根詞` : `＋ ${node.familyRoot || node.term} 的同根詞`)))
+        }, node.familyLoading ? '讀取字族中…' : node.familyExhausted ? `已加入全部 ${term} 同根詞` : `＋ ${term} 的同根詞`);
+        }))
           : el('p', { class: 'muted small' }, '這個詞條未列出可查詢的詞根。')),
       ...this.relatedGroups.map(group => {
         const present = new Set(this.tree.children.find(child => child.key === group.key)?.children.map(child => child.term));
