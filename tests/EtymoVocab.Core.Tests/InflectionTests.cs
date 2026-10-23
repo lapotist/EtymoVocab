@@ -35,6 +35,9 @@ public class InflectionTests
     [InlineData("{{past participle of|fr|marcher}}")]
     [InlineData("{{en-past of|Category:verbs}}")]
     [InlineData("{{en-past of|}}")]
+    [InlineData("{{en-past of|;}}")]
+    [InlineData("{{en-past of|&#59;}}")]
+    [InlineData("{{en-past of|...}}")]
     [InlineData("An ordinary definition.")]
     public void Does_not_treat_unrelated_or_invalid_definitions_as_inflections(string definition)
     {

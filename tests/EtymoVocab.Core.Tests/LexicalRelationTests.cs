@@ -62,6 +62,41 @@ public class LexicalRelationTests
     }
 
     [Fact]
+    public void Relations_exclude_punctuation_separators_from_inline_and_section_lists()
+    {
+        const string text = """
+            ===Adjective===
+            # A meaning.
+            #: {{syn|en|friendly|;|kind|&#59;|&#x3B;|&amp;|...|—|??|,}}
+            #: {{ant|en|cruel|;|unkind}}
+            ====Synonyms====
+            * {{col2|en|amiable|;|affable|&#59;}}
+            * {{ws|en|cordial|;|warm}}
+            * {{l|en|;}} [[;]] [[&#59;]] [[pleasant]]
+            ====Antonyms====
+            * {{col2|en|hostile|;|unfriendly}}
+            * {{l|en|;}} [[;]]
+            """;
+        var relations = EntryParser.Parse(text, "en", Languages).Single().PartsOfSpeech.Single().Relations;
+        Assert.Equal(["friendly", "kind", "amiable", "affable", "cordial", "warm", "pleasant"],
+            relations.Where(r => r.Kind == "synonym").SelectMany(r => r.Terms));
+        Assert.Equal(["cruel", "unkind", "hostile", "unfriendly"],
+            relations.Where(r => r.Kind == "antonym").SelectMany(r => r.Terms));
+    }
+
+    [Fact]
+    public void Relations_preserve_words_with_accents_apostrophes_hyphens_spaces_and_digits()
+    {
+        const string text = """
+            ===Noun===
+            # A synthetic definition.
+            #: {{syn|en|café|co-operate|can't|ice cream|C++|24/7|B2B|rock 'n' roll}}
+            """;
+        var relation = EntryParser.Parse(text, "en", Languages).Single().PartsOfSpeech.Single().Relations.Single();
+        Assert.Equal(["café", "co-operate", "can't", "ice cream", "C++", "24/7", "B2B", "rock 'n' roll"], relation.Terms);
+    }
+
+    [Fact]
     public async Task Discovery_fetches_only_the_main_page_and_preserves_source_and_relations()
     {
         var client = new FixtureClient();

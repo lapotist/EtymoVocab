@@ -82,8 +82,8 @@ internal static partial class LexicalRelationReader
     private static string CleanTerm(string raw)
     {
         var term = WikitextCleaner.PlainTerm(raw).Split('#')[0].Trim();
-        // Thesaurus/Appendix targets are navigation, not English words. Don't turn them into fake entries.
-        return term is "" or "-" || term.Contains(':') || term.Contains("{{") || term.Length > 100 ? "" : term;
+        // List separators and Thesaurus/Appendix navigation are not word entries.
+        return !term.Any(char.IsLetterOrDigit) || term.Contains(':') || term.Contains("{{") || term.Length > 100 ? "" : term;
     }
 
     [GeneratedRegex(@"\[\[([^\]|]+)(?:\|[^\]]*)?\]\]")]

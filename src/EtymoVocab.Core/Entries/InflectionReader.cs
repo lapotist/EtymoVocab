@@ -81,6 +81,7 @@ internal static class InflectionReader
             target = WikitextCleaner.PlainTerm(target).Split('#')[0].Trim();
             return target;
         }).Where(target => target.Length is > 0 and <= 100
+            && target.Any(char.IsLetterOrDigit)
             && target.IndexOfAny([':', '<', '>', '[', ']', '{', '}', '|', '/']) < 0
             && !target.Any(char.IsControl)).Distinct(StringComparer.Ordinal).ToList();
     }
