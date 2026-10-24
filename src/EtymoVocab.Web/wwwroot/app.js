@@ -1,7 +1,10 @@
 import * as engine from './engine.js';
 import { layoutTree, edgePath } from './map-layout.js';
 import { mapGeometry, zoomScroll } from './map-viewport.js';
-import { relatedGroups, addRelatedWord } from './map-related.js';
+import { etymologicalGroups, addEtymologicalWord } from './map-related.js';
+import { createLearningView } from './learning.js';
+import { createSavedWordsStore } from './saved-words.js';
+import { createVocabularyView } from './vocabulary.js';
 
 // All Wiktionary-derived text is inserted with textContent (via el()), never as HTML.
 
@@ -50,10 +53,15 @@ function el(tag, attrs, ...children) {
   return node;
 }
 
+const learningView = createLearningView({ view, el });
+
 const wordHref = (word) => '#/w/' + encodeURIComponent(word);
 const exploreHref = (word) => '#/explore/' + encodeURIComponent(word);
 const rootHref = (lang, root) => '#/root/' + encodeURIComponent(lang) + '/' + encodeURIComponent(root);
 const external = (href, label, text) => el('a', { class: 'ext', href, target: '_blank', rel: 'noopener', 'aria-label': label, title: label }, text);
+const savedWords = createSavedWordsStore();
+const vocabularyView = createVocabularyView({ view, el, store: savedWords, lookup: engine.lookupRelated, lookupBatch: engine.lookupRelatedBatch, preload: engine.preload,
+  wordHref, exploreHref, sourceNote, inflectionNote, posNames: POS });
 
 function showLoading(label) {
   view.replaceChildren(el('p', { class: 'muted' }, label));
@@ -223,7 +231,9 @@ function walk(node, visit) {
 class EtymologyMap {
   constructor(tree, etymology) {
     this.tree = tree;
-    this.relatedGroups = relatedGroups(etymology, tree.term);
+    this.etymologicalGroups = etymologicalGroups(etymology, tree.term, tree.lang);
+    // Explicit same-origin words are already known, so show them without another network lookup.
+    this.etymologicalGroups.forEach(group => group.terms.slice(0, 8).forEach(term => addEtymologicalWord(tree, group, term)));
     this.zoom = 1;
     this.stage = el('div', { class: 'map-stage' });
     this.canvas = el('div', { class: 'map-canvas' }, this.stage);
@@ -234,12 +244,12 @@ class EtymologyMap {
     this.relatedOptions = el('div', { class: 'map-related-options' });
     this.relatedStatus = el('p', { class: 'muted small', role: 'status', 'aria-live': 'polite' });
     this.relatedPanel = el('details', { class: 'map-related', open: true },
-      el('summary', {}, '將相關字加入地圖'),
-      el('p', { class: 'muted small' }, '同義／反義表示意思；同根詞表示共同來源。按 ＋ 加入，再在新單字上展開來源。'),
+      el('summary', {}, '詞源相關字：同根詞與同源異形詞'),
+      el('p', { class: 'muted small' }, '此圖只呈現詞源與構詞關聯。詞條明列的同源異形詞會直接顯示；可再找同根詞，或在相關單字上展開來源。'),
       this.relatedOptions, this.relatedStatus);
     this.element = el('div', { class: 'map-panel' },
       el('div', { class: 'map-controls' },
-        el('span', { class: 'map-direction' }, '單字 → 來源 · 加入同義、反義與同根詞'),
+        el('span', { class: 'map-direction' }, '單字 → 來源 → 詞源相關字'),
         el('div', { class: 'map-buttons' },
           el('button', { type: 'button', class: 'secondary', 'aria-label': '縮小地圖', onclick: () => this.zoomBy(1 / 1.2) }, '−'),
           this.zoomLabel,
@@ -258,8 +268,7 @@ class EtymologyMap {
       el('div', { class: 'map-legend' },
         el('span', {}, '捲動、拖曳或方向鍵移動 · ＋／− 縮放'),
         el('span', { class: 'legend-origin' }, '實線：來源／構詞'),
-        el('span', { class: 'legend-family' }, '虛線：詞根關聯／同根詞'),
-        el('span', { class: 'legend-related' }, '點線：同義／反義')));
+        el('span', { class: 'legend-family' }, '虛線：詞根關聯／同根詞／同源異形詞')));
     this.stats = el('p', { class: 'muted small' });
     let drag;
     this.viewport.addEventListener('pointerdown', event => {
@@ -322,8 +331,7 @@ class EtymologyMap {
     this.layout.edges.forEach(edge => {
       const path = document.createElementNS(svg.namespaceURI, 'path');
       path.setAttribute('d', edgePath(edge));
-      path.setAttribute('class', edge.to.node.relatedRelation ? 'related-edge' :
-        edge.to.node.kind === 'family' || edge.to.node.rootReference ? 'family-edge' : 'origin-edge');
+      path.setAttribute('class', edge.to.node.sharedOrigin || edge.to.node.kind === 'family' || edge.to.node.rootReference ? 'family-edge' : 'origin-edge');
       svg.append(path);
     });
     this.stage.prepend(svg);
@@ -350,7 +358,7 @@ class EtymologyMap {
       total += 1;
       if (memory.remembered.has(n.key)) remembered += 1;
     });
-    this.stats.textContent = total ? `${total} 個來源 · 已記住 ${remembered} 個。從上方加入相關字，或在詞根上找同根詞。` : 'Wiktionary 尚未提供結構化來源，仍可從上方加入相關字。';
+    this.stats.textContent = total ? `${total} 個來源 · 已記住 ${remembered} 個。可在詞根上找同根詞，或展開同源異形詞的來源。` : 'Wiktionary 尚未提供結構化來源；若有明列的同源異形詞，仍會顯示在圖中。';
     this.renderRelatedOptions();
   }
 
@@ -376,23 +384,26 @@ class EtymologyMap {
         }, node.familyLoading ? '讀取字族中…' : node.familyExhausted ? `已加入全部 ${term} 同根詞` : `＋ ${term} 的同根詞`);
         }))
           : el('p', { class: 'muted small' }, '這個詞條未列出可查詢的詞根。')),
-      ...this.relatedGroups.map(group => {
-        const present = new Set(this.tree.children.find(child => child.key === group.key)?.children.map(child => child.term));
+      ...this.etymologicalGroups.map(group => {
+        const present = new Set(this.tree.children.find(child => child.key === group.key)?.children.map(child => JSON.stringify([child.lang, child.term])));
         return el('section', { class: 'map-related-group' },
-          el('h3', {}, `${group.label} · ${POS[group.pos] || group.pos}${group.sense ? ' · ' + group.sense : ''}`),
-          el('div', { class: 'chips' }, group.terms.map(term => el('button', {
-            type: 'button', class: 'secondary', disabled: present.has(term),
-            'data-related-key': `${group.key}:${term}`, 'aria-label': `${present.has(term) ? '已加入' : '加入'}${group.label} ${term}`,
+          el('h3', {}, `${group.label}（詞條明列的共同來源）`),
+          el('div', { class: 'chips' }, group.terms.map(term => {
+            const key = JSON.stringify([term.lang, term.term]);
+            return el('button', {
+            type: 'button', class: 'secondary', disabled: present.has(key),
+            'data-related-key': `${group.key}:${key}`, 'aria-label': `${present.has(key) ? '已加入' : '加入'}${group.label} ${term.term}`,
             onclick: () => {
-              const node = addRelatedWord(this.tree, group, term);
+              const node = addEtymologicalWord(this.tree, group, term);
               if (!node) return;
-              this.relatedStatus.textContent = `已將${group.label} ${term} 加入地圖。`;
+              this.relatedStatus.textContent = `已將${group.label} ${term.term} 加入地圖。`;
               this.render(this.tree);
               this.focusNode(node);
             },
-          }, `${present.has(term) ? '已加入' : '＋'} ${term}`))));
+          }, `${present.has(key) ? '已加入' : '＋'} ${term.term}`);
+          })));
       }),
-      ...(!this.relatedGroups.length ? [el('p', { class: 'muted small' }, 'Wiktionary 尚未列出這個詞條的同義詞或反義詞。')] : []));
+      ...(!this.etymologicalGroups.length ? [el('p', { class: 'muted small' }, '這個詞源詞條尚未明列同源異形詞。')] : []));
     if (focusedKey) {
       const button = [...this.relatedOptions.querySelectorAll('button')].find(item => item.dataset.relatedKey === focusedKey);
       (button && !button.disabled ? button : this.relatedPanel.querySelector('summary')).focus({ preventScroll: true });
@@ -485,7 +496,7 @@ class EtymologyMap {
     const label = node.kind === 'step'
       ? (RELATION[node.relation] || node.relation) + (node.note ? `（${node.note}）` : '')
       : node.kind === 'part' ? '構詞成分' : node.kind === 'root' ? '詞根關聯' : node.kind === 'family' ? '同根詞（共同來源）'
-        : node.kind === 'related' ? (node.relatedRelation === 'synonym' ? '同義詞（意思相近）' : '反義詞（意思相反）') : '探索中的單字';
+        : node.kind === 'doublet' ? '同源異形詞（共同來源）' : '探索中的單字';
     const head = [
       label ? el('div', { class: 'edge-label' }, label) : null,
       el('span', { class: 'lang' }, node.langName),
@@ -516,7 +527,7 @@ class EtymologyMap {
         node.familyLoading ? '讀取字族中…' : node.familyExhausted ? '已加入全部同根詞' : node.familyMembers ? '加入更多同根詞' : '找同根詞'));
       actions.push(el('a', { class: 'action', href: node.family }, '字族清單'));
     }
-    if (node.kind === 'family' || node.kind === 'related') actions.push(el('a', { class: 'action', href: exploreHref(node.term) }, '探索詞源'));
+    if (node.kind === 'family' || (node.kind === 'doublet' && node.lang === 'en')) actions.push(el('a', { class: 'action', href: exploreHref(node.term) }, '探索詞源'));
     if (node.lookup && !node.loaded) {
       actions.push(el('button', {
         type: 'button', class: 'action', disabled: node.loading,
@@ -627,6 +638,12 @@ function renderHome() {
       el('p', { class: 'eyebrow' }, 'FOLLOW YOUR CURIOSITY'),
       el('h1', {}, '從一個意思，', el('br'), '發現一整個字族。'),
       el('p', { class: 'hero-description' }, '先找同義詞與反義詞，挑一個感興趣的字，再沿著詞源地圖，看看它和哪些字有共同的起點。'),
+      el('div', { class: 'bulk-actions' }, el('a', { class: 'primary-link', href: '#/bulk' }, '批次掃描同反義詞 →'),
+        el('a', { href: '#/saved' }, '查看收藏單字')),
+      el('div', { class: 'learning-home-callout' },
+        el('div', {}, el('h2', {}, '這個連結，能幫你讀懂下一個字嗎？'),
+          el('p', {}, '從兩個例子開始，用新句子練習推論，也學會判斷何時需要更多語境。')),
+        el('a', { class: 'primary-link', href: '#/learn' }, '開始推論練習 →')),
       el('div', { class: 'chips example-chips' }, EXAMPLES.map(w => el('a', { class: 'chip', href: wordHref(w) }, w, ' ↗'))),
       el('p', { class: 'muted small' }, '在上方輸入單字，或從這些字開始。')),
     el('div', { class: 'journey' },
@@ -721,7 +738,9 @@ async function renderWord(word) {
             result.etymologies.length > 1 ? ` 詞源 ${group.ety + 1} · ` : ' ', group.sense || '未標示詞義'),
           el('div', { class: 'chips' }, group.terms.map(term => el('div', { class: 'discovery-word' },
             el('a', { class: 'pick-word', href: exploreHref(term), title: `探索 ${term} 的詞源` }, term, ' ↗'),
-            el('a', { class: 'lookup-related', href: wordHref(term), 'aria-label': `查詢 ${term} 的同義詞與反義詞`, title: '繼續查同反義詞' }, '↔'))))))
+            el('a', { class: 'lookup-related', href: wordHref(term), 'aria-label': `查詢 ${term} 的同義詞與反義詞`, title: '繼續查同反義詞' }, '↔'),
+            vocabularyView.saveButton(term, { query: word, sourceWord: result.word, relation: kind, pos: group.pos,
+              sense: group.sense, etymologyId: String(result.etymologies[group.ety].id || result.etymologies[group.ety].number || ''), sourceUrl: result.source.url }))))))
           : el('div', { class: 'empty-state' }, el('p', {}, `Wiktionary 尚未列出${kind === 'synonym' ? '同義詞' : '反義詞'}。`),
             el('p', { class: 'muted small' }, '可以直接探索這個字的詞源，或換個詞性與詞條。')));
     }));
@@ -732,12 +751,13 @@ async function renderWord(word) {
     el('nav', { class: 'breadcrumbs', 'aria-label': '探索步驟' }, el('a', { href: '#/' }, '單字探索'), ' / ', '同義與反義'),
     el('div', { class: 'page-heading' },
       el('div', {}, el('p', { class: 'eyebrow' }, '01 / DISCOVER'), el('h1', { class: 'word-title' }, result.word)),
-      el('a', { class: 'primary-link', href: exploreHref(result.word) }, `探索 ${result.word} 的詞源 →`)),
+      el('div', { class: 'bulk-actions' }, vocabularyView.saveButton(result.word, { query: word, sourceWord: result.word, sourceUrl: result.source.url }),
+        el('a', { class: 'primary-link', href: exploreHref(result.word) }, `探索 ${result.word} 的詞源 →`))),
     inflectionNote(result),
     ...result.warnings.map(w => el('div', { class: 'notice' }, w)),
     el('div', { class: 'filter-row' }, posFilter, result.etymologies.length > 1 ? etyFilter : null),
     definition,
-    el('p', { class: 'muted small' }, '點單字開啟詞源地圖；點 ↔ 繼續找它的同反義詞。'),
+    el('p', { class: 'muted small' }, '點單字開啟詞源地圖；點 ↔ 繼續找同反義詞；按「＋ 收藏」加入獨立清單。'),
     columns,
     sourceNote(result),
   );
@@ -792,7 +812,8 @@ async function renderExplore(word) {
     el('nav', { class: 'breadcrumbs', 'aria-label': '探索步驟' }, el('a', { href: wordHref(word) }, '← 同義詞與反義詞'), ' / 詞源地圖'),
     el('div', { class: 'page-heading' },
       el('div', {}, el('p', { class: 'eyebrow' }, '02 / EXPLORE THE ORIGINS'), el('h1', { class: 'word-title' }, result.word)),
-      el('p', { class: 'muted small' }, '沿著來源向右探索，在詞根上找同根詞。')),
+      el('div', { class: 'bulk-actions' }, vocabularyView.saveButton(result.word, { query: word, sourceWord: result.word, sourceUrl: result.source.url }),
+        el('p', { class: 'muted small' }, '沿著來源向右探索，在詞根上找同根詞。'))),
     inflectionNote(result, true),
     ...(result.etymologies.length > 1 ? [el('div', { class: 'filter-row' }, el('label', {}, '不同詞源分開探索 ', selector))] : []),
     ...result.warnings.map((w) => el('div', { class: 'notice' }, w)),
@@ -846,10 +867,20 @@ async function renderRoot(lang, root) {
 }
 
 function route() {
+  vocabularyView.leave();
   navigation += 1;
   const hash = location.hash.replace(/^#\/?/, '');
   const [kind, ...rest] = hash.split('/');
+  document.querySelectorAll('.site-nav a').forEach(link => {
+    const section = ['learn', 'bulk', 'saved'].includes(kind) ? kind : 'explore';
+    const active = link.dataset.section === section;
+    if (active) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
   try {
+    if (kind === 'bulk') return vocabularyView.renderBulk();
+    if (kind === 'saved') return vocabularyView.renderSaved();
+    if (kind === 'learn' && rest.length <= 2) return learningView.render(rest[0] ? decodeURIComponent(rest[0]) : null, rest[1]);
     if (kind === 'w' && rest[0]) return renderWord(decodeURIComponent(rest.join('/')));
     if (kind === 'explore' && rest[0]) return renderExplore(decodeURIComponent(rest.join('/')));
     if (kind === 'root' && rest.length >= 2) return renderRoot(decodeURIComponent(rest[0]), decodeURIComponent(rest.slice(1).join('/')));
@@ -869,6 +900,7 @@ form.addEventListener('submit', (event) => {
 });
 
 let suggestTimer;
+input.addEventListener('focus', () => engine.preload().catch(() => {}), { once: true });
 input.addEventListener('input', () => {
   clearTimeout(suggestTimer);
   const q = input.value.trim();
@@ -884,7 +916,4 @@ input.addEventListener('input', () => {
 });
 
 window.addEventListener('hashchange', route);
-engine.preload().catch((error) => {
-  view.replaceChildren(errorCard({ message: '無法載入查詢引擎', detail: `${error.message}（需要支援 WebAssembly 的瀏覽器）` }));
-});
 route();

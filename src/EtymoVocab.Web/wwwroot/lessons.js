@@ -1,0 +1,563 @@
+// Curated curriculum, checked against Wiktionary on 2026-10-22.
+// Definitions/morphology: CC BY-SA 4.0; see docs/LESSON-SOURCES.md.
+// Sentences and questions were written for EtymoVocab, not copied from quotations.
+export const LESSON_VERSION = '2026-10-22.1';
+
+const revisions = {
+  unhappy: 91405996, unusual: 93150319, uninteresting: 91329554,
+  reread: 92644223, rebuild: 91194823, repaint: 91569192,
+  resign: 93458407, rewrite: 92478393, powerless: 91418680,
+  harmless: 89280230, tireless: 90600639, priceless: 92144776,
+  countless: 91689225, hopeful: 93608599, joyful: 92522925,
+  fearful: 92672627, awful: 93678577, doubtful: 92729513,
+  preheat: 90606162, prepay: 90588761, prerecord: 90623671,
+  prelaunch: 81168750, prebook: 88051821, intercity: 92753019,
+  international: 93561052, interdepartmental: 84806072,
+  interface: 91806381, interschool: 91077358, transatlantic: 92157496,
+  transcontinental: 93112755, transpacific: 93112830,
+  transparent: 93729025, transnational: 91121595, biology: 92735907,
+  biosphere: 92523867, biodegradable: 93601973, biological: 93574752,
+  biofuel: 90534989, telephone: 93653059, microphone: 91535807,
+  phonograph: 93738974, homophone: 92638743, megaphone: 93662880,
+  microscope: 93505816, microorganism: 93145897, microclimate: 88585115,
+  microwave: 93554978, microplastic: 92459132,
+};
+
+function sources(term, part, etymology = 'Etymology') {
+  const revision = revisions[term];
+  const base = revision
+    ? 'https://en.wiktionary.org/w/index.php?title=' + encodeURIComponent(term) + '&oldid=' + revision
+    : 'https://en.wiktionary.org/wiki/' + encodeURIComponent(term);
+  return [
+    { label: 'Wiktionary：' + term + '／構詞與詞源', url: base + '#' + etymology },
+    { label: 'Wiktionary：' + term + '／英文詞義', url: base + '#' + part },
+  ];
+}
+
+// Assessment fields (including sense, clue, explanation, boundary and sources)
+// are for feedback. Do not render them in the teaching cards or before answering.
+export const LESSONS = [
+  {
+    id: 'un-negative',
+    title: 'un-：把性質轉成否定',
+    subtitle: '先看底下的字，再判斷是不是「不……」。',
+    concept: {
+      id: 'en:un-:negative', label: 'un-', meaning: '不、非；否定原本的性質',
+      note: '這堂課練習接在形容詞前的否定用法。同樣的拼寫也可能有別的功能，不能把所有開頭是 un 的字都硬套進來。',
+    },
+    examples: [
+      {
+        term: 'unhappy', sense: 'en:unhappy:adjective:not-happy', meaning: '不開心的',
+        breakdown: 'un-（不）＋ happy（開心的）→ 不開心的',
+        sentence: 'Mina felt unhappy when her weekend trip was cancelled.',
+        sources: sources('unhappy', 'Adjective'),
+      },
+      {
+        term: 'unusual', sense: 'en:unusual:adjective:not-usual', meaning: '不尋常的',
+        breakdown: 'un-（不）＋ usual（平常的）→ 不尋常的',
+        sentence: 'The artist chose an unusual shape for the new clock.',
+        sources: sources('unusual', 'Adjective'),
+      },
+    ],
+    questions: [
+      {
+        id: 'un-transfer', kind: 'transfer', term: 'unfamiliar', sense: 'en:unfamiliar:adjective:not-familiar',
+        prompt: '已知 familiar 是「熟悉的」，這句中的 unfamiliar 最接近哪個意思？',
+        sentence: 'The guide led us through an unfamiliar district.',
+        options: [{ id: 'a', text: '值得懷念的' }, { id: 'b', text: '不熟悉的' }, { id: 'c', text: '非常擁擠的' }],
+        answerId: 'b', explanation: 'unfamiliar 是 un- 加 familiar，表示不熟悉、陌生。句子說的是一個我們不熟悉的地區。',
+        clue: '先保留 familiar 的意思，再用否定的 un- 改變它。',
+        boundary: '不熟悉只描述認識程度，不能據此判斷這個地區好不好或安不安全。',
+        sources: sources('unfamiliar', 'Adjective'),
+      },
+      {
+        id: 'un-boundary', kind: 'boundary', term: 'unlock', sense: 'en:unlock:verb:open-a-lock',
+        prompt: '這裡的 un- 能照搬成「不做某事」嗎？哪個解讀符合句子？',
+        sentence: 'Please unlock the cabinet with this key.',
+        options: [{ id: 'a', text: '用鑰匙把櫃子打開，解除上鎖狀態' }, { id: 'b', text: '不要把櫃子鎖上' }, { id: 'c', text: '把櫃子再鎖一次' }],
+        answerId: 'a', explanation: 'unlock 表示開鎖。這個動詞的 un- 有解除、逆轉原狀態的功能，和形容詞前的否定用法不同。',
+        clue: 'key 和這個動詞要求的動作，能幫助區分「解除鎖定」與「不去上鎖」。',
+        boundary: '相同拼寫不保證相同詞素功能；詞性和句子也要一起看。',
+        sources: sources('unlock', 'Verb'),
+      },
+    ],
+    delayed: {
+      id: 'un-delayed', kind: 'transfer', term: 'uninteresting', sense: 'en:uninteresting:adjective:not-interesting',
+      prompt: '已知 interesting 是「有趣的」，請判斷這個新組合在句中的意思。',
+      sentence: 'Rui found the middle chapter uninteresting.',
+      options: [{ id: 'a', text: '難以相信的' }, { id: 'b', text: '特別精彩的' }, { id: 'c', text: '引不起興趣的' }],
+      answerId: 'c', explanation: 'uninteresting 是 un- 加 interesting，表示引不起興趣、乏味的。',
+      clue: '辨認熟悉的底字，然後回想 un- 在形容詞前的功能。',
+      boundary: '這是對趣味性的評價，沒有交代章節長度或內容真假。',
+      sources: sources('uninteresting', 'Adjective'),
+    },
+  },
+  {
+    id: 're-again', title: 're-：把動作再做一次',
+    subtitle: '抓住「再次」，也留意看似能拆的字。',
+    concept: {
+      id: 'en:re-:again', label: 're-', meaning: '再、重新',
+      note: 're- 常和動詞結合，表示重新進行。這是可用的構詞線索，但英文字首出現 re 並不保證都是這個用法。',
+    },
+    examples: [
+      {
+        term: 'reread', sense: 'en:reread:verb:read-again', meaning: '重讀',
+        breakdown: 're-（再）＋ read（讀）→ 再讀一次',
+        sentence: 'I will reread the final paragraph before class.', sources: sources('reread', 'Verb'),
+      },
+      {
+        term: 'rebuild', sense: 'en:rebuild:verb:build-again', meaning: '重建',
+        breakdown: 're-（重新）＋ build（建造）→ 重新建造',
+        sentence: 'The town plans to rebuild the bridge after the storm.', sources: sources('rebuild', 'Verb'),
+      },
+    ],
+    questions: [
+      {
+        id: 're-transfer', kind: 'transfer', term: 'repaint', sense: 'en:repaint:verb:paint-again',
+        prompt: '已知 paint 是「上漆」，repaint 最可能要求什麼動作？',
+        sentence: 'The owners will repaint the front door next month.',
+        options: [{ id: 'a', text: '重新上漆' }, { id: 'b', text: '拆掉門板' }, { id: 'c', text: '清除全部油漆' }],
+        answerId: 'a', explanation: 'repaint 是 re- 加 paint，在這裡表示重新上漆。',
+        clue: '底字指出動作，re- 指出這個動作再次發生。',
+        boundary: '再次上漆不代表一定更換顏色；這一點需要額外資訊。',
+        sources: sources('repaint', 'Verb'),
+      },
+      {
+        id: 're-boundary', kind: 'boundary', term: 'resign', sense: 'en:resign:verb:leave-position',
+        prompt: '不要只看開頭的字母。resign from 在這句中是什麼意思？',
+        sentence: 'After six years, Jo decided to resign from the committee.',
+        options: [{ id: 'a', text: '再次簽署委員會的文件' }, { id: 'b', text: '重新加入委員會' }, { id: 'c', text: '辭去委員會職務' }],
+        answerId: 'c', explanation: '這裡的 resign 是辭去職務。它有借自拉丁語的歷史，不能直接當成現代英語的「再＋簽名」；再次簽署常寫作 re-sign。',
+        clue: 'from the committee 指出離開的職務或組織，幫助選定這個詞義。',
+        boundary: '這不是說 resign 完全沒有歷史構詞，而是「現代常見詞義」不能靠眼前拼寫直接相加。',
+        sources: sources('resign', 'Verb', 'Etymology_1'),
+      },
+    ],
+    delayed: {
+      id: 're-delayed', kind: 'transfer', term: 'rewrite', sense: 'en:rewrite:verb:write-again',
+      prompt: '已知 write 是「寫」，rewrite 最可能表示什麼？',
+      sentence: 'Please rewrite the opening sentence before sending your draft.',
+      options: [{ id: 'a', text: '刪掉整份草稿' }, { id: 'b', text: '重新寫開頭句' }, { id: 'c', text: '朗讀開頭句' }],
+      answerId: 'b', explanation: 'rewrite 是 re- 加 write，表示重寫，也常帶有修改原文的意思。',
+      clue: '把同一個「再做一次」的線索移到另一個動詞。',
+      boundary: '單靠 re- 無法決定修改幅度；具體要求仍由寫作情境決定。',
+      sources: sources('rewrite', 'Verb'),
+    },
+  },
+  {
+    id: 'less-without', title: '-less：缺少什麼？',
+    subtitle: '從缺少的東西推意思，再檢查慣用義。',
+    concept: {
+      id: 'en:-less:without', label: '-less', meaning: '沒有、缺乏',
+      note: '這個字尾常形成形容詞。要先選對底字的意思；有些組合也發展出不能逐字直譯的慣用義。',
+    },
+    examples: [
+      {
+        term: 'powerless', sense: 'en:powerless:adjective:lacking-power', meaning: '無力的、無能為力的',
+        breakdown: 'power（力量、能力）＋ -less（缺乏）→ 無力的',
+        sentence: 'Without a vote, we felt powerless to change the decision.', sources: sources('powerless', 'Adjective'),
+      },
+      {
+        term: 'harmless', sense: 'en:harmless:adjective:not-causing-harm', meaning: '無害的',
+        breakdown: 'harm（傷害）＋ -less（沒有）→ 不造成傷害的',
+        sentence: 'The mark was a harmless stain on the cover.', sources: sources('harmless', 'Adjective'),
+      },
+    ],
+    questions: [
+      {
+        id: 'less-transfer', kind: 'transfer', term: 'tireless', sense: 'en:tireless:adjective:untiring',
+        prompt: '此處 tire 取「疲倦」的意思。tireless 用來形容這個人，最可能表示什麼？',
+        sentence: 'Our tireless organizer kept every part of the festival running.',
+        options: [{ id: 'a', text: '非常容易疲倦的' }, { id: 'b', text: '缺少工作經驗的' }, { id: 'c', text: '不知疲倦、不懈努力的' }],
+        answerId: 'c', explanation: 'tireless 在這個詞義中由表示疲倦的 tire 加 -less 組成，形容不知疲倦、努力不懈。',
+        clue: '先確定 tire 的詞義，再用 -less 推出沒有疲倦的方向。',
+        boundary: '這通常是在讚美持續努力，不是斷言這個人永遠不需要休息。',
+        sources: sources('tireless', 'Adjective', 'Etymology_1'),
+      },
+      {
+        id: 'less-boundary', kind: 'boundary', term: 'priceless', sense: 'en:priceless:adjective:beyond-price',
+        prompt: '在珍藏物品的語境中，priceless 最合理的意思是什麼？',
+        sentence: 'To our family, this handwritten letter is a priceless treasure.',
+        options: [{ id: 'a', text: '完全沒有價值的' }, { id: 'b', text: '珍貴到無法用金錢衡量的' }, { id: 'c', text: '只要很少的錢就能買到的' }],
+        answerId: 'b', explanation: 'priceless 的常見意思是無價之寶般的珍貴。price 加 -less 的組合，不能在這裡理解成「價值為零」。',
+        clue: 'treasure 和 to our family 支持的是珍貴的評價。',
+        boundary: '構詞線索能幫忙記憶，但詞典記錄的慣用義和語境會限制直譯。',
+        sources: sources('priceless', 'Adjective'),
+      },
+    ],
+    delayed: {
+      id: 'less-delayed', kind: 'transfer', term: 'countless', sense: 'en:countless:determiner:too-many-to-count',
+      prompt: '已知 count 是「計數」，這句中的 countless 最接近哪個意思？',
+      sentence: 'The archive holds countless photographs of the old town.',
+      options: [{ id: 'a', text: '多到數不清的' }, { id: 'b', text: '總數為零的' }, { id: 'c', text: '已經逐張編號的' }],
+      answerId: 'a', explanation: 'countless 由 count 加 -less 組成；現代用法表示多到數不清，不是完全沒有。',
+      clue: '把「沒有可數出的數量」理解為數量極多，再用句子檢查。',
+      boundary: '這種表達不保證數量在數學上無限大，也不提供精確張數。',
+      sources: sources('countless', 'Determiner'),
+    },
+  },
+  {
+    id: 'ful-characterized', title: '-ful：帶著某種感受',
+    subtitle: '把名詞的感受連到形容詞，也注意詞義會改變。',
+    concept: {
+      id: 'en:-ful:characterized-by', label: '-ful', meaning: '充滿、具有某種性質或感受',
+      note: '這堂課用感受類的形容詞練習 -ful。它不表示所有含這個字尾的詞都能只靠字面理解。',
+    },
+    examples: [
+      {
+        term: 'hopeful', sense: 'en:hopeful:adjective:feeling-hope', meaning: '懷抱希望的',
+        breakdown: 'hope（希望）＋ -ful（具有）→ 懷抱希望的',
+        sentence: 'We stayed hopeful about finding the missing notebook.', sources: sources('hopeful', 'Adjective'),
+      },
+      {
+        term: 'joyful', sense: 'en:joyful:adjective:feeling-joy', meaning: '喜悅的',
+        breakdown: 'joy（喜悅）＋ -ful（充滿）→ 充滿喜悅的',
+        sentence: 'Their joyful reunion filled the station with laughter.', sources: sources('joyful', 'Adjective'),
+      },
+    ],
+    questions: [
+      {
+        id: 'ful-transfer', kind: 'transfer', term: 'fearful', sense: 'en:fearful:adjective:timid',
+        prompt: '已知 fear 是「害怕、恐懼」，這裡的 fearful 最可能形容什麼性情？',
+        sentence: 'The fearful child stayed close to his parents in the crowd.',
+        options: [{ id: 'a', text: '充滿自信的' }, { id: 'b', text: '容易害怕、膽怯的' }, { id: 'c', text: '對任何事都沒興趣的' }],
+        answerId: 'b', explanation: 'fear 加 -ful 帶出與恐懼有關的性質。形容這個靠近父母的孩子時，fearful 是膽怯、容易害怕。',
+        clue: '底字提供感受，句中被描述的人幫你確定是哪一種用法。',
+        boundary: 'fearful 也有「令人害怕的」詞義；是感到害怕，還是讓人害怕，仍需看句子。',
+        sources: sources('fearful', 'Adjective'),
+      },
+      {
+        id: 'ful-boundary', kind: 'boundary', term: 'awful', sense: 'en:awful:adjective:very-bad',
+        prompt: '已知 awe 與敬畏有關，還能直接把 awful 當成讚美嗎？這句應怎麼理解？',
+        sentence: 'The soup tasted awful, so nobody finished a bowl.',
+        options: [{ id: 'a', text: '湯的味道非常糟' }, { id: 'b', text: '湯的味道令人敬佩' }, { id: 'c', text: '湯的份量特別多' }],
+        answerId: 'a', explanation: 'awful 的歷史構詞確實與 awe 加 -ful 有關，但「非常糟」是現代常見詞義，這句也明確支持這個解讀。',
+        clue: 'nobody finished a bowl 是檢查解讀是否合理的語境線索。',
+        boundary: '知道歷史上的組合，不等於現代使用者還在用原來的意思。',
+        sources: sources('awful', 'Adjective'),
+      },
+    ],
+    delayed: {
+      id: 'ful-delayed', kind: 'transfer', term: 'doubtful', sense: 'en:doubtful:adjective:skeptical',
+      prompt: '已知 doubt 是「懷疑」，doubtful 在這裡最接近哪種態度？',
+      sentence: 'I remain doubtful about the claim on the poster.',
+      options: [{ id: 'a', text: '對說法深信不疑' }, { id: 'b', text: '對海報感到喜悅' }, { id: 'c', text: '對說法抱持懷疑' }],
+      answerId: 'c', explanation: 'doubtful 由 doubt 加 -ful 組成。描述人的態度時，可表示有所懷疑、不太相信。',
+      clue: '回想 -ful 如何把感受或性質連到形容詞。',
+      boundary: '懷疑一個說法，不等於已經證明它是假的。',
+      sources: sources('doubtful', 'Adjective'),
+    },
+  },
+  {
+    id: 'pre-before', title: 'pre-：先做準備',
+    subtitle: '掌握先後順序，別把線索當成完整時程。',
+    concept: {
+      id: 'en:pre-:before', label: 'pre-', meaning: '在……之前、預先',
+      note: 'pre- 常表示時間上的先後。它能指出比某件事早，卻不會自動告訴你早多少。',
+    },
+    examples: [
+      {
+        term: 'preheat', sense: 'en:preheat:verb:heat-in-advance', meaning: '預熱',
+        breakdown: 'pre-（預先）＋ heat（加熱）→ 預先加熱',
+        sentence: 'Preheat the oven while you mix the dough.', sources: sources('preheat', 'Verb'),
+      },
+      {
+        term: 'prepay', sense: 'en:prepay:verb:pay-in-advance', meaning: '預付',
+        breakdown: 'pre-（預先）＋ pay（支付）→ 提前支付',
+        sentence: 'Visitors can prepay for parking online.', sources: sources('prepay', 'Verb'),
+      },
+    ],
+    questions: [
+      {
+        id: 'pre-transfer', kind: 'transfer', term: 'prerecord', sense: 'en:prerecord:verb:record-in-advance',
+        prompt: '已知 record 是「錄製」，prerecord 最可能表示什麼？',
+        sentence: 'The host will prerecord the introduction for Friday’s show.',
+        options: [{ id: 'a', text: '節目播完後才錄製' }, { id: 'b', text: '把錄音刪除' }, { id: 'c', text: '在播出之前錄製' }],
+        answerId: 'c', explanation: 'prerecord 是 pre- 加 record，意思是預先錄製。',
+        clue: 'pre- 讓錄製這個動作發生在後續使用或播出之前。',
+        boundary: '這不表示主持人將錄幾次，也不表示內容一定不會修改。',
+        sources: sources('prerecord', 'Verb'),
+      },
+      {
+        id: 'pre-boundary', kind: 'boundary', term: 'prelaunch', sense: 'en:prelaunch:adjective:before-launch',
+        prompt: '這句足以判斷檢查離發射還有多久嗎？',
+        sentence: 'The team completed a prelaunch check.',
+        options: [{ id: 'a', text: '一定是發射前一天' }, { id: 'b', text: '需要更多上下文，才能知道提前多久' }, { id: 'c', text: '一定是發射前一小時' }],
+        answerId: 'b', explanation: 'prelaunch 是發射前、為發射做準備的。句子能支持先後關係，卻沒有提供相隔多久。',
+        clue: '區分「我知道先後」和「我知道精確時間」。',
+        boundary: '知道一個詞的部分意思，也可以合理地承認另一部分資訊不足。',
+        sources: sources('prelaunch', 'Adjective'),
+      },
+    ],
+    delayed: {
+      id: 'pre-delayed', kind: 'transfer', term: 'prebook', sense: 'en:prebook:verb:book-in-advance',
+      prompt: '此處 book 是動詞「預訂」。prebook 最可能是什麼意思？',
+      sentence: 'You can prebook a seat for the evening workshop.',
+      options: [{ id: 'a', text: '事先訂好座位' }, { id: 'b', text: '活動結束才登記' }, { id: 'c', text: '取消已訂好的座位' }],
+      answerId: 'a', explanation: 'prebook 是 pre- 加 book，表示事先預訂。',
+      clue: '這裡要用 book 的動詞義，再加上 pre- 的時間線索。',
+      boundary: '字本身沒有保證座位免費，也沒有交代能否取消。',
+      sources: sources('prebook', 'Verb'),
+    },
+  },
+  {
+    id: 'inter-between', title: 'inter-：在彼此之間',
+    subtitle: '看清連接哪些單位，再確認具體情境。',
+    concept: {
+      id: 'en:inter-:between', label: 'inter-', meaning: '在……之間、跨不同單位',
+      note: 'inter- 常表示兩個或更多單位之間的關係。底字告訴你連接的是什麼，句子則補上具體用途。',
+    },
+    examples: [
+      {
+        term: 'intercity', sense: 'en:intercity:adjective:between-cities', meaning: '城市之間的',
+        breakdown: 'inter-（在……之間）＋ city（城市）→ 城市之間的',
+        sentence: 'An intercity bus connects the two regional capitals.', sources: sources('intercity', 'Adjective'),
+      },
+      {
+        term: 'international', sense: 'en:international:adjective:between-nations', meaning: '國際的、跨國的',
+        breakdown: 'inter-（在……之間）＋ national（國家的）→ 國家之間的',
+        sentence: 'The international contest welcomed teams from many countries.', sources: sources('international', 'Adjective'),
+      },
+    ],
+    questions: [
+      {
+        id: 'inter-transfer', kind: 'transfer', term: 'interdepartmental', sense: 'en:interdepartmental:adjective:between-departments',
+        prompt: 'department 指「部門」。這個形容詞最可能說明什麼關係？',
+        sentence: 'An interdepartmental meeting is scheduled for Tuesday.',
+        options: [{ id: 'a', text: '在多個部門之間進行的' }, { id: 'b', text: '只供單一部門內部參加的' }, { id: 'c', text: '在部門成立之前舉行的' }],
+        answerId: 'a', explanation: 'interdepartmental 由 inter-、department 和形容詞字尾 -al 組成，表示部門之間的或涉及多個部門的。',
+        clue: '先辨認連接的單位是部門，再套用 inter- 的關係。',
+        boundary: '多部門參與不等於全公司每個部門都會參加。',
+        sources: sources('interdepartmental', 'Adjective'),
+      },
+      {
+        id: 'inter-boundary', kind: 'boundary', term: 'interface', sense: 'en:interface:noun:context-undetermined',
+        prompt: '只憑這句，能判斷 interface 指哪個具體領域的介面或交界嗎？',
+        sentence: 'The interface was changed.',
+        options: [{ id: 'a', text: '一定是手機畫面上的操作介面' }, { id: 'b', text: '一定是兩種物質的交界面' }, { id: 'c', text: '需要更多上下文，才能選定具體詞義' }],
+        answerId: 'c', explanation: 'interface 可以指接觸或連接的界面，既有電腦用法，也有物理上的交界面等詞義。這個句子沒有選定其中一種。',
+        clue: '構詞能提供「彼此接觸的界面」方向，無法替缺少的場景作答。',
+        boundary: '語境不足時不要把最熟悉的詞義當成唯一答案。',
+        sources: sources('interface', 'Noun'),
+      },
+    ],
+    delayed: {
+      id: 'inter-delayed', kind: 'transfer', term: 'interschool', sense: 'en:interschool:adjective:between-schools',
+      prompt: '已知 school 是「學校」，interschool 在句中表示什麼？',
+      sentence: 'The students prepared for an interschool debate.',
+      options: [{ id: 'a', text: '只在同一班內舉行的' }, { id: 'b', text: '在不同學校之間舉行的' }, { id: 'c', text: '入學之前舉行的' }],
+      answerId: 'b', explanation: 'interschool 是 inter- 加 school，表示兩所或更多學校之間的。',
+      clue: '把 inter- 指出的「之間」關係移到學校這個單位。',
+      boundary: '這個字不會告訴你確切參賽校數或比賽地點。',
+      sources: sources('interschool', 'Adjective'),
+    },
+  },
+  {
+    id: 'trans-across', title: 'trans-：跨過一個範圍',
+    subtitle: '先找跨越的範圍，再分辨字面與延伸義。',
+    concept: {
+      id: 'en:trans-:across', label: 'trans-', meaning: '跨越、穿過、到另一邊',
+      note: '這堂課先看地理上的跨越。有些含 trans 的詞經過借用或詞義延伸，不能把整個詞當成一條路線。',
+    },
+    examples: [
+      {
+        term: 'transatlantic', sense: 'en:transatlantic:adjective:crossing-atlantic', meaning: '橫越大西洋的',
+        breakdown: 'trans-（跨越）＋ Atlantic（大西洋）→ 橫越大西洋的',
+        sentence: 'The airline added a transatlantic flight to its schedule.', sources: sources('transatlantic', 'Adjective'),
+      },
+      {
+        term: 'transcontinental', sense: 'en:transcontinental:adjective:across-continent', meaning: '橫跨大陸的',
+        breakdown: 'trans-（跨越）＋ continental（大陸的）→ 橫跨大陸的',
+        sentence: 'They followed a transcontinental rail route.', sources: sources('transcontinental', 'Adjective'),
+      },
+    ],
+    questions: [
+      {
+        id: 'trans-transfer', kind: 'transfer', term: 'transpacific', sense: 'en:transpacific:adjective:crossing-pacific',
+        prompt: '已知 Pacific 指太平洋，這裡的 transpacific 最可能是什麼意思？',
+        sentence: 'The shipping company opened a transpacific route.',
+        options: [{ id: 'a', text: '只沿同一港口岸邊的' }, { id: 'b', text: '橫越太平洋的' }, { id: 'c', text: '在太平洋海底施工的' }],
+        answerId: 'b', explanation: 'transpacific 是 trans- 加 Pacific，這句表示航線橫越太平洋。',
+        clue: '前綴提供跨越的關係，後半部提供地理範圍。',
+        boundary: '跨越哪個海洋，不能推出航程、票價或使用的船種。',
+        sources: sources('transpacific', 'Adjective'),
+      },
+      {
+        id: 'trans-boundary', kind: 'boundary', term: 'transparent', sense: 'en:transparent:adjective:open-public',
+        prompt: 'transparent 形容這個流程時，哪個解讀最合適？',
+        sentence: 'The committee promised a transparent selection process.',
+        options: [{ id: 'a', text: '在多個大陸輪流舉行的流程' }, { id: 'b', text: '讓光線能實際穿過的流程' }, { id: 'c', text: '資訊公開、讓人看清做法的流程' }],
+        answerId: 'c', explanation: 'transparent 除了物體「透明」的意思，也可形容制度或做法公開。這裡的 process 支持公開透明的延伸義。',
+        clue: '先確認被形容的是抽象流程，不是玻璃等材料。',
+        boundary: '詞源中的「穿過、顯現」可以當記憶線索，不能取代現代詞義，也不能拆成 trans 加 parent。',
+        sources: sources('transparent', 'Adjective', 'Etymology_1'),
+      },
+    ],
+    delayed: {
+      id: 'trans-delayed', kind: 'transfer', term: 'transnational', sense: 'en:transnational:adjective:across-national-boundaries',
+      prompt: '已知 national 與國家有關，這個新組合最可能表示什麼？',
+      sentence: 'The researchers formed a transnational network.',
+      options: [{ id: 'a', text: '跨越國界的' }, { id: 'b', text: '只限同一城市的' }, { id: 'c', text: '在國家建立之前的' }],
+      answerId: 'a', explanation: 'transnational 是 trans- 加 national，表示跨越國界或涉及數個國家的。',
+      clue: '跨越也可以描述組織或合作的範圍，不只是一條交通路線。',
+      boundary: '有跨國性質，不代表涵蓋世界上所有國家。',
+      sources: sources('transnational', 'Adjective'),
+    },
+  },
+  {
+    id: 'bio-life', title: 'bio-：生命與生物',
+    subtitle: '把線索連到生命活動，再看詞的另一半。',
+    concept: {
+      id: 'en:bio-:life', label: 'bio-', meaning: '生命、生物',
+      note: '這個構詞成分來自希臘語的「生命」。下面的拆解用來理解詞的組成，不宣稱所有字都是直接在英語裡造出來的。',
+    },
+    examples: [
+      {
+        term: 'biology', sense: 'en:biology:noun:study-of-life', meaning: '生物學',
+        breakdown: '字面分析：bio-（生命）＋ -logy（研究領域）→ 研究生命的學科；英語詞由新拉丁語借入。',
+        sentence: 'In biology class, we compared how plants and animals grow.', sources: sources('biology', 'Noun'),
+      },
+      {
+        term: 'biosphere', sense: 'en:biosphere:noun:life-supporting-region', meaning: '生物圈',
+        breakdown: '字面分析：bio-（生命）＋ -sphere（圈、範圍）→ 能支持生命的範圍；英語詞由德語借入。',
+        sentence: 'The diagram shows the biosphere across land, water, and air.', sources: sources('biosphere', 'Noun'),
+      },
+    ],
+    questions: [
+      {
+        id: 'bio-transfer', kind: 'transfer', term: 'biodegradable', sense: 'en:biodegradable:adjective:decomposed-biologically',
+        prompt: '已知 degradable 是「可被分解的」，加上 bio- 後最可能指什麼？',
+        sentence: 'The label describes the packing material as biodegradable.',
+        options: [{ id: 'a', text: '可以藉生物作用分解的' }, { id: 'b', text: '只會因強光而分解的' }, { id: 'c', text: '永遠不會分解的' }],
+        answerId: 'a', explanation: 'biodegradable 是 bio- 加 degradable，表示可由生物活動，尤其微生物作用分解。',
+        clue: 'bio- 指出分解與生物活動有關。',
+        boundary: '字義不保證在任何環境都會快速分解；條件和時間不是這個前綴提供的資訊。',
+        sources: sources('biodegradable', 'Adjective'),
+      },
+      {
+        id: 'bio-boundary', kind: 'boundary', term: 'biological', sense: 'en:biological:adjective:relating-to-biology',
+        prompt: '只根據這句，能知道樣本一定來自哪一類生物嗎？',
+        sentence: 'The lab received a biological sample.',
+        options: [{ id: 'a', text: '一定來自植物' }, { id: 'b', text: '一定來自動物' }, { id: 'c', text: '需要更多上下文，才能知道樣本來源' }],
+        answerId: 'c', explanation: 'biological 表示與生物或生物學有關。它沒有把來源限定為植物或動物，句子也沒補足這項資訊。',
+        clue: '「與生命有關」是範圍線索，不是物種名稱。',
+        boundary: '能推到大方向時就先停下，不要替資料補上沒有說出的細節。',
+        sources: sources('biological', 'Adjective'),
+      },
+    ],
+    delayed: {
+      id: 'bio-delayed', kind: 'transfer', term: 'biofuel', sense: 'en:biofuel:noun:fuel-from-biological-resources',
+      prompt: '已知 fuel 是「燃料」，這個組合最可能指哪一類燃料？',
+      sentence: 'The project studies a new source of biofuel.',
+      options: [{ id: 'a', text: '以聲音傳遞的燃料' }, { id: 'b', text: '來自可再生生物資源的燃料' }, { id: 'c', text: '專指從地下開採的煤' }],
+      answerId: 'b', explanation: 'biofuel 是 bio- 加 fuel，指從可再生生物資源，尤其生物質取得的燃料。',
+      clue: '把生命、生物的線索連到燃料的來源。',
+      boundary: '名稱不能單獨證明某種燃料的整體環境影響；這需要另外的資料。',
+      sources: sources('biofuel', 'Noun'),
+    },
+  },
+  {
+    id: 'phon-sound', title: 'phono-／-phone：和聲音連起來',
+    subtitle: '辨認聲音家族，也分清同音和同源。',
+    concept: {
+      id: 'en:phon:sound', label: 'phono-／-phone', meaning: '聲音、語音；與聲音有關的構詞成分',
+      note: '這些形式與希臘語的「聲音、嗓音」有關。知道這個方向還不夠，另一個成分和使用情境才會指出具體事物。',
+    },
+    examples: [
+      {
+        term: 'telephone', sense: 'en:telephone:noun:communication-device', meaning: '電話',
+        breakdown: 'tele-（遠距）＋ -phone（聲音裝置）→ 用聲音作遠距溝通的裝置',
+        sentence: 'A telephone on the desk connected visitors to the front office.', sources: sources('telephone', 'Noun'),
+      },
+      {
+        term: 'microphone', sense: 'en:microphone:noun:sound-transducer', meaning: '麥克風',
+        breakdown: 'micro-（小）＋ -phone（聲音）是構詞線索；現代詞義是把聲音轉成電訊號的裝置。',
+        sentence: 'The speaker adjusted the microphone before the talk.', sources: sources('microphone', 'Noun'),
+      },
+    ],
+    questions: [
+      {
+        id: 'phon-transfer', kind: 'transfer', term: 'phonograph', sense: 'en:phonograph:noun:sound-recording-playing-device',
+        prompt: '已知 -graph 可指記錄工具，phono- 提供哪個方向？請選句中最合理的物品。',
+        sentence: 'The museum displayed a phonograph beside several old records.',
+        options: [{ id: 'a', text: '測量風速的儀器' }, { id: 'b', text: '記錄或播放聲音的機器' }, { id: 'c', text: '觀察遠方星體的儀器' }],
+        answerId: 'b', explanation: 'phonograph 由 phono- 加 -graph 組成，可指記錄或播放聲音的裝置；在舊唱片旁的博物館情境也支持這個方向。',
+        clue: '先推到聲音記錄，再讓 records 的語境幫你選出具體用途。',
+        boundary: '不同年代、地區的具體設備名稱有差異；構詞不能告訴你機器型號。',
+        sources: sources('phonograph', 'Noun'),
+      },
+      {
+        id: 'phon-boundary', kind: 'boundary', term: 'homophone', sense: 'en:homophone:noun:same-sounding-word',
+        prompt: '已知 homo- 是「相同」，這句究竟能支持哪個結論？',
+        sentence: 'The teacher described the two words as homophones.',
+        options: [{ id: 'a', text: '兩個字的意思一定相同' }, { id: 'b', text: '兩個字一定來自同一個詞根' }, { id: 'c', text: '兩個字讀音相同，但不能據此斷言同源' }],
+        answerId: 'c', explanation: 'homophone 的構詞可分析成 homo- 加 -phone，指同音詞。聲音相同不保證意思、拼寫或來源相同。',
+        clue: '把「相同」放到聲音這個面向，不要擴大到所有面向。',
+        boundary: '同音是發音關係，同源是歷史來源關係；前者不能作為後者的證明。',
+        sources: sources('homophone', 'Noun'),
+      },
+    ],
+    delayed: {
+      id: 'phon-delayed', kind: 'transfer', term: 'megaphone', sense: 'en:megaphone:noun:voice-amplifier',
+      prompt: '已知 mega- 有「大」的意思，和聲音成分組合後，哪個解讀最合理？',
+      sentence: 'The guide picked up a megaphone to address the crowd.',
+      options: [{ id: 'a', text: '讓說話聲傳得更響亮的擴音器' }, { id: 'b', text: '讓字體放大的閱讀鏡' }, { id: 'c', text: '專門錄製無聲影像的相機' }],
+      answerId: 'a', explanation: 'megaphone 是 mega- 加 -phone，這裡指把人的聲音放大、朝特定方向傳出的擴音器。',
+      clue: '聲音家族加上「大」的線索，再檢查向群眾說話的用途。',
+      boundary: '這裡選的是實體裝置義；詞典也記錄比喻性的代言、宣傳工具義。',
+      sources: sources('megaphone', 'Noun', 'Etymology_1'),
+    },
+  },
+  {
+    id: 'micro-small', title: 'micro-：把尺度縮小',
+    subtitle: '小尺度是線索，不是完整定義。',
+    concept: {
+      id: 'en:micro-:small', label: 'micro-', meaning: '小、微小；較小的尺度',
+      note: '這堂課練習一般詞彙中的「小尺度」。不要把它自動套成精確尺寸，也要看全詞在句中的詞性。',
+    },
+    examples: [
+      {
+        term: 'microscope', sense: 'en:microscope:noun:small-object-imaging-instrument', meaning: '顯微鏡',
+        breakdown: '字面分析：micro-（小）＋ -scope（觀察工具）→ 觀察微小物體的儀器',
+        sentence: 'We examined the leaf surface with a microscope.', sources: sources('microscope', 'Noun'),
+      },
+      {
+        term: 'microorganism', sense: 'en:microorganism:noun:microscopic-organism', meaning: '微生物',
+        breakdown: 'micro-（微小）＋ organism（生物）→ 小到難以直接用肉眼看見的生物',
+        sentence: 'The researcher studied a microorganism from the pond.', sources: sources('microorganism', 'Noun'),
+      },
+    ],
+    questions: [
+      {
+        id: 'micro-transfer', kind: 'transfer', term: 'microclimate', sense: 'en:microclimate:noun:local-climate',
+        prompt: '已知 climate 是「氣候」，microclimate 最可能描述哪個範圍？',
+        sentence: 'The sheltered garden has its own microclimate.',
+        options: [{ id: 'a', text: '整個星球長期的氣候' }, { id: 'b', text: '只發生在古代的氣候' }, { id: 'c', text: '小區域中特有的局部氣候' }],
+        answerId: 'c', explanation: 'microclimate 是 micro- 加 climate，指小區域中與周圍不同的局部氣候或天氣型態。',
+        clue: '這裡縮小的是氣候發生的地理範圍。',
+        boundary: 'micro- 不是「很短的時間」；此處也沒有說這個地方一定比較熱或比較冷。',
+        sources: sources('microclimate', 'Noun'),
+      },
+      {
+        id: 'micro-boundary', kind: 'boundary', term: 'microwave', sense: 'en:microwave:verb:cook-in-microwave-oven',
+        prompt: 'microwave 在這個句子是動詞。應該如何理解？',
+        sentence: 'Please microwave the vegetables before dinner.',
+        options: [{ id: 'a', text: '把蔬菜切成極小顆粒' }, { id: 'b', text: '用微波爐加熱蔬菜' }, { id: 'c', text: '量出蔬菜的長度' }],
+        answerId: 'b', explanation: 'microwave 的名詞與微波及微波爐有關；當動詞時，可表示用微波爐烹調或加熱。句子中的動作不能靠「小＋波」直接相加。',
+        clue: 'Please 後面的動作和作為受詞的蔬菜，幫助選出動詞義。',
+        boundary: '構詞只提供一條理解路徑；詞性轉換和慣用法仍需要全詞知識。',
+        sources: sources('microwave', 'Verb'),
+      },
+    ],
+    delayed: {
+      id: 'micro-delayed', kind: 'transfer', term: 'microplastic', sense: 'en:microplastic:noun:small-plastic-particles',
+      prompt: '已知 plastic 是「塑膠」，這個新組合最可能表示什麼？',
+      sentence: 'The report describes microplastic in the water sample.',
+      options: [{ id: 'a', text: '微小的塑膠顆粒' }, { id: 'b', text: '能觀察塑膠的顯微鏡' }, { id: 'c', text: '一整片大型塑膠板' }],
+      answerId: 'a', explanation: 'microplastic 是 micro- 加 plastic，指微小的塑膠顆粒。',
+      clue: '先找被縮小的是什麼；此處是塑膠顆粒，而不是觀察工具。',
+      boundary: '前綴只能提示小尺度；精確的分類尺寸要另查定義，不能解作每顆都剛好一微米。',
+      sources: sources('microplastic', 'Noun'),
+    },
+  },
+];

@@ -1,5 +1,10 @@
 namespace EtymoVocab.Core.Lookup;
 
+/// <summary>One ordered lexical-discovery outcome; one missing word does not discard its siblings.</summary>
+public sealed record RelatedLookupItem(string Word, WordResult? Data, RelatedLookupError? Error);
+
+public sealed record RelatedLookupError(int Status, string Title, string? Detail, int? RetryAfter);
+
 /// <param name="Complete">False when some ancestor data could not be fetched; such results are not cached.</param>
 /// <param name="Word">The page title (Latin entries drop macrons: <c>specio</c> for <c>speciō</c>).</param>
 public sealed record WordResult(

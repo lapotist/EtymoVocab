@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Test map layout
+      - name: Test web learning and map layout
         run: npm test
 
       - name: Publish static site
@@ -46,6 +46,14 @@ jobs:
         run: |
           test -f publish/wwwroot/index.html
           test -f publish/wwwroot/_framework/dotnet.js
+          test -f publish/wwwroot/learning.js
+          test -f publish/wwwroot/learning-state.js
+          test -f publish/wwwroot/learning-drafts.js
+          test -f publish/wwwroot/lessons.js
+          test -f publish/wwwroot/vocabulary.js
+          test -f publish/wwwroot/bulk-lookup.js
+          test -f publish/wwwroot/saved-words.js
+          test -f publish/wwwroot/lookup-cache.js
           du -sh publish/wwwroot
 
       - uses: actions/upload-pages-artifact@v3

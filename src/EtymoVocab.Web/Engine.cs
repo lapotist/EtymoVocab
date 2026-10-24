@@ -49,6 +49,18 @@ public static partial class Engine
     });
 
     [JSExport]
+    public static Task<string> LookupRelatedBatch(string wordsJson) => Run(async () =>
+    {
+        string[]? words;
+        try { words = JsonSerializer.Deserialize(wordsJson, EngineJson.Default.StringArray); }
+        catch (JsonException) { return Fail(400, "批次查詢需要單字陣列"); }
+        if (words is null || words.Length > WordLookupService.MaxRelatedBatchWords)
+            return Fail(400, $"一次最多查詢 {WordLookupService.MaxRelatedBatchWords} 個單字");
+        var results = await Words.LookupRelatedBatchAsync(words, CancellationToken.None);
+        return Ok(results, EngineJson.Default.IReadOnlyListRelatedLookupItem);
+    });
+
+    [JSExport]
     public static Task<string> LookupEntry(string lang, string term, string? etymonId) => Run(async () =>
     {
         if (!IsValidTitle(lang) || !IsValidTitle(term))
@@ -113,5 +125,7 @@ public static partial class Engine
 [JsonSerializable(typeof(WordResult))]
 [JsonSerializable(typeof(RootFamilyResult))]
 [JsonSerializable(typeof(IReadOnlyList<string>))]
+[JsonSerializable(typeof(string[]))]
+[JsonSerializable(typeof(IReadOnlyList<RelatedLookupItem>))]
 [JsonSerializable(typeof(Engine.Failure))]
 internal sealed partial class EngineJson : JsonSerializerContext;

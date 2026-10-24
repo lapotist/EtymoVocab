@@ -20,6 +20,7 @@ public sealed class LookupOptions
 public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry languages, LookupOptions options)
 {
     public const string License = "CC BY-SA 4.0";
+    public const int MaxRelatedBatchWords = 20;
 
     /// <summary>An English word. Wiktionary titles are case-sensitive, so "Inspect" falls back to "inspect".</summary>
     public Task<WordResult?> LookupAsync(string word, CancellationToken ct)
@@ -37,6 +38,98 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
         var lower = word.ToLowerInvariant();
         string[] candidates = lower == word ? [word] : [word, lower];
         return new Session(client, languages, options, ct).RunAsync(candidates, "en", null, enrich: false, resolveInflections: true);
+    }
+
+    /// <summary>
+    /// Fetches a batch's starting pages together, then uses the same sense/inflection rules as
+    /// individual discovery. Exact titles and lowercase fallbacks fit in one request for 20 words.
+    /// No ancestor pages are fetched. Missing or invalid items remain isolated outcomes.
+    /// </summary>
+    public async Task<IReadOnlyList<RelatedLookupItem>> LookupRelatedBatchAsync(IReadOnlyList<string> words, CancellationToken ct)
+    {
+        ArgumentNullException.ThrowIfNull(words);
+        if (words.Count > MaxRelatedBatchWords)
+            throw new ArgumentOutOfRangeException(nameof(words), $"At most {MaxRelatedBatchWords} words may be looked up together.");
+        ct.ThrowIfCancellationRequested();
+        var inputs = words.Select(word => word?.Trim() ?? "").ToList();
+        var titles = inputs.Where(IsValidRelatedTitle)
+            .SelectMany(word => word.ToLowerInvariant() == word ? new[] { word } : new[] { word, word.ToLowerInvariant() })
+            .Distinct(StringComparer.Ordinal).ToArray();
+        var shared = new DiscoveryBatchClient(client);
+        if (titles.Length > 0 && options.MaxUpstreamRequests > 0)
+            await shared.GetPagesAsync(titles, ct); // A failure here propagates with its Retry-After.
+
+        var results = new List<RelatedLookupItem>(inputs.Count);
+        foreach (var word in inputs)
+        {
+            ct.ThrowIfCancellationRequested();
+            if (!IsValidRelatedTitle(word))
+            {
+                results.Add(new(word, null, new(400, "無效的查詢字詞", word, null)));
+                continue;
+            }
+            var lower = word.ToLowerInvariant();
+            string[] candidates = lower == word ? [word] : [word, lower];
+            try
+            {
+                var result = await new Session(shared, languages, options, ct, shared.Pages)
+                    .RunAsync(candidates, "en", null, enrich: false, resolveInflections: true);
+                results.Add(result is null
+                    ? new(word, null, new(404, "Wiktionary 沒有這個英文詞條", word, null))
+                    : new(word, result, null));
+            }
+            catch (UpstreamUnavailableException error)
+            {
+                results.Add(new(word, null, new(503, "Wiktionary 暫時無法使用", error.Message,
+                    error.RetryAfter is { } wait ? (int)Math.Ceiling(wait.TotalSeconds) : null)));
+            }
+            catch (Exception error) when (error is not OperationCanceledException)
+            {
+                results.Add(new(word, null, new(500, "查詢引擎發生錯誤", error.Message, null)));
+            }
+        }
+        return results;
+    }
+
+    private static bool IsValidRelatedTitle(string word) =>
+        word.Length is > 0 and <= 100
+        && word.IndexOfAny(['#', '<', '>', '[', ']', '{', '}', '|']) < 0
+        && !word.Any(char.IsControl);
+
+    /// <summary>Shares preloaded pages and additional lemma fetches even with a non-caching client.</summary>
+    private sealed class DiscoveryBatchClient(IWiktionaryClient upstream) : IWiktionaryClient
+    {
+        private readonly Dictionary<string, WikiPage?> _pages = new(StringComparer.Ordinal);
+        private UpstreamUnavailableException? _failure;
+        public IReadOnlyDictionary<string, WikiPage?> Pages => _pages;
+
+        public async Task<IReadOnlyDictionary<string, WikiPage?>> GetPagesAsync(IReadOnlyCollection<string> titles, CancellationToken ct)
+        {
+            ct.ThrowIfCancellationRequested();
+            var missing = titles.Distinct(StringComparer.Ordinal).Where(title => !_pages.ContainsKey(title)).ToArray();
+            if (missing.Length > 0)
+            {
+                if (_failure is not null) throw _failure;
+                try
+                {
+                    var fetched = await upstream.GetPagesAsync(missing, ct);
+                    foreach (var title in missing)
+                        _pages[title] = fetched.GetValueOrDefault(title);
+                }
+                catch (UpstreamUnavailableException error)
+                {
+                    _failure = error; // Do not retry an unavailable upstream for each remaining lemma.
+                    throw;
+                }
+            }
+            return titles.Distinct(StringComparer.Ordinal).ToDictionary(title => title, title => _pages[title], StringComparer.Ordinal);
+        }
+
+        public Task<CategoryListing?> GetCategoryMembersAsync(string title, int limit, CancellationToken ct) =>
+            upstream.GetCategoryMembersAsync(title, limit, ct);
+
+        public Task<IReadOnlyList<string>> SuggestAsync(string prefix, int limit, CancellationToken ct) =>
+            upstream.SuggestAsync(prefix, limit, ct);
     }
 
     /// <summary>
@@ -65,16 +158,18 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
         public string Key => $"{Section}|{Title ?? Step.Lang + ":" + Step.Term}";
     }
 
-    private sealed class Session(IWiktionaryClient client, LanguageRegistry languages, LookupOptions options, CancellationToken ct)
+    private sealed class Session(IWiktionaryClient client, LanguageRegistry languages, LookupOptions options, CancellationToken ct,
+        IReadOnlyDictionary<string, WikiPage?>? initialPages = null)
     {
         private const int MaxBatch = 50;
         private const int MaxGlossLength = 140;
 
-        private readonly Dictionary<string, WikiPage?> _pages = new(StringComparer.Ordinal);
+        private readonly Dictionary<string, WikiPage?> _pages = initialPages is null
+            ? new(StringComparer.Ordinal) : new(initialPages, StringComparer.Ordinal);
         private readonly Dictionary<(string Title, string Section), IReadOnlyList<EntrySection>?> _parsed = new();
         private readonly Dictionary<(string Lang, string Term, string? Id), string> _glosses = new();
         private readonly List<string> _warnings = [];
-        private int _requestsLeft = options.MaxUpstreamRequests;
+        private int _requestsLeft = options.MaxUpstreamRequests - (initialPages is null ? 0 : 1);
         private bool _complete = true;
         private string _lang = "en";
         private string _sectionName = "English";
