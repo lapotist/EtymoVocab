@@ -1,0 +1,237 @@
+{
+ "word": "transport",
+ "lang": "en",
+ "langName": "English",
+ "source": {
+  "title": "transport",
+  "revisionId": 95572939,
+  "revisionTimestamp": "2026-11-12T21:34:17+00:00",
+  "url": "https://en.wiktionary.org/w/index.php?title=transport&oldid=95572939#English",
+  "license": "CC BY-SA 4.0"
+ },
+ "etymologies": [
+  {
+   "number": 1,
+   "id": null,
+   "text": "Inherited from Middle English transporten, a borrowing from Old French transporter (“carry or convey across”), from Latin trānsportāre (“to carry over, take across, carry, convey, remove, transport”), from trāns- (“across, over, to the farther side of”) + portō (“to bear, carry, convey, take”). By surface analysis, trans- (“beyond, across, through”) + port (“to carry, bear, or convey; to bring”).",
+   "uncertain": false,
+   "steps": [
+    {
+     "lang": "enm",
+     "langName": "Middle English",
+     "term": "transporten",
+     "display": "transporten",
+     "gloss": null,
+     "glossSource": null,
+     "relation": "inh",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/transporten#Middle_English",
+     "morphology": []
+    },
+    {
+     "lang": "fro",
+     "langName": "Old French",
+     "term": "transporter",
+     "display": "transporter",
+     "gloss": "carry or convey across",
+     "glossSource": "etymology",
+     "relation": "der",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/transporter#Old_French",
+     "morphology": []
+    },
+    {
+     "lang": "la",
+     "langName": "Latin",
+     "term": "trānsportō",
+     "display": "trānsportāre",
+     "gloss": "to carry over, take across, carry, convey, remove, transport",
+     "glossSource": "etymology",
+     "relation": "der",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/transporto#Latin",
+     "morphology": [
+      {
+       "lang": "la",
+       "langName": "Latin",
+       "kind": "af",
+       "parts": [
+        {
+         "term": "trāns-",
+         "gloss": "through, across, beyond",
+         "hint": null,
+         "url": "https://en.wiktionary.org/wiki/trans-#Latin"
+        },
+        {
+         "term": "portō",
+         "gloss": "to carry, bear",
+         "hint": null,
+         "url": "https://en.wiktionary.org/wiki/porto#Latin"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "morphology": [
+    {
+     "lang": "en",
+     "langName": "English",
+     "kind": "surf",
+     "parts": [
+      {
+       "term": "trans-",
+       "gloss": "beyond, across, through",
+       "hint": "across, beyond",
+       "url": "https://en.wiktionary.org/wiki/trans-#English"
+      },
+      {
+       "term": "port",
+       "gloss": "to carry, bear, or convey; to bring",
+       "hint": "carry",
+       "url": "https://en.wiktionary.org/wiki/port#English"
+      }
+     ]
+    },
+    {
+     "lang": "la",
+     "langName": "Latin",
+     "kind": "af",
+     "parts": [
+      {
+       "term": "trāns-",
+       "gloss": "across, over, to the farther side of",
+       "hint": "beyond",
+       "url": "https://en.wiktionary.org/wiki/trans-#Latin"
+      },
+      {
+       "term": "portō",
+       "gloss": "to bear, carry, convey, take",
+       "hint": "carry",
+       "url": "https://en.wiktionary.org/wiki/porto#Latin"
+      }
+     ]
+    }
+   ],
+   "roots": [],
+   "doublets": [],
+   "partsOfSpeech": [
+    {
+     "pos": "Verb",
+     "senses": [
+      "To carry or bear from one place to another; to remove; to convey.",
+      "(historical) To deport to a penal colony.",
+      "(figuratively) To move (someone) to strong emotion; to carry away."
+     ],
+     "translations": [
+      {
+       "sense": "carry or bear from one place to another",
+       "mandarin": [
+        "輸送"
+       ]
+      },
+      {
+       "sense": "historical: deport to a penal colony",
+       "mandarin": [
+        "流放"
+       ]
+      }
+     ],
+     "relations": [
+      {
+       "kind": "synonym",
+       "sense": "carry or bear from one place to another",
+       "terms": [
+        "convey",
+        "ferry",
+        "move",
+        "relocate",
+        "shift",
+        "ship"
+       ]
+      },
+      {
+       "kind": "synonym",
+       "sense": "historical: deport to a penal colony",
+       "terms": [
+        "banish",
+        "deport",
+        "exile",
+        "expatriate",
+        "extradite"
+       ]
+      },
+      {
+       "kind": "synonym",
+       "sense": "move someone to strong emotion",
+       "terms": [
+        "carry away",
+        "enrapture"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": "Noun",
+     "senses": [
+      "An act of transporting; conveyance.",
+      "The state of being transported by emotion; rapture.",
+      "A vehicle used to transport (passengers, mail, freight, troops etc.)",
+      "(Canada) A tractor-trailer.",
+      "The system of transporting passengers, etc. in a particular region; the vehicles used in such a system.",
+      "A device that moves recording tape across the read/write heads of a tape recorder or video recorder etc.",
+      "(historical) A deported convict."
+     ],
+     "translations": [
+      {
+       "sense": "",
+       "mandarin": [
+        "運輸"
+       ]
+      }
+     ],
+     "relations": [
+      {
+       "kind": "synonym",
+       "sense": "act of transporting",
+       "terms": [
+        "conveyance",
+        "ferry",
+        "move",
+        "relocation",
+        "shift",
+        "ship"
+       ]
+      },
+      {
+       "kind": "synonym",
+       "sense": "state of being transported by emotion",
+       "terms": [
+        "rapture"
+       ]
+      },
+      {
+       "kind": "synonym",
+       "sense": "historical: deported convict",
+       "terms": [
+        "deportee",
+        "exile",
+        "expatriate"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "warnings": [],
+ "complete": true,
+ "resolvedFrom": null,
+ "baseForms": []
+}

@@ -2,6 +2,7 @@ import * as engine from './engine.js';
 import { layoutTree, edgePath } from './map-layout.js';
 import { mapGeometry, zoomScroll } from './map-viewport.js';
 import { etymologicalGroups, addEtymologicalWord } from './map-related.js';
+import { buildWordStory, feelLines, langZh } from './word-story.js';
 import { createLearningView } from './learning.js';
 import { createSavedWordsStore } from './saved-words.js';
 import { createVocabularyView } from './vocabulary.js';
@@ -676,26 +677,74 @@ function renderEtymologyCard(result, ety, index, total, views) {
       el('div', { class: 'chips' }, ety.doublets.map((d) => chip(d.term, null, d.lang === 'en' ? exploreHref(d.term) : d.url))));
   }
 
+  // The story card already states today's meaning; the full lists stay one click away.
   const withSenses = ety.partsOfSpeech.filter((p) => p.senses.length > 0);
-  if (withSenses.length > 0) {
-    card.append(el('h3', {}, '英文釋義'));
-    withSenses.forEach((p) => card.append(
-      el('div', { class: 'pos' }, POS[p.pos] || p.pos),
-      el('ol', { class: 'senses' }, p.senses.map((s) => el('li', {}, s))),
-    ));
-  }
-
   const translations = ety.partsOfSpeech.flatMap((p) => p.translations.map((t) => ({ pos: p.pos, ...t })));
-  if (translations.length > 0) {
-    card.append(el('h3', {}, '中文翻譯（Wiktionary 翻譯表，依詞義）'),
-      el('dl', { class: 'translations' }, translations.flatMap((t) => [
-        el('dt', {}, `${POS[t.pos] || t.pos}${t.sense ? '：' + t.sense : ''}`),
-        el('dd', {}, t.mandarin.join('、')),
-      ])),
-      el('p', { class: 'muted small' }, '依 Wiktionary 原文呈現，部分詞條為簡體字。'));
+  const senseCount = withSenses.reduce((sum, p) => sum + p.senses.length, 0);
+  if (withSenses.length > 0 || translations.length > 0) {
+    card.append(el('details', { class: 'more-senses' },
+      el('summary', {}, `全部釋義（${senseCount}）${translations.length ? '與中文翻譯' : ''}`),
+      withSenses.flatMap((p) => [
+        el('div', { class: 'pos' }, POS[p.pos] || p.pos),
+        el('ol', { class: 'senses' }, p.senses.map((s) => el('li', {}, s))),
+      ]),
+      translations.length ? [
+        el('h3', {}, '中文翻譯（Wiktionary 翻譯表，依詞義）'),
+        el('dl', { class: 'translations' }, translations.flatMap((t) => [
+          el('dt', {}, `${POS[t.pos] || t.pos}${t.sense ? '：' + t.sense : ''}`),
+          el('dd', {}, t.mandarin.join('、')),
+        ])),
+        el('p', { class: 'muted small' }, '依 Wiktionary 原文呈現，部分詞條為簡體字。'),
+      ] : null));
   }
 
   if (ety.text) card.append(el('details', {}, el('summary', {}, '詞源原文'), el('p', {}, ety.text)));
+  return card;
+}
+
+/**
+ * Answer first: the same three questions for every word, each answered in a line or two from the
+ * lookup, before the map that holds the evidence. Nothing here is generated beyond the data.
+ */
+function storyCard(result, ety) {
+  const story = buildWordStory(result, ety);
+  const card = el('section', { class: 'card story-card', 'aria-labelledby': 'story-title' },
+    el('p', { class: 'eyebrow' }, 'WHY THIS WORD'),
+    el('h2', { id: 'story-title' }, `為什麼 ${result.word} 是這個意思？`));
+  if (story.empty) {
+    card.append(el('p', { class: 'muted' }, '這個詞條的資料不足以整理成三個答案，可以直接看下方的地圖與詞源原文。'));
+    return card;
+  }
+  if (story.headline) card.append(el('p', { class: 'story-headline' }, story.headline));
+
+  const term = (text) => el('span', { class: 'story-term' }, text);
+  const gloss = (text) => text ? el('span', { class: 'story-gloss' }, `「${text}」`) : null;
+  const answers = el('ol', { class: 'story-answers' });
+
+  if (story.literal) {
+    answers.append(el('li', {}, el('h3', {}, '字面上是什麼？'),
+      el('p', { class: 'story-literal' },
+        story.literal.parts.flatMap((part, i) => [i ? el('span', { class: 'plus' }, ' + ') : null, term(part.term), gloss(part.gloss)]),
+        el('span', { class: 'muted small' }, ` ${langZh(story.literal.langName)}`)),
+      story.literal.via ? el('p', { class: 'muted small' }, `經由${langZh(story.literal.via.langName)} ${story.literal.via.term} 的構詞。`) : null));
+  }
+
+  if (story.path.length > 1 || story.stable) {
+    answers.append(el('li', {}, el('h3', {}, '意思怎麼走到今天？'),
+      el('ol', { class: 'story-path' }, story.path.map(point => el('li', { class: `story-point ${point.kind}` },
+        el('span', { class: 'story-lang' }, point.kind === 'today' ? '今天' : point.kind === 'older' ? `英語舊義（${point.label}）` : langZh(point.langName)),
+        term(point.term), ' ', el('span', { class: 'story-gloss' }, point.gloss),
+        point.zh?.length ? el('span', { class: 'story-zh' }, point.zh.join('、')) : null))),
+      story.stable ? el('p', { class: 'muted small' }, '各階段記錄的意思相近，所以只列出最早的一個。') : null));
+  }
+
+  const feel = feelLines(story);
+  if (feel.length) {
+    answers.append(el('li', {}, el('h3', {}, '為什麼是這種語感？'), feel.map(line => el('p', {}, line))));
+  }
+
+  card.append(answers,
+    el('p', { class: 'muted small story-source' }, '以上只從 Wiktionary 詞條挑出並排列，沒有額外推測；完整證據在下方地圖。'));
   return card;
 }
 
@@ -752,7 +801,7 @@ async function renderWord(word) {
     el('div', { class: 'page-heading' },
       el('div', {}, el('p', { class: 'eyebrow' }, '01 / DISCOVER'), el('h1', { class: 'word-title' }, result.word)),
       el('div', { class: 'bulk-actions' }, vocabularyView.saveButton(result.word, { query: word, sourceWord: result.word, sourceUrl: result.source.url }),
-        el('a', { class: 'primary-link', href: exploreHref(result.word) }, `探索 ${result.word} 的詞源 →`))),
+        el('a', { class: 'primary-link', href: exploreHref(result.word) }, `為什麼 ${result.word} 是這個意思？→`))),
     inflectionNote(result),
     ...result.warnings.map(w => el('div', { class: 'notice' }, w)),
     el('div', { class: 'filter-row' }, posFilter, result.etymologies.length > 1 ? etyFilter : null),
@@ -804,7 +853,9 @@ async function renderExplore(word) {
     const ety = result.etymologies[Number(selector.value) || 0];
     if (!ety) { content.replaceChildren(el('p', { class: 'notice' }, '這個詞條尚無詞源資料。')); return; }
     const card = renderEtymologyCard(result, ety, 0, 1, views);
-    content.replaceChildren(views.length ? toolbar(views) : el('p', { class: 'notice' }, '尚無結構化詞源，可查看釋義與詞源原文。'), card);
+    content.replaceChildren(storyCard(result, ety),
+      el('h2', { class: 'evidence-title' }, '證據：完整詞源地圖'),
+      views.length ? toolbar(views) : el('p', { class: 'notice' }, '尚無結構化詞源，可查看釋義與詞源原文。'), card);
     views.forEach(tree => { tree.render(); tree.focusWord(); });
   };
   selector.addEventListener('change', draw);

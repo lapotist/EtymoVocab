@@ -1,0 +1,206 @@
+{
+ "word": "father",
+ "lang": "en",
+ "langName": "English",
+ "source": {
+  "title": "father",
+  "revisionId": 95476276,
+  "revisionTimestamp": "2026-11-10T03:58:45+00:00",
+  "url": "https://en.wiktionary.org/w/index.php?title=father&oldid=95476276#English",
+  "license": "CC BY-SA 4.0"
+ },
+ "etymologies": [
+  {
+   "number": 1,
+   "id": "male parent",
+   "text": "Doublet of ayr, faeder, athair, padre, pater and père.",
+   "uncertain": false,
+   "steps": [
+    {
+     "lang": "enm",
+     "langName": "Middle English",
+     "term": "fader",
+     "display": "fader",
+     "gloss": "A father (male direct ancestor of someone or some creature)",
+     "glossSource": "definition",
+     "relation": "inh",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/fader#Middle_English",
+     "morphology": []
+    },
+    {
+     "lang": "ang",
+     "langName": "Old English",
+     "term": "fæder",
+     "display": "fæder",
+     "gloss": "father",
+     "glossSource": "definition",
+     "relation": "inh",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/f%C3%A6der#Old_English",
+     "morphology": []
+    },
+    {
+     "lang": "gmw-pro",
+     "langName": "Proto-West Germanic",
+     "term": "*fader",
+     "display": "*fader",
+     "gloss": "father",
+     "glossSource": "definition",
+     "relation": "inh",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/fader#Proto-West_Germanic",
+     "morphology": []
+    },
+    {
+     "lang": "gem-pro",
+     "langName": "Proto-Germanic",
+     "term": "*fadēr",
+     "display": "*fadēr",
+     "gloss": "father",
+     "glossSource": "definition",
+     "relation": "inh",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fad%C4%93r#Proto-Germanic",
+     "morphology": []
+    },
+    {
+     "lang": "ine-pro",
+     "langName": "Proto-Indo-European",
+     "term": "*ph₂tḗr",
+     "display": "*ph₂tḗr",
+     "gloss": "father",
+     "glossSource": "definition",
+     "relation": "inh",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/ph%E2%82%82t%E1%B8%97r#Proto-Indo-European",
+     "morphology": [
+      {
+       "lang": "ine-pro",
+       "langName": "Proto-Indo-European",
+       "kind": "af",
+       "parts": [
+        {
+         "term": "*peh₂-",
+         "gloss": "to protect, shepherd",
+         "hint": "protect",
+         "url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/peh%E2%82%82-#Proto-Indo-European"
+        },
+        {
+         "term": "*-tḗr",
+         "gloss": "Derives agent nouns from verb roots, denoting someone or something whose role or purpose it is to perform the root's action.",
+         "hint": "agent noun",
+         "url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/-t%E1%B8%97r#Proto-Indo-European"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "morphology": [],
+   "roots": [
+    {
+     "lang": "ine-pro",
+     "langName": "Proto-Indo-European",
+     "root": "*peh₂-",
+     "gloss": "to protect, to ward",
+     "url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/peh%E2%82%82-#Proto-Indo-European"
+    }
+   ],
+   "doublets": [
+    {
+     "lang": "en",
+     "term": "ayr",
+     "url": "https://en.wiktionary.org/wiki/ayr#English"
+    },
+    {
+     "lang": "en",
+     "term": "faeder",
+     "url": "https://en.wiktionary.org/wiki/faeder#English"
+    },
+    {
+     "lang": "en",
+     "term": "athair",
+     "url": "https://en.wiktionary.org/wiki/athair#English"
+    },
+    {
+     "lang": "en",
+     "term": "padre",
+     "url": "https://en.wiktionary.org/wiki/padre#English"
+    },
+    {
+     "lang": "en",
+     "term": "pater",
+     "url": "https://en.wiktionary.org/wiki/pater#English"
+    },
+    {
+     "lang": "en",
+     "term": "père",
+     "url": "https://en.wiktionary.org/wiki/p%C3%A8re#English"
+    }
+   ],
+   "partsOfSpeech": [
+    {
+     "pos": "Noun",
+     "senses": [
+      "A male parent, especially of a human; a male who parents a child (which he has sired, adopted, fostered, etc.).",
+      "A male ancestor more remote than a parent; a progenitor; especially, a first ancestor.",
+      "A term of respectful address for an elderly man.",
+      "A term of respectful address for a priest.",
+      "A person who plays the role of a father in some way.",
+      "A pioneering figure in a particular field.",
+      "Something that is the greatest or most significant of its kind.",
+      "Something inanimate that begets."
+     ],
+     "translations": [],
+     "relations": [
+      {
+       "kind": "synonym",
+       "sense": "most significant thing",
+       "terms": [
+        "mother",
+        "granddaddy"
+       ]
+      },
+      {
+       "kind": "antonym",
+       "sense": "",
+       "terms": [
+        "mother",
+        "son",
+        "daughter",
+        "child"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": "Verb",
+     "senses": [
+      "To be a father to; to sire.",
+      "(figuratively) To give rise to.",
+      "To act as a father; to support and nurture.",
+      "To provide with a father.",
+      "To adopt as one's own."
+     ],
+     "translations": [],
+     "relations": []
+    }
+   ]
+  }
+ ],
+ "warnings": [],
+ "complete": true,
+ "resolvedFrom": null,
+ "baseForms": []
+}

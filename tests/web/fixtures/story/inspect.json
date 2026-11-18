@@ -1,0 +1,150 @@
+{
+ "word": "inspect",
+ "lang": "en",
+ "langName": "English",
+ "source": {
+  "title": "inspect",
+  "revisionId": 92362661,
+  "revisionTimestamp": "2026-08-27T18:24:54+00:00",
+  "url": "https://en.wiktionary.org/w/index.php?title=inspect&oldid=92362661#English",
+  "license": "CC BY-SA 4.0"
+ },
+ "etymologies": [
+  {
+   "number": 1,
+   "id": null,
+   "text": "From Latin inspectum, past participle of inspicere (“to look into”), from in (“in”) + specere (“to look at”), equivalent to in- + -spect.",
+   "uncertain": false,
+   "steps": [
+    {
+     "lang": "la",
+     "langName": "Latin",
+     "term": "inspectum",
+     "display": "inspectum",
+     "gloss": "inflection of īnspectus",
+     "glossSource": "definition",
+     "relation": "uder",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/inspectum#Latin",
+     "morphology": []
+    },
+    {
+     "lang": "la",
+     "langName": "Latin",
+     "term": "inspicio",
+     "display": "inspicere",
+     "gloss": "to look into",
+     "glossSource": "etymology",
+     "relation": "from",
+     "note": "past participle of",
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/inspicio#Latin",
+     "morphology": [
+      {
+       "lang": "la",
+       "langName": "Latin",
+       "kind": "af",
+       "parts": [
+        {
+         "term": "in-",
+         "gloss": "Prepositional prefix, generally attached to verbs to derive new verbs with a range of meanings.",
+         "hint": "in",
+         "url": "https://en.wiktionary.org/wiki/in-#Latin"
+        },
+        {
+         "term": "speciō",
+         "gloss": "(OL., rare) to observe, watch, look at",
+         "hint": null,
+         "url": "https://en.wiktionary.org/wiki/specio#Latin"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "morphology": [
+    {
+     "lang": "la",
+     "langName": "Latin",
+     "kind": "plus",
+     "parts": [
+      {
+       "term": "in",
+       "gloss": "in",
+       "hint": null,
+       "url": "https://en.wiktionary.org/wiki/in#Latin"
+      },
+      {
+       "term": "specio",
+       "gloss": "to look at",
+       "hint": null,
+       "url": "https://en.wiktionary.org/wiki/specio#Latin"
+      }
+     ]
+    },
+    {
+     "lang": "en",
+     "langName": "English",
+     "kind": "confix",
+     "parts": [
+      {
+       "term": "in-",
+       "gloss": null,
+       "hint": null,
+       "url": "https://en.wiktionary.org/wiki/in-#English"
+      },
+      {
+       "term": "-spect",
+       "gloss": "To look at, perceive, or observe.",
+       "hint": null,
+       "url": "https://en.wiktionary.org/wiki/-spect#English"
+      }
+     ]
+    }
+   ],
+   "roots": [
+    {
+     "lang": "ine-pro",
+     "langName": "Proto-Indo-European",
+     "root": "*speḱ-",
+     "gloss": "to see, to look, to observe",
+     "url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/spe%E1%B8%B1-#Proto-Indo-European"
+    }
+   ],
+   "doublets": [],
+   "partsOfSpeech": [
+    {
+     "pos": "Verb",
+     "senses": [
+      "To examine critically or carefully; especially, to search out problems or determine condition; to scrutinize.",
+      "To observe the status or nature of an object beyond what is found obvious upon its initial presentation; to 'view within' the object.",
+      "To examine officially."
+     ],
+     "translations": [
+      {
+       "sense": "examine critically, scrutinize",
+       "mandarin": [
+        "調查",
+        "檢查"
+       ]
+      },
+      {
+       "sense": "view and examine officially",
+       "mandarin": [
+        "调查"
+       ]
+      }
+     ],
+     "relations": []
+    }
+   ]
+  }
+ ],
+ "warnings": [],
+ "complete": true,
+ "resolvedFrom": null,
+ "baseForms": []
+}
