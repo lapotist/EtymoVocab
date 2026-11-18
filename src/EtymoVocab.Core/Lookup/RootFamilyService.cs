@@ -12,7 +12,14 @@ namespace EtymoVocab.Core.Lookup;
 /// </summary>
 public sealed class RootFamilyService(IWiktionaryClient client, LanguageRegistry languages)
 {
-    public const int MaxMembers = 500;
+    /// <summary>Enough for nearly every root or prefix family (at most four requests of 500).</summary>
+    public const int MaxMembers = 2000;
+
+    /// <summary>
+    /// A sense category this large is a real split, not a one-off editor id. Real data (2026-11): in- has
+    /// "not" 177, "inverse" 112, "gem-into" 25, "la-into" 10; trans- and re- only have one-word ids.
+    /// </summary>
+    public const int MinSenseCategorySize = 10;
 
     public async Task<RootFamilyResult?> GetAsync(string rootLang, string root, string targetLang, string? id, CancellationToken ct)
     {
@@ -35,18 +42,39 @@ public sealed class RootFamilyService(IWiktionaryClient client, LanguageRegistry
         if (listing is null)
             return null;
 
+        // Without a usable sense, the plain category of a split form mixes different morphemes
+        // (in- "not" with in- "into"): name the senses instead of presenting those words as relatives.
+        var senses = category == baseCategory ? await SensesAsync(baseCategory, ct) : [];
+        var ambiguous = senses.Count >= 2;
+
         var title = EntryNames.PageTitle(languages, lang, term);
         var section = languages.SectionNameOf(lang);
         return new RootFamilyResult(
             lang,
             languages.NameOf(lang),
             term,
-            await FirstSenseAsync(title, section, languages.EntryLanguageOf(lang), id, ct),
+            ambiguous ? null : await FirstSenseAsync(title, section, languages.EntryLanguageOf(lang), id, ct),
             EntryNames.PageUrl(title, section),
             category,
             EntryNames.PageUrl(category, null)!,
             listing.TotalPages,
-            listing.Members);
+            ambiguous ? [] : listing.Members)
+        {
+            Ambiguous = ambiguous,
+            Senses = ambiguous ? senses : [],
+        };
+    }
+
+    /// <summary>Sense-specific categories ("… prefixed with in- (not)") large enough to be a real split, largest first.</summary>
+    private async Task<IReadOnlyList<FamilySense>> SensesAsync(string baseCategory, CancellationToken ct)
+    {
+        var opening = baseCategory + " (";
+        var categories = await client.ListCategoriesAsync(opening["Category:".Length..], 50, ct);
+        return categories
+            .Where(c => c.Title.StartsWith(opening, StringComparison.Ordinal) && c.Title.EndsWith(')') && c.Size >= MinSenseCategorySize)
+            .Select(c => new FamilySense(c.Title[opening.Length..^1], c.Size, c.Title))
+            .OrderByDescending(s => s.Size)
+            .ToList();
     }
 
     /// <summary>

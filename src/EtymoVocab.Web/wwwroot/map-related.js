@@ -27,13 +27,27 @@ export function familySource({ lang, term, id = null }) {
 }
 
 /**
- * Family list order until frequency data exists: plain lowercase words first, then hyphenated ones, then
- * proper names, phrases and accented forms; shorter first within each tier (word length roughly tracks frequency).
+ * Family list order, common words first. With frequency ranks (frequency.js), lowercase words found in the
+ * list come first, most frequent first. The rest follow by tier (plain lowercase, hyphenated, then names,
+ * phrases and accented forms) and length, which is also the whole order when the ranks could not be loaded.
+ * Capitalized titles never use a rank: "Sánchez" is frequent as a surname, which says nothing about the root.
  */
-export function familyOrder(a, b) {
+export function familyComparator(ranks = null) {
+  const rankOf = (term) => (ranks && /^\p{Ll}[\p{Ll}'-]*$/u.test(term) ? ranks.get(term) ?? null : null);
   const tier = (term) => /^[a-z]+$/.test(term) ? 0 : /^[a-z][a-z'-]*$/.test(term) ? 1 : 2;
-  return tier(a) - tier(b) || a.length - b.length || a.localeCompare(b);
+  return (a, b) => {
+    const rankA = rankOf(a);
+    const rankB = rankOf(b);
+    if (rankA !== rankB) {
+      if (rankA === null) return 1;
+      if (rankB === null) return -1;
+      return rankA - rankB;
+    }
+    return tier(a) - tier(b) || a.length - b.length || a.localeCompare(b);
+  };
 }
+
+export const familyOrder = familyComparator();
 
 /** The hash route of a family list; the sense id selects split categories such as "*per- (fare)". */
 export function familyHref({ kind, lang, term, id }) {

@@ -55,6 +55,8 @@ jobs:
           test -f publish/wwwroot/saved-words.js
           test -f publish/wwwroot/lookup-cache.js
           test -f publish/wwwroot/word-story.js
+          test -f publish/wwwroot/frequency.js
+          test -s publish/wwwroot/data/en-frequency.txt
           du -sh publish/wwwroot
 
       - uses: actions/upload-pages-artifact@v3

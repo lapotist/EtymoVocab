@@ -228,6 +228,9 @@ public class InflectionTests
         public Task<CategoryListing?> GetCategoryMembersAsync(string categoryTitle, int limit, CancellationToken ct) =>
             Task.FromResult<CategoryListing?>(null);
 
+        public Task<IReadOnlyList<CategorySize>> ListCategoriesAsync(string prefix, int limit, CancellationToken ct) =>
+            Task.FromResult<IReadOnlyList<CategorySize>>([]);
+
         public Task<IReadOnlyList<string>> SuggestAsync(string prefix, int limit, CancellationToken ct) =>
             Task.FromResult<IReadOnlyList<string>>([]);
     }

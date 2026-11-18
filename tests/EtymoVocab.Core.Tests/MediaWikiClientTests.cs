@@ -98,6 +98,45 @@ public class MediaWikiClientTests
     }
 
     [Fact]
+    public async Task Category_listing_follows_continuation_up_to_the_limit()
+    {
+        const string first = """
+            {"continue":{"cmcontinue":"page|5452414e53504f5254|1","continue":"-||"},
+             "query":{"pages":[{"ns":14,"title":"Category:English terms prefixed with trans-","categoryinfo":{"pages":794}}],
+                      "categorymembers":[{"ns":0,"title":"transfer"},{"ns":0,"title":"translate"}]}}
+            """;
+        const string second = """
+            {"batchcomplete":true,"query":{"pages":[{"ns":14,"title":"Category:English terms prefixed with trans-","categoryinfo":{"pages":794}}],
+                      "categorymembers":[{"ns":0,"title":"transport"}]}}
+            """;
+        var (client, handler) = Create(browser: false, _ => Json(first), _ => Json(second));
+
+        var listing = await client.GetCategoryMembersAsync("Category:English terms prefixed with trans-", 2000, CancellationToken.None);
+
+        Assert.Equal(["transfer", "translate", "transport"], listing!.Members);
+        Assert.Equal(794, listing.TotalPages);
+        Assert.Equal(2, handler.Requests.Count);
+        Assert.Contains("cmcontinue=page%7C5452414e53504f5254%7C1", handler.Requests[1].RequestUri!.Query);
+    }
+
+    [Fact]
+    public async Task Category_search_returns_titles_with_article_counts()
+    {
+        const string body = """
+            {"batchcomplete":true,"query":{"allcategories":[
+              {"category":"English terms prefixed with in- (not)","size":180,"pages":177,"files":0,"subcats":0},
+              {"category":"English terms prefixed with in- (la-into)","size":10,"pages":10,"files":0,"subcats":0}]}}
+            """;
+        var (client, handler) = Create(browser: false, _ => Json(body));
+
+        var categories = await client.ListCategoriesAsync("English terms prefixed with in- (", 50, CancellationToken.None);
+
+        Assert.Equal([new CategorySize("Category:English terms prefixed with in- (not)", 177),
+            new CategorySize("Category:English terms prefixed with in- (la-into)", 10)], categories);
+        Assert.Contains("acprefix=English%20terms%20prefixed%20with%20in-%20%28", handler.Requests.Single().RequestUri!.Query);
+    }
+
+    [Fact]
     public async Task Short_retry_after_is_honoured_once_then_succeeds()
     {
         var (client, handler) = Create(browser: false, _ => Status(HttpStatusCode.ServiceUnavailable, 0), _ => Json(BatchResponse));

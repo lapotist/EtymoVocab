@@ -88,4 +88,16 @@ public sealed record RootFamilyResult(
     string Category,
     string CategoryUrl,
     int? Total,
-    IReadOnlyList<string> Members);
+    IReadOnlyList<string> Members)
+{
+    /// <summary>
+    /// True when Wiktionary splits this form into several senses (in- "not" / "into") and the entry does not say
+    /// which one applies: the plain category mixes different morphemes, so <see cref="Members"/> is empty.
+    /// </summary>
+    public bool Ambiguous { get; init; }
+
+    /// <summary>The sense-specific categories to choose from when <see cref="Ambiguous"/>, largest first.</summary>
+    public IReadOnlyList<FamilySense> Senses { get; init; } = [];
+}
+
+public sealed record FamilySense(string Id, int Size, string Category);

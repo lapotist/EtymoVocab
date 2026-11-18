@@ -92,6 +92,7 @@ public sealed class MediaWikiClient(HttpClient http, IResponseCache cache, Media
     : IWiktionaryClient
 {
     private const int MaxTitlesPerRequest = 50;
+    private const int MaxCategoryMembersPerRequest = 500;
     private const int MaxContinuations = 5;
     private readonly SemaphoreSlim _gate = new(options.MaxConcurrency, options.MaxConcurrency);
 
@@ -132,37 +133,73 @@ public sealed class MediaWikiClient(HttpClient http, IResponseCache cache, Media
         if (cache.TryGet(key, out CategoryListing? cached))
             return cached;
 
-        using var doc = await GetJsonAsync(new Dictionary<string, string>
+        var parameters = new Dictionary<string, string>
         {
             ["action"] = "query",
             ["list"] = "categorymembers",
             ["cmtitle"] = categoryTitle,
             ["cmnamespace"] = "0",
-            ["cmlimit"] = Math.Clamp(limit, 1, 500).ToString(),
             ["cmprop"] = "title",
             ["prop"] = "categoryinfo",
             ["titles"] = categoryTitle,
             ["format"] = "json",
             ["formatversion"] = "2",
-        }, ct);
-
-        var query = doc.RootElement.GetProperty("query");
-        var members = query.TryGetProperty("categorymembers", out var list)
-            ? list.EnumerateArray().Select(m => m.GetProperty("title").GetString()!).ToList()
-            : [];
+        };
+        var members = new List<string>();
         int? total = null;
         var categoryPageMissing = false;
-        if (query.TryGetProperty("pages", out var pages) && pages.GetArrayLength() > 0)
+
+        // Members come alphabetically, at most 500 per request; follow the continuation so the whole family
+        // (up to `limit`) can be ranked, not just its first letters.
+        while (members.Count < limit)
         {
-            var page = pages[0];
-            categoryPageMissing = page.TryGetProperty("missing", out _);
-            if (page.TryGetProperty("categoryinfo", out var info) && info.TryGetProperty("pages", out var count))
-                total = count.GetInt32();
+            parameters["cmlimit"] = Math.Clamp(limit - members.Count, 1, MaxCategoryMembersPerRequest).ToString();
+            using var doc = await GetJsonAsync(parameters, ct);
+            var query = doc.RootElement.GetProperty("query");
+            if (query.TryGetProperty("categorymembers", out var list))
+                members.AddRange(list.EnumerateArray().Select(m => m.GetProperty("title").GetString()!));
+            if (total is null && query.TryGetProperty("pages", out var pages) && pages.GetArrayLength() > 0)
+            {
+                var page = pages[0];
+                categoryPageMissing = page.TryGetProperty("missing", out _);
+                if (page.TryGetProperty("categoryinfo", out var info) && info.TryGetProperty("pages", out var count))
+                    total = count.GetInt32();
+            }
+            if (!doc.RootElement.TryGetProperty("continue", out var next))
+                break;
+            foreach (var property in next.EnumerateObject())
+                parameters[property.Name] = property.Value.ToString();
         }
 
         var listing = members.Count == 0 && categoryPageMissing ? null : new CategoryListing(categoryTitle, total ?? members.Count, members);
         cache.Set(key, listing, TimeSpan.FromMinutes(options.PageCacheMinutes), 1 + members.Count / 64);
         return listing;
+    }
+
+    public async Task<IReadOnlyList<CategorySize>> ListCategoriesAsync(string prefix, int limit, CancellationToken ct)
+    {
+        var key = $"cats:{limit}:{prefix}";
+        if (cache.TryGet(key, out IReadOnlyList<CategorySize>? cached) && cached is not null)
+            return cached;
+
+        using var doc = await GetJsonAsync(new Dictionary<string, string>
+        {
+            ["action"] = "query",
+            ["list"] = "allcategories",
+            ["acprefix"] = prefix,
+            ["acprop"] = "size",
+            ["aclimit"] = Math.Clamp(limit, 1, 500).ToString(),
+            ["format"] = "json",
+            ["formatversion"] = "2",
+        }, ct);
+
+        IReadOnlyList<CategorySize> categories = doc.RootElement.GetProperty("query").TryGetProperty("allcategories", out var list)
+            ? list.EnumerateArray()
+                .Select(c => new CategorySize("Category:" + c.GetProperty("category").GetString(), c.GetProperty("pages").GetInt32()))
+                .ToList()
+            : [];
+        cache.Set(key, categories, TimeSpan.FromMinutes(options.PageCacheMinutes), 1);
+        return categories;
     }
 
     public async Task<IReadOnlyList<string>> SuggestAsync(string prefix, int limit, CancellationToken ct)

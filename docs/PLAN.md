@@ -126,8 +126,8 @@ EtymoVocab.Api（選用）：同一個 Core 的 JSON API，使用 IMemoryCache
 | 散文詞源以啟發式規則判讀 | 少數字可能多出或漏掉節點 | golden set 擴充、回報機制 |
 | 中文翻譯繁簡混雜；翻譯子頁（/translations）尚未讀取 | 部分字沒有翻譯，或顯示簡體 | §6 |
 | 瀏覽器端只使用內建的常用語言名稱表 | 罕見語言會顯示代碼，且無法往上追溯 | 評估按需載入 Wiktionary 語言表 |
-| 字族排序：一般小寫字優先，其次依字長（暫代詞頻） | 常用字不一定排在最前面 | §6 詞頻排序 |
-| 字首字族只依字形分類（Wiktionary 的「prefixed with trans-」），義項未分開；特定義項的分類若只有本字（例如「trans- (across, beyond)」只有 transport），會改查一般分類 | trans- 的短字多為新造詞（transguy 等），與 transport 的「across」義無關 | 詞頻排序後會較少出現在前面；義項標註取決於 Wiktionary 編者 |
+| 字族依 wordfreq 詞頻排序（前 5 萬字，2024 年前的語料）；不在清單內的字依字形與字長排在後面 | 罕用但重要的學術字可能落在 5 萬名外 | 必要時擴大清單（8 萬字約 316 KB gzip） |
+| 字首與詞根若被 Wiktionary 分成多個義項分類（每個至少 10 個字，例如 in- 的 not / inverse / gem-into / la-into），而詞條未標示義項，就不採用混合的一般分類，改為列出義項供選擇；只有零星單字義項的字首（trans-、re-）照常使用一般分類 | 一般分類仍可能含少數其他意思的字（trans- 的 transgender 類新詞）；詞頻排序讓它們排在後面 | 義項標註取決於 Wiktionary 編者 |
 
 ### 2.6 推論練習（v0.5）
 

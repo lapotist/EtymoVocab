@@ -1,7 +1,8 @@
 import * as engine from './engine.js';
 import { layoutTree, edgePath } from './map-layout.js';
 import { mapGeometry, zoomScroll } from './map-viewport.js';
-import { etymologicalGroups, addEtymologicalWord, familySource, familyHref, familyOrder } from './map-related.js';
+import { etymologicalGroups, addEtymologicalWord, familySource, familyHref, familyComparator } from './map-related.js';
+import { loadFrequencyRanks } from './frequency.js';
 import { buildWordStory, feelLines, langZh } from './word-story.js';
 import { createLearningView } from './learning.js';
 import { createSavedWordsStore } from './saved-words.js';
@@ -120,6 +121,12 @@ function isMasked(node) {
 const nodeKey = (lang, term) => `${lang}:${term}`;
 /** What a family adds: words sharing a root, or English words built with the same prefix. */
 const familyNoun = (node) => node.familyKind === 'prefix' ? `${node.familyRoot} 開頭的字` : '同根詞';
+
+/** Why nothing was added when Wiktionary splits the form into senses and the entry names none. */
+function ambiguousFamilyMessage(kind, term, senses) {
+  return `Wiktionary 把 ${term} 分成幾個不同意思的${kind === 'prefix' ? '字首' : '詞根'}（${senses.map(s => s.id).join('、')}），`
+    + '這個詞條沒有標示是哪一個，所以不自動加入，以免混入其他意思的字。可在「字族清單」選擇意思。';
+}
 
 /** Marks a node as able to list its shared-origin words: a root category or an English prefix category. */
 function withFamily(node, source) {
@@ -393,7 +400,7 @@ class EtymologyMap {
             await this.loadFamily(node);
             this.focusNode(node);
           },
-        }, node.familyLoading ? '讀取字族中…' : node.familyExhausted ? `已加入全部${noun}`
+        }, node.familyLoading ? '讀取字族中…' : node.familyAmbiguous ? `${term}：意思未標示` : node.familyExhausted ? `已加入全部${noun}`
           : node.familyKind === 'prefix' && !masked ? `＋ ${noun}` : `＋ ${term} 的${noun}`);
         }))
           : el('p', { class: 'muted small' }, '詞源鏈裡沒有可查詢的詞根或英文字首。')),
@@ -537,7 +544,7 @@ class EtymologyMap {
     const actions = [];
     if (node.family) {
       actions.push(el('button', { type: 'button', class: 'action', disabled: node.familyLoading || node.familyExhausted, onclick: () => this.loadFamily(node) },
-        node.familyLoading ? '讀取字族中…' : node.familyExhausted ? `已加入全部${familyNoun(node)}`
+        node.familyLoading ? '讀取字族中…' : node.familyAmbiguous ? '意思未標示' : node.familyExhausted ? `已加入全部${familyNoun(node)}`
           : node.familyMembers ? `加入更多${familyNoun(node)}` : `找${familyNoun(node)}`));
       actions.push(el('a', { class: 'action', href: node.family }, '字族清單'));
     }
@@ -602,9 +609,19 @@ class EtymologyMap {
         const family = node.familyKind === 'prefix'
           ? await engine.prefixFamily(node.lang, node.familyRoot, node.familyId)
           : await engine.rootFamily(node.lang, node.familyRoot || node.term, node.familyId);
-        node.familyMembers = [...family.members].sort(familyOrder);
+        // Common words first; without the frequency file the list still sorts by form and length.
+        const ranks = await loadFrequencyRanks().catch(() => null);
+        node.familyMembers = [...family.members].sort(familyComparator(ranks));
         node.familySource = family.categoryUrl;
         node.familyTotal = family.total;
+        node.familyAmbiguous = family.ambiguous;
+        node.familySenses = family.senses;
+      }
+      if (node.familyAmbiguous) {
+        node.familyExhausted = true;
+        node.message = ambiguousFamilyMessage(node.familyKind, node.familyRoot, node.familySenses);
+        this.relatedStatus.textContent = node.message;
+        return;
       }
       const present = new Set(node.children.filter(n => n.kind === 'family').map(n => n.term));
       const more = node.familyMembers.filter(term => term !== this.tree.term && !present.has(term)).slice(0, 8);
@@ -621,6 +638,7 @@ class EtymologyMap {
       this.relatedStatus.textContent = node.message;
     } catch (error) {
       node.message = `${error.message}，可再按「找${familyNoun(node)}」重試。`;
+      this.relatedStatus.textContent = node.message;
     } finally {
       node.familyLoading = false;
       this.render(node);
@@ -895,6 +913,7 @@ async function renderRoot(lang, root, { kind = 'root', id = null } = {}) {
   const prefix = kind === 'prefix';
   document.title = `${root} · EtymoVocab`;
   showLoading(prefix ? `正在讀取 ${root} 開頭的字…` : `正在讀取 ${root} 的字族…`);
+  const ranksLoading = loadFrequencyRanks().catch(() => null); // in parallel with the category request
   let family;
   try {
     family = prefix ? await engine.prefixFamily(lang, root, id) : await engine.rootFamily(lang, root, id);
@@ -902,19 +921,32 @@ async function renderRoot(lang, root, { kind = 'root', id = null } = {}) {
     if (request === navigation) view.replaceChildren(errorCard(error, () => renderRoot(lang, root, { kind, id })));
     return;
   }
+  const ranks = await ranksLoading;
   if (request !== navigation) return;
+
+  if (family.ambiguous) {
+    view.replaceChildren(el('div', { class: 'card' },
+      el('h1', {}, family.root),
+      el('p', { class: 'meta' }, family.langName, prefix ? '・字首' : '', '・',
+        el('a', { href: family.categoryUrl, target: '_blank', rel: 'noopener' }, 'Wiktionary 分類')),
+      el('p', {}, ambiguousFamilyMessage(kind, family.root, family.senses).replace('可在「字族清單」選擇意思。', '請選擇一個意思：')),
+      el('div', { class: 'chips' }, family.senses.map(sense =>
+        chip(`${family.root} (${sense.id})`, `${sense.size} 個字`, familyHref({ kind, lang, term: family.root, id: sense.id }))))));
+    return;
+  }
 
   const filter = el('input', { type: 'search', placeholder: '篩選，例如 spect', 'aria-label': '篩選字族' });
   const sort = el('select', { 'aria-label': '排序方式' },
-    el('option', { value: 'length' }, '常用字優先（暫依字長）'),
+    el('option', { value: 'common' }, ranks ? '常用字優先（依詞頻）' : '常用字優先（暫依字長）'),
     el('option', { value: 'alpha' }, '依字母'));
+  const byCommonness = familyComparator(ranks);
   const list = el('div', { class: 'chips' });
   const count = el('p', { class: 'muted small' });
 
   const draw = () => {
     const needle = filter.value.trim().toLowerCase();
     const members = family.members.filter((m) => m.toLowerCase().includes(needle));
-    if (sort.value === 'length') members.sort(familyOrder);
+    if (sort.value === 'common') members.sort(byCommonness);
     list.replaceChildren(...members.map((m) => chip(m, null, exploreHref(m))));
     const shown = family.total > family.members.length ? `（分類共 ${family.total} 筆，列出前 ${family.members.length} 筆）` : '';
     count.textContent = `顯示 ${members.length} 個字${shown}`;
@@ -929,7 +961,10 @@ async function renderRoot(lang, root, { kind = 'root', id = null } = {}) {
     el('div', { class: 'filter-row' }, filter, sort),
     count,
     list,
-    el('p', { class: 'muted small' }, '依詞頻排序與常用字優先將在後續版本加入。'),
+    el('p', { class: 'muted small' }, ranks
+      ? ['常用字優先依英文詞頻（wordfreq，CC BY-SA 4.0）排序；不在前 5 萬常用字內的字、人名與片語排在後面。',
+        el('a', { href: 'data/README.md', target: '_blank', rel: 'noopener' }, '詞頻資料來源')]
+      : '詞頻資料暫時無法載入，目前依字形與字長排序。'),
   ));
   draw();
 }

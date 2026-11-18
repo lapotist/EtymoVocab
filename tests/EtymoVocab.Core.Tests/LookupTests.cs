@@ -153,9 +153,25 @@ public class LookupTests
         var family = await service.GetPrefixAsync("en", "trans-", "across, beyond", CancellationToken.None);
 
         Assert.Equal("Category:English terms prefixed with trans-", family!.Category);
+        Assert.False(family.Ambiguous); // trans- has only stray one-word sense ids
         Assert.Equal(794, family.Total);
         Assert.Contains("translate", family.Members);
         Assert.Null(await service.GetPrefixAsync("en", "zz-", null, CancellationToken.None));
+    }
+
+    [Fact]
+    public async Task Prefix_family_without_a_sense_refuses_to_mix_homograph_prefixes()
+    {
+        var service = new RootFamilyService(new FixtureClient(), new LanguageRegistry());
+
+        // inspect's breakdown is in- + -spect with no sense id; the plain in- category mixes "not" and "into".
+        var family = await service.GetPrefixAsync("en", "in-", null, CancellationToken.None);
+
+        Assert.True(family!.Ambiguous);
+        Assert.Empty(family.Members);
+        Assert.Null(family.Gloss);
+        Assert.Equal(["not", "inverse", "gem-into", "la-into"], family.Senses.Select(s => s.Id));
+        Assert.Equal("Category:English terms prefixed with in- (not)", family.Senses[0].Category);
     }
 
     [Fact]

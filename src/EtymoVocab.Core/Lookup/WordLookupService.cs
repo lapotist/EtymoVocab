@@ -128,6 +128,9 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
         public Task<CategoryListing?> GetCategoryMembersAsync(string title, int limit, CancellationToken ct) =>
             upstream.GetCategoryMembersAsync(title, limit, ct);
 
+        public Task<IReadOnlyList<CategorySize>> ListCategoriesAsync(string prefix, int limit, CancellationToken ct) =>
+            upstream.ListCategoriesAsync(prefix, limit, ct);
+
         public Task<IReadOnlyList<string>> SuggestAsync(string prefix, int limit, CancellationToken ct) =>
             upstream.SuggestAsync(prefix, limit, ct);
     }
