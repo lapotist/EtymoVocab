@@ -27,10 +27,26 @@ internal sealed class FixtureClient : IWiktionaryClient
         return Task.FromResult(result);
     }
 
-    public Task<CategoryListing?> GetCategoryMembersAsync(string categoryTitle, int limit, CancellationToken ct) =>
-        Task.FromResult(categoryTitle == SpekCategory
-            ? new CategoryListing(categoryTitle, 323, ["aspect", "despise", "inspect", "spectacle"])
-            : null);
+    /// <summary>
+    /// Category listings shaped like the real ones (2026-11): homograph roots are split by sense id, and the
+    /// bare "*per-" category is a nearly empty catch-all.
+    /// </summary>
+    private static readonly Dictionary<string, CategoryListing> Categories = new[]
+    {
+        new CategoryListing(SpekCategory, 323, ["aspect", "despise", "inspect", "spectacle"]),
+        new CategoryListing("Category:English terms derived from the Proto-Indo-European root *per- (fare)", 1007, ["export", "port", "transport"]),
+        new CategoryListing("Category:English terms derived from the Proto-Indo-European root *per-", 3, ["peri-"]),
+        new CategoryListing("Category:English terms prefixed with trans-", 794, ["transfer", "translate", "transmit"]),
+        new CategoryListing("Category:English terms prefixed with trans- (across, beyond)", 1, ["transport"]),
+    }.ToDictionary(c => c.Title);
+
+    public List<string> CategoryRequests { get; } = [];
+
+    public Task<CategoryListing?> GetCategoryMembersAsync(string categoryTitle, int limit, CancellationToken ct)
+    {
+        CategoryRequests.Add(categoryTitle);
+        return Task.FromResult(Categories.GetValueOrDefault(categoryTitle));
+    }
 
     public Task<IReadOnlyList<string>> SuggestAsync(string prefix, int limit, CancellationToken ct) =>
         Task.FromResult<IReadOnlyList<string>>([]);

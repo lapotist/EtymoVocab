@@ -398,7 +398,7 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                 entry.Morphology.Select(ToMorphology).ToList(),
                 entry.Roots.Select(r => new RootResult(
                     r.Lang, languages.NameOf(r.Lang), WikitextCleaner.PlainTerm(r.Root),
-                    _glosses.GetValueOrDefault((r.Lang, r.Root, r.EtymonId)), Url(r.Lang, r.Root))).ToList(),
+                    _glosses.GetValueOrDefault((r.Lang, r.Root, r.EtymonId)), Url(r.Lang, r.Root)) { Id = r.EtymonId }).ToList(),
                 entry.Doublets.Select(d => new TermResult(d.Lang, WikitextCleaner.PlainTerm(d.Term), Url(d.Lang, d.Term))).ToList(),
                 entry.PartsOfSpeech.Select(p => new PartOfSpeechResult(
                     p.Pos, p.Senses, p.Translations.Select(t => new TranslationResult(t.Sense, t.Terms)).ToList())
@@ -447,7 +447,10 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                 s.Step.Uncertain,
                 s.Ambiguous,
                 EntryNames.PageUrl(s.ResolvedTitle ?? s.Title, s.Section),
-                s.Resolved is not null && !s.Ambiguous ? s.Resolved.Morphology.Select(ToMorphology).ToList() : []);
+                s.Resolved is not null && !s.Ambiguous ? s.Resolved.Morphology.Select(ToMorphology).ToList() : [])
+            {
+                Id = s.Step.EtymonId,
+            };
         }
 
         private MorphologyResult ToMorphology(Morphology m) => new(

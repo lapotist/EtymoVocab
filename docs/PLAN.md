@@ -126,7 +126,8 @@ EtymoVocab.Api（選用）：同一個 Core 的 JSON API，使用 IMemoryCache
 | 散文詞源以啟發式規則判讀 | 少數字可能多出或漏掉節點 | golden set 擴充、回報機制 |
 | 中文翻譯繁簡混雜；翻譯子頁（/translations）尚未讀取 | 部分字沒有翻譯，或顯示簡體 | §6 |
 | 瀏覽器端只使用內建的常用語言名稱表 | 罕見語言會顯示代碼，且無法往上追溯 | 評估按需載入 Wiktionary 語言表 |
-| 字族依字長排序（暫代詞頻） | 常用字不一定排在最前面 | §6 |
+| 字族排序：一般小寫字優先，其次依字長（暫代詞頻） | 常用字不一定排在最前面 | §6 詞頻排序 |
+| 字首字族只依字形分類（Wiktionary 的「prefixed with trans-」），義項未分開；特定義項的分類若只有本字（例如「trans- (across, beyond)」只有 transport），會改查一般分類 | trans- 的短字多為新造詞（transguy 等），與 transport 的「across」義無關 | 詞頻排序後會較少出現在前面；義項標註取決於 Wiktionary 編者 |
 
 ### 2.6 推論練習（v0.5）
 

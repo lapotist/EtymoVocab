@@ -1,7 +1,7 @@
 import * as engine from './engine.js';
 import { layoutTree, edgePath } from './map-layout.js';
 import { mapGeometry, zoomScroll } from './map-viewport.js';
-import { etymologicalGroups, addEtymologicalWord } from './map-related.js';
+import { etymologicalGroups, addEtymologicalWord, familySource, familyHref, familyOrder } from './map-related.js';
 import { buildWordStory, feelLines, langZh } from './word-story.js';
 import { createLearningView } from './learning.js';
 import { createSavedWordsStore } from './saved-words.js';
@@ -58,7 +58,6 @@ const learningView = createLearningView({ view, el });
 
 const wordHref = (word) => '#/w/' + encodeURIComponent(word);
 const exploreHref = (word) => '#/explore/' + encodeURIComponent(word);
-const rootHref = (lang, root) => '#/root/' + encodeURIComponent(lang) + '/' + encodeURIComponent(root);
 const external = (href, label, text) => el('a', { class: 'ext', href, target: '_blank', rel: 'noopener', 'aria-label': label, title: label }, text);
 const savedWords = createSavedWordsStore();
 const vocabularyView = createVocabularyView({ view, el, store: savedWords, lookup: engine.lookupRelated, lookupBatch: engine.lookupRelatedBatch, preload: engine.preload,
@@ -119,9 +118,18 @@ function isMasked(node) {
 // (morphology groups → parts), the next older ancestor, and the reconstructed root.
 
 const nodeKey = (lang, term) => `${lang}:${term}`;
+/** What a family adds: words sharing a root, or English words built with the same prefix. */
+const familyNoun = (node) => node.familyKind === 'prefix' ? `${node.familyRoot} 開頭的字` : '同根詞';
+
+/** Marks a node as able to list its shared-origin words: a root category or an English prefix category. */
+function withFamily(node, source) {
+  return source
+    ? Object.assign(node, { family: familyHref(source), familyRoot: source.term, familyKind: source.kind, familyId: source.id })
+    : node;
+}
 
 function partNode(part, group) {
-  return {
+  return withFamily({
     key: nodeKey(group.lang, part.term),
     kind: 'part',
     lang: group.lang,
@@ -133,7 +141,7 @@ function partNode(part, group) {
     lookup: part.url ? { lang: group.lang, term: part.term, id: part.hint } : null,
     maskable: true,
     children: [],
-  };
+  }, familySource({ lang: group.lang, term: part.term, id: part.hint }));
 }
 
 function groupNode(group) {
@@ -147,7 +155,7 @@ function groupNode(group) {
 }
 
 function stepNode(step, isOldest) {
-  return {
+  return withFamily({
     key: nodeKey(step.lang, step.term || step.langName),
     kind: 'step',
     lang: step.lang,
@@ -164,11 +172,12 @@ function stepNode(step, isOldest) {
     lookup: isOldest && step.url && step.term ? { lang: step.lang, term: step.term, id: null } : null,
     maskable: !!step.term,
     children: step.morphology.map(groupNode),
-  };
+  }, familySource({ lang: step.lang, term: step.term, id: step.id }));
 }
 
 function rootNode(root) {
-  return {
+  // An explicit {{root}} reference always has a family category, whatever its form.
+  return withFamily({
     key: nodeKey(root.lang, root.root),
     kind: 'root',
     lang: root.lang,
@@ -176,11 +185,10 @@ function rootNode(root) {
     term: root.root,
     gloss: root.gloss,
     url: root.url,
-    family: rootHref(root.lang, root.root),
     proto: true,
     maskable: true,
     children: [],
-  };
+  }, { kind: 'root', lang: root.lang, term: root.root, id: root.id || null });
 }
 
 /** Adds an etymology's formation, ancestor chain and roots under `node`, skipping groups it already has. */
@@ -207,8 +215,9 @@ function attachEtymology(node, ety) {
   for (const root of ety.roots.map(rootNode)) {
     let match;
     [...node.children, ...added].forEach(child => walk(child, n => { if (n.key === root.key) match = n; }));
-    if (match) Object.assign(match, { family: root.family, familyRoot: root.term, proto: true });
-    else if (node.key === root.key) Object.assign(node, { family: root.family, familyRoot: root.term, proto: true });
+    const family = { family: root.family, familyRoot: root.term, familyKind: 'root', familyId: root.familyId, proto: true };
+    if (match) Object.assign(match, family);
+    else if (node.key === root.key) Object.assign(node, family);
     else if (!existing.has(root.key)) added.push({ ...root, rootReference: true });
   }
   node.children.push(...added);
@@ -367,13 +376,15 @@ class EtymologyMap {
     const focusedKey = document.activeElement?.dataset.relatedKey;
     const roots = new Map();
     walk(this.tree, node => {
-      const key = `${node.lang}:${node.familyRoot || node.term}`;
+      const key = `${node.familyKind}:${node.lang}:${node.familyRoot || node.term}`;
       if (node.family && !roots.has(key)) roots.set(key, node);
     });
     this.relatedOptions.replaceChildren(
-      el('section', { class: 'map-related-group' }, el('h3', {}, '同根詞'),
+      el('section', { class: 'map-related-group' }, el('h3', {}, '同根詞與同字首的字'),
         roots.size ? el('div', { class: 'chips' }, [...roots.values()].map(node => {
-          const term = isMasked(node) ? '已遮住的詞根' : node.familyRoot || node.term;
+          const masked = isMasked(node);
+          const noun = masked ? '同源詞' : familyNoun(node);
+          const term = masked ? '已遮住的詞根' : node.familyRoot || node.term;
           return el('button', {
           type: 'button', class: 'secondary', 'data-related-key': `family:${node.key}`,
           disabled: node.familyLoading || node.familyExhausted,
@@ -382,9 +393,10 @@ class EtymologyMap {
             await this.loadFamily(node);
             this.focusNode(node);
           },
-        }, node.familyLoading ? '讀取字族中…' : node.familyExhausted ? `已加入全部 ${term} 同根詞` : `＋ ${term} 的同根詞`);
+        }, node.familyLoading ? '讀取字族中…' : node.familyExhausted ? `已加入全部${noun}`
+          : node.familyKind === 'prefix' && !masked ? `＋ ${noun}` : `＋ ${term} 的${noun}`);
         }))
-          : el('p', { class: 'muted small' }, '這個詞條未列出可查詢的詞根。')),
+          : el('p', { class: 'muted small' }, '詞源鏈裡沒有可查詢的詞根或英文字首。')),
       ...this.etymologicalGroups.map(group => {
         const present = new Set(this.tree.children.find(child => child.key === group.key)?.children.map(child => JSON.stringify([child.lang, child.term])));
         return el('section', { class: 'map-related-group' },
@@ -525,7 +537,8 @@ class EtymologyMap {
     const actions = [];
     if (node.family) {
       actions.push(el('button', { type: 'button', class: 'action', disabled: node.familyLoading || node.familyExhausted, onclick: () => this.loadFamily(node) },
-        node.familyLoading ? '讀取字族中…' : node.familyExhausted ? '已加入全部同根詞' : node.familyMembers ? '加入更多同根詞' : '找同根詞'));
+        node.familyLoading ? '讀取字族中…' : node.familyExhausted ? `已加入全部${familyNoun(node)}`
+          : node.familyMembers ? `加入更多${familyNoun(node)}` : `找${familyNoun(node)}`));
       actions.push(el('a', { class: 'action', href: node.family }, '字族清單'));
     }
     if (node.kind === 'family' || (node.kind === 'doublet' && node.lang === 'en')) actions.push(el('a', { class: 'action', href: exploreHref(node.term) }, '探索詞源'));
@@ -586,8 +599,10 @@ class EtymologyMap {
     this.render(node);
     try {
       if (!node.familyMembers) {
-        const family = await engine.rootFamily(node.lang, node.familyRoot || node.term);
-        node.familyMembers = [...family.members].sort((a, b) => a.length - b.length || a.localeCompare(b));
+        const family = node.familyKind === 'prefix'
+          ? await engine.prefixFamily(node.lang, node.familyRoot, node.familyId)
+          : await engine.rootFamily(node.lang, node.familyRoot || node.term, node.familyId);
+        node.familyMembers = [...family.members].sort(familyOrder);
         node.familySource = family.categoryUrl;
         node.familyTotal = family.total;
       }
@@ -600,11 +615,12 @@ class EtymologyMap {
       })));
       node.collapsed = false;
       node.familyExhausted = node.familyMembers.filter(term => term !== this.tree.term).length <= present.size + more.length;
-      node.message = more.length ? `已加入 ${present.size + more.length} 個同根詞。${node.familyExhausted ? '已顯示所有可用的同根詞。' : '可繼續加入。'}` : '已顯示所有可用的同根詞。';
+      const noun = familyNoun(node);
+      node.message = more.length ? `已加入 ${present.size + more.length} 個${noun}。${node.familyExhausted ? `已顯示所有可用的${noun}。` : '可繼續加入。'}` : `已顯示所有可用的${noun}。`;
       if (node.familyTotal > node.familyMembers.length) node.message += ` 此分類共 ${node.familyTotal} 筆，目前取得前 ${node.familyMembers.length} 筆。`;
       this.relatedStatus.textContent = node.message;
     } catch (error) {
-      node.message = `${error.message}，可再按「找同根詞」重試。`;
+      node.message = `${error.message}，可再按「找${familyNoun(node)}」重試。`;
     } finally {
       node.familyLoading = false;
       this.render(node);
@@ -874,22 +890,23 @@ async function renderExplore(word) {
   draw();
 }
 
-async function renderRoot(lang, root) {
+async function renderRoot(lang, root, { kind = 'root', id = null } = {}) {
   const request = navigation;
+  const prefix = kind === 'prefix';
   document.title = `${root} · EtymoVocab`;
-  showLoading(`正在讀取 ${root} 的字族…`);
+  showLoading(prefix ? `正在讀取 ${root} 開頭的字…` : `正在讀取 ${root} 的字族…`);
   let family;
   try {
-    family = await engine.rootFamily(lang, root);
+    family = prefix ? await engine.prefixFamily(lang, root, id) : await engine.rootFamily(lang, root, id);
   } catch (error) {
-    if (request === navigation) view.replaceChildren(errorCard(error, () => renderRoot(lang, root)));
+    if (request === navigation) view.replaceChildren(errorCard(error, () => renderRoot(lang, root, { kind, id })));
     return;
   }
   if (request !== navigation) return;
 
   const filter = el('input', { type: 'search', placeholder: '篩選，例如 spect', 'aria-label': '篩選字族' });
   const sort = el('select', { 'aria-label': '排序方式' },
-    el('option', { value: 'length' }, '依字長（暫代詞頻）'),
+    el('option', { value: 'length' }, '常用字優先（暫依字長）'),
     el('option', { value: 'alpha' }, '依字母'));
   const list = el('div', { class: 'chips' });
   const count = el('p', { class: 'muted small' });
@@ -897,7 +914,7 @@ async function renderRoot(lang, root) {
   const draw = () => {
     const needle = filter.value.trim().toLowerCase();
     const members = family.members.filter((m) => m.toLowerCase().includes(needle));
-    if (sort.value === 'length') members.sort((a, b) => a.length - b.length || a.localeCompare(b));
+    if (sort.value === 'length') members.sort(familyOrder);
     list.replaceChildren(...members.map((m) => chip(m, null, exploreHref(m))));
     const shown = family.total > family.members.length ? `（分類共 ${family.total} 筆，列出前 ${family.members.length} 筆）` : '';
     count.textContent = `顯示 ${members.length} 個字${shown}`;
@@ -907,7 +924,7 @@ async function renderRoot(lang, root) {
 
   view.replaceChildren(el('div', { class: 'card' },
     el('h1', {}, family.root),
-    el('p', { class: 'meta' }, family.langName, family.gloss ? `・${family.gloss}` : '', '・',
+    el('p', { class: 'meta' }, family.langName, prefix ? '・字首' : '', family.gloss ? `・${family.gloss}` : '', '・',
       el('a', { href: family.categoryUrl, target: '_blank', rel: 'noopener' }, 'Wiktionary 分類')),
     el('div', { class: 'filter-row' }, filter, sort),
     count,
@@ -934,7 +951,13 @@ function route() {
     if (kind === 'learn' && rest.length <= 2) return learningView.render(rest[0] ? decodeURIComponent(rest[0]) : null, rest[1]);
     if (kind === 'w' && rest[0]) return renderWord(decodeURIComponent(rest.join('/')));
     if (kind === 'explore' && rest[0]) return renderExplore(decodeURIComponent(rest.join('/')));
-    if (kind === 'root' && rest.length >= 2) return renderRoot(decodeURIComponent(rest[0]), decodeURIComponent(rest.slice(1).join('/')));
+    if (kind === 'root' && rest.length >= 2) {
+      // #/root/{lang}/{term}?kind=prefix&id=fare — encoded terms never contain a raw "?".
+      const [term, search = ''] = rest.slice(1).join('/').split('?');
+      const query = new URLSearchParams(search);
+      return renderRoot(decodeURIComponent(rest[0]), decodeURIComponent(term),
+        { kind: query.get('kind') === 'prefix' ? 'prefix' : 'root', id: query.get('id') });
+    }
   } catch {
     /* malformed URI: fall through to home */
   }

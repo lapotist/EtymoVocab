@@ -47,6 +47,7 @@ public class LookupTests
             steps.Select(s => $"{s.Lang}:{s.Term}"));
         Assert.All(steps, s => Assert.False(s.Ambiguous));
         Assert.Equal("Middle English", steps[0].LangName);
+        Assert.Equal("father", steps[0].Id); // the etymon sense id travels with the step
     }
 
     [Fact]
@@ -121,11 +122,48 @@ public class LookupTests
     }
 
     [Fact]
+    public async Task Root_family_prefers_the_sense_specific_category()
+    {
+        var service = new RootFamilyService(new FixtureClient(), new LanguageRegistry());
+
+        var family = await service.GetAsync("ine-pro", "*per-", "en", "fare", CancellationToken.None);
+
+        Assert.Equal("Category:English terms derived from the Proto-Indo-European root *per- (fare)", family!.Category);
+        Assert.Contains("transport", family.Members);
+    }
+
+    [Fact]
+    public async Task Root_family_falls_back_to_the_plain_category_when_the_sense_one_is_missing()
+    {
+        var client = new FixtureClient();
+        var service = new RootFamilyService(client, new LanguageRegistry());
+
+        var family = await service.GetAsync("ine-pro", "*speḱ-", "en", "see", CancellationToken.None);
+
+        Assert.Equal(FixtureClient.SpekCategory, family!.Category);
+        Assert.Equal([FixtureClient.SpekCategory + " (see)", FixtureClient.SpekCategory], client.CategoryRequests);
+    }
+
+    [Fact]
+    public async Task Prefix_family_skips_a_sense_category_that_only_holds_the_word_itself()
+    {
+        var service = new RootFamilyService(new FixtureClient(), new LanguageRegistry());
+
+        // Real data: "prefixed with trans- (across, beyond)" exists but lists only transport.
+        var family = await service.GetPrefixAsync("en", "trans-", "across, beyond", CancellationToken.None);
+
+        Assert.Equal("Category:English terms prefixed with trans-", family!.Category);
+        Assert.Equal(794, family.Total);
+        Assert.Contains("translate", family.Members);
+        Assert.Null(await service.GetPrefixAsync("en", "zz-", null, CancellationToken.None));
+    }
+
+    [Fact]
     public async Task Root_family_lists_category_members_with_root_gloss()
     {
         var service = new RootFamilyService(new FixtureClient(), new LanguageRegistry());
 
-        var family = await service.GetAsync("ine-pro", "*speḱ-", "en", CancellationToken.None);
+        var family = await service.GetAsync("ine-pro", "*speḱ-", "en", null, CancellationToken.None);
 
         Assert.NotNull(family);
         Assert.Equal(FixtureClient.SpekCategory, family.Category);

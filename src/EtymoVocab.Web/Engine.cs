@@ -70,12 +70,21 @@ public static partial class Engine
     });
 
     [JSExport]
-    public static Task<string> RootFamily(string lang, string root) => Run(async () =>
+    public static Task<string> RootFamily(string lang, string root, string? id) => Run(async () =>
     {
-        if (!IsValidTitle(lang) || !IsValidTitle(root))
+        if (!IsValidTitle(lang) || !IsValidTitle(root) || (id is not null && !IsValidTitle(id)))
             return Fail(400, "無效的詞根參數");
-        var family = await Families.GetAsync(lang, root, "en", CancellationToken.None);
+        var family = await Families.GetAsync(lang, root, "en", id, CancellationToken.None);
         return family is null ? Fail(404, "Wiktionary 沒有這個詞根的分類", root) : Ok(family, EngineJson.Default.RootFamilyResult);
+    });
+
+    [JSExport]
+    public static Task<string> PrefixFamily(string lang, string prefix, string? id) => Run(async () =>
+    {
+        if (!IsValidTitle(lang) || !IsValidTitle(prefix) || (id is not null && !IsValidTitle(id)))
+            return Fail(400, "無效的字首參數");
+        var family = await Families.GetPrefixAsync(lang, prefix, id, CancellationToken.None);
+        return family is null ? Fail(404, "Wiktionary 沒有這個字首的分類", prefix) : Ok(family, EngineJson.Default.RootFamilyResult);
     });
 
     [JSExport]

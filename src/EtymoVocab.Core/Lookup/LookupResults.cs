@@ -51,14 +51,22 @@ public sealed record StepResult(
     bool Uncertain,
     bool Ambiguous,
     string? Url,
-    IReadOnlyList<MorphologyResult> Morphology);
+    IReadOnlyList<MorphologyResult> Morphology)
+{
+    /// <summary>The etymon sense id (e.g. "fare" for PIE *per-), which selects sense-specific root categories.</summary>
+    public string? Id { get; init; }
+}
 
 public sealed record MorphologyResult(string Lang, string LangName, string Kind, IReadOnlyList<PartResult> Parts);
 
 /// <param name="Hint">The editor-assigned sense id (e.g. "carry"); shown when no gloss is available.</param>
 public sealed record PartResult(string Term, string? Gloss, string? Hint, string? Url);
 
-public sealed record RootResult(string Lang, string LangName, string Root, string? Gloss, string? Url);
+public sealed record RootResult(string Lang, string LangName, string Root, string? Gloss, string? Url)
+{
+    /// <summary>The root's sense id from <c>{{root|…|*per-&lt;id:fare&gt;}}</c>, when the entry gives one.</summary>
+    public string? Id { get; init; }
+}
 
 public sealed record TermResult(string Lang, string Term, string? Url);
 

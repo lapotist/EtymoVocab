@@ -13,6 +13,37 @@ export function etymologicalGroups(etymology, word, lang = 'en') {
   return terms.length ? [{ key: 'etymological:doublets', kind: 'doublet', label: '同源異形詞', terms }] : [];
 }
 
+/**
+ * Where a map node's shared-origin words can be read, or null. Only forms Wiktionary itself groups into
+ * English categories qualify: a reconstructed root that appears in the chain or a breakdown (a proto-language
+ * form ending in "-", such as PIE *seh₂k-), and an English prefix (trans-). Reconstructed suffixes (*-tḗr),
+ * reconstructed words (*fadēr), suffixes (-ed) and non-English affixes (Latin trāns-) do not.
+ */
+export function familySource({ lang, term, id = null }) {
+  if (typeof lang !== 'string' || typeof term !== 'string') return null;
+  if (/-pro$/.test(lang) && /^\*[^-].*-$/.test(term)) return { kind: 'root', lang, term, id: id || null };
+  if (lang === 'en' && /^[a-z]{2,}-$/i.test(term)) return { kind: 'prefix', lang, term, id: id || null };
+  return null;
+}
+
+/**
+ * Family list order until frequency data exists: plain lowercase words first, then hyphenated ones, then
+ * proper names, phrases and accented forms; shorter first within each tier (word length roughly tracks frequency).
+ */
+export function familyOrder(a, b) {
+  const tier = (term) => /^[a-z]+$/.test(term) ? 0 : /^[a-z][a-z'-]*$/.test(term) ? 1 : 2;
+  return tier(a) - tier(b) || a.length - b.length || a.localeCompare(b);
+}
+
+/** The hash route of a family list; the sense id selects split categories such as "*per- (fare)". */
+export function familyHref({ kind, lang, term, id }) {
+  const query = new URLSearchParams();
+  if (kind === 'prefix') query.set('kind', 'prefix');
+  if (id) query.set('id', id);
+  const search = query.toString();
+  return `#/root/${encodeURIComponent(lang)}/${encodeURIComponent(term)}${search ? `?${search}` : ''}`;
+}
+
 export function addEtymologicalWord(tree, group, candidate) {
   if (group?.kind !== 'doublet') return null;
   const source = group.terms.find(item => item.lang === candidate?.lang && item.term === candidate?.term);

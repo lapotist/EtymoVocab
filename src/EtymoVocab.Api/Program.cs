@@ -100,21 +100,31 @@ api.MapGet("/entries/{lang}/{term}", async (string lang, string term, string? id
         : Results.Ok(result);
 });
 
-api.MapGet("/roots/family", async (string lang, string root, string? target, RootFamilyService families, IMemoryCache cache, CancellationToken ct) =>
+api.MapGet("/roots/family", async (string lang, string root, string? target, string? id, RootFamilyService families, IMemoryCache cache, CancellationToken ct) =>
 {
     target ??= "en";
-    if (!Titles.IsValid(lang) || !Titles.IsValid(root) || !Titles.IsValid(target))
+    if (!Titles.IsValid(lang) || !Titles.IsValid(root) || !Titles.IsValid(target) || (id is not null && !Titles.IsValid(id)))
         return Results.Problem(statusCode: StatusCodes.Status400BadRequest, title: "無效的詞根參數");
 
-    var key = $"family:{target}:{lang}:{root}";
+    var key = $"family:{target}:{lang}:{root}:{id}";
     if (!cache.TryGetValue(key, out RootFamilyResult? family) || family is null)
     {
-        family = await families.GetAsync(lang, root, target, ct);
+        family = await families.GetAsync(lang, root, target, id, ct);
         if (family is null)
             return Results.Problem(statusCode: StatusCodes.Status404NotFound, title: "Wiktionary 沒有這個詞根的分類", detail: root);
         cache.Set(key, family, new MemoryCacheEntryOptions { AbsoluteExpirationRelativeToNow = resultCacheDuration, Size = 8 });
     }
     return Results.Ok(family);
+});
+
+api.MapGet("/prefixes/family", async (string lang, string prefix, string? id, RootFamilyService families, CancellationToken ct) =>
+{
+    if (!Titles.IsValid(lang) || !Titles.IsValid(prefix) || (id is not null && !Titles.IsValid(id)))
+        return Results.Problem(statusCode: StatusCodes.Status400BadRequest, title: "無效的字首參數");
+    var family = await families.GetPrefixAsync(lang, prefix, id, ct);
+    return family is null
+        ? Results.Problem(statusCode: StatusCodes.Status404NotFound, title: "Wiktionary 沒有這個字首的分類", detail: prefix)
+        : Results.Ok(family);
 });
 
 api.MapGet("/suggest", async (string q, IWiktionaryClient client, CancellationToken ct) =>
