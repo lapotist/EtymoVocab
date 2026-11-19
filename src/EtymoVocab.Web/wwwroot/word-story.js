@@ -33,10 +33,29 @@ export const langZh = (name) => LANG_ZH[name] || name;
 
 /** Splits a rendered sense such as "(chiefly informal) Pleasant, satisfactory." into labels and text. */
 export function splitLabels(sense) {
-  const match = /^\(([^)]*)\)\s*(.*)$/s.exec(sense.trim());
-  return match
-    ? { labels: match[1].split(',').map(l => l.trim()).filter(Boolean), text: match[2].trim() }
-    : { labels: [], text: sense.trim() };
+  const labels = [];
+  let text = sense.trim();
+  while (text.startsWith('(')) {
+    let depth = 1;
+    let start = 1;
+    const group = [];
+    let end = 1;
+    for (; end < text.length; end++) {
+      const ch = text[end];
+      if (ch === '(') depth++;
+      if (ch === ')') depth--;
+      if (depth === 0 || (depth === 1 && ch === ',')) {
+        const label = text.slice(start, end).trim();
+        if (label) group.push(label);
+        start = end + 1;
+      }
+      if (depth === 0) break;
+    }
+    if (depth !== 0) break;
+    labels.push(...group);
+    text = text.slice(end + 1).trimStart();
+  }
+  return { labels, text };
 }
 
 /** A gloss short enough to read at a glance: first clause when long, no trailing period. */
@@ -84,13 +103,25 @@ function pickLiteral(ety) {
   };
 }
 
+// A translation table can cover just one of several senses of the same part of speech.
+const senseWords = text => text.toLowerCase().match(/[\p{L}\p{N}]+/gu)?.join(' ').replace(/^to /, '') || '';
+
+function senseTranslation(pos, text) {
+  const meaning = senseWords(text);
+  const group = pos.translations.find(translation => {
+    const label = senseWords(translation.sense || '');
+    return label && (meaning === label || meaning.startsWith(label + ' '));
+  });
+  return group?.mandarin.slice(0, 2) || [];
+}
+
 function todaySense(ety) {
   for (const pos of ety.partsOfSpeech) {
     for (const sense of pos.senses) {
       const { labels, text } = splitLabels(sense);
       if (!text || NOT_A_MEANING.test(text) || labels.some(l => OLDER.test(l) || HISTORICAL.test(l))) continue;
       return { pos: pos.pos, gloss: shortGloss(text), labels: labels.filter(l => REGISTER.test(l)),
-        zh: pos.translations[0]?.mandarin.slice(0, 2) || [] };
+        zh: senseTranslation(pos, text) };
     }
   }
   return null;
@@ -144,9 +175,16 @@ function entryRoute(ety) {
 
 export function buildWordStory(result, ety) {
   const today = todaySense(ety);
-  const literal = pickLiteral(ety);
-  const { path, stable, origin } = meaningPath(result.word, ety, today);
-  const route = entryRoute(ety);
+  const steps = [];
+  for (const step of ety.steps) {
+    if (ety.uncertain || step.uncertain || step.ambiguous || step.transitive === false) break;
+    steps.push(step.ancestryUncertain ? { ...step, morphology: [] } : step);
+    if (step.ancestryUncertain) break;
+  }
+  const history = { ...ety, steps, morphology: ety.uncertain ? [] : ety.morphology };
+  const literal = pickLiteral(history);
+  const { path, stable, origin } = meaningPath(result.word, history, today);
+  const route = entryRoute(history);
   const register = today?.labels || [];
   const empty = !literal && path.length <= 1 && !route && !register.length;
   return { word: result.word, literal, path, stable, origin, today, route, register, empty, headline: headline(result.word, { literal, stable, origin, today }) };
@@ -157,11 +195,14 @@ export function buildWordStory(result, ety) {
  * asserting a change: gloss overlap cannot tell a real shift from two wordings of one meaning.
  */
 function headline(word, { literal, stable, origin, today }) {
-  if (stable && origin) return `${word} 的意思一路相近：最早可追溯到${langZh(origin.langName)} ${origin.term}「${origin.gloss}」。`;
+  if (stable && origin) {
+    const modern = today ? `，今天是「${today.gloss}」` : '';
+    return `${word} 的祖源詞釋義相近：最早記錄的是${langZh(origin.langName)} ${origin.term}「${origin.gloss}」${modern}。`;
+  }
   if (origin && today && !sameMeaning(origin.gloss, today.gloss)) {
     return `${word} 最早記錄的意思是「${origin.gloss}」（${langZh(origin.langName)} ${origin.term}），今天是「${today.gloss}」。`;
   }
-  if (literal) return `${word} 字面上是 ${literal.parts.map(p => p.gloss ? `${p.term}「${p.gloss}」` : p.term).join(' + ')}。`;
+  if (literal) return `${literal.via ? langZh(literal.via.langName) + ' ' + literal.via.term : word} 字面上是 ${literal.parts.map(p => p.gloss ? `${p.term}「${p.gloss}」` : p.term).join(' + ')}。`;
   return null;
 }
 

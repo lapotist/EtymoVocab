@@ -1,6 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { etymologicalGroups, addEtymologicalWord, familySource, familyHref, familyOrder } from '../../src/EtymoVocab.Web/wwwroot/map-related.js';
+import {
+  etymologicalGroups, addEtymologicalWord, attachEtymologicalWords, addVerifiedOrigin,
+  familySource, familyHref, familyOrder,
+} from '../../src/EtymoVocab.Web/wwwroot/map-related.js';
 
 const hostel = { lang: 'en', term: 'hostel', url: 'https://en.wiktionary.org/wiki/hostel#English' };
 const hospital = { lang: 'en', term: 'hospital', url: 'https://en.wiktionary.org/wiki/hospital#English' };
@@ -99,4 +102,51 @@ test('family order puts plain words before names and phrases (real *seh₂k- mem
   const members = ['Sánchez', 'Santa Fe', 'Sancho', 'sacrifice', 'sanction', 'santo', 'sacro-', 'sacration'];
   assert.deepEqual([...members].sort(familyOrder),
     ['santo', 'sanction', 'sacration', 'sacrifice', 'sacro-', 'Sancho', 'Sánchez', 'Santa Fe']);
+});
+
+test('dedicated derived and related sections retain evidence and reject semantic kinds', () => {
+  const sourceUrl = 'https://en.wiktionary.org/w/index.php?title=predict&oldid=93715976#English';
+  const groups = etymologicalGroups({ etymologicalRelations: [
+    { kind: 'related', lang: 'en', term: 'prediction', sourceUrl, sourceSection: 'Related terms' },
+    { kind: 'derived', lang: 'en', term: 'predictably', sourceUrl, sourceSection: 'Derived terms' },
+    { kind: 'synonym', lang: 'en', term: 'foretell' },
+    { kind: 'antonym', lang: 'en', term: 'ignore' },
+  ] }, 'predict');
+  assert.deepEqual(groups.map(group => group.kind), ['related', 'derived']);
+  const tree = { key: 'en:predict', children: [] };
+  const node = addEtymologicalWord(tree, groups[0], groups[0].terms[0]);
+  assert.equal(node.relationSource, sourceUrl);
+  assert.equal(node.kind, 'related');
+  assert.equal(node.lookup.term, 'prediction');
+});
+
+test('initial display keeps all candidates available and expanded component groups stay distinct', () => {
+  const etymologicalRelations = Array.from({ length: 12 }, (_, i) => ({ kind: 'derived', lang: 'en', term: `relative${i}` }));
+  const parent = { key: 'en:word', term: 'word', lang: 'en', children: [] };
+  const component = { key: 'en:component', term: 'component', lang: 'en', children: [] };
+  assert.equal(attachEtymologicalWords(parent, { etymologicalRelations }), 8);
+  assert.equal(attachEtymologicalWords(component, { etymologicalRelations }), 8);
+  assert.equal(parent.etymologicalGroups[0].terms.length, 12);
+  assert.notEqual(parent.etymologicalGroups[0].key, component.etymologicalGroups[0].key);
+  assert.notEqual(parent.children[0].children[0].key, component.children[0].children[0].key);
+  assert.equal(addEtymologicalWord(parent, parent.etymologicalGroups[0], etymologicalRelations[11]).term, 'relative11');
+  assert.equal(attachEtymologicalWords(parent, { etymologicalRelations }), 0);
+  assert.equal(parent.children[0].children.length, 9);
+});
+
+test('index candidates never enter the map until verified; shared components retain two evidence links', () => {
+  const tree = { key: 'en:telephone', children: [] };
+  const anchor = { key: '["en","-phone",null]', term: '-phone', url: 'https://en.wiktionary.org/wiki/-phone#English' };
+  const match = { term: 'microphone', lang: 'en', component: true, anchor, candidateAnchor: anchor,
+    memberSource: { url: 'https://en.wiktionary.org/w/index.php?title=microphone&oldid=123#English' } };
+  assert.equal(addVerifiedOrigin(tree, match), null);
+  assert.equal(addVerifiedOrigin(tree, { ...match, verified: true, candidateAnchor: { key: 'different-sense' } }), null);
+  const node = addVerifiedOrigin(tree, { ...match, verified: true });
+  assert.equal(node.kind, 'verified-origin');
+  assert.equal(node.relationSource, match.memberSource.url);
+  assert.equal(node.originSource, anchor.url);
+  assert.equal(tree.children[0].label, '共用構詞成分');
+  assert.equal(tree.children[0].verifiedAnchor, anchor);
+  assert.equal(node.verifiedAnchor, anchor);
+  assert.equal(addVerifiedOrigin(tree, { ...match, verified: true }), null);
 });

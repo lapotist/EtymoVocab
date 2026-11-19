@@ -91,7 +91,7 @@ export function createLearningView({ view, el }) {
             `${dueEntry ? '開始新題回訪' : unfinishedEntry ? '繼續練習' : '開始練習'}：${nextEntry.lesson.title} →`)),
         el('p', { class: 'hero-description' }, '從熟悉的例子認識構詞，再用新句子檢驗推論。也練習辨認：什麼時候詞根能幫忙，什麼時候還需要語境。'),
         el('p', { class: 'muted small' }, `${LESSONS.length} 個短課程 · 每課 2 個例子、2 個挑戰 · 7 天後用另一個字回訪`)),
-      hasAttempts ? el('section', { class: 'card learning-progress', 'aria-label': '首次作答記錄' },
+      store.hasExportableAttempts ? el('section', { class: 'card learning-progress', 'aria-label': '首次作答記錄' },
         el('div', { class: 'learning-section-heading' },
           el('h2', {}, '你的推論記錄'),
           el('button', { type: 'button', class: 'secondary', onclick: exportAttempts }, '匯出作答記錄')),

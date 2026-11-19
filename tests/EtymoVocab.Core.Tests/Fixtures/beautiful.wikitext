@@ -1,0 +1,352 @@
+==English==
+
+===Etymology===
+{{etymon|en|:inh|enm:bewteful<ety:af<beaute><-ful>>|:afeq|beauty|-ful<id:adjective>|tree=1}}
+From {{inh|en|enm|bewteful}}, {{m|enm|beautefull||attractive to the eye, beautiful}}, equivalent to {{suf|en|beauty|ful|pos=adjective}}. In this sense, largely displaced {{noncog|ang|fæġer}} (whence {{m|en|fair}}).
+
+===Pronunciation===
+* {{enPR|byo͞oʹtĭ-fəl|a=UK}}, {{IPA|en|/ˈbjuːtɪ.fəl/|/ˈbjuːtɪ.fʊl/}}
+* {{audio|en|En-uk-beautiful.ogg|a=UK}}
+* {{IPA|en|/ˈbju.tɪ.fəl/|[bju.ɾə.fəl]|a=US}}
+* {{audio|en|en-us-beautiful.ogg|a=US}}
+* {{hyphenation|en|beau|ti|ful}}
+
+===Adjective===
+{{en-adj}}
+
+# Possessing [[beauty]], impressing the [[eye]]; [[attractive]]. {{defdate|from 1520s}}
+#: {{ux|en|Anyone who has ever met her thought she was absolutely '''beautiful'''.}}
+#: {{ux|en|There's a '''beautiful''' lake by the town.}}
+#* {{RQ:Drayton Poly-Olbion|part=2|chapter=The Sixe and Twentieth Song|page=124|passage=[A]s amongſt the ''Moores'', the Iettieſt blacke are deem'd / The '''beautifulſt''' of them; {{...}}}}
+#* {{quote-book|en|year=1913|author={{w|Edgar Rice Burroughs}}|title={{w|The Return of Tarzan}}|publisher=Ballantine Books|location=New York|year_published=1963|page=214|passage=“Is Olga de Coude very '''beautiful'''?” she asked. And Tarzan laughed and kissed her again. “Not one-tenth so '''beautiful''' as you, dear,” he said.}}
+#* {{RQ:Allingham China Governess|chapter=5|passage=It's rather like a '''beautiful''' Inverness cloak one has inherited. Much too good to hide away, so one wears it instead of an overcoat and pretends it's an amusing new fashion.}}
+#* {{quote-av|1=en|year=2016|url=https://web.archive.org/web/20170930001420/https://learningenglish.voanews.com/a/lets-learn-english-lesson-5-where-are-you/3168971.html|title=VOA Learning English (public domain)|text=It is a '''beautiful''' kitchen! &mdash; It ''is'' '''beautiful'''.}}
+## {{n-g|Used emphatically or ironically, after the noun it qualifies.}} {{defdate|from 1850s}}
+##: {{ux|en|the house '''beautiful'''}}
+# That one [[like]]s very much.
+#: {{ux|en|He was a '''beautiful''' person; he would drop everything to help you.}}
+#: {{ux|en|You've done a '''beautiful''' thing today.}}
+# Affording [[pleasure]] to any of the [[sense]]s, especially that of [[hearing]]; [[delightful]]. {{defdate|from 1860s}}
+#: {{ux|en|Beethoven's most '''beautiful''' sonata}}
+#: {{ux|en|It's '''beautiful''' outside, let's go for a walk.}}
+#: {{ux|en|These carnations smell '''beautiful''' but those daffodils smell funny.}}
+# Impressing with [[charm]] in an [[intellectual]] or [[moral]] way, through inherent [[suitability]] or [[elegance]]. {{defdate|from 1580s}}
+#: {{ux|en|The skater performed a '''beautiful''' [[axel]].}}
+
+====Usage notes====
+* When used to refer to human appearance, the word is more commonly used for women, with {{m|en|handsome}} being more common for men, though neither is incorrect. For a man, ''beautiful'' could connote a more delicate or androgynous appearance.
+* The comparatives '''[[beautifuler]]''' and '''[[beautifuller]]''' and the superlatives '''[[beautifulest]]''' and '''[[beautifullest]]''' have also occasionally been used, but they are nonstandard.
+
+====Synonyms====
+* {{sense|possessing charm and attractive}} {{l|en|beauteous}}, {{l|en|attractive}}, {{l|en|cute}}, {{l|en|fair}}, {{l|en|good-looking}}, {{l|en|gorgeous}}, {{l|en|sheen}}, {{l|en|handsome}}, {{l|en|hot}} {{qualifier|slang}}, [[lovely]], [[nice-looking]], [[pretty]], [[shapely]], [[fit]] {{qualifier|slang}}
+* {{sense|of the weather}} {{l|en|clear}}, {{l|en|fine}}, {{l|en|nice}}, {{l|en|pleasant}}, {{l|en|sunny}}
+* {{sense|well executed}} {{l|en|excellent}}, {{l|en|exceptional}}, {{l|en|good}}, {{l|en|great}}, {{l|en|marvellous}}/[[marvelous]], [[perfect]], [[stylish]], [[wonderful]]
+* {{sense|ironic: how unfortunate}} {{l|en|great}}, {{l|en|marvellous}}/[[marvelous]], [[nice]], very nice, [[wonderful]] (''any of these can be prefixed with an [[intensifier]] such as'' [[bloody]], [[damned]] ''or'' [[just]])
+* See also [[Thesaurus:beautiful]]
+
+====Antonyms====
+* {{antsense|possessing charm and attractive}} {{l|en|grotesque}}, {{l|en|hideous}}, {{l|en|homely}}, {{l|en|plain}}, {{l|en|misshapen}}, {{l|en|repulsive}}, {{l|en|ugly}}; [[unbeautiful]]
+* {{antsense|of the weather}} {{l|en|bad}}, {{l|en|cloudy}}, {{l|en|dull}}, {{l|en|miserable}}, {{l|en|overcast}}, {{l|en|rainy}}, {{l|en|wet}}
+* {{antsense|well executed}} {{l|en|average}}, {{l|en|bad}}, {{l|en|mediocre}}, {{l|en|poor}}, {{l|en|shoddy}}, {{l|en|substandard}}, {{l|en|terrible}}, {{l|en|weak}}
+
+====Derived terms====
+{{col2|en|all cats are beautiful|beautiful armadillo|beautiful game|beautiful people|beautifully|beautifulness|beautiful fruit dove|beautiful music|make beautiful music together|you have beautiful eyes|beautimous|bee-utiful|Bucyrus|cuteful|nonbeautiful|prettiful|beautiful era}}
+
+====Related terms====
+* {{l|en|beauty}}
+** See also [[Thesaurus:beautiful woman]]
+
+====Translations====
+{{trans-top-see|attractive|pretty|lovely|handsome}}
+* Afrikaans: {{t+|af|mooi}}
+* Albanian: {{t+|sq|bukur|alt=i bukur}}
+* American Sign Language: {{t|ase|5@NearCheek-PalmBack RoundVert OpenA@NearJaw-PalmBack}}
+* Amharic: {{t|am|ቆንጆ}}
+* Arabic: {{t+|ar|جَمِيل}}, {{t|ar|مَلِيح}}
+*: Egyptian Arabic: {{t|arz|جميل|tr=gamīl}}
+*: Moroccan Arabic: {{t|ary|غزال|m|tr=ḡuzāl}}, {{t|ary|جميل|tr=jmīl}}, {{t|ary|زوين|m|tr=zwīn}}
+*: North Levantine Arabic: {{t|apc|حِلُو}}, {{t|apc|جَمِيْل|m}}
+* Aramaic: {{t|arc|שפירא}}
+* Armenian: {{t+|hy|գեղեցիկ}}, {{t+|hy|սիրուն}}
+* Aromanian: {{t+|rup|mushat|m}}
+* Assamese: {{t|as|ধুনীয়া}} {{qualifier|common}}, {{t|as|ভাল লগা}}, {{t|as|সুন্দৰ}}
+* Asturian: {{t|ast|guapu|m}}, {{t|ast|guapa|f}}, {{t|ast|formosu|m}}, {{t|ast|formosa|f}}
+* Auslan: {{t-needed|asf}}
+* Avar: {{t|av|берцинаб}}
+* Azerbaijani: {{t+|az|gözəl}}, {{t+|az|qəşəng}}, {{t|az|yaraşıqlı}}
+* Bajau:
+*: West Coast Bajau: {{t|bdr|lawa'}}
+* Bashkir: {{t|ba|матур}}
+* Basque: {{t|eu|eder}}
+* Belait: {{t|beg|jie batien}}
+* Belarusian: {{t|be|выда́тны}}, {{t|be|прыго́жы}}, {{t|be|харо́шы}}, {{t|be|красі́вы}}, {{t|be|урадлі́вы}}, {{t|be|фа́йны}}
+* Bengali: {{t+|bn|সুন্দর}}, {{t+|bn|খুবসুরত}}, {{t+|bn|হাসিন}}
+* Bikol:
+*: Central Bikol: {{t+|bcl|magayon}}
+* Breton: {{t+|br|brav}}, {{t+|br|kaer}}
+* Brunei Bisaya: {{t|bsb|bagak}}
+* Bulgarian: {{t+|bg|краси́в}}, {{t+|bg|прекра́сен}}, {{t+|bg|ху́бав}}
+* Burmese: {{t|my|လှသော}}, {{t+|my|လှပ}}
+* Buryat: {{t|bua|һайхан}}
+* Catalan: {{t+|ca|bell|m}}, {{t+|ca|bella|f}}, {{t+|ca|formós|m}}, {{t|ca|formosa|f}}, {{t+|ca|bonic|m}}, {{t+|ca|bonica|f}}
+* Cebuano: {{t|ceb|matahom}} {{qualifier|of a female}}, {{t|ceb|maanyag}} {{qualifier|of a person}}
+* Chamicuro: {{t|ccc|pya'c̈homa}}, {{t|ccc|pewa puti'na}}
+* Chechen: {{t|ce|хаза}}
+* Chinese:
+*: Cantonese: {{t|yue|靚|tr=leng3}}, {{t|yue|好睇|tr=hou2 tai2}} {{qualifier|object}}, {{t|yue|漂亮|tr=piu3 loeng6}} {{qualifier|formal}}, {{t|yue|美麗|tr=mei5 lai6}} {{qualifier|formal}}
+*: Dungan: {{t|dng|җүн}}, {{t|dng|җүн-ён}}, {{t|dng|җиҗүн}}, {{t|dng|җүнмый}}
+*: Eastern Min: {{t|cdo|俊|tr=cóng}}, {{t|cdo|漂亮|tr=piĕu-liông}}
+*: Hokkien: {{t+|nan-hbl|媠|tr=súi}}, {{t+|nan-hbl|美麗|tr=bí-lē}}, {{t|nan-hbl|好看|tr=hó-khòaⁿ}}, {{t+|nan-hbl|媠噹噹|tr=súi-tang-tang}}
+*: Mandarin: {{t+|cmn|漂亮|tr=piàoliang}}, {{t+|cmn|美|tr=měi}}, {{t+|cmn|好看}}, {{t+|cmn|美麗}}
+*: Teochew: {{t|nan-tws|雅|tr=ngia2}}
+*: Wu: {{t|wuu|漂亮}}, {{t|wuu|好看}}
+* Coptic: {{t|cop|ⲛⲉⲥⲉ}}
+* Cornish: {{t|kw|teg}}
+* Czech: {{t+|cs|krásný}}, {{t+|cs|pěkný}}, {{t+|cs|sličný}} {{qualifier|literary}}
+* Dalmatian: {{t|dlm|bial}}
+* Danish: {{t+|da|smuk}}
+* Dusun:
+*: Central Dusun: {{t|dtp|olumis}}
+* Dutch: {{t+|nl|mooi}}, {{t+|nl|schoon}}
+* Egyptian: {{t-egy|nfr|h=nfr-f:r-A40}}
+* Esperanto: {{t+|eo|bela}}
+* Estonian: {{t+|et|kaunis}}, {{t+|et|ilus}}
+* Faroese: {{t+|fo|vakur}}, {{t|fo|penur}}, {{t|fo|fagur}}
+* Fijian: {{t|fj|totoka}}
+* Finnish: {{t+|fi|kaunis}}
+* French: {{t+|fr|beau|m}}, {{t+|fr|belle|f}}
+* Frisian:
+*: West Frisian: {{t|fy|moai}}, {{t|fy|kreas}}
+* Friulian: {{t|fur|biel|m}}, {{t|fur|biele|f}}
+* Galician: {{t+|gl|belo}}, {{t+|gl|fermoso}}
+* Georgian: {{t|ka|მშვენიერი}}, {{t|ka|ლამაზი}}, {{t|ka|ტურფა}}, {{t|ka|საუცხოო}}, {{t|ka|საყვარელი}}, {{t|ka|მომხიბლავი}}, {{t|ka|მიმზიდველი}}, {{t|ka|სასიამოვნო}}, {{t|ka|სანდომიანი}}, {{t|ka|წარმტაცი}}, {{t|ka|თვალწარმტაცი}}, {{t|ka|კოხტა}}, {{t|ka|მოხდენილი}}, {{t|ka|პირმშვენიერი}}
+* German: {{t+|de|schön}}
+* Gothic: {{t|got|𐍃𐌺𐌰𐌿𐌽𐍃}}
+* Greek: {{t+|el|ωραίος}}, {{t+|el|όμορφος}}
+*: Ancient Greek: {{t|grc|καλός}}, {{t|grc|ὡραῖος}}
+* Gujarati: {{t|gu|સુંદર}}, {{t|gu|રૂપાળું}}, {{t+|gu|ખૂબસૂરત}}
+* Haitian Creole: {{t|ht|bò}}
+* Hawaiian: {{t|haw|nani}}
+* Hebrew: {{t+|he|יָפֶה|m|tr=yafé}}, {{t+|he|יָפָה|f|tr=yafá}}
+* Hindi: {{t+|hi|आकर्षक}}, {{t+|hi|मोहक}}, {{t+|hi|मनोहर}}, {{t+|hi|सुन्दर}}, {{t+|hi|प्यारा}}, {{t|hi|ख़ूबसूरत}}, {{t+|hi|हसीन}}, {{t+|hi|मनोरम}}
+* Hungarian: {{t+|hu|szép}}, {{t+|hu|gyönyörű}}
+* Hunsrik: {{t|hrx|scheen}}
+* Icelandic: {{t+|is|fallegur}}, {{t+|is|fagur}}
+* Ido: {{t+|io|bela}}
+* Igbo: {{t|ig|oma}}
+* Ilocano: {{t|ilo|napintas}}
+* Indonesian: {{t+|id|indah}}, {{t+|id|cantik}}, {{t+|id|ayu}}, {{t+|id|molek}}, {{t+|id|cakep}}
+* Ingrian: {{t|izh|käppiä}}, {{t|izh|see [[Thesaurus:käppiä]]}}
+* Interlingua: {{t+|ia|belle}}
+* Irish: {{t|ga|álainn}}, {{t|ga|spéiriúil}}, {{t|ga|dathúil}}, {{t|ga|galánta}}
+* Isan: {{t-needed|tts}}
+* Istriot: {{t|ist|biel|m}}, {{t|ist|biela|f}}
+* Italian: {{t+|it|bello|m}}, {{t+|it|bella|f}}, {{t+|it|affascinante}}, {{t+|it|incantevole}}, {{t+|it|meraviglioso}}
+* Japanese: {{t+|ja|美しい|tr=うつくしい, utsukushii}}, {{t+|ja|綺麗|tr=きれい, kirei}}, {{t+|ja|素敵|tr=すてき, suteki}}
+* Javanese:
+*: Old Javanese: {{t|kaw|bĕcik}}
+* Jingpho: {{t|kac|tsawm}}
+* Kabuverdianu: {{t|kea|bunitu}}, {{t|kea|benite}}
+* Kadazan:
+*: Coastal Kadazan: {{t|kzj|olumis}}
+* Kaitag: {{t|xdq|ччакко}}, {{t|xdq|ттяттяй}}
+* Kalmyk: {{t|xal|сәәхн}}
+* Kannada: {{t+|kn|ಸುಂದರ}}
+* Kapampangan: {{t|pam|malagu}}
+* Kashmiri: {{t|ks|شوٗبوُن|m}}, {{t|ks|خوٗبصوٗرتھ}}, {{t|ks|سۄندَر}}
+* Kazakh: {{t|kk|әдемі}}, {{t|kk|әсем}}, {{t|kk|сұлу}}
+* Khanty:
+*: Northern Khanty: {{t|kca-nor|хурамӑӈ}} {{qualifier|Kazym}}
+* Khmer: {{t+|km|ស្អាត}}, {{t+|km|ល្អ}}
+* Komi:
+*: Komi-Zyrian: {{t|kpv|мича}}
+* Korean: {{t+|ko|아름답다}}, {{t+|ko|예쁘다}}
+* Kunigami: {{t|xug|清ーらせん|tr=すーらせん, sūrasen}}
+* Kurdish:
+*: Central Kurdish: {{t+|ckb|جوان}}, {{t+|ckb|ئێسک سووک}}
+*: Northern Kurdish: {{t+|kmr|xweşik}}, {{t+|kmr|spehî}}, {{t+|kmr|ciwan}}, {{t+|kmr|rind}}
+* Kyrgyz: {{t+|ky|сулуу}}, {{t+|ky|көркөм}}, {{t+|ky|кооз}}, {{t+|ky|сонун}}, {{t+|ky|чырайлуу}}, {{t+|ky|чырай жүздүү}}, {{t+|ky|сулуу}}, {{t+|ky|укмуштай}}, {{t+|ky|укмуштай}}, {{t+|ky|ажайып}}, {{t+|ky|көйүткөн}}
+* Laboya: {{t|lmy|jorro}}
+* Ladino: {{t|lad|ermozo|m}}, {{t|lad|ermoza|f}}
+* Lao: {{t|lo|ງາມ}}, {{t|lo|ງ້ອມ}}, {{t|lo|ຈຸບຸ}}, {{t|lo|ຊະແລບ}}, {{t|lo|ທີ່ສວຍງາມ}}, {{t|lo|ກັນລະຍາ}}, {{t|lo|ກັນລະຍານ}}, {{t|lo|ຄ່ອງ}}
+* Latin: {{t+|la|pulcher}}, {{t|la|fōrmōsus}}, {{t+|la|bellus}}
+* Latvian: {{t+|lv|skaists}}, {{t|lv|daiļš}}, {{t|lv|glīts}}
+* Limburgish: {{t+|li|sjoen}}
+* Lithuanian: {{t+|lt|gražus}}
+* Lombard: {{t|lmo|bel}}, {{t|lmo|bèll}}
+* Low German: {{t+|nds|schöön}}, {{t|nds|scheun}}
+* Lü: {{t|khb|ᦇᦱᧄ}}
+* Macedonian: {{t|mk|убав}}, {{t|mk|прекрасен}}
+* Malay: {{t+|ms|cantik}}, {{t+|ms|indah}}, {{t+|ms|molek}}
+*: Brunei Malay: {{t|kxd|bisai}}
+* Malayalam: {{t+|ml|സുന്ദരം}}
+* Maltese: {{t|mt|sabiħ}}
+* Manchu: {{t|mnc|ᠰᠠᡳᡴᠠᠨ}}, {{t|mnc|ᡥᠣᠴᡳᡴᠣᠨ}}
+* Mandar: {{t|mdr|malolo}}
+* Manx: {{t|gv|aalin}}, {{t|gv|bwaagh}}, {{t|gv|bwoyagh}}
+* Māori: {{t|mi|waiwaiā}}, {{t+|mi|pīwari}}, {{t|mi|hūmārie}}, {{t|mi|hūmārire}}, {{t|mi|purotu}}, {{t|mi|rerehua}}, {{t+|mi|tau}}, {{t|mi|ātanga}}, {{t|mi|ātaahua}}
+* Marathi: {{t|mr|सुंदर}}
+* Mauritian Creole: {{t|mfe|zoli}}
+* Mazanderani: {{t|mzn|قشنگ}}, {{t|mzn|خجیر}}
+* Middle English: {{t|enm|beautevous}}, {{t|enm|wynsom}}
+* Mòcheno: {{t|mhn|schea'}}
+* Mongolian:
+*: Cyrillic: {{t+|mn|сайхан}}, {{t+|mn|гуа}}, {{t|mn|үзэсгэлэнтэй}}
+* Murut:
+*: Keningau Murut: {{t|kxi|daramansiw}}, {{t|kxi|malawaʔ}}
+* Navajo: {{t|nv|nizhóní}}, {{t|nv|nizhóní yeeʼ}}
+* Norman: {{t|nrf|bieau|m}}, {{t|nrf|belle|f}}
+* Norwegian:
+*: Bokmål: {{t+|nb|vakker}}
+* Nǀuu: {{t|ngh|ǀxaquka}}, {{t|ngh|ǀhaqoka}}
+* Occitan: {{t+|oc|bèl|m}}, {{t+|oc|bèla|f}}, {{t+|oc|bèu|m}}
+*: Old Occitan: {{t|pro|bel}}
+* Odia: {{t|or|ସୁନ୍ଦର}}
+* Okinawan: {{t|ryu|清らさん}}, {{t|ryu|美らさん|tr=ちゅらさん, churasan}}
+* Old Church Slavonic:
+*: Cyrillic: {{t|cu|лѣпъ}}, {{t|cu|красьнъ}}
+*: Glagolitic: {{t|cu|ⰾⱑⱂⱏ}}
+* Old East Slavic: {{t|orv|лѣпъ}}, {{t|orv|красьнъ}}
+* Old English: {{t|ang|fæġer}}, {{t|ang|wlitiġ}}
+* Old Norse: {{t|non|fagr}}
+* Pangasinan: {{t|pag|malimgas}}
+* Pashto: {{t+|ps|ښکلی|tr=ẍkwëlay}}, {{t+|ps|حسين|tr=hasin}}, {{t+|ps|زيبا|tr=zebā}}
+* Persian:
+*: Classical Persian: {{t|fa-cls|زیبَا}}, {{t|fa-cls|قَشَنْگ}}
+*: Dari: {{t|prs|مَقْبُول}}, {{t|prs|زیبَا}}, {{t|prs|قَشَنْگ}}
+*: Iranian Persian: {{t+|fa-ira|زیبا}}, {{t|fa-ira|قَشَنْگ}}, {{t|fa-ira|خوشْگِل|tr=xošgel}}, {{t|fa-ira|خوش‌تیپ|tr=xoš-tip}} {{qualifier|handsome, of men}}
+* Plautdietsch: {{t|pdt|schmock}}, {{t|pdt|scheen}}
+* Polish: {{t+|pl|piękny|m}}, {{t|pl|piękna|f}}
+* Portuguese: {{t+|pt|belo|m}}, {{t+|pt|bela|f}}, {{t+|pt|bonito|m}}, {{t+|pt|bonita|f}}, {{t+|pt|lindo|m}}, {{t+|pt|linda|f}}
+* Punjabi: {{t+|pa|ਸੁਹਣਾ}}
+* Quechua: {{t+|qu|sumaq}}, {{t|qu|şumag}}, {{t|qu|k'acha}}
+* Romagnol: {{t|rgn|bël}}
+* Romani: {{t|rom|śukar}}
+* Romanian: {{t+|ro|frumos|m|n}}, {{t+|ro|frumoasă|f}}, {{t|ro|mușat|m}}
+* Romansh: {{t|rm|bel|m}}, {{t|rm|bella|f}}, {{t|rm|bi|m}}, {{t|rm|biala|f}}
+* Russian: {{t+|ru|краси́вый}}, {{t+|ru|прекра́сный}}, {{t+|ru|приго́жий}} {{qualifier|folklore, poetic}}, {{t+|ru|ле́пый}} {{qualifier|archaic}}
+* Sanskrit: {{t+|sa|सुन्दर}}, {{t+|sa|सुरूप}}, {{t+|sa|मञ्जु}}
+* Sardinian: {{t|sc|bedhu|m}}, {{t|sc|bedha|f}}, {{t|sc|bellu|m}}, {{t|sc|bella|f}}
+* Scots: {{t|sco|bonny}}
+* Scottish Gaelic: {{t|gd|àlainn}}, {{t|gd|bòidheach}}, {{t|gd|brèagha}}, {{t|gd|fèilleil}}, {{t|gd|grinn}}, {{t|gd|maiseach}}, {{t|gd|rìomhach}}, {{t|gd|sgèimheach}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|ле̑п}}, {{t|sh|лије̑п}}, {{t|sh|лип}}
+*: Latin: {{t+|sh|lȇp}}, {{t+|sh|lijȇp}}, {{t|sh|lip}}
+* Shan: {{t+|shn|ႁၢင်ႈလီ}}
+* Sicilian: {{t+|scn|beddu|m}}, {{t+|scn|bedda|f}}
+* Sidamo: {{t|sid|xuʼma}}
+* Sinhalese: {{t+|si|ලස්සන}}, {{t|si|සුන්දර}}
+* Slovak: {{t|sk|krásny}}, {{t|sk|pekný}}
+* Slovene: {{t+|sl|lep}}
+* Sorbian:
+*: Lower Sorbian: {{t|dsb|rědny}}
+* Spanish: {{t+|es|hermoso}}, {{t|es|fermoso}}, {{t+|es|bello}}, {{t+|es|bel}}, {{t|es|bellido}}
+* Sranan Tongo: {{t|srn|moi}}
+* Sudovian: {{t|xsv|grazi}}, {{t|xsv|skaista|f}}
+* Swahili: {{t+|sw|zuri}}
+* Swedish: {{t+|sv|fin}}, {{t+|sv|vacker}}, {{t+|sv|skön}}
+* Tagalog: {{t+|tl|maganda}}
+* Tajik: {{t+|tg|зебо}}, {{t|tg|хушрӯ}}, {{t|tg|қашанг}}
+* Talysh: {{t|tly|ğəşəng}}, {{t|tly|reçin}}, {{t|tly|rəvoşin}}, {{t|tly|xos}}, {{t|tly|cıvon}}
+* Tamil: {{t+|ta|அழகிய}}
+* Tatar: {{t|tt|матур}}, {{t+|tt|гүзәл}}
+* Telugu: {{t+|te|అందమైన}}, {{t+|te|చక్కని}}
+* Thai: {{t+|th|สุนทร}}, {{t+|th|สวย}}, {{t+|th|งาม}}
+*: Northern Thai: {{t-needed|nod}}
+*: Southern Thai: {{t-needed|sou}}
+* Tocharian B: {{t|txb|kartse}}
+* Tokunoshima: {{t|tkn|清らさい|tr=きゅらさい, kyurasai}}
+* Tswana: {{t|tn|-ntle}}
+* Turkish: {{t+|tr|güzel}}
+*: Ottoman Turkish: {{t|ota|كوزل|tr=güzel, gözel}}, {{t|ota|یخشی|tr=yahşi}}
+* Turkmen: {{t|tk|görmegeý}}, {{t|tk|gözel}}, {{t|tk|gelşikli}}
+* Tutong: {{t|ttg|lawa'}}
+* Ukrainian: {{t|uk|вродли́вий}}, {{t+|uk|краси́вий}}, {{t+|uk|га́рний}}, {{t|uk|хоро́ший}}, {{t|uk|фа́йний}}, {{t+|uk|кра́сний}}
+* Urdu: {{t|ur|خُوبْصُورَت}}, {{t|ur|سُنْدَر}}, {{t|ur|حَسِین}}, {{t|ur|پْیارا}}, {{t|ur|قَشَن٘گ}}, {{t|ur|زیبا}}
+* Uyghur: {{t|ug|گۈزەل}}
+* Uzbek: {{t+|uz|yoqimli}}, {{t+|uz|goʻzal}}
+* Venetan: {{t|vec|beło|m}}, {{t|vec|beła|f}}
+* Vietnamese: {{t+|vi|đẹp}}, {{t+|vi|xinh đẹp}}
+* Volapük: {{t+|vo|jönik}}, {{qualifier|augmentative}} {{t+|vo|lejönik}}
+* Walloon: {{t+|wa|bea|m}}, {{t+|wa|bele|f}}
+* Welsh: {{t+|cy|hardd}}, {{t+|cy|prydferth}}, {{t|cy|arddun}}
+* Wolaytta: {{t|wal|malanchcha}}, {{t|wal|puulanchcha}}
+* Yazghulami: {{t|yah|хәшри}}
+* Yiddish: {{t|yi|שיין}}
+* Zhuang: {{t|za|baenzsau}}, {{t|za|gacae}}, {{t|za|giengh}}
+{{trans-bottom}}
+
+{{trans-top-see|of weather: pleasant, clear|good}}
+* Armenian: {{t+|hy|հաճելի}}
+* Bulgarian: {{t+|bg|ху́бав}}
+* Chinese:
+*: Cantonese: {{t|yue|靚|tr=leng3}}, {{t|yue|好天|tr=hou2 tin1}}
+*: Hokkien: {{t+|nan-hbl|好天|tr=hó-thiⁿ}}
+*: Mandarin: {{t+|cmn|好天|tr=hǎotiān}}
+* Dutch: {{t+|nl|mooi}}
+* Finnish: {{t+|fi|kaunis}}
+* French: {{t+|fr|beau|m}}
+* German: {{t+|de|heiter}}, {{t+|de|schön}}
+* Hebrew: {{t+|he|נאה|tr=na'e}}
+* Hindi: {{t+|hi|मनोरम}}
+* Hungarian: {{t+|hu|szép}}
+* Irish: {{t|ga|álainn}}, {{t|ga|aoibhinn}}, {{t|ga|galánta}}, {{t|ga|breá}}
+* Italian: {{qualifier|before "tempo"}} {{t+check|it|bel}}, {{qualifier|after "tempo"}} {{t+check|it|bello}}
+* Kurdish:
+*: Central Kurdish: {{t|ckb|خۆش}}, {{t+|ckb|فێنک}}
+* Limburgish: {{t+|li|sjoen}}
+* Macedonian: {{t|mk|убаво|n}}
+* Malay: {{t+|ms|indah}}
+* Māori: {{t|mi|paruhi}}
+* Portuguese: {{t+|pt|limpo}}
+* Russian: {{t+|ru|я́сный}}, {{t+|ru|прекра́сный}}
+* Slovak: {{t|sk|pekný}}, {{t|sk|krásny}}
+* Spanish: {{t+|es|despejado}}, {{t+|es|alegre}}
+* Swedish: {{t+|sv|fin}}, {{t+|sv|vacker}}
+* Tamil: {{t+|ta|அழகிய}}
+* Telugu: {{t|te|ఆహ్లాదకరమైన}}
+* Turkish:
+*: Ottoman Turkish: {{t|ota|كوزل|tr=güzel, gözel}}
+* Ukrainian: {{t+|uk|ясни́й}}
+{{trans-bottom}}
+
+{{trans-top|impressing with charm in an intellectual or moral way}}
+* Finnish: {{t+|fi|kaunis}}, {{t+|fi|loistava}}
+* Hungarian: {{t+|hu|szép}}
+* Italian: {{t+|it|magnifico}}, {{t+|it|stupendo}}, {{t+|it|splendido}}, {{t+|it|fantastico}}
+* Macedonian: {{t|mk|убав}}
+* Norwegian:
+*: Bokmål: {{t+|nb|nydelig}}, {{t|nb|enestående}}
+*: Nynorsk: {{t|nn|nydeleg}}, {{t|nn|eneståande}}
+* Slovak: {{t|sk|krásny}}
+* Turkish:
+*: Ottoman Turkish: {{t|ota|كوزل|tr=güzel, gözel}}, {{t|ota|یخشی|tr=yahşi}}
+* Ukrainian: {{t+|uk|бездога́нний}}, {{t|uk|прекра́сний}}
+{{trans-bottom}}
+
+{{trans-top|as a pro-sentence}} {{attention|en|what the hell is this section?}}
+* German: {{t+|de|toll}}
+* Malay: {{t+|ms|cantik}}
+* Spanish: {{t+|es|bravo}}
+{{trans-bottom}}
+
+{{trans-top|used emphaticly or ironically}}
+* Finnish: {{t+|fi|loistava}}
+* German: {{t+|de|toll}}, {{t+|de|schön}}
+* Hungarian: {{t+|hu|szép}}
+* Macedonian: {{t|mk|убав}}
+* Malay: {{t+|ms|cantik}}
+{{trans-bottom}}
+
+====References====
+*{{R:OED|pos=''adj.'', ''n.'', & ''adv.''|noformat=1|url=https://www.oed.com/dictionary/beautiful_adj}}
+
+===Noun===
+{{en-noun}}
+
+# Someone who is beautiful. Can be used as a term of address.
+#: {{ux|en|The man was faithful to his wife, ignoring the many blonde '''beautifuls''' who surrounded him wherever he went.}}
+#: {{ux|en|Hey, '''beautiful!'''}}
+
+{{cln|en|endearing terms|terms of address}}
+{{C|en|Appearance}}

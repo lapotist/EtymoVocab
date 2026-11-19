@@ -98,27 +98,7 @@
      ]
     }
    ],
-   "morphology": [
-    {
-     "lang": "la",
-     "langName": "Latin",
-     "kind": "plus",
-     "parts": [
-      {
-       "term": "ne",
-       "gloss": "not",
-       "hint": null,
-       "url": "https://en.wiktionary.org/wiki/ne#Latin"
-      },
-      {
-       "term": "sciō",
-       "gloss": "to know",
-       "hint": null,
-       "url": "https://en.wiktionary.org/wiki/scio#Latin"
-      }
-     ]
-    }
-   ],
+   "morphology": [],
    "roots": [
     {
      "lang": "ine-pro",
@@ -144,7 +124,7 @@
      ],
      "translations": [
       {
-       "sense": "",
+       "sense": "pleasant, satisfactory",
        "mandarin": [
         "美好"
        ]

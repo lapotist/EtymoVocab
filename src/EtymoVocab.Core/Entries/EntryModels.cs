@@ -32,10 +32,16 @@ public sealed record RootRef(string Lang, string Root, string? EtymonId);
 
 public sealed record TermRef(string Lang, string Term);
 
+/// <summary>A term explicitly listed in a dedicated etymological relationship section.</summary>
+public sealed record EtymologicalRelation(string Kind, string Lang, string Term, string SourceSection);
+
 public sealed record TranslationGroup(string Sense, IReadOnlyList<string> Terms);
 
 /// <summary>Explicit dictionary relations, scoped to a part of speech and sense; never inferred from etymology.</summary>
-public sealed record LexicalRelation(string Kind, string Sense, IReadOnlyList<string> Terms);
+public sealed record LexicalRelation(string Kind, string Sense, IReadOnlyList<string> Terms)
+{
+    public IReadOnlyList<string> ThesaurusTargets { get; init; } = [];
+}
 
 public sealed record PartOfSpeech(string Pos, IReadOnlyList<string> Senses, IReadOnlyList<TranslationGroup> Translations)
 {
@@ -58,6 +64,7 @@ public sealed class EntrySection
     public List<Morphology> Morphology { get; } = [];
     public List<RootRef> Roots { get; } = [];
     public List<TermRef> Doublets { get; } = [];
+    public List<EtymologicalRelation> EtymologicalRelations { get; } = [];
     public List<PartOfSpeech> PartsOfSpeech { get; } = [];
 
     /// <summary>Prose templates usually spell out the longer chain; <c>{{etymon}}</c> gives the first hop only.</summary>

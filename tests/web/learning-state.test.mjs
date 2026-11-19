@@ -231,6 +231,7 @@ test('older curricula remain exportable but cannot affect current scores, comple
   answer(store, 'boundary');
   const nextVersion = createLearningStore({ storage, lessons, version: 'next-version', now: () => START });
   assert.deepEqual(nextVersion.getAttempts(), []);
+  assert.equal(nextVersion.hasExportableAttempts, true);
   assert.equal(nextVersion.getSummary().completedLessons, 0);
   assert.equal(nextVersion.getLessonProgress('negative-in').dueAt, null);
   assert.equal(nextVersion.canStartDelayed('negative-in'), false);
@@ -244,7 +245,7 @@ test('older curricula remain exportable but cannot affect current scores, comple
   assert.equal(reloaded.exportData().attempts.length, 3);
 });
 
-test('loading rejects malformed, foreign, duplicate, future, and prematurely delayed records', () => {
+test('loading rejects malformed, foreign, duplicate, and prematurely delayed records', () => {
   const { store } = setup();
   const valid = answer(store, 'transfer', { answerId: 'no', confidence: 'high' });
   const rows = [
@@ -259,6 +260,7 @@ test('loading rejects malformed, foreign, duplicate, future, and prematurely del
     { ...valid, id: 'bad-version', version: 'other' },
     { ...valid, id: 'bad-time', timestamp: '1700000000000' },
     { ...valid, id: 'negative-time', timestamp: -1 },
+    { ...valid, id: 'out-of-range', timestamp: 9e15 },
     { ...valid, id: 'future', timestamp: START + 1 },
     { ...valid, id: 'premature', questionId: 'delayed', phase: 'delayed', sense: 'not complete' },
     { ...valid, id: 'bad-known', priorKnowledge: 'known' },
@@ -413,4 +415,32 @@ test('invalid or oversized rationales are rejected without recording an attempt'
   assert.equal(store.getAttempts().length, 0);
   answer(store, 'transfer', { reason: 'a'.repeat(500) });
   assert.equal(store.getAttempts()[0].reason.length, 500);
+});
+
+test('clock rollback and reload preserve answers and the order in which they were submitted', () => {
+  const { store, storage } = setup();
+  const first = answer(store, 'transfer', { answerId: 'no' });
+  const reopened = createLearningStore({ storage, lessons, version: VERSION, now: () => START - 1000 });
+  assert.equal(reopened.getAttempts().length, 0);
+  assert.equal(reopened.exportData().attempts.length, 1);
+  const retry = answer(reopened);
+  assert.equal(retry.firstAttempt, false);
+  answer(reopened, 'boundary');
+  const restored = setup(storage).store;
+  assert.deepEqual(restored.getAttempts().map(row => row.questionId), ['transfer', 'transfer', 'boundary']);
+  assert.equal(restored.getAttempts()[0].id, first.id);
+  assert.deepEqual(restored.getSummary().transfer, { correct: 0, total: 1 });
+  assert.equal(restored.canStartDelayed('negative-in'), false);
+});
+
+test('clearing site storage in another tab removes its history before the next submission', () => {
+  const { store, storage } = setup();
+  answer(store);
+  storage.values.clear();
+  assert.equal(store.hasExportableAttempts, false);
+  answer(store, 'boundary');
+  storage.values.clear();
+  answer(setup(storage).store);
+  answer(store);
+  assert.deepEqual(setup(storage).store.getAttempts().map(row => row.questionId), ['transfer', 'transfer']);
 });

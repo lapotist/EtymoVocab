@@ -13,7 +13,8 @@ const storyOf = (word) => {
 test('nice: the answer leads with the meaning shift and keeps only changed meanings in the path', () => {
   const story = storyOf('nice');
   assert.match(story.headline, /最早記錄的意思是「ignorant, not knowing」（拉丁語 nescius），今天是「Pleasant/);
-  assert.deepEqual(story.literal.parts, [{ term: 'ne', gloss: 'not' }, { term: 'sciō', gloss: 'to know' }]);
+  assert.deepEqual(story.literal.via, { langName: 'Latin', term: 'nescius' });
+  assert.deepEqual(story.literal.parts.map(p => p.term), ['ne-', 'scius']);
   assert.deepEqual(story.path.map(p => [p.kind, p.term]), [['ancestor', 'nescius'], ['ancestor', 'nyce'], ['today', 'nice']]);
   // The obsolete sense "Silly, ignorant; foolish" repeats Middle English nyce, so it is not shown again.
   assert.ok(!story.path.some(p => p.kind === 'older'));
@@ -26,7 +27,7 @@ test('nice: the answer leads with the meaning shift and keeps only changed meani
 test('father: identical ancestor meanings collapse into one stable origin', () => {
   const story = storyOf('father');
   assert.equal(story.stable, true);
-  assert.equal(story.headline, 'father 的意思一路相近：最早可追溯到原始印歐語 *ph₂tḗr「father」。');
+  assert.equal(story.headline, 'father 的祖源詞釋義相近：最早記錄的是原始印歐語 *ph₂tḗr「father」，今天是「A male parent, especially of a human」。');
   assert.deepEqual(story.path.map(p => p.kind), ['ancestor', 'today']);
   assert.match(feelLines(story)[0], /^英語本土字，古英語時期/);
   assert.equal(story.literal.via.term, '*ph₂tḗr');
@@ -42,8 +43,16 @@ test('inspect: a direct Latin borrowing gets the literal parts and a labelled te
 test('transport: synonymous glosses are one meaning, and historical senses never enter the path', () => {
   const story = storyOf('transport');
   assert.equal(story.stable, true);
-  assert.match(story.headline, /一路相近：最早可追溯到拉丁語 trānsportāre「to carry over」/);
+  assert.match(story.headline, /祖源詞釋義相近：最早記錄的是拉丁語 trānsportāre「to carry over」，今天是「To carry or bear/);
   assert.ok(!story.path.some(p => /penal colony/.test(p.gloss)));
+});
+
+test('repeated ancestor glosses keep a distinct present-day sense in the headline', () => {
+  const result = fixture('transport');
+  const entry = result.etymologies[0];
+  const pos = { ...entry.partsOfSpeech[0], senses: ['To delight someone.'], translations: [] };
+  const story = buildWordStory(result, { ...entry, partsOfSpeech: [pos] });
+  assert.match(story.headline, /祖源詞釋義相近.*「to carry over」，今天是「To delight someone」。/);
 });
 
 test('hotel: long chains keep the origin and the two latest changes; today skips the historical sense', () => {
@@ -56,6 +65,48 @@ test('an etymology without usable data is reported as empty instead of inventing
   const story = buildWordStory({ word: 'xyz' }, { steps: [], morphology: [], roots: [], partsOfSpeech: [] });
   assert.equal(story.empty, true);
   assert.equal(story.headline, null);
+});
+
+test('uncertain histories, ambiguous pages and semantic loans do not supply the story’s ancestry', () => {
+  const result = fixture('nice');
+  const entry = result.etymologies[0];
+  for (const flags of [{ uncertain: true }, { ambiguous: true }, { transitive: false }]) {
+    const steps = [{ ...entry.steps[0], ...flags }, ...entry.steps.slice(1)];
+    const story = buildWordStory(result, { ...entry, steps });
+    assert.equal(story.origin, null);
+    assert.equal(story.literal, null);
+    assert.equal(story.route, null);
+    assert.equal(story.path.some(point => point.kind === 'ancestor'), false);
+  }
+  const story = buildWordStory(result, { ...entry, uncertain: true, morphology: entry.steps.at(-1).morphology });
+  assert.equal(story.origin, null);
+  assert.equal(story.literal, null);
+  assert.match(story.today.gloss, /^Pleasant/);
+});
+
+test('a documented ancestor with uncertain earlier history contributes only its own meaning', () => {
+  const result = fixture('nice');
+  const entry = result.etymologies[0];
+  const steps = [{ ...entry.steps[0], ancestryUncertain: true, morphology: entry.steps.at(-1).morphology },
+    ...entry.steps.slice(1)];
+  const story = buildWordStory(result, { ...entry, steps });
+  assert.equal(story.origin.term, 'nyce');
+  assert.equal(story.literal, null);
+  assert.deepEqual(story.path.filter(point => point.kind === 'ancestor').map(point => point.term), ['nyce']);
+});
+
+test('translations and inherited labels stay with the sense they describe', () => {
+  const result = fixture('transport');
+  const entry = result.etymologies[0];
+  const pos = entry.partsOfSpeech[0];
+  const senses = ['(intransitive (formerly, chiefly)) (obsolete) A past sense.', ...pos.senses];
+  const translations = [...pos.translations].reverse();
+  const story = buildWordStory(result, { ...entry, partsOfSpeech: [{ ...pos, senses, translations }] });
+  assert.deepEqual(story.today.zh, ['輸送']);
+  assert.match(story.today.gloss, /^To carry or bear/);
+  const unrelated = buildWordStory(result, { ...entry, partsOfSpeech: [{ ...pos, translations: [{ sense: 'historical: deport to a penal colony', mandarin: ['流放'] }] }] });
+  assert.deepEqual(unrelated.today.zh, []);
+  assert.deepEqual(splitLabels(senses[0]), { labels: ['intransitive (formerly, chiefly)', 'obsolete'], text: 'A past sense.' });
 });
 
 test('gloss helpers: labels split off, long glosses cut at clause boundaries, polarity respected', () => {

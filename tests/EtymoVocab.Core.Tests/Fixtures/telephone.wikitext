@@ -1,0 +1,513 @@
+{{also|Telephone|téléphone|téléphoné|téléphône}}
+==English==
+{{was wotd|2026|March|10}}
+{{multiple images
+|image1 = Dialog gr 1972.jpg
+|caption1 = A [[rotary dial|rotary-dial]] telephone ''({{senseno|en|Q11035}})''.
+|image2 = Hand-smartphone-technology-calling.jpg
+|caption2 = A [[mobile telephone]] ''({{senseno|en|Q11035}})'' or [[mobile phone]].
+|image3 = Fig 7 Le Telephone by T du Moncel Paris 1880 (Large).jpg
+|caption3 = An 1880 drawing of a [[tin can telephone]] ''({{senseno|en|Q863640}})''.
+}}
+
+===Etymology===
+{{etymon|en|:bor|fr:téléphone<id:telephone>|id=device}}
+The {{lg|noun}} is derived from {{affix|en|tele-|pos1={{lg|prefix}} meaning ‘from a distance’|-phone|pos2={{lg|suffix}} denoting a device which makes a sound}}, modelled after {{cog|de|Telephon|t=early apparatus converting sound into electrical signals}} {{qualifier|dated}} (now {{cog|de|Telefon}}).<ref name="OED">{{R:OED Online|pos=n|id=2015603579|date=September 2025|nodot=1}}; {{R:Lexico|pos=n}}</ref> The word was first used to refer to the modern device in 1876 by the Scottish-born Canadian-American engineer {{w|Alexander Graham Bell}} (1847–1922).
+
+The prefix {{m|en||tele-}} is ultimately derived from {{der|en|grc|τῆλε|t=afar, far away, far off}}, from {{der|en|ine-pro|*kʷelh₁-|t=to turn end-over-end; to revolve around; hence, to dwell, sojourn}}.<ref>{{R:OED Online|entry=tele-|pos=''comb. form''|noformat=1|id=3978633267|date=December 2025|nodot=1}}; {{R:Lexico|entry=tele-}}</ref> The suffix {{m|en||-phone}} is ultimately from {{der|en|grc|φωνή|t=sound; voice}},<ref>{{R:OED Online|entry=-phone|pos=''comb. form''|noformat=1|id=2891556446|date=December 2024|nodot=1}}; {{R:Lexico|entry=-phone}}</ref> and {{der|en|ine-pro|*bʰeh₂-|t=to say; to speak}}.
+
+{{senseno|en|Q36764|uc=1}} (“system of communication using musical notes”) is borrowed from {{bor|en|fr|téléphone|t=kind of megaphone; system of communication using musical notes}}.<ref name="OED"/>
+
+The {{lg|verb}} is derived from the noun.<ref>{{R:OED Online|pos=v|id=1448846986|date=September 2025|nodot=1}}; {{R:Lexico|pos=v}}</ref>
+
+===Pronunciation===
+* {{IPA|en|/ˈtɛlɪˌfəʊn/|/ˈtɛləˌfəʊn/|a=RP}}
+* {{IPA|en|/ˈtɛləˌfoʊn/|[ˈtɛɫ-]|a=GA}}
+** {{audio|en|En-us-telephone.ogg|a=GA}}
+* {{IPA|en|[ˈteɫəˌfəʉn]|a=AU}}
+* {{IPA|en|[ˈteɫəˌfɐʉn]|a=NZ}}
+* {{IPA|en|/ˈtɛlɪfon/|a=Scotland}}
+* {{IPA|en|/ˈtɛlɪfoːn/|a=Wales,non-toe-tow}}
+* {{hyphenation|en|tel|e|phone}}
+
+===Noun===
+{{en-noun|~}}
+
+# {{senseid|en|Q11035}}{{lb|en|countable|telephony}} A [[telecommunication]] [[device]] which [[convert#Verb|converts]] [[datum|data]] or [[sound#Noun|sounds]] (usually [[speech#Noun|speech]]) into [[electrical#Adjective|electrical]] [[signal#Noun|signals]] which are then [[transmit]]ted to [[enable]] [[two#Numeral|two]] or more [[person#Noun|people]] to [[communicate#Verb|communicate]] with each other over a [[distance#Noun|distance]]; now usually a device having a [[dial#Noun|dial]] or [[keypad]] with [[numeral#Noun|numerals]] for [[enter#Verb|entering]] a [[number#Noun|number]], etc., to [[connect#Verb|connect]] with a person, and [[means#Noun|means]] (such as a sound or [[vibration]]) for [[alert#Verb|alerting]] one to an [[incoming#Adjective|incoming]] [[call#Noun|call]] or [[transmission]]; also, the [[handset]] or [[receiver]] of such a device.
+#: {{syn|en|Ameche<q:US, slang, dated>|blower<q:slang>|dog and bone<q:slang>|horn<q:informal>|phone|pipe<q:slang>|Thesaurus:phone}}
+#: {{hypo|en|cellphone|;|cordless phone|cordless telephone|;|mobile phone|mobile telephone|;|payphone|;|satellite phone|satellite telephone}}
+#* {{quote-journal|en|year='''1876''' May 10 (date delivered)|author=[[w:Alexander Graham Bell|A[lexander] Graham Bell]]|title=Researches in Telephony|journal=[[w:Daedalus (journal)|Proceedings of the American Academy of Arts and Sciences]]|location=Boston, Mass.|publisher=Press of John Wilson and Son|year_published=1877|volume=IV (New Series; volume XII overall)|pages=7–8|pageurl=https://archive.org/details/proceedingsofame12amer/page/7/mode/1up|issn=0199-9818|oclc=835587818|passage=The '''telephones''' so constructed were placed in different rooms. {{...}} Upon singing into the '''telephone''', the tones of the voice were reproduced by the instrument in the distant room. When two persons sang simultaneously into the instrument, two notes were emitted simultaneously by the '''telephone''' in the other house. {{...}} I placed the membrane of the '''telephone''' near my mouth, and uttered the sentence, "Do you understand what I say?" Presently an answer was returned through the instrument in my hand. Articular words proceeded from the clock-spring attached to the membrane, and I heard the sentence, "Yes; I understand you perfectly."}}
+# {{lb|en|countable|archaic|later in|_|India}} {{short for|en|telephone call|t=a [[connection]] [[establish]]ed over a telephone [[network#Noun|network]]; a [[conversation]] [[hold#Verb|held]] by the [[party#Noun|parties]] on this connection}}.
+# {{lb|en|countable|figurative}} A means of communicating [[information]] from one person to another or others.
+#* {{quote-book|en|year=1990|author=w:Earl Babbie|chapter=Channels to Elsewhere|editors=[[w:Thomas Robbins (sociologist)|Thomas Robbins]]; w:Dick Anthony|title=In Gods We Trust: New Patterns of Religious Pluralism in America|location=New Brunswick, N.J.; London|publisher=w:Transaction Publishers|section=part IV (Spiritual Innovation and the New Age)|page=256|pageurl=https://archive.org/details/ingodswetrustnew0000unse/page/256/mode/1up|isbn=978-0-88738-800-2|passage=In the terminology associated with this phenomenon, Jach Pursel is known as a "channel"—a vehicle through which "entities" from other planes of existence choose to address human beings. In a more familiar metaphor, Jach is the '''telephone''' through which Lazaris places his long distance calls: very long distance calls.}}
+# {{lb|en|countable|historical}}
+## {{senseid|en|Q863640}} ''Now chiefly preceded by a [[descriptive#Adjective|descriptive]] [[word#Noun|word]]'': a [[simple#Adjective|simple]] [[communication]] device which converts sounds (usually speech) into [[mechanical#Adjective|mechanical]] vibrations along a [[string#Noun|string]], [[wire#Noun|wire]], etc.
+##: {{coi|en|string '''telephone'''&emsp;&emsp;&emsp; [[tin can telephone|tin can '''telephone''']]}}
+##* {{quote-journal|en|year=1832|month=August|title=Art. II.—''The Music of Nature; or An Attempt to Prove that what is Passionate and Pleasing in the Art of Singing, Speaking, and Performing upon Musical Instruments, is Derived from the Sounds of the Animated World. With Curious and Interesting Illustrations.'' By William Gardener. 8vo. pp. 530. London: Longman and Co. 1832. {{quote-gloss|book review}}|journal=[[w:Monthly Review (London)|The Monthly Review]]|location=London|publisher=G. Henderson,{{nb...|2, Old Bailey.}}|volume=II (New and Improved Series)|issue=IV|page=496|pageurl=https://archive.org/details/monthlyreview23wasogoog/page/496/mode/1up|oclc=977712396|passage=If a string of packthread be attached to the stem of a tuning fork, and the other end of the thread be wrapt round the little finger, and placed in the chamber of the ear, the sound of the fork, when made to vibrate, will be heard at the end of the thread, though two hundred yards distant, while it is altogether imperceptible to a bystander. It has been suggested, that telegraphs, or, more properly speaking, '''''telephones''''', might be invented upon this principle. The author states that some such instruments have been already perfected, and are about to be exhibited, but we have as yet heard nothing of them.}}
+##* {{quote-book|en|year=2013|author=[[w:John Keane (political theorist)|John Keane]]|chapter=Communicative Abundance|title=Democracy and Media Decadence|location=Cambridge, Cambridgeshire|publisher=w:Cambridge University Press|pages=5–6|pageurl=https://archive.org/details/democracymediade0000kean/page/6/mode/1up|isbn=978-1-107-04177-6|passage=The days are behind us (I recall) when children played with makeshift '''telephones''' made from jam tins connected by string; {{...}}}}
+## {{lb|en|archaic}} A [[type#Noun|type]] of [[foghorn#Noun|foghorn]] [[use#Verb|used]] for [[send#Verb|sending]] signals in the [[form#Noun|form]] of [[loud#Adjective|loud]] [[tone#Noun|tones]] or [[musical#Adjective|musical]] [[note#Noun|notes]], especially one [[invent]]ed in the 19th [[century]] by John Taylor, a [[captain#Noun|captain]] in the [[British#Adjective|British]] [[Royal Navy]].
+##* {{quote-book|en|year=1899|author=J[ohn] J[oseph] Fahie|chapter=First Period—The Possible|title=A History of Wireless Telegraphy 1838–1899: Including Some Bare-wire Proposals for Subaqueous Telegraphs|location=Edinburgh; London|publisher=[[w:Blackwood (publishing house)|William Blackwood and Sons]]|page=7|pageurl=https://archive.org/details/historyofwireles00fahirich/page/n32/mode/1up|oclc=499612971|passage=It is not easy to say from these passages (which are all we could find on the subject) what plan [[w:Edward Davy|{{quote-gloss|Edward}} Davy]] had in contemplation. In the first quotation he speaks of bells, for which we may read a powerful trumpet at one end, and a concave reflector to focus the sound at the other end; or some arrangement like the compressed-air '''telephone''', proposed by Captain Taylor, R.N., in 1844; {{...}}}}
+## {{lb|en|archaic}} A communication device [[consist#Verb|consisting]] of two [[aligned#Adjective|aligned]] [[gutta-percha]] [[speaking tube]]s connected to [[parabolic reflector]]s which [[allow]]s speech [[speak#Verb|spoken]] into one [[tube#Noun|tube]] to be sent through the [[air#Noun|air]] to the other one, invented in the 19th century by the [[British#Adjective|British]] [[engineer#Noun|engineer]] {{w|Francis Whishaw}} (1804–1856); also, a speaking tube of such a device.
+##* {{quote-journal|en|date=30 June 1849|title=Gossip from London|editors=[[w:William Chambers (publisher)|William]] and [[w:Robert Chambers (journalist)|Robert Chambers]]|journal=[[w:Chambers's Edinburgh Journal|Chambers’s Edinburgh Journal]]|location=Edinburgh|publisher=William and Robert Chambers; London: [[w:Orr's Circle of the Sciences#William S Orr & Co.|W[illiam] S[omerville] Orr]]|volume=XI|issue=287 (New Series)|page=408|pageurl=https://archive.org/details/chambersedinburg1112cham/page/n419/mode/1up|column=1|oclc=4167154|passage=While on the subject of gutta-percha, a few words may very well be given to Mr. Whishaw's inventions: among these are speaking-tubes, to supersede bells in private houses or offices. So extraordinary are the conducting powers of this new product, that a whisper may can be conveyed to long distances; {{...}} [W]e are, it seems, to be able to speak to a distance without any connecting tube at all; across the inner quadrangle of a building, for instance, by means of large concave gutta-percha reflectors, fixed, one opposite to the other, {{...}} [E]ach reflector would be mounted on a stand similar to that of a theodolite; and thus the portable '''''telephone''''' would be available where the ''telegraph'', as at present arranged, does not admit of application.}}
+## {{senseid|en|Q36764}}{{lb|en|archaic}} A [[system]] of communication using musical notes, also known as {{w|Solresol}}, invented in 1828 by the [[French#Adjective|French]] [[composer]] [[w:François Sudre|Jean-François Sudre]] (1787–1862).
+##* {{quote-journal|en|year=1841|month=December|title=[Miscellaneous.] Musical Telegraph.|journal=The American Repertory of Arts, Sciences, and Manufactures|location=New York, N.Y.|publisher=W. A. Cox|volume=IV|issue=5|page=375|pageurl=https://archive.org/details/sim_american-repertory-of-arts-science-and-manufactures_1841-12_4_5/page/375/mode/1up|issn=3068-4870|oclc=10012128|passage=We extract from the ''France Musicale'' a few curious particulars relative to the invention of a kind of marine telegraph, called the "'''''Telephone'''''," invented by an ingenious Frenchman, Monsieur Sudre, and by which orders may be transmitted at night, when other means of communication fail. {{...}} A commission {{...}} verified by experiment the rapidity with which all naval commands could be communicated at night through the medium of a clarion, to a distance which may be increased to 2200 toises (about two miles) but which varies according to the state of the atmosphere. {{...}} [T]he return of the same sounds guarantied to M. Sudre the perfect comprehension of his orders, and the Admiral congratulated him on his success.}}
+# {{lb|en|uncountable|Canada|US|games}} {{synonym of|en|Chinese whispers|t=a [[game#Noun|game]] for [[several#Adjective|several]] [[player]]s in which a [[phrase#Noun|phrase]], [[whisper#Verb|whispered]] by each person [[in turn]] to their [[neighbour#Noun|neighbour]], is often [[unwittingly]] [[misunderstand|misunderstood]] as it is [[transfer#Verb|transferred]], to [[humorous]] [[effect#Noun|effect]] by the [[time#Noun|time]] it [[reach#Verb|reaches]] the [[last#Adjective|last]] person and is [[compare#Verb|compared]] with the [[original#Adjective|original]] phrase; ({{italic|figurative}}) a [[situation]] where something is [[change#Verb|changed]] or misunderstood [[as a result of]] [[pass#Verb|passing]] through [[successive]] people or [[process#Noun|processes]]}}.
+#* {{quote-web|en|date=27 October 2013|author=Erik Adams|title={{w|The Simpsons}} (Classic): ‘{{w|The PTA Disbands}}’|work=w:The A.V. Club|archiveurl=https://web.archive.org/web/20251016040633/https://www.avclub.com/the-simpsons-classic-the-pta-disbands-1798178460|passage=And since the spring of 1995, no game of '''telephone''' has ended without some ''Simpsons''-loving smart-ass dropping "purple monkey dishwasher" into the chain.}}
+#* {{quote-journal|en|date=3 October 2017|author=David Dobbs|title=The Touch of Madness|journal=w:Pacific Standard|archiveurl=https://web.archive.org/web/20250823162237/https://psmag.com/magazine/the-touch-of-madness-mental-health-schizophrenia/|location=Santa Barbara, Calif.|publisher=Miller-McCune Center for Research, Media and Public Policy|issue=59|issn=2165-5200|oclc=773195196|passage=[T]he assistant dean of students, having intervened to clear the way for Jones’ return to class, told Jones that {{quote-gloss|Tina}} Chanter had told him that someone had told her that Jones had told someone something that made them think Jones wanted to blow up the philosophy building. {{...}} [B]oth she {{quote-gloss|Azadeh Erfani}} and Jones now wonder whether, in some transmutational chain of retellings among other students, or perhaps even as the word of this hallucination reached Chanter's ears, Jones' vision of puffing away a wall of weak atomic links had morphed into a scarier vision of her blowing a building to pieces with a bomb. {{...}} In other words, {{quote-gloss|Nev}} Jones' career and life may have been derailed because a game of '''telephone''' went bad.}}
+
+====Usage notes====
+Regarding {{senseno|en|Q11035}} (“telecommunication device which converts data or sounds into electrical signals which are then transmitted”), ''telephone'' tends to be used to mean a fixed-line or [[landline]] telephone rather than a [[mobile phone]].<ref name="OED"/>
+
+====Hyponyms====
+{{col4|en
+|answerphone
+|candlestick telephone
+|cellular telephone
+|cordless telephone
+|daffodil telephone
+|field telephone
+|French telephone
+|magnetotelephone
+|mobile telephone
+|monotelephone
+|pantelephone
+|pedestal telephone
+|pillar telephone
+|portable telephone
+|public telephone
+|radiotelephone,radio-telephone,radio telephone
+|satellite telephone
+|tin can telephone
+|videotelephone|courtesy telephone|smart telephone
+}}
+
+====Derived terms====
+{{col4|en
+|antitelephone
+|big white telephone
+|broken telephone
+|Einstein-Podolsky-Rosen telephone
+|EPR telephone
+|Everett-Wheeler telephone
+|on the telephone
+|phone<pos:n>
+|plain old telephone service
+|post office telephone system
+|premium-rate telephone number
+|pretelephone
+|talk to God on the big white telephone
+|talk to Ralph on the big white telephone
+|telco
+|telemarketing
+|telephonable
+|telephone alphabet
+|telephone answering machine
+|telephone-bell
+|telephone book
+|telephone booth
+|telephone box
+|telephone call
+|telephone card
+|telephone conference
+|telephone desk
+|telephone directory
+|telephone exchange
+|telephone game
+|telephone girl
+|telephone jack
+|telephone kiosk
+|telephoneless
+|telephonelike
+|telephone line
+|telephone number
+|telephone operator
+|telephone pole
+|telephone ring
+|telephone scatologia
+|telephone sex
+|telephone shower
+|telephone tag
+|telephone typewriter
+|telephonic
+|telephonicate
+|telephonist
+|telephonitis
+|telephonology
+|telephonophile
+|telephonophobia
+|telephonophobic
+|telephony
+|telethon
+|thermotelephone
+|Tucker telephone
+|untelephoned
+|white-telephone,white telephone
+}}
+
+====Translations====
+{{trans-top|telecommunication device which converts data or sounds into electrical signals which are then transmitted to enable two or more people to communicate with each other over a distance}}
+* Abkhaz: {{t|ab|ателефон}}
+* Afrikaans: {{t+|af|telefoon}}
+* Alabama: {{t|akz|maanaaɬihilka}}, {{t|akz|masnaaɬiilka}}, {{t|akz|naaɬiikapalki}} {{qualifier|old}}
+* Albanian: {{t+|sq|telefon|m}}
+* Amharic: {{t|am|ስልክ|?}}, {{t|am|ቴሌፎን|?}}
+* Arabic: {{t+|ar|هَاتِف|m}}, {{t+|ar|تِلِفون|m|tr=telefōn}}
+*: Egyptian Arabic: {{t|arz|تليفون|m|tr=telefōn}}
+*: Hijazi Arabic: {{t|acw|تِلِفون|m|tr=tilifōn}}
+*: Moroccan Arabic: {{t|ary|تلفون|m|tr=tilifūn}}, {{t|ary|تليفون|m|tr=tilīfūn}}
+* Aramaic:
+*: Assyrian Neo-Aramaic: {{t|aii|ܚܘܼܛܵܡܲܠܵܠܵܐ|tr=ḵuṭāmalālā}}, {{t|aii|ܬܸܠܸܦ̮ܘܿܢ|tr=tilifon}}
+* Armenian: {{t+|hy|հեռախոս}}
+* Assamese: {{t|as|টেলিফোন}}
+* Assiniboine: {{t|asb|masʾápabi}}
+* Asturian: {{t+|ast|teléfonu|m}}
+* Atayal: {{t|tay|renwa'}}
+* Azerbaijani:
+*: Arabic: {{t|az|تلفون|tr=talfun, telfun, telifon}}
+*: Latin: {{t+|az|telefon}}
+* Bashkir: {{t|ba|телефон}}
+* Basque: {{t|eu|telefono}}
+* Belarusian: {{t|be|тэлефо́н|m}}
+* Bengali: {{t+|bn|দূরভাষা}}, {{t+|bn|ফোন}}, {{t+|bn|টেলিফোন}}
+* Bouyei: {{t|pcc|dianqhuaq}}
+* Breton: {{t+|br|pellgomz|m}}
+* Bulgarian: {{t|bg|телефо́н|m}}
+* Burmese: {{t+|my|တယ်လီဖုန်း}}, {{t+|my|ဖုန်း}}, {{t+|my|စကားပြောကြေးနန်း}}
+* Buryat: {{t|bua|телефон}}
+* Carpathian Rusyn: {{t|rue|телефо́н|m}}
+* Catalan: {{t+|ca|telèfon|m}}
+* Cebuano: {{t|ceb|telepono}}
+* Chechen: {{t|ce|телефон}}
+* Cherokee: {{t|chr|ᎠᎾᎦᎵᏍᎩ ᎠᏏᎳᏛ}}, {{t|chr|ᏗᎵᏃᎮᏗ}}
+* Cheyenne: {{t|chy|aseéestsestôtse}}
+* Chinese:
+*: Cantonese: {{t|yue|電話}}
+*: Dungan: {{t|dng|дянхуа}}, {{t|dng|телефон}}
+*: Eastern Min: {{t|cdo|電話}}
+*: Hakka: {{t|hak|電話|tr=thien-fa}}
+*: Hokkien: {{t+|nan-hbl|電話|tr=tiān-ōe}}
+*: Jin: {{t|cjy|電話}}
+*: Mandarin: {{t+|cmn|電話}}
+*: Wu: {{t|wuu|電話}}
+* Chukchi: {{t|ckt|вэтгавъёԓгын|tr=vėtgavʺjoḷgyn}}
+* Chuvash: {{t|cv|телефон}}
+* Comox: {{t|coo|sqʷay}}
+* Corsican: {{t|co|telefonu|m}}
+* Cree:
+*: Plains Cree: {{t|crk|ᓭᐁᐧᐱᒋᑲᐣ|tr=sewepicikan}}, {{t|crk|ᐊᔭᒫᑲᐣ|tr=ayamâkan}}
+*: Southern East Cree: {{t|crj|ᑖᐦᑳᐱᐦᒉᓂᑲᓐ}}
+* Crimean Tatar: {{t|crh|telefon}}
+* Czech: {{t+|cs|telefon|m}}
+* Danish: {{t+|da|telefon|c}}
+* Dusun:
+*: Central Dusun: {{t|dtp|telefon}}
+* Dutch: {{t+|nl|telefoon|m}}, {{t|nl|beltoestel|n}}
+* Esperanto: {{t+|eo|telefono}}
+* Estonian: {{t+|et|telefon}}
+* Faroese: {{t|fo|telefon|f}}
+* Finnish: {{t+|fi|puhelin}}
+* French: {{t+|fr|téléphone|m}}
+* Frisian:
+*: West Frisian: {{t|fy|telefoan|m}}, {{t|fy|tillefoan|m}}
+* Friulian: {{t|fur|telefon|?}}
+* Fula:
+*: Adlam: {{t|ff|𞤼𞤢𞤤𞤭𞤬𞤮𞤲}}
+*: Latin: {{t|ff|talifon}}
+* Galician: {{t+|gl|teléfono|m}}
+* Georgian: {{t|ka|ტელეფონი}}
+* German: {{t+|de|Telefon|n}}, {{t+|de|Telephon|n}} {{qualifier|dated}}, {{t+|de|Fernsprecher|m}} {{qualifier|dated}}, {{t+|de|Fon|n}} {{q|rare}}
+*: Central Franconian: {{t|gmw-cfr|Fäänshpräscho|?}}
+* Greek: {{t+|el|τηλέφωνο|n}}
+* Greenlandic: {{t|kl|oqarasuaat}}
+* Guarani:
+*: Paraguayan Guarani: {{t-check|gug|pumbyry}}, {{t-check|gug|mombyñe'ẽporu}}, {{t-check|gug|ñe'ẽmbyry}}
+* Gujarati: {{t|gu|દૂરબોલ|?}}, {{t|gu|ટેલિફોન|?}}, {{t|gu|દૂરભાષ|?}}
+* Haitian Creole: {{t|ht|telefòn}}
+* Hawaiian: {{t|haw|kelepona}}
+* Hebrew: {{t+|he|טֶלֶפוֹן|m|tr=télefon}}
+* Hindi: {{t+|hi|दूरभाष|m}}, {{t|hi|टेलीफ़ोन|m}}, {{t|hi|फ़ोन|m}}, {{t+|hi|टेलिफोन|m}}, {{t+|hi|फोन|m}}
+* Hungarian: {{t+|hu|telefon}}, {{t+|hu|távbeszélő}}
+* Icelandic: {{t+|is|sími|m}}
+* Ido: {{t+|io|telefonilo}}
+* Indonesian: {{t+|id|telepon}}, {{t+|id|telefon}}
+* Ingrian: {{t|izh|telefona}}
+* Inuktitut: {{t|iu|uqaalaut}}
+* Irish: {{t|ga|teileafón|m}}, {{t+|ga|guthán|m}}, {{t|ga|fón|m}}
+* Italian: {{t+|it|telefono|m}}
+* Japanese: {{t+|ja|電話|tr=でんわ, denwa}}
+* Kalmyk: {{t|xal|утцн}}
+* Kannada: {{t+|kn|ದೂರವಾಣಿ}}, {{t+|kn|ಗೆಂಟುಮಾತು}}
+* Kapampangan: {{t|pam|teleponu}}
+* Kazakh: {{t+|kk|телефон}}
+* Khmer: {{t+|km|ទូរស័ព្ទ}}, {{t|km|តេឡេហ្វូន}}
+* Korean: {{t+|ko|전화(電話)}}
+* Kurdish:
+*: Central Kurdish: {{t|ckb|ته‌له‌فۆن}}
+*: Northern Kurdish: {{t+|kmr|telefon|f}}, {{t+|kmr|dûrdeng|f}}
+* Kyrgyz: {{t+|ky|телефон}}
+* Lakota: {{t|lkt|omásʼapȟe}}
+* Lao: {{t+|lo|ໂທລະສັບ}}, {{t|lo|ໂທຣະສັບ}}, {{t|lo|ເຕເລໂຟນ}}
+* Latin: {{q|New}} {{t|la|tēlephōnum|n}}, {{t|la|tēlephōnium|n}}
+* Latvian: {{t|lv|telefons|m}}, {{t+|lv|tālrunis|m}}
+* Lingala: {{t|ln|ebengeli}}
+* Lithuanian: {{t+|lt|telefonas|m}}
+* Lü: {{t|khb|ᦶᦎᧃᧈᦧᦱᧈ}}
+* Macedonian: {{t+|mk|телефо́н|m}}
+* Malagasy: {{t+|mg|telefaonina}}
+* Malay: {{t+|ms|telefon}}
+*: Brunei Malay: {{t|kxd|talipun}}
+* Malayalam: {{t+|ml|ടെലിഫോൺ}}, {{t|ml|ദൂരശ്രാവി}}
+* Malecite-Passamaquoddy: {{t|pqm|mattoktihikon}}
+* Maltese: {{t|mt|telefon|m}}, {{t|mt|telefown|m}}
+* Manx: {{t|gv|çhellvane|m}}
+* Māori: {{t|mi|waea}}, {{t|mi|whoounu}}, {{t|mi|waeakōrero}}, {{t|mi|terepōno}} {{qualifier|obsolete}}, {{t|mi|terewhōno}} {{qualifier|obsolete}}
+* Marathi: {{t|mr|टेलीफोन|?}}, {{t|mr|फोन|m}}, {{t|mr|दूरध्वनी|?}}
+* Mauritian Creole: {{t|mfe|telefonn}}
+* Minjungbal: {{t|xjb|gulgun biral}}
+* Mongolian:
+*: Cyrillic: {{t+|mn|утас}}, {{t+|mn|телефон}}, {{t|mn|дянхуа}}
+*: Mongolian script: {{t|mn|ᠤᠲᠠᠰᠤ}}, {{t|mn|ᠲ᠋ᠧᠯᠧᠹᠣᠨ}}, {{t|mn|ᠳ᠋ᠢᠶᠠᠩᠬᠤᠸᠠ}}
+* Naga:
+*: Khiamniungan Naga: {{t|kix|nyūthī}}
+* Nahuatl: {{t|nah|mekatlanonotski}}, {{t|nah|huehcacaquiztli}}
+* Navajo: {{t|nv|béésh bee haneʼé}}
+* Nepali: {{t|ne|टेलिफोन}}
+* Norman: {{t|nrf|téléphône|m}}
+* Norwegian:
+*: Bokmål: {{t+|nb|telefon|m}}
+*: Nynorsk: {{t|nn|telefon|m}}
+* Occitan: {{t+|oc|telefòn|m}}
+* Odia: {{t+|or|ଟେଲିଫୋନ}}
+* Ojibwe: {{t|oj|giigidowin}}
+* Oromo: {{t|om|bilbila}}
+* Pannonian Rusyn: {{t|rsk|телефон|m}}
+* Papiamentu: {{t|pap|telefón}}
+* Pashto: {{t+|ps|تيلفون|m|tr=telefun}}
+* Pawnee: {{t|paw|rarácawakataku}}
+* Pennsylvania German: {{t|pdc|Faernschwetzer|m}}
+* Persian:
+*: Dari: {{t|prs|تیلِفون}}, {{t|prs|فون}}
+*: Iranian Persian: {{t|fa-ira|تِلِفُن}}
+* Pitcairn-Norfolk: {{t|pih|foen}}
+* Plautdietsch: {{t|pdt|Tellefoon|n}}
+* Polish: {{t+|pl|telefon|m}}
+* Portuguese: {{t+|pt|telefone|m}}
+* Punjabi: {{t|pa|ਟੈਲੀਫ਼ੋਨ|m}}, {{t|pa|ਫ਼ੋਨ|m}}
+* Quechua: {{t|qu|karu rimay}}
+* Romanian: {{t+|ro|telefon|n}}
+* Romansh: {{t|rm|telefon|m}}
+* Russian: {{t+|ru|телефо́н|m}}
+* Sami:
+*: Northern Sami: {{t|se|telefovdna}}
+* Samoan: {{t+|sm|telefoni}}
+* Sanskrit: {{t|sa|दूरभाषा|f}}, {{t|sa|दूरवाणी|f}}
+* Sardinian: {{t|sc|telèfonu|m}}
+* Scots: {{t|sco|telephone}}
+* Scottish Gaelic: {{t|gd|fòn|f}}, {{t|gd|cian-fhuaim|m}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|телѐфо̄н|m}}
+*: Latin: {{t+|sh|telèfōn|m}}
+* Shan: {{t|shn|တႄႇလီႇၾူၼ်း}}
+* Shona: {{t|sn|runhare}}
+* Sicilian: {{t+|scn|tilèfunu|m}}, {{t+|scn|telèfunu|m}}, {{t|scn|talèfunu|m}}
+* Sindhi: {{t+|sd|ڏور وايو|alt=ڏُور وايو}}
+* Sinhalese: {{t|si|බණුව}}, {{t|si|දුරකථනය}}
+* Slovak: {{t|sk|telefón|m}}
+* Slovene: {{t+|sl|telefon|m}}
+* Southern Altai: {{t|alt|телефон}}
+* Spanish: {{t+|es|teléfono|m}}
+* Sranan Tongo: {{t|srn|teilefown}}, {{t|srn|konkrutitei}}, {{t|srn|gengen}}
+* Swahili: {{t+|sw|simu}}
+* Swedish: {{t+|sv|telefon|c}}
+* Tagalog: {{t+|tl|telepono}}, {{t+|tl|hatinig}}
+* Tahitian: {{t|ty|niuniu paraparau}}
+* Tajik: {{t+|tg|телефон}}
+* Tamil: {{t+|ta|தொலைபேசி}}, {{t|ta|ஃபோன்}}, {{t|ta|டெலிஃபோன்}}
+* Tatar: {{t|tt|телефон}}
+* Telugu: {{t+|te|దూరవాణి}}, {{t|te|టెలీఫోను}}, {{t|te|ఫోను}}
+* Thai: {{t+|th|โทรศัพท์}}
+* Tibetan: {{t|bo|ཁ་པར}}, {{t|bo|ཞལ་པར}} {{qualifier|honorific}}
+* Tigrinya: {{t|ti|ተለፎን|?}}, {{t|ti|ስልኪ|?}}
+* Tok Pisin: {{t|tpi|telipon}}
+* Turkish: {{t+|tr|telefon}}, {{t|tr|alısün}}
+*: Ottoman Turkish: {{t|ota|تلفون|tr=téléfon}}, {{t|ota|دور شنید|tr=dūr-şenīd}}
+* Turkmen: {{t|tk|telefon}}
+* Ukrainian: {{t+|uk|телефо́н|m}}
+* Ulithian: {{t|uli|dengwa}}
+* Unami: {{t|unm|sëkahsën}}
+* Urdu: {{t|ur|ٹیلی فون|m}}, {{t|ur|ہاتِف|f}}, {{t|ur|فون|m}}, {{t|ur|دور گو|tr=dūr-go}}
+* Uyghur: {{t+|ug|تېلېفون}}
+* Uzbek: {{t+|uz|telefon}}
+* Venda: {{t|ve|luṱingo}}
+* Vietnamese: {{t+|vi|điện thoại}} ({{t|vi|電話}}), {{t|vi|dây nói}}, {{t+|vi|phôn}} {{qualifier|informal}}
+* Volapük: {{t+|vo|telefonöm}}, {{qualifier|complete unit}} {{t+|vo|telefonaparat}}
+* Walloon: {{t+|wa|telefone|m}}, {{t|wa|tèlèfone|m}}
+* Welsh: {{t+|cy|teleffon|m}}, {{t+|cy|ffôn|m}}
+* West Flemish: {{t|vls|telefoeng|m}}, {{t|vls|teelefoeng|m}}
+* Xhosa: {{t|xh|umnxeba}}
+* Yakut: {{t|sah|телефон}}
+* Yami: {{t|tao|dingwa}}
+* Yiddish: {{t|yi|טעלעפֿאָן|n}}
+* Yup'ik: {{t|esu|qanercuun}}
+* Yurok: {{t|yur|'o chweeegeen}}
+* Zhuang: {{t|za|denva}}
+* Zulu: {{t+|zu|ucingo}}
+{{trans-bottom}}
+
+{{trans-see|''synonym of'' telephone call|telephone call}}
+
+{{trans-top|means of communicating information from one person to another or others}}
+* Finnish: {{t+|fi|kanava}}, {{t+|fi|puhelin}}
+* French: {{t-needed|fr}}
+{{trans-bottom}}
+
+{{trans-top|simple communication device which converts sounds into mechanical vibrations along a string, wire, etc.}}
+* Finnish: {{t+|fi|puhelin}}
+* French: {{t-needed|fr}}
+{{trans-bottom}}
+
+{{trans-top|type of foghorn used for sending signals in the form of loud tones or musical notes}}
+* Finnish: {{t+|fi|sumutorvi}}
+* French: {{t-needed|fr}}
+{{trans-bottom}}
+
+{{trans-top|communication device consisting of two aligned gutta-percha speaking tubes}}
+* Finnish: {{t+|fi|puhelin}}
+* French: {{t-needed|fr}}
+{{trans-bottom}}
+
+{{trans-top|system of communication using musical notes}}
+* Finnish: {{t+|fi|säveltapailu}}
+* French: {{t-needed|fr}}
+{{trans-bottom}}
+
+{{trans-see|''synonym of'' Chinese whispers|Chinese whispers}}
+
+===Verb===
+{{en-verb}}
+
+# {{lb|en|transitive}}
+## To [[convey]] ([[information]], a [[message#Noun|message]], [[news#Noun|news]], etc.) [[use#Verb|using]] a [[telephone#Noun|telephone]] ''({{senseno|en|Q11035}})''.
+##* {{RQ:Robert Byron Europe|chapter=V|page=31|passage=David '''telephoned''' his apologies to his mother. On the way we had had our first puncture, and had taken some time to change the wheel, as we were unable to find the jack.}}
+##* {{quote-book|en|year=1961|author=w:Xavier Herbert|title=Soldiers’ Women|location=Sydney, N.S.W.|publisher=[[w:Angus & Robertson|Angus and Robertson]]|page=395|oclc=4482528|passage=He '''telephoned''' what he knew to his chief, the information such as to cause the smug complacency of that gentlemen in his henchman's prowess to vanish from his expression, {{...}}}}
+## To ([[attempt#Verb|attempt]] to) [[contact#Verb|contact]] (someone) using a telephone.
+##: {{syn|en|call#Verb|call up#Verb|drop someone a line<alt:drop (someone) a line>|ring#Verb<q:chiefly Commonwealth>|ring up<q:chiefly Commonwealth>|phone#Verb|Thesaurus:telephone}}
+##: {{hypo|en|call back#Verb|retelephone#Verb}}
+##* {{quote-journal|en|year=1961|month=November|title=Talking of Trains: Derailment near Holmes Chapel|journal=[[w:Modern Railways|Trains Illustrated]]|location=London|publisher=w:Ian Allan Publishing|page=652|issn=0141-9935|oclc=35845948|passage=The length ganger saw the train passing with the van derailed and promptly '''telephoned''' the Sandbach signalman, who restored his signals to danger, but not in time to stop the train before the final derailment occurred.}}
+## {{lb|en|obsolete}}
+### To [[provide]] (a [[place#Noun|place]]) with a telephone [[system]].
+###* {{quote-journal|en|date=14 December 1901|author=J. Williams Benn|title=The Telephone Deal|journal=[[w:The Speaker (periodical)|The Speaker: The Liberal Review]]|location=London; Paris|publisher=[[w:Cassell (publisher)|Cassell and Co.]],{{nb...|Ltd., London, Paris, New York, and Melbourne.}}|volume=V (New Series)|issue=115|page=296|pageurl=https://archive.org/details/sim_speaker-the-liberal-review_1901-12-14_5_115/page/296/mode/1up|column=1|oclc=1566794713|passage=The London County Council prepared careful estimates for '''telephoning''' London in 1898, and those estimates were submitted to Parliament. It contended that it could provide a telephone service for the County Council area of London at £38 per subscriber capital outlay, after setting aside the necessary funds for the debt charge and after paying the Post Office the 10 per cent. royalty.}}
+### To [[transmit]] ([[sound#Noun|sounds]]) over a [[distance#Noun|distance]].
+###* {{RQ:Lawrence Birds|poem=Bare Almond-trees|stanza=3|page=44|passage=Do you hear the chemical accents of the sun? / Do you '''telephone''' the roar of the waters over the earth?}}
+# {{lb|en|intransitive}} To (attempt to) contact someone using a telephone; to [[make#Verb|make]] a [[telephone call]].
+#* {{RQ:Barr Stranleigh Abroad|page=139|passage=I came down like a wolf on the fold, didn't I? Why didn't I '''telephone'''? Strategy, my dear boy, strategy. This is a surprise attack, and I'd no wish that the garrison, forewarned, should escape.}}
+#* {{quote-journal|en|year=1944|month=July–August|title=Top Link Drivers: XXI—Driver H. Blunt, L.N.E.R.|journal=w:The Railway Magazine|location=London|publisher=Tothill Press|page=226|issn=0033-8923|oclc=1256058197|passage=Having completed their task, Fireman Page '''telephoned''' from a lineside box to the next signal cabin, briefly reported the incident and said that, as no high explosive had dropped and the track was safe, they proposed proceeding "at caution".}}
+#* {{quote-book|en|year=1971|author=w:Martin Nordegg|chapter=Convincing a European Expert|editor=T. D. Regehr|title=The Possibilities of Canada are Truly Great: Memoirs 1906–1924|location=Toronto, Ont.|publisher=[[w:Macmillan Publishers|Macmillan of Canada]]|page=89|pageurl=https://archive.org/details/possibilitiesofc0000nord/page/89/mode/1up|oclc=427669|passage=The only chance we had was to '''telephone''' to the manager of the hotel in Calgary to send two bottles of Scotch without fail by the next train leaving Calgary for the west.}}
+
+====Derived terms====
+{{col3|en
+|phone<pos:v>
+|retelephone
+|telephonable
+|telephoned<pos:a>
+|telephoner
+|telephoning<pos:n>
+}}
+
+====Translations====
+{{trans-top|(''transitive'') to convey (information, a message, news, etc.) using a telephone}}
+* Esperanto: {{t+|eo|telefoni}}
+* Finnish: {{t|fi|[[välittää]] [[puhelimitse]]}}
+* French: {{t-needed|fr}}
+{{trans-bottom}}
+
+{{trans-top|(''transitive'') to (attempt to) contact (someone) using a telephone; (''intransitive'') to (attempt to) contact someone using a telephone}}
+* Albanian: {{t+|sq|telefonoj}}
+* Arabic: {{t|ar|تَلْفَنَ}} ({{lang|ar|[[ل|لـِ]]}} {{q|li-}} ), {{t+|ar|هَاتَفَ}}
+* Armenian: {{t+|hy|զանգել}}, {{t+|hy|զանգահարել}}, {{t+|hy|հեռաձայնել}} {{qualifier|Western Armenian}}
+* Azerbaijani: {{t|az|zəng etmək}}, {{t|az|zəng vurmaq}}
+* Belarusian: {{t|be|тэлефанава́ць|impf}}, {{t|be|патэлефанава́ць|pf}}, {{t|be|звані́ць|impf}}, {{t|be|пазвані́ць|pf}}
+* Bengali: {{t|bn|টেলিফোন করা}}
+* Breton: {{t+|br|pellgomz}}
+* Bulgarian: {{t+|bg|телефони́рам|impf|pf}}, {{t+|bg|обаждам|impf|alt=оба́ждам се}}, {{t+|bg|обадя|pf|alt=оба́дя се}}
+* Burmese: {{t|my|ဖုန်းဆက်}}, {{t|my|ဖုန်းခေါ်}}
+* Catalan: {{t+|ca|telefonar}}, {{t+|ca|cridar}}, {{t+|ca|trucar}}
+* Cherokee: {{t|chr|ᎦᎸᏛᏂᎭ}}
+* Chinese:
+*: Mandarin: {{t+|cmn|打電話}}
+* Crimean Tatar: {{t|crh|telefon etmek}}
+* Czech: {{t+|cs|telefonovat|impf}}, {{t|cs|zatelefonovat|pf}}, {{t+|cs|volat|impf}}, {{t+|cs|zavolat|pf}}
+* Danish: {{t+|da|ringe}}, {{t+|da|telefonere}}
+* Dutch: {{t+|nl|telefoneren}}, {{t+|nl|bellen}}, {{t+|nl|opbellen}}
+* Esperanto: {{t+|eo|telefoni}}, {{t|eo|alvoki}}
+* Estonian: {{t+|et|helistama}}
+* Finnish: {{t|fi|[[soittaa]] (puhelimella)}}
+* French: {{t+|fr|téléphoner}}, {{t+|fr|appeler}}
+* Galician: {{t+|gl|telefonar}}
+* Georgian: {{t|ka|დარეკვა}}
+* German: {{t+|de|telefonieren}}, {{t+|de|anrufen}}
+* Greek: {{t+|el|τηλεφωνώ}}, {{t+|el|καλώ}}
+* Hebrew: {{t+|he|צלצל|tr=tsiltsél|alt=צילצל \ צִלְצֵל}}
+* Hindi: {{t|hi|फ़ोन करना}}
+* Hungarian: {{t+|hu|telefonál}}
+* Icelandic: {{t+|is|hringja}}, {{t|is|hringja í}}
+* Ido: {{t+|io|telefonar}}
+* Indonesian: {{t+|id|menelepon}}, {{t+|id|memanggil}}
+* Italian: {{t+|it|telefonare}}
+* Japanese: {{t+|ja|電話をかける|tr=でんわをかける, denwa o kakeru}}, {{t+|ja|電話|tr=でんわする, denwa suru|alt=電話する}}
+* Kazakh: {{t|kk|телефон соғу}}, {{t|kk|қоңырау шалу}}
+* Khmer: {{t|km|[[និយាយ]][[ទូរសព្ទ]]|tr=niyiəy tuurĕəʼsap}}
+* Korean: {{t|ko|전화를 걸다}}, {{t+|ko|전화하다}}
+* Kurdish:
+*: Northern Kurdish: {{t+|kmr|telefon kirin}}
+* Kyrgyz: {{t|ky|шыңгыратуу}}
+* Lao: {{t|lo|ຕີເຕເລໂຟນ}}
+* Latvian: {{t|lv|telefonēt}}, {{t|lv|piezvanīt}}, {{t|lv|zvanīt}}
+* Lithuanian: {{t|lt|telefonuoti}}, {{t|lt|skambinti}}
+* Macedonian: {{t|mk|телефони́ра|impf|pf}}, {{t|mk|ѕвони|impf}}, {{t|mk|заѕвони|pf}}
+* Malay: {{t|ms|menelefon}}, {{t|ms|memanggil}}
+* Maltese: {{t|mt|ċempel|m}}
+* Māori: {{t|mi|rīngi}}, {{t|mi|waea}}
+* Mongolian:
+*: Cyrillic: {{t+|mn|утасдах}}
+* Norwegian:
+*: Bokmål: {{t+|nb|ringe}}
+*: Nynorsk: {{t-needed|nn}}
+* Pashto: {{t|ps|تېلېفون کول|tr=telefǔn kawël}}
+* Persian: , {{t+|fa|تلفن کردن|tr=telefon kardan}}, {{t+|fa|تلفن زدن|tr=telefon zadan}}, {{t|fa|دورواژیدن|tr=durvâžidan}}, {{t+|fa|زنگ زدن|tr=zang zadań}}
+* Polish: {{t+|pl|telefonować|impf}}, {{t+|pl|zatelefonować|pf}}, {{t+|pl|dzwonić|impf}}, {{t+|pl|zadzwonić|pf}}
+* Portuguese: {{t+|pt|telefonar}}, {{t+|pt|ligar}}
+* Romanian: {{t+|ro|telefona|alt=a telefona}}
+* Romansh: {{t|rm|telefonar}}
+* Russian: {{t+|ru|телефони́ровать|impf|pf}} {{qualifier|rare}}, {{t+|ru|звони́ть|impf}}, {{t|ru|[[позвони́ть]] по [[телефон|телефо́ну]]|pf}}
+* Scottish Gaelic: {{t|gd|fòn}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|телефони́рати|impf|pf}}, {{t|sh|[[назвати]] [[на]] [[телефон]]|pf}}
+*: Latin: {{t+|sh|telefonírati|impf|pf}}, {{t|sh|[[nazvati]] [[na]] [[telefon]]|pf}}
+* Slovak: {{t|sk|telefonovať|impf}}, {{t|sk|zatelefonovať|pf}}, {{t|sk|volať|impf}}, {{t|sk|zavolať|pf}}
+* Slovene: {{t|sl|telefonirati|impf|pf}}
+* Spanish: {{t+|es|telefonear}}, {{t+|es|llamar|alt=llamar por teléfono}}
+* Sranan Tongo: {{t|srn|bèl}}, {{t|srn|kari}}, {{t|srn|naki wan konkrutitei}}, {{t|srn|naki wan gengen}}
+* Swahili: {{t|sw|piga simu}}
+* Swedish: {{t+|sv|telefonera}}, {{t+|sv|ringa}}
+* Tajik: {{t|tg|телефон кардан}}
+* Thai: {{t+|th|โทร|tr=too}}, {{t+|th|โทรศัพท์}}
+* Tibetan: {{t|bo|ཁ་དཔར་གཏོང་བ}}
+* Turkish: {{t+|tr|telefon etmek}}, {{t+|tr|telefonlamak}}, {{t+|tr|aramak}}
+* Ukrainian: {{t+|uk|телефонува́ти|impf}}, {{t|uk|зателефонува́ти|pf}}, {{t|uk|дзвони́ти|impf}}, {{t|uk|подзвони́ти|pf}}
+* Urdu: {{t|ur|فون کرنا|tr=fon karnā}}, {{t|ur|ملانا|tr=milānā}}
+* Uyghur: {{t|ug|تېلېفون بەرمەك}}
+* Uzbek: {{t|uz|telefon qilmoq}}, {{t|uz|qoʻngʻiroq qilmoq}}
+* Vietnamese: {{t+|vi|phôn}}, {{t+|vi|điện}}, {{t+|vi|điện thoại}}, {{t|vi|gọi điện}}, {{t|vi|gọi điện thoại}}, {{t|vi|kêu điện thoại}}
+* Volapük: {{t+|vo|telefonön}}
+* Yiddish: {{t|yi|טעלעפֿאָנירן}}
+{{trans-bottom}}
+
+===References===
+{{reflist}}
+
+===Further reading===
+* {{pedia}}
+
+===Anagrams===
+* {{anagrams|en|a=eeehlnopt|phenetole}}

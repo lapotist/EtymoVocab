@@ -48,6 +48,7 @@ public class LookupTests
         Assert.All(steps, s => Assert.False(s.Ambiguous));
         Assert.Equal("Middle English", steps[0].LangName);
         Assert.Equal("father", steps[0].Id); // the etymon sense id travels with the step
+        Assert.Equal("father", steps[0].EtymonId);
     }
 
     [Fact]
@@ -65,7 +66,7 @@ public class LookupTests
     }
 
     [Fact]
-    public async Task Request_budget_stops_expansion_with_a_warning_but_keeps_the_result_cacheable()
+    public async Task Request_budget_stops_expansion_with_a_partial_result_and_warning()
     {
         var client = new FixtureClient();
 
@@ -75,7 +76,7 @@ public class LookupTests
         Assert.Single(client.PageRequests);
         Assert.Equal("enm:fader", string.Join(",", result!.Etymologies.Single().Steps.Select(s => $"{s.Lang}:{s.Term}")));
         Assert.Single(result.Warnings);
-        Assert.True(result.Complete);
+        Assert.False(result.Complete);
     }
 
     [Fact]
@@ -88,6 +89,7 @@ public class LookupTests
         Assert.NotNull(result);
         Assert.False(result.Complete);
         Assert.Single(result.Warnings);
+        Assert.Equal((503, (int?)5), (result.UpstreamError!.Status, result.UpstreamError.RetryAfter));
         Assert.Equal(2, result.Etymologies.Single().Steps.Count);
     }
 
@@ -119,6 +121,7 @@ public class LookupTests
         var result = await Service(new FixtureClient()).LookupEntryAsync("enm", "fader", "father", CancellationToken.None);
 
         Assert.Equal("father", result!.Etymologies.Single().Id);
+        Assert.Null(await Service(new FixtureClient()).LookupEntryAsync("enm", "fader", "absent", CancellationToken.None));
     }
 
     [Fact]
@@ -142,6 +145,16 @@ public class LookupTests
 
         Assert.Equal(FixtureClient.SpekCategory, family!.Category);
         Assert.Equal([FixtureClient.SpekCategory + " (see)", FixtureClient.SpekCategory], client.CategoryRequests);
+    }
+
+    [Fact]
+    public async Task Root_family_with_an_unknown_id_does_not_borrow_another_senses_gloss()
+    {
+        var service = new RootFamilyService(new FixtureClient(), new LanguageRegistry());
+        var family = await service.GetAsync("ine-pro", "*speḱ-", "en", "unknown", CancellationToken.None);
+
+        Assert.NotNull(family);
+        Assert.Null(family.Gloss);
     }
 
     [Fact]
@@ -186,5 +199,17 @@ public class LookupTests
         Assert.Equal(323, family.Total);
         Assert.Contains("inspect", family.Members);
         Assert.Equal("to see, to look, to observe", family.Gloss);
+    }
+
+    [Fact]
+    public async Task Root_family_preserves_members_and_backoff_when_its_gloss_cannot_be_fetched()
+    {
+        var service = new RootFamilyService(new FixtureClient { FailOnRequest = 1 }, new LanguageRegistry());
+        var family = await service.GetAsync("ine-pro", "*speḱ-", "en", null, CancellationToken.None);
+
+        Assert.NotNull(family);
+        Assert.Contains("inspect", family.Members);
+        Assert.Null(family.Gloss);
+        Assert.Equal((503, (int?)5), (family.UpstreamError!.Status, family.UpstreamError.RetryAfter));
     }
 }

@@ -3,7 +3,17 @@ import { normalizeSavedWord } from './saved-words.js';
 
 const labels = { synonym: '同義詞', antonym: '反義詞' };
 
-export function createVocabularyView({ view, el, store, lookup, lookupBatch, preload, wordHref, exploreHref, sourceNote, inflectionNote, posNames }) {
+export function thesaurusLinks(el, targets = []) {
+  return targets.map(target => {
+    const [title, ...fragment] = target.split('#');
+    const href = 'https://en.wiktionary.org/wiki/Thesaurus:' + encodeURIComponent(title.replaceAll(' ', '_'))
+      + '#' + encodeURIComponent(fragment.join('#') || 'English');
+    return el('p', { class: 'small' }, el('a', { href, target: '_blank', rel: 'noopener' },
+      `查看 Wiktionary 詞庫：${target} ↗`));
+  });
+}
+
+export function createVocabularyView({ view, el, store, lookup, lookupBatch, preload, getBackoffUntil, wordHref, exploreHref, sourceNote, inflectionNote, posNames }) {
   let generation = 0;
   let controller;
   let collectionChanged;
@@ -91,18 +101,18 @@ export function createVocabularyView({ view, el, store, lookup, lookupBatch, pre
     return el('div', { class: 'relation-columns bulk-columns' }, ['synonym', 'antonym'].filter(kind => !batch.kind || batch.kind === kind).map(kind => {
       const matching = groups.filter(group => group.kind === kind).map(group => ({ ...group,
         terms: group.terms.filter(term => !needle || term.toLocaleLowerCase().includes(needle)),
-      })).filter(group => group.terms.length);
-      const listed = groups.some(group => group.kind === kind && group.terms.length);
+      })).filter(group => group.terms.length || (!needle && group.thesaurusTargets?.length));
+      const listed = groups.some(group => group.kind === kind && (group.terms.length || group.thesaurusTargets?.length));
       return el('section', { class: 'relation-column ' + kind },
         el('div', { class: 'relation-heading' }, el('h3', {}, labels[kind]),
           el('span', { class: 'count' }, new Set(matching.flatMap(group => group.terms)).size)),
         matching.length ? matching.map(group => el('div', { class: 'relation-group' },
           el('p', { class: 'relation-sense' }, el('span', { class: 'pos-tag' }, posNames[group.pos] || group.pos),
-            group.etymologyId ? ` · 詞源 ${group.etymologyId}` : '', ' · ', group.sense || group.definition || '未標示詞義'),
+            group.etymologyId ? ` · 詞源 ${group.etymologyId}` : '', ' · ', group.sense || (group.thesaurusTargets?.length ? '未標示詞義' : group.definition || '未標示詞義')),
           el('div', { class: 'chips' }, group.terms.map(term => termChip(term, {
             query, sourceWord: data.word, relation: kind, pos: group.pos, sense: group.sense,
             etymologyId: group.etymologyId, sourceUrl: data.source?.url,
-          })))))
+          }))), thesaurusLinks(el, group.thesaurusTargets)))
           : el('p', { class: 'muted small' }, listed ? '沒有符合篩選的單字。' : `Wiktionary 本詞條未列出${labels[kind]}。`));
     }));
   }
@@ -120,10 +130,6 @@ export function createVocabularyView({ view, el, store, lookup, lookupBatch, pre
     const start = el('button', { type: 'submit' }, '查詢這些單字');
     const stop = el('button', { type: 'button', class: 'secondary', disabled: true, onclick: stopBatch }, '停止查詢');
     const resume = el('button', { type: 'button', class: 'secondary', hidden: true, onclick: () => {
-      if (Date.now() < batch.retryAt) {
-        status.textContent = `請再等約 ${Math.ceil((batch.retryAt - Date.now()) / 1000)} 秒，再重試未完成的查詢。`;
-        return;
-      }
       const words = [...batch.pending];
       if (words.length) execute(words, true);
     } }, '重試未完成的查詢');
@@ -202,8 +208,9 @@ export function createVocabularyView({ view, el, store, lookup, lookupBatch, pre
 
     async function execute(words, append) {
       if (batch.busy || generation !== current) return;
-      if (Date.now() < batch.retryAt) {
-        status.textContent = `請再等約 ${Math.ceil((batch.retryAt - Date.now()) / 1000)} 秒再查詢。`;
+      const retryAt = Math.max(batch.retryAt, getBackoffUntil());
+      if (Date.now() < retryAt) {
+        status.textContent = `請再等約 ${Math.ceil((retryAt - Date.now()) / 1000)} 秒再查詢。`;
         return;
       }
       batch.retryAt = 0;

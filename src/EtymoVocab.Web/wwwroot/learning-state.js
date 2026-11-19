@@ -90,9 +90,9 @@ export function createLearningStore({ storage, lessons, version, now = () => Dat
     return { lesson, question };
   }
 
-  function completion(lesson) {
+  function completion(lesson, asOf = currentTime()) {
     const first = lesson.immediateIds.map(id => firstAnswers.get(attemptKey(lesson.id, id)));
-    const answered = first.filter(Boolean);
+    const answered = first.filter(attempt => attempt && attempt.timestamp <= asOf);
     const completedAt = answered.length === first.length ? Math.max(...answered.map(attempt => attempt.timestamp)) : null;
     return { answeredCount: answered.length, completedAt, dueAt: completedAt === null ? null : completedAt + DELAY_MS };
   }
@@ -109,7 +109,7 @@ export function createLearningStore({ storage, lessons, version, now = () => Dat
       throw new TypeError('A valid answer and confidence are required.');
     }
     if (question.phase === 'delayed') {
-      const { dueAt } = completion(lesson);
+      const { dueAt } = completion(lesson, timestamp);
       if (dueAt === null || timestamp < dueAt) throw new RangeError('The delayed question is not available yet.');
     }
     return Object.freeze({
@@ -150,50 +150,51 @@ export function createLearningStore({ storage, lessons, version, now = () => Dat
     ids.add(stored.id);
   }
 
-  // Read before writes and public reads so sequential activity in another tab is preserved.
-  // localStorage does not provide an atomic transaction across simultaneous tabs; this is local
-  // persistence, not cross-device synchronization.
+  function restore(stored) {
+    if (!stored || !isTimestamp(stored.timestamp) || !isText(stored.id)) return false;
+    if (ids.has(stored.id)) return true;
+    if (stored.version !== version) {
+      archive(stored);
+      return ids.has(stored.id);
+    }
+    try {
+      const candidate = makeAttempt(stored, stored.timestamp, stored.id);
+      if (stored.conceptId !== candidate.conceptId || stored.sense !== candidate.sense || stored.phase !== candidate.phase
+        || (stored.priorKnowledge === 'known' && (stored.answerId !== null || stored.confidence !== null))) return false;
+      append(candidate);
+      return true;
+    } catch { return false; }
+  }
+
   function synchronize() {
     if (!available) return;
     let raw;
     try { raw = persistence.getItem(LEARNING_STORAGE_KEY); } catch { available = false; return; }
-    if (raw == null) return;
-    let saved;
-    try { saved = JSON.parse(raw); } catch { return; }
-    if (saved?.schemaVersion !== SCHEMA_VERSION || !isVersion(saved.version) || !Array.isArray(saved.attempts)) return;
-
-    const loadedAt = currentTime();
-    // Persisted order breaks equal-timestamp ties. A later write appends after those existing
-    // responses, even when both tabs' clocks have the same millisecond timestamp.
-    const candidates = [
-      ...saved.attempts.filter(attempt => attempt && isTimestamp(attempt.timestamp) && attempt.timestamp <= loadedAt),
-      ...archivedAttempts, ...attempts,
-    ].sort((a, b) => a.timestamp - b.timestamp);
+    let candidates = [];
+    if (raw != null) {
+      let saved;
+      try { saved = JSON.parse(raw); } catch { return; }
+      if (saved?.schemaVersion !== SCHEMA_VERSION || !isVersion(saved.version) || !Array.isArray(saved.attempts)) return;
+      candidates = saved.attempts;
+    }
+    const previous = [...archivedAttempts, ...attempts];
     attempts.length = 0;
     archivedAttempts.length = 0;
     firstAnswers.clear();
     ids.clear();
+    // Persisted submission order remains authoritative when a clock correction reverses timestamps.
+    let damaged = false;
     for (const stored of candidates) {
-      if (!isText(stored.id) || ids.has(stored.id)) continue;
-      if (stored.version !== version) {
-        archive(stored);
-        continue;
-      }
-      try {
-        const candidate = makeAttempt(stored, stored.timestamp, stored.id);
-        // Local storage is untrusted. Validate the catalogue identity and delayed gate, and
-        // reconstruct derived correctness and first-attempt flags instead of trusting them.
-        if (stored.conceptId !== candidate.conceptId || stored.sense !== candidate.sense || stored.phase !== candidate.phase
-          || (stored.priorKnowledge === 'known' && (stored.answerId !== null || stored.confidence !== null))) continue;
-        append(candidate);
-      } catch { /* one damaged record must not discard valid local or remote evidence */ }
+      if (!restore(stored)) damaged = true;
     }
+    // Recover known valid rows from a damaged snapshot, but honor a cleared or replaced store.
+    if (damaged) for (const stored of previous) restore(stored);
   }
 
   function snapshot() {
     return {
       schemaVersion: SCHEMA_VERSION, version,
-      attempts: [...archivedAttempts, ...attempts].sort((a, b) => a.timestamp - b.timestamp).map(attempt => ({ ...attempt })),
+      attempts: [...archivedAttempts, ...attempts].map(attempt => ({ ...attempt })),
     };
   }
 
@@ -243,12 +244,13 @@ export function createLearningStore({ storage, lessons, version, now = () => Dat
   function getLessonProgress(lessonId) {
     synchronize();
     const lesson = findLesson(lessonId);
-    const { answeredCount, completedAt, dueAt } = completion(lesson);
+    const asOf = currentTime();
+    const { answeredCount, completedAt, dueAt } = completion(lesson, asOf);
     return {
       lessonId, immediateCompleted: completedAt !== null, answeredCount,
       totalCount: lesson.immediateIds.length, completedAt, dueAt,
-      delayedCompleted: firstAnswers.has(attemptKey(lessonId, lesson.delayedId)),
-      attempts: Object.freeze(attempts.filter(attempt => attempt.lessonId === lessonId)),
+      delayedCompleted: firstAnswers.get(attemptKey(lessonId, lesson.delayedId))?.timestamp <= asOf,
+      attempts: Object.freeze(attempts.filter(attempt => attempt.lessonId === lessonId && attempt.timestamp <= asOf)),
     };
   }
 
@@ -258,23 +260,26 @@ export function createLearningStore({ storage, lessons, version, now = () => Dat
       transfer: { correct: 0, total: 0 }, boundary: { correct: 0, total: 0 }, delayed: { correct: 0, total: 0 },
       confidentErrors: 0, completedLessons: 0,
     };
+    const asOf = currentTime();
     for (const attempt of firstAnswers.values()) {
-      if (attempt.priorKnowledge !== 'new') continue;
+      if (attempt.timestamp > asOf || attempt.priorKnowledge !== 'new') continue;
       const question = catalogue.get(attempt.lessonId).questions.get(attempt.questionId);
       const score = summary[attempt.phase === 'delayed' ? 'delayed' : question.kind];
       score.total += 1;
       if (attempt.correct) score.correct += 1;
       if (attempt.confidence === 'high' && !attempt.correct) summary.confidentErrors += 1;
     }
-    for (const lesson of catalogue.values()) if (completion(lesson).completedAt !== null) summary.completedLessons += 1;
+    for (const lesson of catalogue.values()) if (completion(lesson, asOf).completedAt !== null) summary.completedLessons += 1;
     return summary;
   }
 
   synchronize();
   return {
+    get hasExportableAttempts() { synchronize(); return ids.size > 0; },
     getAttempts() {
       synchronize();
-      return Object.freeze([...attempts]);
+      const asOf = currentTime();
+      return Object.freeze(attempts.filter(attempt => attempt.timestamp <= asOf));
     },
     getLessonProgress, getSummary, recordAttempt, exportData,
     canStartDelayed(lessonId) {

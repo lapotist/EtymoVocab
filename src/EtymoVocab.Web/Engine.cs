@@ -105,7 +105,8 @@ public static partial class Engine
         }
         catch (UpstreamUnavailableException ex)
         {
-            return Fail(503, "Wiktionary 暫時無法使用", ex.Message, ex.RetryAfter);
+            var error = RelatedLookupError.FromUpstream(ex);
+            return Fail(error.Status, error.Title, error.Detail, error.RetryAfter);
         }
         catch (Exception ex)
         {
@@ -116,10 +117,8 @@ public static partial class Engine
     private static string Ok<T>(T data, JsonTypeInfo<T> typeInfo) =>
         "{\"ok\":true,\"data\":" + JsonSerializer.Serialize(data, typeInfo) + "}";
 
-    private static string Fail(int status, string title, string? detail = null, TimeSpan? retryAfter = null) =>
-        JsonSerializer.Serialize(
-            new Failure(false, status, title, detail, retryAfter is { } wait ? (int)Math.Ceiling(wait.TotalSeconds) : null),
-            EngineJson.Default.Failure);
+    private static string Fail(int status, string title, string? detail = null, int? retryAfter = null) =>
+        JsonSerializer.Serialize(new Failure(false, status, title, detail, retryAfter), EngineJson.Default.Failure);
 
     /// <summary>Characters MediaWiki forbids in titles, plus control characters.</summary>
     private static bool IsValidTitle(string value) =>

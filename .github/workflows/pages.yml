@@ -57,6 +57,9 @@ jobs:
           test -f publish/wwwroot/word-story.js
           test -f publish/wwwroot/frequency.js
           test -s publish/wwwroot/data/en-frequency.txt
+          test -f publish/wwwroot/reverse-index.js
+          test -f publish/wwwroot/reverse-index-view.js
+          test -f publish/wwwroot/data/etymology-index/manifest.json
           du -sh publish/wwwroot
 
       - uses: actions/upload-pages-artifact@v3

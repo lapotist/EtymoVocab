@@ -129,7 +129,11 @@ public sealed class MediaWikiClient(HttpClient http, IResponseCache cache, Media
 
     public async Task<CategoryListing?> GetCategoryMembersAsync(string categoryTitle, int limit, CancellationToken ct)
     {
-        var key = $"cat:{limit}:{categoryTitle}";
+        ct.ThrowIfCancellationRequested();
+        // Wikimedia limits each anonymous category page to 500 members. Follow the supplied
+        // continuation, while bounding a whole family lookup to 2,000 members and five pages.
+        var wanted = Math.Clamp(limit, 1, RootFamilyService.MaxMembers);
+        var key = $"cat:{wanted}:{categoryTitle}";
         if (cache.TryGet(key, out CategoryListing? cached))
             return cached;
 
@@ -145,34 +149,53 @@ public sealed class MediaWikiClient(HttpClient http, IResponseCache cache, Media
             ["format"] = "json",
             ["formatversion"] = "2",
         };
+
         var members = new List<string>();
+        var seen = new HashSet<string>(StringComparer.Ordinal);
+        var continuations = new HashSet<string>(StringComparer.Ordinal);
         int? total = null;
         var categoryPageMissing = false;
-
-        // Members come alphabetically, at most 500 per request; follow the continuation so the whole family
-        // (up to `limit`) can be ranked, not just its first letters.
-        while (members.Count < limit)
+        var hasMore = false;
+        for (var round = 0; round < MaxContinuations; round++)
         {
-            parameters["cmlimit"] = Math.Clamp(limit - members.Count, 1, MaxCategoryMembersPerRequest).ToString();
+            ct.ThrowIfCancellationRequested();
+            parameters["cmlimit"] = Math.Min(wanted - members.Count, MaxCategoryMembersPerRequest).ToString();
             using var doc = await GetJsonAsync(parameters, ct);
             var query = doc.RootElement.GetProperty("query");
             if (query.TryGetProperty("categorymembers", out var list))
-                members.AddRange(list.EnumerateArray().Select(m => m.GetProperty("title").GetString()!));
-            if (total is null && query.TryGetProperty("pages", out var pages) && pages.GetArrayLength() > 0)
+            {
+                foreach (var item in list.EnumerateArray())
+                {
+                    var title = item.GetProperty("title").GetString()!;
+                    if (seen.Add(title)) members.Add(title);
+                    if (members.Count == wanted) break;
+                }
+            }
+            if (query.TryGetProperty("pages", out var pages) && pages.GetArrayLength() > 0)
             {
                 var page = pages[0];
                 categoryPageMissing = page.TryGetProperty("missing", out _);
                 if (page.TryGetProperty("categoryinfo", out var info) && info.TryGetProperty("pages", out var count))
                     total = count.GetInt32();
             }
-            if (!doc.RootElement.TryGetProperty("continue", out var next))
-                break;
+
+            hasMore = doc.RootElement.TryGetProperty("continue", out var next)
+                && next.TryGetProperty("cmcontinue", out _);
+            if (!hasMore || members.Count == wanted) break;
+            var token = next.GetProperty("cmcontinue").GetString()!;
+            if (!continuations.Add(token))
+                throw new UpstreamUnavailableException("Wiktionary 的字族清單重複回傳相同分頁，請稍後重試。");
             foreach (var property in next.EnumerateObject())
                 parameters[property.Name] = property.Value.ToString();
         }
 
-        var listing = members.Count == 0 && categoryPageMissing ? null : new CategoryListing(categoryTitle, total ?? members.Count, members);
-        cache.Set(key, listing, TimeSpan.FromMinutes(options.PageCacheMinutes), 1 + members.Count / 64);
+        var listing = members.Count == 0 && categoryPageMissing ? null
+            : new CategoryListing(categoryTitle, total ?? (hasMore ? null : members.Count), members);
+        ct.ThrowIfCancellationRequested();
+        // Upstream exceptions never reach the cache write. Do not cache an incomplete listing
+        // stopped by the page-count guard either; a later lookup may recover more members.
+        if (!hasMore || members.Count == wanted)
+            cache.Set(key, listing, TimeSpan.FromMinutes(options.PageCacheMinutes), 1 + members.Count / 64);
         return listing;
     }
 
@@ -231,7 +254,9 @@ public sealed class MediaWikiClient(HttpClient http, IResponseCache cache, Media
         var parameters = new Dictionary<string, string>
         {
             ["action"] = "query",
-            ["prop"] = "revisions",
+            ["prop"] = "revisions|redirects",
+            ["rdprop"] = "title",
+            ["rdlimit"] = "max",
             ["rvprop"] = "ids|timestamp|content",
             ["rvslots"] = "main",
             ["titles"] = string.Join('|', titles),
@@ -242,6 +267,8 @@ public sealed class MediaWikiClient(HttpClient http, IResponseCache cache, Media
 
         var renames = new Dictionary<string, string>(StringComparer.Ordinal);
         var pages = new Dictionary<string, WikiPage?>(StringComparer.Ordinal);
+        var aliases = new Dictionary<string, HashSet<string>>(StringComparer.Ordinal);
+        var continuationKeys = new List<string>();
         for (var round = 0; round < MaxContinuations; round++)
         {
             using var doc = await GetJsonAsync(parameters, ct);
@@ -258,16 +285,37 @@ public sealed class MediaWikiClient(HttpClient http, IResponseCache cache, Media
                 if (query.TryGetProperty("pages", out var pageList))
                 {
                     foreach (var page in pageList.EnumerateArray())
+                    {
                         ReadPage(page, pages);
+                        if (!page.TryGetProperty("redirects", out var incoming)) continue;
+                        var title = page.GetProperty("title").GetString()!;
+                        if (!aliases.TryGetValue(title, out var titlesForPage))
+                            aliases[title] = titlesForPage = new(StringComparer.Ordinal);
+                        foreach (var item in incoming.EnumerateArray())
+                        {
+                            var alias = item.GetProperty("title").GetString()!;
+                            if (!alias.Contains(':') || alias.StartsWith("Reconstruction:", StringComparison.Ordinal))
+                                titlesForPage.Add(alias);
+                        }
+                    }
                 }
             }
 
             // Large batches can be split by the API; follow its continuation parameters.
             if (!root.TryGetProperty("continue", out var next))
                 break;
+            foreach (var key in continuationKeys) parameters.Remove(key);
+            continuationKeys.Clear();
             foreach (var property in next.EnumerateObject())
+            {
                 parameters[property.Name] = property.Value.ToString();
+                continuationKeys.Add(property.Name);
+            }
         }
+
+        foreach (var (title, redirects) in aliases)
+            if (pages.GetValueOrDefault(title) is { } page)
+                pages[title] = page with { RedirectTitles = redirects.ToArray() };
 
         var result = new Dictionary<string, WikiPage?>(StringComparer.Ordinal);
         foreach (var requested in titles)
@@ -315,30 +363,36 @@ public sealed class MediaWikiClient(HttpClient http, IResponseCache cache, Media
             await _gate.WaitAsync(ct);
             try
             {
+                using var deadline = CancellationTokenSource.CreateLinkedTokenSource(ct);
+                deadline.CancelAfter(http.Timeout);
+                var token = deadline.Token;
                 using var request = new HttpRequestMessage(HttpMethod.Get, url);
                 request.Headers.TryAddWithoutValidation(options.BrowserMode ? "Api-User-Agent" : "User-Agent", options.UserAgent);
-                using var response = await http.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, ct);
+                using var response = await http.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, token);
                 status = response.StatusCode;
+                retryAfter = response.Headers.RetryAfter?.Delta
+                    ?? (response.Headers.RetryAfter?.Date is { } date ? date - DateTimeOffset.UtcNow : null);
+                if (retryAfter < TimeSpan.Zero)
+                    retryAfter = TimeSpan.Zero;
                 if (response.IsSuccessStatusCode && response.Content.Headers.ContentType?.MediaType == "application/json")
                 {
-                    await using var stream = await response.Content.ReadAsStreamAsync(ct);
-                    var doc = await JsonDocument.ParseAsync(stream, cancellationToken: ct);
+                    await using var stream = await response.Content.ReadAsStreamAsync(token);
+                    var doc = await JsonDocument.ParseAsync(stream, cancellationToken: token);
                     if (doc.RootElement.ValueKind == JsonValueKind.Object && doc.RootElement.TryGetProperty("error", out var error))
                     {
                         var code = error.TryGetProperty("code", out var c) ? c.GetString() : "unknown";
                         doc.Dispose();
-                        throw new UpstreamUnavailableException($"Wiktionary API 回報錯誤（{code}）。");
+                        throw new UpstreamUnavailableException($"Wiktionary API 回報錯誤（{code}）。", retryAfter,
+                            rateLimited: code == "ratelimited");
                     }
                     return doc;
                 }
-                retryAfter = response.Headers.RetryAfter?.Delta
-                    ?? (response.Headers.RetryAfter?.Date is { } date ? date - DateTimeOffset.UtcNow : null);
             }
             catch (HttpRequestException ex)
             {
                 throw new UpstreamUnavailableException("無法連線至 Wiktionary。", null, ex);
             }
-            catch (TaskCanceledException ex) when (!ct.IsCancellationRequested)
+            catch (OperationCanceledException ex) when (!ct.IsCancellationRequested)
             {
                 throw new UpstreamUnavailableException("Wiktionary 回應逾時。", null, ex);
             }
@@ -357,7 +411,8 @@ public sealed class MediaWikiClient(HttpClient http, IResponseCache cache, Media
             if (!retryable || attempt >= options.MaxRetries || delay > TimeSpan.FromSeconds(options.MaxRetryDelaySeconds))
             {
                 log?.Invoke($"Wiktionary request failed with HTTP {(int)status} (Retry-After: {retryAfter})");
-                throw new UpstreamUnavailableException($"Wiktionary 暫時無法使用（HTTP {(int)status}）。", retryAfter);
+                throw new UpstreamUnavailableException($"Wiktionary 暫時無法使用（HTTP {(int)status}）。", retryAfter,
+                    rateLimited: status == HttpStatusCode.TooManyRequests);
             }
             await Task.Delay(delay, ct);
         }

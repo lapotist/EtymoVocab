@@ -42,7 +42,7 @@ public static class TemplateKinds
 
     private static readonly HashSet<string> AffixTemplates = new(StringComparer.Ordinal)
     {
-        "af", "affix", "compound", "com", "surf", "blend", "prefix", "pre", "suffix", "suf", "confix", "con",
+        "af", "affix", "compound", "com", "surf", "surface analysis", "surface etymology", "blend", "prefix", "pre", "suffix", "suf", "confix", "con",
     };
 
     public static readonly HashSet<string> TranslationTemplates = new(StringComparer.Ordinal)
@@ -62,6 +62,9 @@ public static class TemplateKinds
     public static bool IsMention(string templateName) => MentionTemplates.Contains(templateName);
 
     public static bool IsAffix(string templateName) => AffixTemplates.Contains(templateName);
+
+    public static bool IsSurfaceAnalysis(string templateName) =>
+        templateName is "surf" or "surface analysis" or "surface etymology";
 
     public static bool IsEtymon(string templateName) => templateName is "etymon" or "ety";
 

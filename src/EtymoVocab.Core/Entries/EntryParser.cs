@@ -54,6 +54,16 @@ public static partial class EntryParser
                 var owner = etymologyHeadings.Count <= 1 ? 0 : current;
                 sections[owner].PartsOfSpeech.Add(ReadPartOfSpeech(text, headings, i, langCode, languages));
             }
+            if (headings[i].Title is "Derived terms" or "Related terms")
+            {
+                // A language-wide list after several homographs cannot safely be assigned to the last one.
+                if (etymologyHeadings.Count > 1
+                    && (i < etymologyHeadings[current] || headings[i].Level <= headings[etymologyHeadings[current]].Level))
+                    continue;
+                var owner = etymologyHeadings.Count <= 1 ? 0 : current;
+                sections[owner].EtymologicalRelations.AddRange(EtymologicalRelationReader.Read(
+                    WikiSections.OwnText(text, headings, i), headings[i].Title, langCode));
+            }
         }
         return sections;
     }
@@ -76,30 +86,64 @@ public static partial class EntryParser
         }
 
         var inAsideClause = false;
+        var inComparison = false;
+        var inSpecificSense = false;
+        var senseSources = new HashSet<(string Lang, string Term)>();
+        var sawProseOrigin = false;
+        var chainClosed = false;
         List<MorphPart>? plusGroup = null;
         for (var k = 0; k < templates.Count; k++)
         {
             var t = templates[k];
             var between = Between(k).Replace("cf.", "compare", StringComparison.OrdinalIgnoreCase);
-            var sentenceEnd = between.LastIndexOf('.');
+            var sentenceEnd = Math.Max(between.LastIndexOf('.'), between.LastIndexOf("\n\n", StringComparison.Ordinal));
             if (sentenceEnd >= 0)
+            {
+                // Later sentences often switch to a component's history or another sense.
+                // Keep their prose for display, without connecting it to the preceding origin.
+                chainClosed |= sawProseOrigin;
                 inAsideClause = false;
-            if (AsideRegex().IsMatch(sentenceEnd >= 0 ? between[(sentenceEnd + 1)..] : between))
-                inAsideClause = true;
+                inComparison = false;
+                inSpecificSense = false;
+            }
+            var clause = between[(sentenceEnd + 1)..];
+            inAsideClause |= AsideRegex().IsMatch(clause);
+            inComparison |= ComparisonRegex().IsMatch(clause);
+            inSpecificSense |= t.Name is "senseno" or "sense";
+            inComparison |= ComponentSubjectRegex().IsMatch(clause);
             var hedged = HedgeRegex().IsMatch(between);
 
             if (plusGroup is not null && !(plusMember[k] && Between(k).Trim() == "+"))
                 FlushPlusGroup(section, ref plusGroup);
 
+            if (inComparison)
+                continue;
+            if (inSpecificSense)
+            {
+                if (TemplateKinds.DerivationRelation(t.Name) is not null && t.Arg(2) is { } source && t.Arg(3) is { } term)
+                    senseSources.Add((source, WikitextCleaner.PlainTerm(term)));
+                continue;
+            }
             if (TemplateKinds.DerivationRelation(t.Name) is { } relation)
             {
+                var target = t.Arg(1);
+                var preceding = section.ProseSteps.LastOrDefault();
+                var namesPrecedingLanguage = preceding != null && target == preceding.Lang;
+                if (inAsideClause || chainClosed || (target != langCode && !namesPrecedingLanguage))
+                    continue;
+                if (preceding != null && !namesPrecedingLanguage && !FromOfRegex().IsMatch(between.TrimEnd()))
+                {
+                    chainClosed = true;
+                    continue;
+                }
                 var lang = t.Arg(2);
                 if (lang is null)
                     continue;
                 var term = InlineTerm.Parse(t.Arg(3) ?? "", allowLangPrefix: false);
+                sawProseOrigin = true;
                 section.ProseSteps.Add(new EtymStep(
                     lang, term.Term, t.Arg(4) ?? term.Mod("alt"), t.Arg(5) ?? t.Param("t", "gloss") ?? term.Mod("t"),
-                    relation, null, hedged || term.Flags.Contains("unc"), term.Mod("id") ?? t.Param("id"),
+                    relation, null, hedged || HasUncertainty(term), term.Mod("id") ?? t.Param("id"),
                     TemplateKinds.IsTransitive(relation)));
             }
             else if (TemplateKinds.IsMention(t.Name))
@@ -111,28 +155,36 @@ public static partial class EntryParser
                 var gloss = t.Arg(4) ?? t.Param("t", "gloss") ?? term.Mod("t");
                 if (plusMember[k])
                 {
+                    if (chainClosed) continue;
+                    sawProseOrigin = true;
+                    section.Uncertain |= hedged || HasUncertainty(term);
                     plusGroup ??= [];
                     plusGroup.Add(new MorphPart(lang, term.Term, gloss, term.Mod("id")));
                     continue;
                 }
                 var connector = FromOfRegex().Match(between.TrimEnd());
-                if (!inAsideClause && connector.Success && term.Term.Length > 0)
+                if (!chainClosed && !inAsideClause && connector.Success && term.Term.Length > 0)
                 {
+                    sawProseOrigin = true;
                     section.ProseSteps.Add(new EtymStep(
                         lang, term.Term, t.Arg(3), gloss, "from", ConnectorNote(between, connector),
-                        hedged, term.Mod("id")));
+                        hedged || HasUncertainty(term), term.Mod("id")));
                 }
             }
             else if (TemplateKinds.IsAffix(t.Name))
             {
+                sawProseOrigin = true;
+                section.Uncertain |= hedged || t.ArgsFrom(2).Any(arg => HasUncertainty(InlineTerm.Parse(arg, false)));
                 if (MorphologyReader.FromTemplate(t) is { } morphology)
                     section.AddMorphology(morphology);
             }
             else if (t.Name == "root" && t.Arg(2) is { } rootLang)
             {
+                section.Uncertain |= hedged;
                 foreach (var root in t.ArgsFrom(3))
                 {
                     var parsed = InlineTerm.Parse(root, allowLangPrefix: false);
+                    section.Uncertain |= HasUncertainty(parsed);
                     section.Roots.Add(new RootRef(rootLang, parsed.Term, parsed.Mod("id")));
                 }
             }
@@ -143,6 +195,7 @@ public static partial class EntryParser
             }
             else if (TemplateKinds.IsEtymon(t.Name))
             {
+                section.Uncertain |= hedged;
                 ReadEtymon(section, t, langCode);
             }
             else if (TemplateKinds.IsUncertainMarker(t.Name))
@@ -151,6 +204,10 @@ public static partial class EntryParser
             }
         }
         FlushPlusGroup(section, ref plusGroup);
+        // An etymon template can repeat a borrowing that the prose explicitly limits to one
+        // sense. An unqualified chain cannot represent that edge or anything reached through it.
+        var qualified = section.EtymonSteps.FindIndex(step => senseSources.Contains((step.Lang, WikitextCleaner.PlainTerm(step.Term))));
+        if (qualified >= 0) section.EtymonSteps.RemoveRange(qualified, section.EtymonSteps.Count - qualified);
         CopyEtymonIdsToProse(section);
     }
 
@@ -172,6 +229,7 @@ public static partial class EntryParser
 
         string? keyword = null;
         IReadOnlySet<string> keywordFlags = new HashSet<string>();
+        var keywordUncertain = false;
         List<MorphPart>? morphology = null;
         var morphologyKind = "af";
         var chainTaken = false;
@@ -191,7 +249,8 @@ public static partial class EntryParser
                 var parsedKeyword = InlineTerm.Parse(arg[1..], allowLangPrefix: false);
                 keyword = parsedKeyword.Term;
                 keywordFlags = parsedKeyword.Flags;
-                if (keywordFlags.Contains("unc"))
+                keywordUncertain = HasUncertainty(parsedKeyword);
+                if (keywordUncertain)
                     section.Uncertain = true;
                 morphologyKind = keywordFlags.Contains("surf") ? "surf" : "af";
                 continue;
@@ -201,6 +260,7 @@ public static partial class EntryParser
             var termLang = term.Lang ?? lang;
             if (keyword is null || term.Term.Length == 0)
                 continue;
+            section.Uncertain |= HasUncertainty(term);
 
             if (TemplateKinds.IsEtymonMorphology(keyword))
             {
@@ -214,7 +274,7 @@ public static partial class EntryParser
             else if (!chainTaken && TemplateKinds.EtymonChainRelation(keyword) is { } relation)
             {
                 AddEtymonChain(section.EtymonSteps, term, termLang, relation,
-                    keywordFlags.Contains("unc") || term.Flags.Contains("unc"));
+                    keywordUncertain || HasUncertainty(term));
                 chainTaken = true;
             }
         }
@@ -231,7 +291,7 @@ public static partial class EntryParser
             return;
         var (keyword, flags, terms) = InlineTerm.ParseEty(ety);
         if (terms.Count > 0 && TemplateKinds.EtymonChainRelation(keyword) is { } next)
-            AddEtymonChain(steps, terms[0], terms[0].Lang ?? lang, next, flags.Contains("unc"));
+            AddEtymonChain(steps, terms[0], terms[0].Lang ?? lang, next, flags.Contains("unc") || HasUncertainty(terms[0]));
     }
 
     /// <summary>Prose steps carry no ids; borrow them from matching etymons so ancestor pages resolve exactly.</summary>
@@ -264,12 +324,7 @@ public static partial class EntryParser
     {
         var definitions = WikiSections.OwnText(text, headings, index);
         var inflections = InflectionReader.Read(definitions, langCode);
-        var senses = definitions.Split('\n')
-            .Where(line => line.Length > 1 && line[0] == '#' && line[1] is not (':' or '*' or '#'))
-            .Select(line => PlainTextRenderer.Render(line[1..], languages))
-            .Where(sense => sense.Length > 0)
-            .Take(MaxSensesPerPartOfSpeech)
-            .ToList();
+        var senses = ReadSenses(definitions, languages).Take(MaxSensesPerPartOfSpeech).ToList();
 
         IReadOnlyList<TranslationGroup> translations = [];
         for (var j = index + 1; j < headings.Count && headings[j].Level > headings[index].Level; j++)
@@ -286,6 +341,42 @@ public static partial class EntryParser
             Lemmas = inflections.Lemmas,
             OnlyInflections = inflections.OnlyInflections,
         };
+    }
+
+    private static IEnumerable<string> ReadSenses(string definitions, LanguageRegistry languages)
+    {
+        var labels = new List<(int Depth, string Text)>();
+        foreach (var line in TemplateScanner.SplitTopLevel(definitions, '\n'))
+        {
+            if (!line.StartsWith('#')) continue;
+            var body = line.TrimStart('#');
+            var depth = line.Length - body.Length;
+            body = body.Trim();
+            if (body.Length == 0 || body[0] is ':' or '*') continue;
+            labels.RemoveAll(label => label.Depth >= depth);
+            var rendered = PlainTextRenderer.Render(body, languages);
+            if (rendered.Length == 0) continue;
+            // A label-only definition groups the indented senses below it.
+            if (body.StartsWith("{{", StringComparison.Ordinal) && IsLabelOnly(body))
+            {
+                labels.Add((depth, rendered));
+                continue;
+            }
+            yield return labels.Count == 0 ? rendered : string.Join(" ", labels.Select(l => l.Text)) + " " + rendered;
+        }
+    }
+
+    private static bool IsLabelOnly(string body)
+    {
+        var end = 0;
+        foreach (var template in TemplateScanner.Scan(body))
+        {
+            if (!body.AsSpan(end, template.Start - end).IsWhiteSpace()
+                || template.Name is not ("lb" or "lbl" or "label" or "q" or "qual" or "qualifier" or "senseid"))
+                return false;
+            end = template.End;
+        }
+        return end > 0 && body.AsSpan(end).IsWhiteSpace();
     }
 
     /// <summary>Mandarin rows of the per-sense translation tables (<c>{{trans-top|sense}} … {{trans-bottom}}</c>).</summary>
@@ -306,7 +397,7 @@ public static partial class EntryParser
         {
             switch (t.Name)
             {
-                case "trans-top" or "trans-top-also" or "checktrans-top":
+                case "trans-top" or "trans-top-also" or "trans-top-see" or "checktrans-top":
                     Flush();
                     var gloss = t.Arg(1) ?? t.Param("id");
                     sense = gloss is null ? null : PlainTextRenderer.Render(gloss, languages);
@@ -332,11 +423,22 @@ public static partial class EntryParser
     [GeneratedRegex(@"^Etymology(?:\s+\d+)?$")]
     private static partial Regex EtymologyHeadingRegex();
 
+    private static bool HasUncertainty(InlineTerm term) => term.Flags.Contains("unc")
+        || term.Mod("unc") is { } value && value.ToLowerInvariant() is not ("0" or "no" or "false");
+
     // Clauses whose mentions are side remarks, not ancestors: "compare X", "see X", "akin to X", ...
     [GeneratedRegex(@"\b(compare|see|akin|cognate|cognates|related|equivalent|influenced|contrast|unrelated|confer)\b", RegexOptions.IgnoreCase)]
     private static partial Regex AsideRegex();
 
-    [GeneratedRegex(@"\b(probably|possibly|perhaps|maybe|uncertain|unclear|doubtful|unknown)\b", RegexOptions.IgnoreCase)]
+    // "Equivalent to" can introduce an explicit surface formation. A comparison assigns
+    // subsequent terms and formations to another word.
+    [GeneratedRegex(@"\b(compare|see|akin|cognates?|contrast|unrelated|confer)\b", RegexOptions.IgnoreCase)]
+    private static partial Regex ComparisonRegex();
+
+    [GeneratedRegex(@"\b(?:the|its)\s+(?:prefix|suffix|first component|second component)\b", RegexOptions.IgnoreCase)]
+    private static partial Regex ComponentSubjectRegex();
+
+    [GeneratedRegex(@"\b(probably|possibly|potentially|likely|presumably|perhaps|maybe|uncertain|unclear|doubtful|unknown)\b", RegexOptions.IgnoreCase)]
     private static partial Regex HedgeRegex();
 
     [GeneratedRegex(@"(?:^|[\s,;(])(from|of)$", RegexOptions.IgnoreCase)]

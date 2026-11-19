@@ -4,7 +4,6 @@ const MAX_CONCURRENCY = 2;
 const forbidden = /[<>\[\]{}|#:/\\]/u;
 const controls = /[\u0000-\u001f\u007f-\u009f]/u;
 const canonical = value => value.normalize('NFC').trim().replace(/[ \u00a0]+/gu, ' ');
-const identity = value => value.toLowerCase();
 
 function invalidReason(term) {
   if (!term) return 'empty';
@@ -32,12 +31,11 @@ export function parseBulkWords(text, { limit = 20 } = {}) {
       invalid.push({ term, reason });
       continue;
     }
-    const key = identity(term);
-    if (seen.has(key)) {
+    if (seen.has(term)) {
       duplicates.push(term);
       continue;
     }
-    seen.add(key);
+    seen.add(term);
     if (words.length < limit) words.push(term);
     else overflow.push(term);
   }
@@ -60,7 +58,7 @@ function describeError(error) {
       : typeof error?.title === 'string' && error.title ? error.title : 'Lookup failed.',
     status: Number.isInteger(rawStatus) && rawStatus >= 100 && rawStatus <= 599 ? rawStatus : null,
     detail: typeof error?.detail === 'string' ? error.detail : null,
-    retryAfter: Number.isFinite(retryAfter) && retryAfter > 0 ? Math.ceil(retryAfter) : null,
+    retryAfter: error?.retryAfter != null && Number.isFinite(retryAfter) && retryAfter >= 0 ? Math.ceil(retryAfter) : null,
   });
 }
 
@@ -87,10 +85,10 @@ export async function runBulkLookup(words, { lookup, lookupBatch, batchSize = 5,
   for (const value of words) {
     if (typeof value !== 'string') throw new TypeError('Words must be text.');
     const word = canonical(value);
-    if (invalidReason(word) || seen.has(identity(word))) {
+    if (invalidReason(word) || seen.has(word)) {
       throw new TypeError('Provide valid unique words; parseBulkWords can prepare the input.');
     }
-    seen.add(identity(word));
+    seen.add(word);
     input.push(word);
   }
 
@@ -106,18 +104,27 @@ export async function runBulkLookup(words, { lookup, lookupBatch, batchSize = 5,
   };
   progress();
 
-  function failureRecord(index, word, error) {
-    const failure = describeError(error);
+  function observeFailure(failure) {
     const limited = failure.status === 429 || (failure.status === 503 && failure.retryAfter !== null);
     if (limited) {
       rateLimited = true;
-      retryAfter = Math.max(retryAfter || 0, failure.retryAfter || 0) || null;
+      if (failure.retryAfter !== null) retryAfter = Math.max(retryAfter ?? 0, failure.retryAfter);
     }
-    return Object.freeze({ index, word, status: 'error', error: failure, rateLimited: limited });
+    return limited;
+  }
+
+  function failureRecord(index, word, error) {
+    const failure = describeError(error);
+    return Object.freeze({ index, word, status: 'error', error: failure, rateLimited: observeFailure(failure) });
   }
 
   function dataRecord(index, word, data) {
-    return Object.freeze({ index, word, status: hasRelations(data) ? 'success' : 'empty', data });
+    const record = { index, word, status: hasRelations(data) ? 'success' : 'empty', data };
+    if (data?.upstreamError) {
+      record.error = describeError(data.upstreamError);
+      record.rateLimited = observeFailure(record.error);
+    }
+    return Object.freeze(record);
   }
 
   function batchRecords(start, chunk, response) {

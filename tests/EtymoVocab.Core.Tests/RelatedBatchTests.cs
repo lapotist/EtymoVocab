@@ -30,7 +30,7 @@ public class RelatedBatchTests
             ct.ThrowIfCancellationRequested();
             Requests.Add(titles.ToArray());
             if (Requests.Count == FailOnRequest)
-                throw new UpstreamUnavailableException("simulated rate limit", TimeSpan.FromSeconds(30));
+                throw new UpstreamUnavailableException("simulated rate limit", TimeSpan.FromSeconds(30), rateLimited: true);
             OnFetch?.Invoke();
             return Task.FromResult<IReadOnlyDictionary<string, WikiPage?>>(
                 titles.Distinct(StringComparer.Ordinal).ToDictionary(title => title, title => Pages.GetValueOrDefault(title), StringComparer.Ordinal));
@@ -181,7 +181,10 @@ public class RelatedBatchTests
         Assert.Equal(2, client.Requests.Count);
         Assert.False(results[0].Data!.Complete);
         Assert.False(results[1].Data!.Complete);
+        Assert.Equal(429, results[0].Data!.UpstreamError!.Status);
+        Assert.Equal(30, results[1].Data!.UpstreamError!.RetryAfter);
         Assert.True(results[2].Data!.Complete);
+        Assert.Null(results[2].Data!.UpstreamError);
         Assert.All(results, item => Assert.Null(item.Error));
     }
 

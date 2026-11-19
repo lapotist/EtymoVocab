@@ -14,18 +14,37 @@ internal static partial class LexicalRelationReader
 
         void Add(string kind, string sense, IEnumerable<string> rawTerms)
         {
-            var terms = rawTerms.Select(CleanTerm).Where(t => t.Length > 0).Distinct(StringComparer.Ordinal).ToList();
-            if (terms.Count == 0) return;
-            var existing = groups.FindIndex(g => g.Kind == kind && g.Sense == sense);
-            if (existing < 0) groups.Add(new LexicalRelation(kind, sense, terms));
-            else groups[existing] = groups[existing] with
+            var terms = new List<string>();
+            var targets = new List<string>();
+            foreach (var raw in rawTerms)
             {
-                Terms = groups[existing].Terms.Concat(terms).Distinct(StringComparer.Ordinal).ToList(),
+                // A piped link's display text is not necessarily its destination.
+                var link = LinkRegex().Match(raw);
+                var target = (link.Success && link.Index == 0 ? link.Groups[1].Value : raw)
+                    .Split('<')[0].Trim().TrimStart(':');
+                if (target.StartsWith("Thesaurus:", StringComparison.OrdinalIgnoreCase))
+                {
+                    var title = target["Thesaurus:".Length..].Trim();
+                    if (title.Split('#')[0].Trim().Length > 0)
+                        targets.Add(title);
+                }
+                else if (CleanTerm(raw) is { Length: > 0 } term)
+                    terms.Add(term);
+            }
+            if (terms.Count == 0 && targets.Count == 0) return;
+            var existing = groups.FindIndex(g => g.Kind == kind && g.Sense == sense);
+            var previous = existing < 0 ? new LexicalRelation(kind, sense, []) : groups[existing];
+            var merged = previous with
+            {
+                Terms = previous.Terms.Union(terms, StringComparer.Ordinal).ToList(),
+                ThesaurusTargets = previous.ThesaurusTargets.Union(targets, StringComparer.Ordinal).ToList(),
             };
+            if (existing < 0) groups.Add(merged);
+            else groups[existing] = merged;
         }
 
         string sense = "";
-        foreach (var line in WikiSections.OwnText(text, headings, index).Split('\n'))
+        foreach (var line in TemplateScanner.SplitTopLevel(WikiSections.OwnText(text, headings, index), '\n'))
         {
             // Quote/example templates can themselves contain syn/ant examples; only definition lines count.
             if (!line.StartsWith('#')) continue;
@@ -52,8 +71,9 @@ internal static partial class LexicalRelationReader
                 "Synonyms" => "synonym", "Antonyms" => "antonym", _ => null,
             };
             if (kind is null) continue;
-            foreach (var line in WikiSections.OwnText(text, headings, j).Split('\n'))
+            foreach (var rawLine in TemplateScanner.SplitTopLevel(WikiSections.OwnText(text, headings, j), '\n'))
             {
+                var line = RemoveParentheticalNotes(rawLine);
                 var terms = new List<string>();
                 var templates = TemplateScanner.Scan(line);
                 var label = templates.FirstOrDefault(t => t.Name is "sense" or "s" or "antsense");
@@ -77,6 +97,38 @@ internal static partial class LexicalRelationReader
             }
         }
         return groups;
+    }
+
+    private static string RemoveParentheticalNotes(string line)
+    {
+        if (!line.Contains('(')) return line;
+        var result = new System.Text.StringBuilder(line.Length);
+        var templates = TemplateScanner.Scan(line);
+        var templateIndex = 0;
+        var depth = 0;
+        for (var i = 0; i < line.Length;)
+        {
+            if (templateIndex < templates.Count && i == templates[templateIndex].Start)
+            {
+                var end = templates[templateIndex++].End;
+                if (depth == 0) result.Append(line, i, end - i);
+                i = end;
+                continue;
+            }
+            if (line.AsSpan(i).StartsWith("[[") && line.IndexOf("]]", i + 2, StringComparison.Ordinal) is var close && close >= 0)
+            {
+                var end = close + 2;
+                if (depth == 0) result.Append(line, i, end - i);
+                i = end;
+                while (templateIndex < templates.Count && templates[templateIndex].Start < end) templateIndex++;
+                continue;
+            }
+            var c = line[i++];
+            if (c == '(') depth++;
+            else if (c == ')' && depth > 0) depth--;
+            else if (depth == 0) result.Append(c);
+        }
+        return result.ToString();
     }
 
     private static string CleanTerm(string raw)

@@ -1,6 +1,9 @@
 namespace EtymoVocab.Core.Lookup;
 
-public sealed record WikiPage(string Title, long RevisionId, DateTimeOffset Timestamp, string Wikitext);
+public sealed record WikiPage(string Title, long RevisionId, DateTimeOffset Timestamp, string Wikitext)
+{
+    public IReadOnlyList<string> RedirectTitles { get; init; } = [];
+}
 
 public sealed record CategoryListing(string Title, int? TotalPages, IReadOnlyList<string> Members);
 
@@ -29,8 +32,10 @@ public interface IWiktionaryClient
 }
 
 /// <summary>Wiktionary could not be reached, timed out, or refused the request (e.g. HTTP 429).</summary>
-public sealed class UpstreamUnavailableException(string message, TimeSpan? retryAfter = null, Exception? inner = null)
+public sealed class UpstreamUnavailableException(string message, TimeSpan? retryAfter = null, Exception? inner = null,
+    bool rateLimited = false)
     : Exception(message, inner)
 {
     public TimeSpan? RetryAfter { get; } = retryAfter;
+    public bool RateLimited { get; } = rateLimited;
 }

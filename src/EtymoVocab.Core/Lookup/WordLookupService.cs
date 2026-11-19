@@ -1,6 +1,8 @@
 using EtymoVocab.Core.Entries;
 using EtymoVocab.Core.Languages;
 using EtymoVocab.Core.Wikitext;
+using System.Text.Encodings.Web;
+using System.Text.Json;
 
 namespace EtymoVocab.Core.Lookup;
 
@@ -80,8 +82,7 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
             }
             catch (UpstreamUnavailableException error)
             {
-                results.Add(new(word, null, new(503, "Wiktionary 暫時無法使用", error.Message,
-                    error.RetryAfter is { } wait ? (int)Math.Ceiling(wait.TotalSeconds) : null)));
+                results.Add(new(word, null, RelatedLookupError.FromUpstream(error)));
             }
             catch (Exception error) when (error is not OperationCanceledException)
             {
@@ -174,6 +175,7 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
         private readonly List<string> _warnings = [];
         private int _requestsLeft = options.MaxUpstreamRequests - (initialPages is null ? 0 : 1);
         private bool _complete = true;
+        private RelatedLookupError? _upstreamError;
         private string _lang = "en";
         private string _sectionName = "English";
         private string? _resolvedFrom;
@@ -197,8 +199,11 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
             }
             if (page is null || entries is null)
                 return null;
-            if (etymonId is not null && entries.Where(e => e.EtymonId == etymonId).ToList() is { Count: > 0 } matching)
-                entries = matching;
+            if (etymonId is not null)
+            {
+                entries = entries.Where(e => e.EtymonId == etymonId).ToList();
+                if (entries.Count != 1) return null;
+            }
             _lang = lang;
             _sectionName = sectionName;
 
@@ -207,23 +212,25 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                 if (resolveInflections)
                     (page, entries) = await ResolveInflectionsAsync(page, entries, sectionName, entryLang);
             }
-            catch (UpstreamUnavailableException)
+            catch (UpstreamUnavailableException error)
             {
                 _complete = false;
+                _upstreamError = RelatedLookupError.FromUpstream(error);
                 Warn("原形詞條暫時無法從 Wiktionary 取得，請稍後重試。");
             }
             var chains = entries.Select(e => e.Steps.Select(NewWorkStep).ToList()).ToList();
             try
             {
-                if (enrich)
+                if (enrich && _upstreamError is null)
                 {
                     await ResolveAncestorsAsync(chains);
                     await ResolveGlossesAsync(entries, chains);
                 }
             }
-            catch (UpstreamUnavailableException)
+            catch (UpstreamUnavailableException error)
             {
                 _complete = false;
+                _upstreamError = RelatedLookupError.FromUpstream(error);
                 Warn("部分祖源資料暫時無法從 Wiktionary 取得，結果不完整。");
             }
             return Build(page, entries, chains);
@@ -269,18 +276,20 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
 
         private async Task<bool> FetchAsync(IEnumerable<string> titles)
         {
-            var need = titles.Where(t => !_pages.ContainsKey(t)).Distinct(StringComparer.Ordinal).Take(MaxBatch).ToList();
-            if (need.Count == 0)
-                return true;
-            if (_requestsLeft <= 0)
+            var need = titles.Where(t => !_pages.ContainsKey(t)).Distinct(StringComparer.Ordinal).ToArray();
+            foreach (var batch in need.Chunk(MaxBatch))
             {
-                Warn("已達單次查詢的上游請求上限，部分詞條未展開。");
-                return false;
+                if (_requestsLeft <= 0)
+                {
+                    _complete = false;
+                    Warn("已達單次查詢的上游請求上限，部分詞條未展開。");
+                    return false;
+                }
+                _requestsLeft--;
+                var fetched = await client.GetPagesAsync(batch, ct);
+                foreach (var title in batch)
+                    _pages[title] = fetched.GetValueOrDefault(title);
             }
-            _requestsLeft--;
-            var fetched = await client.GetPagesAsync(need, ct);
-            foreach (var title in need)
-                _pages[title] = fetched.GetValueOrDefault(title);
             return true;
         }
 
@@ -307,15 +316,17 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
             for (var round = 0; round < options.MaxAncestorRounds; round++)
             {
                 var pending = chains.SelectMany(c => c).Where(s => !s.Visited && s.Title is not null).ToList();
-                if (pending.Count == 0 || !await FetchAsync(pending.Select(s => s.Title!)))
-                    return;
+                if (pending.Count == 0) return;
+                var fetchedAll = await FetchAsync(pending.Select(s => s.Title!));
                 foreach (var step in pending)
                 {
+                    if (!_pages.ContainsKey(step.Title!)) continue;
                     step.Visited = true;
                     Resolve(step);
                 }
                 foreach (var chain in chains)
                     Extend(chain);
+                if (!fetchedAll) return;
             }
         }
 
@@ -328,13 +339,9 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
             if (entries is null || entries.Count == 0)
                 return;
 
-            var chosen = step.Step.EtymonId is { } id ? entries.FirstOrDefault(e => e.EtymonId == id) : null;
-            if (chosen is null)
-            {
-                chosen = entries[0];
-                step.Ambiguous = entries.Count > 1;
-            }
-            step.Resolved = chosen;
+            var matching = step.Step.EtymonId is { } id ? entries.Where(e => e.EtymonId == id).ToList() : entries;
+            step.Ambiguous = matching.Count != 1;
+            if (!step.Ambiguous) step.Resolved = matching[0];
             step.ResolvedTitle = page.Title;
         }
 
@@ -344,7 +351,7 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
             if (chain.Count == 0)
                 return;
             var last = chain[^1];
-            if (last.Extended || last.Resolved is null || last.Ambiguous || !last.Step.Transitive)
+            if (last.Extended || last.Resolved is null || chain.Any(s => s.Step.Uncertain || !s.Step.Transitive || s.Ambiguous || s.Resolved?.Uncertain == true))
                 return;
             last.Extended = true;
 
@@ -364,15 +371,14 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                 .Concat(chains.SelectMany(c => c).Where(s => s.Resolved is not null && !s.Ambiguous)
                     .SelectMany(s => s.Resolved!.Morphology));
             var wanted = morphology.SelectMany(m => m.Parts)
-                .Where(p => p.Gloss is null)
                 .Select(p => (p.Lang, p.Term, Id: p.EtymonId))
-                .Concat(entries.SelectMany(e => e.Roots).Select(r => (r.Lang, Term: r.Root, Id: r.EtymonId)))
+                .Concat(entries.SelectMany((e, i) => GatherRoots(e, chains[i])).Select(r => (r.Lang, Term: r.Root, Id: r.EtymonId)))
                 .Distinct()
                 .Select(w => (Key: w, Title: EntryNames.PageTitle(languages, w.Lang, w.Term)))
                 .Where(w => w.Title is not null)
                 .ToList();
-            if (wanted.Count == 0 || !await FetchAsync(wanted.Select(w => w.Title!)))
-                return;
+            if (wanted.Count == 0) return;
+            await FetchAsync(wanted.Select(w => w.Title!));
 
             foreach (var (key, title) in wanted)
             {
@@ -383,8 +389,8 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                     continue;
 
                 // Affix pages often hold several unrelated morphemes ("in-" = into / not): only accept an exact pick.
-                var chosen = key.Id is { } id ? found.FirstOrDefault(e => e.EtymonId == id) : null;
-                chosen ??= found.Count(e => e.FirstSense is not null) == 1 ? found.First(e => e.FirstSense is not null) : null;
+                var matches = key.Id is { } id ? found.Where(e => e.EtymonId == id).ToList() : found;
+                var chosen = matches.Count == 1 ? matches[0] : null;
                 if (chosen?.FirstSense is { } sense)
                     _glosses[key] = Truncate(sense);
             }
@@ -392,6 +398,8 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
 
         private WordResult Build(WikiPage page, IReadOnlyList<EntrySection> entries, List<List<WorkStep>> chains)
         {
+            var permalink = $"https://en.wiktionary.org/w/index.php?title={Uri.EscapeDataString(page.Title)}&oldid={page.RevisionId}"
+                + "#" + Uri.EscapeDataString(_sectionName.Replace(' ', '_'));
             var etymologies = entries.Select((entry, i) => new EtymologyResult(
                 entry.Number,
                 entry.EtymonId,
@@ -399,19 +407,26 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                 entry.Uncertain,
                 chains[i].Select(ToStep).ToList(),
                 entry.Morphology.Select(ToMorphology).ToList(),
-                entry.Roots.Select(r => new RootResult(
+                GatherRoots(entry, chains[i]).Select(r => new RootResult(
                     r.Lang, languages.NameOf(r.Lang), WikitextCleaner.PlainTerm(r.Root),
                     _glosses.GetValueOrDefault((r.Lang, r.Root, r.EtymonId)), Url(r.Lang, r.Root)) { Id = r.EtymonId }).ToList(),
                 entry.Doublets.Select(d => new TermResult(d.Lang, WikitextCleaner.PlainTerm(d.Term), Url(d.Lang, d.Term))).ToList(),
                 entry.PartsOfSpeech.Select(p => new PartOfSpeechResult(
                     p.Pos, p.Senses, p.Translations.Select(t => new TranslationResult(t.Sense, t.Terms)).ToList())
                     {
-                        Relations = p.Relations.Select(r => new RelationResult(r.Kind, r.Sense, r.Terms)).ToList(),
+                        Relations = p.Relations.Select(r => new RelationResult(r.Kind, r.Sense, r.Terms)
+                        {
+                            ThesaurusTargets = r.ThesaurusTargets,
+                        }).ToList(),
                     }).ToList()
-            )).ToList();
+            )
+            {
+                EtymologicalRelations = entry.EtymologicalRelations.DistinctBy(r => (r.Kind, r.Lang, r.Term))
+                    .Select(r => new EtymologicalRelationResult(r.Kind, r.Lang, r.Term,
+                        Url(r.Lang, r.Term), permalink, r.SourceSection)).ToList(),
+                OriginAnchors = BuildOriginAnchors(page, entry, chains[i]),
+            }).ToList();
 
-            var permalink = $"https://en.wiktionary.org/w/index.php?title={Uri.EscapeDataString(page.Title)}&oldid={page.RevisionId}"
-                + "#" + Uri.EscapeDataString(_sectionName.Replace(' ', '_'));
             return new WordResult(
                 page.Title,
                 _lang,
@@ -422,9 +437,99 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                 _complete)
             {
                 ResolvedFrom = _resolvedFrom,
+                UpstreamError = _upstreamError,
                 BaseForms = entries.SelectMany(e => e.PartsOfSpeech).SelectMany(p => p.Lemmas)
                     .Where(term => term != page.Title).Distinct(StringComparer.Ordinal).ToList(),
             };
+        }
+
+        private IReadOnlyList<OriginAnchorResult> BuildOriginAnchors(WikiPage page, EntrySection entry, IReadOnlyList<WorkStep> chain)
+        {
+            var anchors = new List<OriginAnchorResult>();
+            var seen = new HashSet<(string Key, string Kind)>();
+
+            void Add(string kind, string lang, string term, string? id)
+            {
+                if (ResolveOrigin(lang, term, id) is not { } origin) return;
+                var (originPage, chosen, entryLang, section) = origin;
+                var title = EntryNames.ComposeCanonical(originPage.Title);
+                string JsonString(string value) => "\"" + JsonEncodedText.Encode(value, JavaScriptEncoder.UnsafeRelaxedJsonEscaping) + "\"";
+                var key = "[" + JsonString(entryLang) + "," + JsonString(title) + ","
+                    + (chosen.EtymonId is { } idValue ? JsonString(idValue) : "null") + "]";
+                if (!seen.Add((key, kind))) return;
+                var sourceUrl = $"https://en.wiktionary.org/w/index.php?title={Uri.EscapeDataString(originPage.Title)}&oldid={originPage.RevisionId}"
+                    + "#" + Uri.EscapeDataString(section.Replace(' ', '_'));
+                var aliases = _pages.Where(p => p.Value?.Title == originPage.Title)
+                    .Select(p => p.Key).Concat(originPage.RedirectTitles)
+                    .Select(EntryNames.ComposeCanonical).Where(alias => alias != title)
+                    .Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToArray();
+                anchors.Add(new OriginAnchorResult(key, kind, entryLang, WikitextCleaner.PlainTerm(term), title,
+                    chosen.EtymonId, EntryNames.PageUrl(title, section), sourceUrl) { LookupAliases = aliases });
+            }
+
+            void AddRootsAndComponents(EntrySection section)
+            {
+                foreach (var root in section.Roots)
+                    Add("root", root.Lang, root.Root, root.EtymonId);
+                foreach (var part in section.Morphology.SelectMany(m => m.Parts))
+                    Add("component", part.Lang, part.Term, part.EtymonId);
+            }
+
+            var selfTerm = page.Title.StartsWith("Reconstruction:", StringComparison.Ordinal) && page.Title.IndexOf('/') is var slash && slash >= 0
+                ? "*" + page.Title[(slash + 1)..] : page.Title;
+            Add("self", _lang, selfTerm, entry.EtymonId);
+            // Uncertain history does not make a lexical identity uncertain. Other entries can
+            // definitely derive from this word without committing to its own proposed origins.
+            if (entry.Uncertain) return anchors;
+            AddRootsAndComponents(entry);
+            foreach (var step in chain)
+            {
+                if (!step.Step.Transitive || step.Step.Uncertain || step.Ambiguous
+                    || ResolveOrigin(step.Step.Lang, step.Step.Term, step.Step.EtymonId) is not { } origin)
+                    break;
+                Add("ancestor", step.Step.Lang, step.Step.Term, step.Step.EtymonId);
+                if (origin.Entry.Uncertain) break;
+                if (origin.Entry.PartsOfSpeech.Any(p => p.Pos == "Root"))
+                    Add("root", step.Step.Lang, step.Step.Term, step.Step.EtymonId);
+                AddRootsAndComponents(origin.Entry);
+            }
+            return anchors;
+        }
+
+        /// <summary>Unlike display-only first-sense fallback, equality evidence requires an exact id or a sole etymology.</summary>
+        private (WikiPage Page, EntrySection Entry, string Lang, string Section)? ResolveOrigin(string lang, string term, string? id)
+        {
+            if (EntryNames.PageTitle(languages, lang, term) is not { } title
+                || languages.EntryLanguageOf(lang) is not { } entryLang
+                || languages.SectionNameOf(lang) is not { } section
+                || (_pages.GetValueOrDefault(title) ?? _pages.Values.FirstOrDefault(p => p?.Title == title)) is not { } page
+                || Parse(page, section, entryLang) is not { Count: > 0 } entries)
+                return null;
+            var matching = id is null ? entries : entries.Where(e => e.EtymonId == id).ToList();
+            if (matching.Count != 1) return null;
+            // An id-less selected entry inside a homograph page must never acquire a sole-entry identity.
+            if (matching[0].EtymonId is null && entries.Count != 1) return null;
+            return (page, matching[0], entryLang, section);
+        }
+
+        /// <summary>
+        /// Ancestor entries may be the only place where a root is tagged. Preserve that evidence,
+        /// stopping at the first ambiguous or non-inherited relation rather than crossing it.
+        /// Merely being a reconstructed Proto-language term does not make an ancestor a root.
+        /// </summary>
+        private static IReadOnlyList<RootRef> GatherRoots(EntrySection entry, IReadOnlyList<WorkStep> chain)
+        {
+            if (entry.Uncertain) return [];
+            var roots = new List<RootRef>(entry.Roots);
+            foreach (var step in chain)
+            {
+                if (!step.Step.Transitive || step.Ambiguous || step.Step.Uncertain) break;
+                if (step.Resolved is not { Uncertain: false } resolved) break;
+                roots.AddRange(resolved.Roots);
+                if (resolved.PartsOfSpeech.Any(p => p.Pos == "Root") && !string.IsNullOrWhiteSpace(step.Step.Term))
+                    roots.Add(new(step.Step.Lang, step.Step.Term, step.Step.EtymonId ?? resolved.EtymonId));
+            }
+            return roots.DistinctBy(r => (r.Lang, WikitextCleaner.PlainTerm(r.Root), r.EtymonId)).ToList();
         }
 
         private StepResult ToStep(WorkStep s)
@@ -450,9 +555,11 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                 s.Step.Uncertain,
                 s.Ambiguous,
                 EntryNames.PageUrl(s.ResolvedTitle ?? s.Title, s.Section),
-                s.Resolved is not null && !s.Ambiguous ? s.Resolved.Morphology.Select(ToMorphology).ToList() : [])
+                s.Resolved is { Uncertain: false } resolved && !s.Step.Uncertain ? resolved.Morphology.Select(ToMorphology).ToList() : [])
             {
-                Id = s.Step.EtymonId,
+                Id = s.Step.EtymonId ?? s.Resolved?.EtymonId,
+                Transitive = s.Step.Transitive,
+                AncestryUncertain = s.Resolved?.Uncertain == true,
             };
         }
 
@@ -466,7 +573,7 @@ public sealed class WordLookupService(IWiktionaryClient client, LanguageRegistry
                     ? PlainTextRenderer.Render(gloss, languages)
                     : _glosses.GetValueOrDefault((p.Lang, p.Term, p.EtymonId)),
                 p.EtymonId,
-                Url(p.Lang, p.Term))).ToList());
+                Url(p.Lang, p.Term), p.Lang, languages.NameOf(p.Lang))).ToList());
 
         private string? Url(string lang, string term) =>
             EntryNames.PageUrl(EntryNames.PageTitle(languages, lang, term), languages.SectionNameOf(lang));

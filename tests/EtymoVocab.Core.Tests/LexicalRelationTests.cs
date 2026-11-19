@@ -10,6 +10,16 @@ public class LexicalRelationTests
     private static readonly LanguageRegistry Languages = new();
 
     [Fact]
+    public void Beautiful_does_not_treat_intensifier_examples_as_synonyms()
+    {
+        var result = EntryParser.Parse(WikiSections.LanguageSection(FixtureClient.Page("beautiful").Wikitext, "English")!, "en", Languages);
+        var group = Assert.Single(result.SelectMany(e => e.PartsOfSpeech).SelectMany(p => p.Relations),
+            r => r.Kind == "synonym" && r.Sense.Contains("ironic"));
+        Assert.Contains("wonderful", group.Terms);
+        Assert.DoesNotContain(group.Terms, t => t is "intensifier" or "bloody" or "damned" or "just");
+    }
+
+    [Fact]
     public void Nice_has_sense_scoped_synonyms_and_antonyms_from_recorded_sections()
     {
         var entry = EntryParser.Parse(WikiSections.LanguageSection(FixtureClient.Page("nice").Wikitext, "English")!, "en", Languages)[0];
@@ -54,11 +64,53 @@ public class LexicalRelationTests
         var entry = EntryParser.Parse(text, "en", Languages).Single();
         var adjective = entry.PartsOfSpeech.Single(p => p.Pos == "Adjective");
         Assert.Equal(["kind", "nice"], adjective.Relations.Single(r => r.Sense == "Pleasant.").Terms);
+        Assert.Equal(["pleasant"], adjective.Relations.Single(r => r.Sense == "Pleasant.").ThesaurusTargets);
         Assert.Equal(["cruel"], adjective.Relations.Single(r => r.Kind == "antonym").Terms);
         Assert.Equal(["warm", "amiable"], adjective.Relations.Single(r => r.Sense == "friendly").Terms);
         Assert.Equal(["affable", "cordial"], adjective.Relations.Single(r => r.Sense == "").Terms);
         Assert.DoesNotContain(adjective.Relations.SelectMany(r => r.Terms), t => new[] { "fake", "also fake", "example", "dated", "gentil", "unrelated", "object" }.Contains(t));
         Assert.Equal("object", entry.PartsOfSpeech.Single(p => p.Pos == "Noun").Relations.Single().Terms.Single());
+    }
+
+    [Fact]
+    public void Multiline_columns_keep_their_relation_and_sense()
+    {
+        const string text = """
+            ===Adjective===
+            # Easily broken.
+            ====Synonyms====
+            {{sense|easily broken}} {{col|en|breakable
+            |delicate
+            |destructible
+            |flimsy}}
+            * {{sense|emotionally}} [[uneasy]]
+            ====Antonyms====
+            {{col|en|durable
+            |unbreakable
+            |indestructible
+            |antifragile}}
+            """;
+        var relations = EntryParser.Parse(text, "en", Languages).Single().PartsOfSpeech.Single().Relations;
+        Assert.Equal(["breakable", "delicate", "destructible", "flimsy"],
+            relations.Single(r => r.Kind == "synonym" && r.Sense == "easily broken").Terms);
+        Assert.Equal(["uneasy"], relations.Single(r => r.Sense == "emotionally").Terms);
+        Assert.Equal(["durable", "unbreakable", "indestructible", "antifragile"],
+            relations.Single(r => r.Kind == "antonym").Terms);
+    }
+
+    [Fact]
+    public async Task Inspect_exposes_the_cited_thesaurus_under_the_correct_sense()
+    {
+        var client = new FixtureClient();
+        var result = await new WordLookupService(client, Languages, new LookupOptions())
+            .LookupRelatedAsync("inspect", CancellationToken.None);
+        var verb = Assert.Single(result!.Etymologies.SelectMany(e => e.PartsOfSpeech), p => p.Pos == "Verb");
+        var relation = Assert.Single(verb.Relations);
+        Assert.Equal("synonym", relation.Kind);
+        Assert.Equal("to examine critically or carefully", relation.Sense);
+        Assert.Equal(["examine"], relation.ThesaurusTargets);
+        Assert.Empty(relation.Terms);
+        Assert.Single(client.PageRequests);
     }
 
     [Fact]

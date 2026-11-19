@@ -17,15 +17,15 @@ const source = {
   etymologyId: 'pleasant', sourceUrl: 'https://en.wiktionary.org/w/index.php?title=nice&oldid=93745522',
 };
 
-test('word identity normalizes case, canonical Unicode and whitespace while preserving first spelling', () => {
+test('word identity preserves case and normalizes canonical Unicode and whitespace', () => {
   const { store, setTime } = setup();
-  assert.deepEqual(normalizeSavedWord('  Café   au lait '), { word: 'Café au lait', key: 'café au lait' });
+  assert.deepEqual(normalizeSavedWord('  Café   au lait '), { word: 'Café au lait', key: 'Café au lait' });
   const first = store.save('  Café   au lait ');
   setTime(START + 5000);
-  const again = store.save('CAFE\u0301 au LAIT');
+  const again = store.save('Cafe\u0301 au lait');
   assert.equal(again.word, first.word);
   assert.equal(again.savedAt, START);
-  assert.equal(store.has(' café AU lait '), true);
+  assert.equal(store.has(' café AU lait '), false);
   assert.equal(store.list().length, 1);
 });
 
@@ -45,9 +45,9 @@ test('invalid words and invalid provenance cannot mutate the collection', () => 
 test('sense-specific discovery contexts survive reload, are allowlisted, and duplicate saves merge', () => {
   const { store, storage, setTime } = setup();
   store.save('Kind', { ...source, ignored: 'never persisted' });
-  store.save('kind', { ...source, query: 'NICE', sourceWord: 'Nice' });
+  store.save('Kind', source);
   setTime(START + 100);
-  store.save('kind', { ...source, relation: 'antonym', sense: 'unpleasant', etymologyId: 2 });
+  store.save('Kind', { ...source, relation: 'antonym', sense: 'unpleasant', etymologyId: 2 });
   const reloaded = createSavedWordsStore({ storage, now: () => START + 100 });
   const [word] = reloaded.list();
   assert.equal(word.word, 'Kind');
@@ -73,7 +73,7 @@ test('provenance is bounded without creating duplicate saved words', () => {
 test('remove persists, export omits removed words, and explicit re-save starts a new item', () => {
   const { store, storage, setTime } = setup();
   store.save('Kind', source);
-  assert.equal(store.remove('KIND'), true);
+  assert.equal(store.remove('Kind'), true);
   assert.equal(store.remove('kind'), false);
   assert.equal(store.remove('missing'), false);
   assert.equal(store.exportData().words.length, 0);
@@ -111,7 +111,7 @@ test('saved words remain removed when the device clock moves backwards', () => {
   store.remove('kind');
   const reloaded = createSavedWordsStore({ storage, now: () => START - 5000 });
   assert.equal(reloaded.has('kind'), false);
-  reloaded.save('Kind');
+  reloaded.save('kind');
   assert.equal(store.has('kind'), true);
 });
 
@@ -224,4 +224,44 @@ test('saved words touch only their own storage key, never learning or remembered
   assert.equal(storage.values.get('etymovocab.learning.v1'), learning);
   assert.equal(storage.values.get('etymovocab.remembered.v1'), remembered);
   assert.equal(storage.values.size, 3);
+});
+
+test('legacy lowercase keys use the saved spelling when Polish and polish diverge', () => {
+  const { store, storage } = setup();
+  store.save('Polish', source);
+  const payload = JSON.parse(storage.getItem(SAVED_WORDS_STORAGE_KEY));
+  payload.records[0].key = 'polish';
+  storage.setItem(SAVED_WORDS_STORAGE_KEY, JSON.stringify(payload));
+  const migrated = setup(storage).store;
+  assert.equal(migrated.has('Polish'), true);
+  assert.equal(migrated.has('polish'), false);
+  migrated.save('polish');
+  assert.equal(migrated.remove('polish'), true);
+  const reloaded = setup(storage).store;
+  assert.deepEqual(reloaded.list().map(item => item.word), ['Polish']);
+  assert.deepEqual(reloaded.list()[0].contexts, [source]);
+});
+
+test('an open tab honors cleared or subsequently replaced storage', () => {
+  const { store, storage } = setup();
+  store.save('before');
+  storage.values.clear();
+  assert.deepEqual(store.list(), []);
+  store.save('second');
+  storage.values.clear();
+  setup(storage).store.save('fresh');
+  store.save('after');
+  assert.deepEqual(setup(storage).store.list().map(row => row.key), ['after', 'fresh']);
+});
+
+test('a re-saved word after a clear supersedes a stale tab’s higher-revision tombstone', () => {
+  const { store: stale, storage } = setup();
+  stale.save('Polish', { query: 'old-context' });
+  stale.remove('Polish');
+  storage.values.clear();
+  const fresh = setup(storage).store;
+  fresh.save('Polish', { query: 'fresh-context' });
+  stale.save('unrelated');
+  const word = fresh.list().find(item => item.word === 'Polish');
+  assert.deepEqual(word.contexts.map(context => context.query), ['fresh-context']);
 });

@@ -62,6 +62,24 @@ public class MediaWikiClientTests
     }
 
     [Fact]
+    public async Task Incoming_redirect_titles_are_kept_even_when_the_canonical_title_was_requested()
+    {
+        var (client, handler) = Create(browser: false,
+            _ => Json("""
+                {"continue":{"rdcontinue":"next","continue":"||"},"query":{"pages":[
+                  {"title":"color","revisions":[{"revid":22,"timestamp":"2026-01-01T00:00:00Z","slots":{"main":{"content":"==English=="}}}],
+                   "redirects":[{"title":"colour"}]}]}}
+                """),
+            _ => Json("""{"query":{"pages":[{"title":"color","redirects":[{"title":"old spelling"}]}]}}"""));
+
+        var pages = await client.GetPagesAsync(["color"], CancellationToken.None);
+        var page = Assert.IsType<WikiPage>(pages["color"]);
+        Assert.Equal(22, page.RevisionId);
+        Assert.Equal(["colour", "old spelling"], page.RedirectTitles.Order(StringComparer.Ordinal));
+        Assert.Contains("rdcontinue=next", handler.Requests[1].RequestUri!.Query);
+    }
+
+    [Fact]
     public async Task Server_mode_identifies_with_user_agent()
     {
         var (client, handler) = Create(browser: false, _ => Json(BatchResponse));
@@ -94,6 +112,7 @@ public class MediaWikiClientTests
             () => client.GetPagesAsync(["inspect"], CancellationToken.None));
 
         Assert.Equal(TimeSpan.FromSeconds(30), error.RetryAfter);
+        Assert.True(error.RateLimited);
         Assert.Single(handler.Requests);
     }
 
@@ -145,5 +164,61 @@ public class MediaWikiClientTests
 
         Assert.Equal(11, pages["inspect_"]!.RevisionId);
         Assert.Equal(2, handler.Requests.Count);
+    }
+
+    [Fact]
+    public async Task Headerless_429_retains_its_status_when_no_retries_remain()
+    {
+        var handler = new StubHandler(_ => new(HttpStatusCode.TooManyRequests));
+        using var http = new HttpClient(handler);
+        var client = new MediaWikiClient(http, new SimpleResponseCache(), new MediaWikiOptions { MaxRetries = 0 });
+
+        var error = await Assert.ThrowsAsync<UpstreamUnavailableException>(
+            () => client.SuggestAsync("inspect", 8, CancellationToken.None));
+        Assert.Equal(429, RelatedLookupError.FromUpstream(error).Status);
+        Assert.Null(error.RetryAfter);
+    }
+
+    [Fact]
+    public async Task Elapsed_retry_date_allows_an_immediate_retry()
+    {
+        var (client, handler) = Create(false, _ =>
+        {
+            var response = new HttpResponseMessage(HttpStatusCode.TooManyRequests);
+            response.Headers.RetryAfter = new(DateTimeOffset.UtcNow.AddMinutes(-5));
+            return response;
+        }, _ => Json(BatchResponse));
+
+        var pages = await client.GetPagesAsync(["inspect_"], CancellationToken.None);
+        Assert.Equal(11, pages["inspect_"]!.RevisionId);
+        Assert.Equal(2, handler.Requests.Count);
+    }
+
+    private sealed class StalledBody : MemoryStream
+    {
+        public override async ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
+        {
+            await Task.Delay(Timeout.InfiniteTimeSpan, cancellationToken);
+            return 0;
+        }
+    }
+
+    [Fact]
+    public async Task Timeout_covers_the_response_body_and_releases_the_request_permit()
+    {
+        var handler = new StubHandler(_ =>
+        {
+            var content = new StreamContent(new StalledBody());
+            content.Headers.ContentType = new("application/json");
+            return new(HttpStatusCode.OK) { Content = content };
+        }, _ => Json(BatchResponse));
+        using var http = new HttpClient(handler) { Timeout = TimeSpan.FromMilliseconds(100) };
+        var client = new MediaWikiClient(http, new SimpleResponseCache(), new MediaWikiOptions { MaxConcurrency = 1 });
+        using var guard = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+
+        var error = await Assert.ThrowsAsync<UpstreamUnavailableException>(
+            () => client.GetPagesAsync(["inspect_"], guard.Token));
+        Assert.IsAssignableFrom<OperationCanceledException>(error.InnerException);
+        Assert.Equal(11, (await client.GetPagesAsync(["inspect_"], guard.Token))["inspect_"]!.RevisionId);
     }
 }

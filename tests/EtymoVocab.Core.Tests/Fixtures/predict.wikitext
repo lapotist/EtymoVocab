@@ -1,0 +1,161 @@
+==English==
+{{wp}}
+
+===Alternative forms===
+* {{alt|en|prædict||archaic}}
+
+===Etymology===
+{{root|en|ine-pro|*deyḱ-}}
+Early 17th century, from {{bor|en|la|praedicō||to mention beforehand}} (perfect passive participle {{m|la|praedictus}}), from {{m|la|prae-||before}} + {{m|la|dīcō||to say}}. Equivalent to Germanic {{m|en|forespeak}}, {{m|en|foretell}}, and {{m|en|foresay}}.
+
+===Pronunciation===
+* {{IPA|en|/pɹɪˈdɪkt/}}
+* {{audio|en|en-us-predict.ogg|a=US}}
+* {{audio|en|LL-Q1860 (eng)-Vealhurl-predict.wav|a=Southern England}}
+* {{rhymes|en|ɪkt|s=2}}
+
+===Verb===
+{{en-verb}}
+
+# {{lb|en|transitive}} To [[make]] a [[prediction]]: to [[forecast]], [[foretell]], or [[estimate]] a [[future]] [[event]] on the [[basis]] of [[knowledge]] and [[reasoning]]; to [[prophesy]] a [[future]] [[event]] on the [[basis]] of [[mystical]] [[knowledge]] or [[power]].
+#* {{quote-book|en|year=1590|author=E. Daunce|title=A Briefe Discourse on the Spanish State|section=40
+|passage=After he had renounced his [[father|father]][['s|s]] [[bishopric]]k of Valentia in [[Spain]]e... and to [[attain]]e by degrees the [[majesty|Maiesty]] of [[w:Julius Caesar|Cesar]], was created [[duke|Duke]] of that place, [[gave|gaue]] for his [[poesie]], ''Aut Cesar, aut nihil''. which being not [[favored|fauoured]] from the [[heavens|heauens]], had presently the [[event|euent]] the same '''predicted'''.}}
+#* {{quote-journal|en|date=26 April 1897|title=Brooklyn Alumni Celebrate. Fifth Anniversary of the [[w:Arnold and Marie Schwartz College of Pharmacy|Brooklyn College of Pharmacy]].|editors=Caswell A. Mayo; Thomas J. Keenan|journal=American Druggist and Pharmaceutical Record{{nb...|A Semi-Monthly Illustrated Journal of Practical Pharmacy}}|volume=XXX|issue=8 (373 overall)|location=New York, N.Y.|publisher=American Druggist Publishing Company|page=236|pageurl=https://archive.org/details/americandruggis30unkngoog/page/n247/mode/1up|column=3|issn=0099-7366|oclc=1586699|passage=He {{quote-gloss|John F. Golding}} congratulated them on the success of their anniversary gathering and '''predicted''' still greater success for the future.}}
+#* {{RQ:Rowling Harry Potter|4|page=171|text=Professor Trelawney kept '''predicting''' Harry’s death, which he found extremely annoying.}}
+#* {{quote-journal|en|year=2012|author=w:Jeremy Bernstein|title=A Palette of Particles|titleurl=http://www.americanscientist.org/issues/feature/2012/2/a-palette-of-particles|journal=w:American Scientist|volume=100|issue=2|page=146
+|passage=The physics of elementary particles in the 20th century was distinguished by the observation of particles whose existence had been '''predicted''' by theorists sometimes decades earlier.}}
+# {{lb|en|transitive|of theories, laws, etc.}} To [[imply]].
+#* {{quote-journal|en|year=1886|journal=Philosophical Transactions of the Royal Society|section=177. 338
+|passage=It is interesting to see how clearly theory '''predicts''' the difference between the ascending and descending curves of a dynamo.}}
+#* {{quote-journal|en|date=June 3 1996|author=Geoffrey Cowley|title=The biology of beauty|journal=Newsweek
+|passage=For both men and women, greater symmetry '''predicted''' a larger number of past sex partners.}}
+# {{lb|en|intransitive}} To [[make]] [[prediction]]s.
+#* '''1652''', J. Gaule, ''Πυς-μαντια<!--sic--> the mag-astro-mancer'', 196
+#*: The devil can both '''predict''' and make predictors.
+# {{lb|en|transitive|military|rare}} To [[direct]] a [[ranged weapon]] against a [[target]] [[by means of]] a [[predictor]].
+#* {{quote-book|en|year=1943|author=L. Cheshire|title=Bomber Pilot|section=iii. 57
+|passage=They're '''predicting''' us now; looks like a barrage.}}
+
+====Conjugation====
+{{en-conj|old=1}}
+
+====Synonyms====
+* {{l|en|foretell}}, {{l|en|forespell}}, {{l|en|forespeak}}, {{l|en|halsen}}, {{l|en|call}}
+
+====Antonyms====
+* {{l|en|retrodict}}
+
+====Derived terms====
+{{col|en|hopedict|mispredict|outpredict|overpredict|predicter|predictory|repredict|underpredict|unpredict
+|predictedly|underpredicted|unpredicted|predictingly|underpredicting}}
+
+====Related terms====
+{{col4|en|predictable|predictability|predictably|prediction|predictive|predictively|predictiveness|predictor}}
+
+====Translations====
+{{trans-top|to state, or make something known in advance}}
+* Arabic: {{t|ar|تَنَبَّأَ}}
+* Armenian: {{t+|hy|կանխատեսել}}
+* Asturian: {{t+|ast|predicir}}, {{t+|ast|augurar}}
+* Basque: {{t|eu|aurresan}}
+* Bulgarian: {{t|bg|прогнозирам|impf}}, {{t+|bg|предсказвам|impf}}, {{t|bg|предскажа|pf}}
+* Catalan: {{t+|ca|predir}}
+* Chinese:
+*: Mandarin: {{t+|cmn|預測|tr=yùcè}}, {{t+|cmn|預判|tr=yùpàn}}
+* Czech: {{t+|cs|předpovídat|impf}}, {{t|cs|předpovědět|pf}}, {{t+|cs|předvídat|impf}}
+* Dutch: {{t+|nl|voorspellen}}
+* Egyptian: {{t-egy|sr|h=s-r-E27-A2}}
+* Estonian: {{t|et|ennustama}}
+* Finnish: {{t+|fi|ennakoida}}, {{t+|fi|ennustaa}}
+* French: {{t+|fr|prédire}}
+* Georgian: {{t-needed|ka}}
+* German: {{t+|de|vorhersagen}}
+* Greek: {{t+|el|προβλέπω}}
+* Hungarian: {{t+|hu|megjósol}}, {{t+|hu|előrejelez}}
+* Icelandic: {{t+|is|spá}}
+* Ido: {{t+|io|predicar}}
+* Interlingua: {{t|ia|predicer}}
+* Irish: {{t+|ga|tuar}}, {{t|ga|réamhaithris}}
+* Italian: {{t+|it|predire}}
+* Japanese: {{t+|ja|予言|tr=よげんする, yogen suru|alt=予言する}}
+* Khmer: {{t|km|ចាប់យាម|tr=cap yiem}}, {{t+|km|ទាយ|tr=tiey}}
+* Korean: {{t+|ko|예언하다}}, {{t+|ko|예측하다}}
+* Lao: {{t|lo|ທຳນວາຍ}}
+* Latin: {{t|la|praeloquor}}, {{t+|la|praedico}}, {{t|la|ōminor}}, {{t+|la|cano}}
+* Latvian: {{t+|lv|paredzēt}}
+* Macedonian: {{t|mk|предвидува|impf}}, {{t|mk|предвиди|pf}}
+* Māori: {{t|mi|matakite}}, {{t|mi|matapae}}
+* Mongolian: {{t-needed|mn}}
+* Norwegian:
+*: Bokmål: {{t|nb|spå}}
+* Old Norse: {{t|non|spá}}
+* Persian: {{t+|fa|پیشگویی}}
+* Piedmontese: {{t|pms|predì}}
+* Polish: {{t+|pl|przewidywać}}, {{t+|pl|przewidzieć}}
+* Portuguese: {{t+|pt|predizer}}
+* Romanian: {{t+|ro|prezice}}
+* Russian: {{t+|ru|предска́зывать|impf}}, {{t+|ru|предсказа́ть|pf}}
+* Scots: {{t|sco|spae}}
+* Serbo-Croatian: {{t+|sh|predvidjeti}}, {{t+|sh|prognozirati}}, {{t+|sh|predskazati}}
+* Slovak: {{t|sk|predpovedať|impf}}
+* Spanish: {{t+|es|predecir}}
+* Swahili: {{t+|sw|bashiri}}
+* Swedish: {{t+|sv|förutsäga}}, {{t+|sv|spå}}, {{t+|sv|sia}}
+* Tamil: {{t+|ta|கணி}}
+* Thai: {{t+|th|ทำนาย}}
+* Tibetan: {{t-needed|bo}}
+* Turkish: {{t+|tr|öngörmek}}, {{t+|tr|tahmin etmek}}
+* Ukrainian: {{t|uk|передбачувати|impf}}, {{t|uk|передбачити|pf}}
+* Vietnamese: {{t|vi|dự báo}}
+* Volapük: {{t+|vo|büosagön}}
+{{trans-bottom}}
+
+{{trans-top|to foretell or prophesy}}
+* Asturian: {{t+|ast|augurar}}
+* Bulgarian: {{t+|bg|пророкувам}}
+* Chinese:
+*: Mandarin: {{t+|cmn|預言|tr=yùyán}}
+* Egyptian: {{t-egy|sr|h=s-r-E27-A2}}
+* Finnish: {{t+|fi|ennustaa}}
+* French: {{t+|fr|prédire}}
+* German: {{t+|de|prophezeien}}
+* Greek: {{t+|el|προφητεύω}}
+*: Ancient Greek: {{t|grc|θεσπίζω}}, {{t|grc|προθεσπίζω}}
+* Ido: {{t+|io|predicar}}, {{t+|io|augurar}}
+* Italian: {{t+|it|profetizzare}}
+* Latin: {{t+|la|caveo}}, {{t|la|praecaveo}}, {{t|la|provideo}}, {{t|la|praeloquor}}, {{t|la|ōminor}}, {{t+|la|cano}}
+* Māori: {{t|mi|poropiti}}
+* Oromo: {{t|om|raajuu}}
+* Portuguese: {{t+|pt|prever}}
+* Russian: {{t+|ru|предска́зывать|impf}}, {{t+|ru|предсказа́ть|pf}}; {{t+|ru|предрека́ть|impf}}, {{t+|ru|предре́чь|pf}}
+* Swahili: {{t+|sw|bashiri}}
+{{trans-bottom}}
+
+===Noun===
+{{en-noun}}
+
+# {{lb|en|obsolete}} A [[prediction]].
+#* {{RQ:Shakespeare Sonnets|14|text=Or say with Princes if it shall go well, / By oft '''predict''' that I in heaven find.}}
+
+====Further reading====
+* {{R:Online Etymology Dictionary}}
+
+==Middle French==
+
+===Verb===
+{{head|frm|past participle}}
+
+# {{past participle of|frm|predire|nocat=1}}
+
+==Spanish==
+
+===Etymology===
+{{ety|es|:bor|en:predict|text=+|tree=1}}
+
+===Pronunciation===
+{{es-pr|predic|predict|prédic|prédict|hyph=+}}
+
+===Noun===
+{{es-noun|mf}}
+
+# {{lb|es|video games}} [[prediction]]

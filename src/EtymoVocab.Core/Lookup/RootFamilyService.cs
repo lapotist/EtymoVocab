@@ -12,7 +12,6 @@ namespace EtymoVocab.Core.Lookup;
 /// </summary>
 public sealed class RootFamilyService(IWiktionaryClient client, LanguageRegistry languages)
 {
-    /// <summary>Enough for nearly every root or prefix family (at most four requests of 500).</summary>
     public const int MaxMembers = 2000;
 
     /// <summary>
@@ -49,11 +48,24 @@ public sealed class RootFamilyService(IWiktionaryClient client, LanguageRegistry
 
         var title = EntryNames.PageTitle(languages, lang, term);
         var section = languages.SectionNameOf(lang);
+        string? gloss = null;
+        RelatedLookupError? upstreamError = null;
+        if (!ambiguous)
+        {
+            try
+            {
+                gloss = await FirstSenseAsync(title, section, languages.EntryLanguageOf(lang), id, ct);
+            }
+            catch (UpstreamUnavailableException error)
+            {
+                upstreamError = RelatedLookupError.FromUpstream(error);
+            }
+        }
         return new RootFamilyResult(
             lang,
             languages.NameOf(lang),
             term,
-            ambiguous ? null : await FirstSenseAsync(title, section, languages.EntryLanguageOf(lang), id, ct),
+            gloss,
             EntryNames.PageUrl(title, section),
             category,
             EntryNames.PageUrl(category, null)!,
@@ -62,6 +74,7 @@ public sealed class RootFamilyService(IWiktionaryClient client, LanguageRegistry
         {
             Ambiguous = ambiguous,
             Senses = ambiguous ? senses : [],
+            UpstreamError = upstreamError,
         };
     }
 
@@ -103,19 +116,11 @@ public sealed class RootFamilyService(IWiktionaryClient client, LanguageRegistry
     {
         if (title is null || section is null || entryLang is null)
             return null;
-        try
-        {
-            var pages = await client.GetPagesAsync([title], ct);
-            if (pages.GetValueOrDefault(title) is not { } page || WikiSections.LanguageSection(page.Wikitext, section) is not { } text)
-                return null;
-            var withSenses = EntryParser.Parse(text, entryLang, languages).Where(e => e.FirstSense is not null).ToList();
-            var chosen = (id is null ? null : withSenses.FirstOrDefault(e => e.EtymonId == id))
-                ?? (withSenses.Count == 1 ? withSenses[0] : null);
-            return chosen?.FirstSense;
-        }
-        catch (UpstreamUnavailableException)
-        {
+        var pages = await client.GetPagesAsync([title], ct);
+        if (pages.GetValueOrDefault(title) is not { } page || WikiSections.LanguageSection(page.Wikitext, section) is not { } text)
             return null;
-        }
+        var entries = EntryParser.Parse(text, entryLang, languages);
+        var matches = id is null ? entries : entries.Where(e => e.EtymonId == id).ToList();
+        return matches.Count == 1 ? matches[0].FirstSense : null;
     }
 }

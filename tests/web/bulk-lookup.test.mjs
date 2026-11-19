@@ -6,6 +6,20 @@ const relations = word => ({ word, source: { revisionId: 42 }, resolvedFrom: 'qu
   { id: 'sense-1', partsOfSpeech: [{ pos: 'Adjective', relations: [{ kind: 'synonym', sense: 'pleasant', terms: ['pleasant'] }] }] },
 ] });
 const tick = () => new Promise(resolve => setImmediate(resolve));
+
+test('a rate-limited lemma keeps its partial result and pauses pending batches', async () => {
+  const partial = { ...relations('walked'), complete: false, upstreamError: { status: 429, retryAfter: 35 } };
+  const outcome = await runBulkLookup(['walked', 'plain', 'pending'], {
+    batchSize: 2, concurrency: 1,
+    lookupBatch: async words => words.map(word => ({ word, data: word === 'walked' ? partial : relations(word) })),
+  });
+  assert.equal(outcome.results[0].data, partial);
+  assert.equal(outcome.results[0].rateLimited, true);
+  assert.equal(outcome.rateLimited, true);
+  assert.equal(outcome.retryAfter, 35);
+  assert.deepEqual(outcome.pending, ['pending']);
+  assert.deepEqual(outcome.retryable, ['walked', 'pending']);
+});
 const deferred = () => {
   let resolve;
   let reject;
@@ -13,11 +27,11 @@ const deferred = () => {
   return { promise, resolve, reject };
 };
 
-test('bulk parsing preserves phrases, normalizes case/NFC duplicates and reports overflow explicitly', () => {
+test('bulk parsing preserves phrases, preserves dictionary case, normalizes NFC duplicates and reports overflow explicitly', () => {
   const result = parseBulkWords(' Nice, ice  cream;NICE\n café\r\ncafe\u0301; kind; mild; MILD ', { limit: 3 });
-  assert.deepEqual(result.words, ['Nice', 'ice cream', 'café']);
-  assert.deepEqual(result.duplicates, ['NICE', 'café', 'MILD']);
-  assert.deepEqual(result.overflow, ['kind', 'mild']);
+  assert.deepEqual(result.words, ['Nice', 'ice cream', 'NICE']);
+  assert.deepEqual(result.duplicates, ['café']);
+  assert.deepEqual(result.overflow, ['café', 'kind', 'mild', 'MILD']);
   assert.deepEqual(result.invalid, []);
 });
 
@@ -162,7 +176,7 @@ test('a signal aborted before dispatch makes no lookup or UI callback', async ()
 });
 
 test('invalid batch setup fails before dispatch, and empty input reports completion safely', async () => {
-  for (const words of [['nice', 'NICE'], ['Template:head'], [null], Array(51).fill('word')]) {
+  for (const words of [['nice', 'nice'], ['Template:head'], [null], Array(51).fill('word')]) {
     await assert.rejects(runBulkLookup(words, { lookup: async () => relations('nice') }), TypeError);
   }
   await assert.rejects(runBulkLookup(['nice'], { lookup: async () => {}, concurrency: 0 }), RangeError);

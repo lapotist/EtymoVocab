@@ -7,6 +7,15 @@ public static class MorphologyReader
 {
     public static Morphology? FromTemplate(WikiTemplate t)
     {
+        var surface = TemplateKinds.IsSurfaceAnalysis(t.Name);
+        // {{surf|+af|en|bio-|-logy}} delegates to {{af|en|bio-|-logy}}.
+        // Wiktionary shifts positional arguments only; gloss1/id1 still describe the first part.
+        if (surface && t.Arg(1) is { } template && template.StartsWith('+'))
+        {
+            var inner = FromTemplate(t with { Name = template[1..], Positional = t.Positional.Skip(1).ToArray() });
+            return inner is null ? null : inner with { Kind = "surf" };
+        }
+
         var lang = t.Arg(1);
         if (lang is null || !TemplateKinds.IsAffix(t.Name))
             return null;
@@ -22,7 +31,7 @@ public static class MorphologyReader
             "suffix" or "suf" => ("suffix", args.Select((a, i) => i == 0 ? a : Hyphenate(a, prefix: false)).ToList()),
             "confix" or "con" => ("confix", Confix(args)),
             "compound" or "com" => ("compound", args),
-            "surf" => ("surf", args),
+            "surf" or "surface analysis" or "surface etymology" => ("surf", args),
             "blend" => ("blend", args),
             _ => ("af", args),
         };

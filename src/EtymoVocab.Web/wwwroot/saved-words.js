@@ -10,7 +10,7 @@ export function normalizeSavedWord(value) {
   if (typeof value !== 'string' || CONTROL.test(value)) throw new TypeError('A word or phrase without control characters is required.');
   const word = value.normalize('NFC').trim().replace(/\s+/gu, ' ');
   if (!word || word.length > 200) throw new TypeError('A word or phrase must contain 1 to 200 characters.');
-  return Object.freeze({ word, key: word.toLowerCase() });
+  return Object.freeze({ word, key: word });
 }
 
 function optionalText(value, limit, field) {
@@ -47,7 +47,7 @@ function normalizeContext(context) {
 }
 
 function contextKey(context) {
-  return JSON.stringify({ ...context, query: context.query?.toLowerCase() ?? null, sourceWord: context.sourceWord?.toLowerCase() ?? null });
+  return JSON.stringify(context);
 }
 
 function uniqueContexts(contexts) {
@@ -97,7 +97,8 @@ export function createSavedWordsStore({ storage, now = () => Date.now() } = {}) 
     if (!input || typeof input !== 'object' || Array.isArray(input)) return null;
     try {
       const { word, key } = normalizeSavedWord(input.word);
-      if (input.key !== key || !validTime(input.savedAt) || !validTime(input.updatedAt)
+      // Older snapshots used the lowercased key. The stored display word retains its spelling.
+      if ((input.key !== key && input.key !== key.toLowerCase()) || !validTime(input.savedAt) || !validTime(input.updatedAt)
         || input.updatedAt < input.savedAt || !Number.isSafeInteger(input.revision) || input.revision < 1
         || typeof input.deleted !== 'boolean' || typeof input.operationId !== 'string'
         || !input.operationId || input.operationId.length > 120 || CONTROL.test(input.operationId)
@@ -125,20 +126,34 @@ export function createSavedWordsStore({ storage, now = () => Date.now() } = {}) 
     if (!available) return false;
     let raw;
     try { raw = persistence.getItem(SAVED_WORDS_STORAGE_KEY); } catch { available = false; return false; }
-    if (raw == null) return false;
+    if (raw == null) {
+      const changed = records.size > 0;
+      records.clear();
+      return changed;
+    }
     let payload;
     try { payload = JSON.parse(raw); } catch { return false; }
     if (payload?.schemaVersion !== SCHEMA_VERSION || !Array.isArray(payload.records)) return false;
-    let changed = false;
+    const restored = new Map();
+    let damaged = false;
     for (const input of payload.records) {
       const candidate = readRecord(input);
-      if (!candidate) continue;
-      const existing = records.get(candidate.key);
-      if (!existing || compareRecords(candidate, existing) > 0) {
-        records.set(candidate.key, candidate);
-        changed = true;
+      if (!candidate) {
+        damaged = true;
+        continue;
       }
+      const other = restored.get(candidate.key);
+      if (!other || compareRecords(candidate, other) > 0) restored.set(candidate.key, candidate);
     }
+    // Revisions are comparable within this snapshot. A clear and re-save in another tab
+    // starts new revisions, even if this tab still remembers an older revision for the same word.
+    if (damaged) for (const [key, record] of records) {
+      if (!restored.has(key)) restored.set(key, record);
+    }
+    const changed = records.size !== restored.size || [...restored].some(([key, row]) =>
+      records.get(key)?.operationId !== row.operationId);
+    records.clear();
+    for (const [key, row] of restored) records.set(key, row);
     return changed;
   }
 

@@ -1,0 +1,596 @@
+{{also|Happy}}
+==English==
+{{was wotd|2016|November|21}}
+
+===Etymology===
+{{etymon|en|:inh|enm:happy|tree=1}}
+From {{der|en|enm|happy||fortunate, happy}}, perhaps an alteration of {{der|en|enm|happyn}}, {{m|enm|happen||fortunate, happy}}, possibly related to or from {{der|en|non|heppinn||fortunate, happy}}; and potentially assimilated to be equivalent to {{af|en|hap<t:chance, luck, fortune>|-y<id:adjectival>}}. Compare also {{cog|is|heppinn||lucky}}, {{cog|fo|heppin||fortunate, lucky, happy}}, {{cog|nn|heppen||lucky}}, {{cog|sco|happin||fortunate, blessed}}. See further at {{m|en|hap}}.
+
+===Pronunciation===
+* {{IPA|en|/ˈhæpi/|a=RP,GA,AU}}
+** {{audio|en|En-uk-happy.ogg|a=RP}}
+** {{audio|en|LL-Q1860 (eng)-Naomi Persephone Amethyst (NaomiAmethyst)-happy.wav|a=GA}}
+** {{audio|en|en-us-happy.ogg|a=GA}}
+** {{audio|en|en-au-happy.ogg|a=AU}}
+* {{IPA|en|/ˈhapɪj/|a=SSB}}
+* {{IPA|en|/ˈhape/|/ˈhapɪ/|/ˈhapi/|a=Scotland}}
+* {{IPA|en|/ˈhɛpi/|a=NZ}}
+* {{hyphenation|en|hap|py}}
+* {{rhymes|en|æpi|s=2}}
+
+===Adjective===
+{{en-adj|er,more}}
+[[File:Happy men.jpg|thumb|People smile when they are happy]]
+
+# Having a [[feeling]] [[arise|arising]] from a [[consciousness]] of [[well-being]] or of [[enjoyment]]; [[enjoy]]ing [[good]] of any kind, such as [[comfort]], [[peace]], or [[tranquillity]]; [[blissful]], [[contented]], [[joyous]].
+#: {{syn|en|cheerful|content|delighted|elated|exultant|glad|joyful|jubilant|merry|Thesaurus:happy}}
+#: {{ant|en|blue|depressed|down|miserable|moody|morose|sad|unhappy|Thesaurus:sad}}
+#: {{ux|en|Music makes me feel '''happy'''.}}
+#* {{RQ:Coverdale Bible|2 Chronicles|9|7|xcv|column=1|'''Happye''' are thy men, and '''happie''' are these thy seruantes{{…}}}}
+#* {{RQ:KJV|Psalms|144|15||'''Happy''' is that people that is in such a case: yea, '''happy''' is that people, whose God is the Lord.}}
+#* {{quote-book|en|1731|w:Thomas Bayes|Divine Benevolence|https://archive.org/details/DivineBenevolenceOrAnAttemptToProveThatThe/Bayes-DivineBenevolence-1731-BWOrig/page/n71/mode/2up|73|For the moſt '''happy''' univerſe is not one that conſiſts of the greateſt poſſible number of the moſt '''happy''' beings only&nbsp;;{{…}}|location=w:London}}
+#* {{RQ:Pope Essay on Man|epistle=II|page=17|passage=Whate’er the ''Paſſion'', Knowledge, Fame, or [[pelf|Pelf]],<br>Not one will change his Neighbour with himſelf.<br>The Learn’d are '''happy''', Nature to explore&nbsp;;<br>The Fool is '''happy''', that he knows no more&nbsp;;<br>The Rich are '''happy''' in the plenty given&nbsp;;<br>The Poor contents him with the Care of Heaven.}}
+#* {{quote-book|en|1807||tlr=William Bridgman|chapter=That the Happy Man has Need of Worthy Friends|The Paraphrase of an Anonymous Greek Writer, (hitherto Published Under the Name of Andronicus Rhodius) on the {{w|Nicomachean Ethics}} of {{w|Aristotle}}|location=w:London|publisher=w:Charles Whittingham||section=book IX|415|pageurl=https://books.google.com/books?id=Jw_nAAAAMAAJ&pg=PA415|oclc=3057125|But since the '''happy''' are sufficient to themselves they have no need of friends; and hence it is said,{{pb}}“When Fortune’s goods abound, what boots a friend?“”{{pb}}Thus then it appears that the '''happy''' do not require friends.}}
+#* {{quote-book|en|1829|w:Charles Knowlton|chapter=On the Passions|Elements of Modern Materialism: Inculcating the Idea of a Future State, in which All Will be More Happy, under whatever Circumstances They May be Placed than if They Experienced No Misery in this Life|location=w:[[Adams, Massachusetts|Adams]]|publisher=A. Oakey||324|pageurl=https://books.google.com/books?id=mTM9AAAAYAAJ&pg=PA324|oclc=367405965|While they are in this state striving perhaps to render their fellow beings more '''happy''', of whatever sect or denomination they may be, they meet with one or more persons who undertake to convert their mere cold belief in religious doctrines—which is at best little better than mere morality—into real effective religion, a religion that will move the tongue.}}
+#* {{quote-book|en|1901|Edith Goodyear Alger|chapter=Roy’s Birthday|A Primer of Work and Play|location=w:Boston|publisher=w:D. C. Heath and Company||49|pageurl=https://babel.hathitrust.org/cgi/imgsrv/download/pdf?id=inu.30000114218161;orient=0;size=100;seq=57;num=49;attachment=0|oclc=2885602|A '''happy''' birthday to you,<br>A '''happy''' birthday to you,<br>A '''happy''' birthday, dear Roy,<br>A '''happy''' birthday to you.|footer=<small>''Note'': This is the first occurrence in print of the lyrics of the song “{{w|Happy Birthday to You}}”.</small>}}
+#* {{quote-book|en|1990|Peter Woods|chapter=Laughing at School|The '''Happiest''' Days?: How Pupils Cope With Schools|location=w:Basingstoke|publisher=The Falmer Press, {{w|Taylor & Francis}}||182|isbn=9781850007302|In different ways, therefore, for many pupils, whether they benefit greatly from the system, or just 'get by', or are 'bored stiff' by the lessons, or for the most part are completely rebellious, schooldays do often appear to be 'the '''happiest''' days'.}}
+#* {{quote-song|en|author=w:Pharrell Williams|title=w:[[Happy (Pharrell Williams song)|Happy]]|album=w:[[Girl (Pharrell Williams album)|Girl]]|artist=w:Pharrell Williams|date=2013-11-21|passage=Because I’m '''happy'''<br>Clap along if you know what happiness is to you<br>Because I’m '''happy'''<br>Clap along if you feel like that’s what you wanna do}}
+#* {{quote-book|en|2014|Erica Brown|chapter=Pondering the Afterlife|Happier Endings: A Meditation on Life and Death|location=w:New York|publisher=w:Simon & Schuster||49|isbn=9781451649222|People who believe that a better life awaits us after this one would appear to have secured a '''happier''' ending, even before they come close to the end. There is little to be afraid of if you're armed with the promise of a wonderful future. Death is only a portal to greater joy.}}
+# {{lb|en|of people}} [[experience#Verb|Experiencing]] the effect of [[favourable]] [[fortune]]; [[favor#Verb|favored]] by fortune or [[luck]]; [[fortunate]], [[lucky]].
+#: {{syn|en|fortunate|lucky|Thesaurus:lucky}}
+#: {{ant|en|unfortunate|unlucky}}
+#* {{quote-book|en|1661|w:Robert Boyle|chapter=The Conclusion|w:The Sceptical Chymist|location=w:London|publisher=J. Cadwell||429|pageurl=https://books.google.com/books?id=pxhKAQAAMAAJ&pg=PA429|oclc=4477054|passage={{...}} I think I may presume that what I have hitherto Diſcourſed will induce you to think, that Chymists have been much more '''happy''' in finding Experiments than the Cauſes of them; or in aſſigning the Principles by which they may beſt be explain’d.}}
+#* {{RQ:Austen Northanger Abbey|I|XIV|256|"Historians, you think," said Miss Tilney, "are not '''happy''' in their flights of fancy. They display imagination without raising interest. {{nb...}}"}}
+## {{lb|en|archaic}} [[elect|Elect]] or [[saved]] after [[death]], [[blessed]].
+##* {{RQ:Tennyson In Memoriam|XLIII|66|How fares it with the '''happy''' dead?}}
+# [[content#Adjective|Content]], [[willing]], [[satisfied]] (with or to do something); having no [[objection]] (to something).
+#: {{syn|en|pleased}}
+#: {{ant|en|disenchanted|dissatisfied}}
+#: {{ux|en|Are you '''happy''' to pay me back by the end of the week?}}
+#: {{ux|en|Yes, I am '''happy''' with the decision.}}
+#* {{quote-journal|en|1844||Patience and Perseverance|editor=w:[[Joseph Barker (minister)|Joseph Barker]]|The Christian|location=w:London|publisher=w:[[Chapman & Hall|Chapman]]||volume=1|issue=14|314|pageurl=https://books.google.com/books?id=J4AXAAAAYAAJ&pg=PA314|oclc=8266193|A Christian may be '''happier''' in low circumstances, than in high ones. He may be '''happier''' without rich friends, than with them. He may be '''happier''' in loneliness, than in a crowd of flatterers. He may be '''happier''' under reproach, than when riding on the spring-tide of popularity. He may be '''happier''' with hard work, than in a life of ease. He may be '''happier''' with coarse and scanty food, than with tables of luxury. He may be '''happier''' in sickness and persecution, than in health and quietness.}}
+#* {{quote-book|en|2007|Iver David Reingold|chapter=Substitution Reactions|Organic Chemistry, or, “The Happy Carbon”: An Introduction Emphasizing Biological Connections|location=w:Delhi|publisher=Indo American Books||308|isbn=9788189617394|A strong acid is also a substance whose conjugate base (obviously a weak base) is quite '''happy''' with the excess electrons it got from that bond.}}
+#* {{quote-book|en|2016|Imad A. Moosa|chapter=The Post-crisis Regulatory Landscape: An Overview|Contemporary Issues in the Post-crisis Regulatory Landscape|location=w:Singapore|publisher=w:World Scientific||8|isbn=9789813109285|This wave of "financial innovation" led to rapid growth in subprime lending, which was enhanced on the demand side by the housing boom and general asset price bubble. While the party lasted everyone was '''happy'''. Mortgage lenders were '''happy''' to lend and keep subprime loans off their books via securitization. Issuers of ABSs were '''happy''' to get their commissions. Borrowers were '''happy''' to get loans without scrutiny. Investors were '''happy''' to acquire assets that were "risk-free" and offered a return of hundreds of basis points over that offered by US Treasuries.}}
+# {{lb|en|of acts, events, speech, etc.}} {{cap|bringing}} or [[being]] an instance of [[favourable]] [[fortune]]; [[apt]], [[felicitous]], [[fortunate]], [[propitious]].
+#: {{ant|en|inapt|unfelicitous|unfortunate|unpropitious}}
+#: {{co|en|'''happy''' coincidence}}
+#* {{quote-book|en|1792|James Thomson|chapter=Letter XXXI. From the Hon. Miss Wilton to Mr. Benfield.|The Denial; or, The Happy Retreat|edition=2nd corr.|location=w:London|volume=1||185|pageurl=https://books.google.com/books?id=E0BWAAAAcAAJ&pg=PA185|oclc=642654779|The common privilege of your ſex affords you the '''happy''' opportunity of alleviating your ſorrows by communicating your ſentiments and feelings to some faithful friend; but to women, even this relief is rigidly denied, and, bound by the harſh reſtraints which the delicacy and reſerve of female natures have impoſed, I muſt bear the ſecret of my ſorrows with painful ſilence.}}
+#* {{quote-book|en|1804|[James Stephen]|The Opportunity; or, Reasons for an Immediate Alliance with St. Domingo|location=w:London|publisher=w:Charles Whittingham||101|pageurl=https://books.google.com/books?id=hMFeAAAAcAAJ&pg=PA101|oclc=65238401|You would, even by this most favourable result, be at best only replaced in the situation, and restored to the '''happy''' opportunity which you at present possess:{{…}}}}
+#* {{quote-book|en|author=w:Jean Baudrillard|tlr=Chris Turner|title=Cool Memories|location=London; New York, N.Y.|publisher=w:Verso Books|year=1990|page=138|isbn=978-0-86091-500-3|passage=When happy events coincide, that is a '''happy''' coincidence. But the coincidence of baneful events is a '''happy''' coincidence too.}}
+#* {{RQ:Fry Liar|41|‘I had the '''happy''' notion of adding an egg,’ Williams shouted back. ‘It [[poach]]es in the soup. Not unlike an Italian ''[[stracciatella]]''. Singularly toothsome.{{nb...}}’}}
+#* {{quote-journal|en||date=2022-12-15|Samanth Subramanian|Dismantling Sellafield: the epic task of shutting down a nuclear site|The Guardian|https://www.theguardian.com/environment/2022/dec/15/dismantling-sellafield-epic-task-shutting-down-decomissioned-nuclear-site||The UK’s earliest reactors – a type called Magnox – were set up to harvest plutonium for bombs; the electricity was a '''happy''' byproduct.|archiveurl=https://web.archive.org/web/20261013075133/https://www.theguardian.com/environment/2022/dec/15/dismantling-sellafield-epic-task-shutting-down-decomissioned-nuclear-site|archivedate=13 October 2026}}
+# {{lb|en|in combination}} [[favoring|Favoring]] or [[inclined]] to use.
+#: {{ux|en|[[slap'''happy''']], [[trigger-'''happy''']]}}
+#* {{quote-book|en|author=Dan Benson|chapter=Stupid Mistake #9: Following Fads vs. Staying the Course|title=12 Stupid Mistakes People Make with Their Money|location=Nashville, Tenn.|publisher=[[w:Thomas Nelson (publisher)|Thomas Nelson]]|year=2002|page=128|isbn=978-0-8499-1681-6|passage=We live in a sue-'''happy''' society. If Santa slides off your roof and busts his tailbone, he could sue you, and probably will.}}
+#* {{quote-web|en|author=Jason Heller|title=[[w:The Darkness (band)|The Darkness]]: ''Hot Cakes'' [music review]|url=http://www.avclub.com/articles/the-darkness-hot-cakes,84036/|archiveurl=https://web.archive.org/web/20120824002343/http://www.avclub.com/articles/the-darkness-hot-cakes%2C84036/|archivedate=24 August 2012|work=w:The A.V. Club|date=21 August 2012|passage=“Baby, I was a loser / Several years on the dole / An Englishman with a very high voice / Doing rock ’n’ roll,” sings falsetto-'''happy''' frontman {{w|Justin Hawkins}} at the start of “Every Inch Of You,” ''{{w|Hot Cakes}}''’ opener.}}
+# {{lb|en|rare|of people|often followed by "at" or "in"}} [[dexterous|Dexterous]], [[ready]], [[skilful]].
+#* {{quote-book|en|1761|Simon Wagstaff [pseudonym; {{w|Jonathan Swift}}]|w:A Complete Collection of Genteel and Ingenious Conversation|location=w:Edinburgh|section=introduction|https://www.google.com/books/edition/i/3lMJAAAAQAAJ|iii|For inſtance, one lady can give an anſwer better than aſk a queſtion: one gentleman is '''happy''' at a reply; another excels in a rejoinder: one can revive a languiſhing converſation by a ſudden ſurpriſing ſentence; another is more dextrous in ſeconding; a third can fill the gap with laughing, or commending what has been ſaid.}}
+# {{n-g|Implying “May you have a happy ⁓” or similar; used in phrases to wish someone happiness or good fortune at the time of a festival, celebration, or other event or activity.}}
+#: {{ux|en|'''Happy''' birthday!}}
+#: {{ux|en|'''Happy''' Fourth of July!}}
+#: {{ux|en|'''Happy''' anniversary!}}
+#: {{ux|en|'''Happy''' job-hunting!}}
+
+====Usage notes====
+* {{s|contented, joyous}} Said of people, hours, times, thoughts, etc.
+* {{s|fortunate, lucky}} Said of efforts, expedients, omens, ventures, etc.
+
+====Alternative forms====
+* {{alt|en|happie||obsolete}}
+
+====Derived terms====
+{{col|en|belated happy birthday
+|dance-happy
+|demob-happy
+|fappy
+|fat and happy
+|First Happy Time
+|flag-happy
+|gate-happy
+|get happy
+|gun-happy
+|happification
+|happify
+|happiless
+|happily
+|happiness
+|happy 4th
+|happy as a box of birds
+|happy as a clam
+|happy as a clam at high tide
+|happy as a clam at high water
+|happy as a jaybird
+|happy as a lark
+|happy as a pig in mud
+|happy as a pig in shit
+|happy as a possum up a gum tree
+|happy as a prince
+|happy as a sandboy
+|happy as Larry
+|happy baby
+|happy belated birthday
+|happy birthday
+|happy birthday in heaven
+|happy bunny
+|happy button
+|happy camper
+|happy chappy
+|happy clapper,happy-clappy
+|happycore
+|happy corner
+|happy days
+|happy day scenario
+|happy despatch
+|happy dispatch
+|happy drunk
+|happy Easter
+|happy ending
+|happy ever after
+|happy families
+|happy Fourth
+|happy gas
+|happy-go-lucky
+|Happy Hallow
+|happy Halloween
+|happy Hanukkah
+|happy hardcore
+|happy holidays
+|happy hour
+|happy hunting ground
+|happy Independence Day
+|happyish
+|Happy Jack
+|happy Kwanzaa
+|happy landing
+|happy landings
+|happy little vegemite
+|happy meal
+|happy medium
+|Happy Merchant
+|happy New Year
+|happy number
+|happyologist
+|happyology
+|happy panda
+|happy path
+|happy pill
+|happy place
+|happy puppet syndrome
+|happy Ramadan
+|happy sack
+|happy slap
+|happy slapper
+|happy slapping
+|happy snap
+|happy talk
+|happy Thanksgiving
+|Happy Time
+|happy to see someone
+|happy trail
+|happy trails
+|happy Valentine's Day
+|happy vowel
+|happy waitress
+|I hope you're happy
+|many happies
+|many happy returns
+|mishappiness
+|mishappy
+|nonhappy
+|not happy, Jan
+|one big happy family
+|overhappy
+|rock happy
+|Second Happy Time
+|semihappy
+|slap happy
+|slaphappy,slap-happy
+|snap-happy
+|space-happy
+|trigger happy
+|trigger-happy
+|you happy jiu OK
+|you will own nothing and be happy
+
+}}
+
+====Descendants====
+* {{desc|tpi|hepi}}
+* {{desc|de|happy|bor=1}}
+* {{desc|cy|hapus|calq=1}}
+* {{desc|ja|ハッピー|tr=happī|bor=1}}
+
+====Translations====
+{{trans-top-see|contented, joyous|content|joyous|joyful|satisfied}}
+* Afrikaans: {{t+|af|bly}}, {{t|af|gelukkig}}
+* Albanian: {{t+|sq|i lumtur}}, {{t+|sq|i kënaqur}}, {{t|sq|(i) [[gëzuar]]}}
+* Altai:
+*: Southern Altai: {{t|alt|ырысту}}, {{t|alt|урматту}}
+* American Sign Language: {{t|ase|OpenB@Chest-PalmBack-OpenB@Chest-PalmBack Upanddown-Upanddown OpenB@SideNeckhigh-PalmBack-OpenB@SideNeckhigh-PalmBack}}
+* Amharic: {{t|am|ደስተኛ}}
+* Arabic: {{t|ar|سَعِيد}}, {{t+|ar|فَرِح}}
+*: Egyptian Arabic: {{t|arz|مبسوط|tr=mabsūṭ}}, {{t|arz|سعيد|tr=saʕīd}}, {{t|arz|فرحان|tr=farḥān}}, {{t|arz|منشكح|tr=monšakeḥ}} {{q|usually humorous}}
+*: Hijazi Arabic: {{t|acw|مبسوط|tr=mabsūṭ}}, {{t|acw|فَرْحان|tr=farḥān}}
+* Armenian: {{t+|hy|երջանիկ}}, {{t+|hy|ուրախ}}
+* Aromanian: {{t|rup|ambar}}, {{t|rup|hãrios}}
+* Assamese: {{t|as|সুখী|}}
+* Asturian: {{t+|ast|feliz}}, {{t|ast|contentu}}, {{t|ast|gayoleru}}, {{t|ast|gayasperu}}
+* Azerbaijani: {{t+|az|xoşbəxt}}, {{t|az|məsud}}, {{t+|az|bəxtiyar}}, {{t|az|səadətli}}, {{t+|az|şən}}
+* Bashkir: {{t|ba|бәхетле}}
+* Basque: {{t|eu|pozik}}
+* Belarusian: {{t+|be|шчаслі́вы}}, {{t+|be|ра́дасны}}
+* Bengali: {{t+|bn|খুশি}}
+* Bikol:
+*: Central Bikol: {{t+|bcl|maugma}}
+* Bulgarian: {{t+|bg|щастли́в}}, {{t+|bg|ра́достен}}
+* Burmese: {{t+|my|ရွှင်ပျ}}, {{t+|my|ပျော်}}
+* Catalan: {{t+|ca|feliç}}, {{t+|ca|content}}, {{t+|ca|alegre}}
+* Chakma: {{t-needed|ccp}}
+* Chamicuro: {{t|ccc|pya'kijnani}}
+* Chechen: {{t|ce|реза}}
+* Chinese:
+*: Cantonese: {{t|yue|高興|tr=gou1 hing3}}
+*: Hokkien: {{t+|nan-hbl|歡喜|tr=hoaⁿ-hí}}, {{t+|nan-hbl|快樂|tr=khòai-lo̍k}}
+*: Mandarin: {{t+|cmn|高興|tr=gāoxìng}}, {{t+|cmn|愉快|tr=yúkuài}}, {{t+|cmn|快樂|tr=kuàilè}}, {{t+|cmn|幸福|tr=xìngfú}}
+* Cornish: {{t|kw|lowen}}
+* Czech: {{t+|cs|šťastný}}, {{t+|cs|radostný}}
+* Dalmatian: {{t|dlm|alegr}}
+* Danish: {{t+|da|glad}}, {{t+|da|lykkelig}}
+* Dutch: {{t+|nl|gelukkig}}, {{t+|nl|blij}}
+* Esperanto: {{t|eo|feliĉa}}
+* Estonian: {{t+|et|õnnelik}}
+* Faroese: {{t|fo|glaður}}
+* Fijian: {{t+|fj|marau}}
+* Finnish: {{t+|fi|onnellinen}}, {{t+|fi|iloinen}}, {{t+|fi|tyytyväinen}}
+* French: {{t+|fr|heureux|m}}, {{t+|fr|heureuse|f}}, {{t+|fr|content|m}}, {{t+|fr|contente|f}}, {{t+|fr|bienheureux|m}}, {{t+|fr|bienheureuse|f}}
+* Frisian:
+*: North Frisian: {{t|frr|bliir}} {{q|Sylt}}
+*: West Frisian: {{t|fy|bliid}}
+* Friulian: {{t|fur|feliç}}
+* Galician: {{t+|gl|feliz}}, {{t+|gl|ledo|m}}
+* Georgian: {{t|ka|ბედნიერი}}
+* German: {{t+|de|zufrieden}}, {{t+|de|fröhlich}}, {{t+|de|froh}}, {{t+|de|freudig}}
+* Greek: {{t+|el|ευχαριστημένος|m}}, {{t+|el|χαρούμενος|m}}
+* Guianese Creole: {{t|gcr|kontan}}
+* Haitian Creole: {{t|ht|kontan}}
+* Hawaiian: {{t|haw|hauʻoli}}
+* Hebrew: {{t|he|מאושר|tr=m'ushar}}, {{t+|he|שָׂמֵחַ|tr=saméakh}}
+* Hindi: {{t+|hi|सुखी}}, {{t|hi|ख़ुश}}, {{t+|hi|प्रसन्न}}
+* Hungarian: {{t+|hu|boldog}}
+* Icelandic: {{t+|is|hamingjusamur}}
+* Ido: {{t+|io|felica}}
+* Indonesian: {{t+|id|senang}}
+* Ingrian: {{t|izh|hyvämeeliin}}, {{t|izh|onnelikas}}, {{t|izh|osalliin}}
+* Interlingua: {{t-needed|ia}}
+* Irish: {{t|ga|áthasach}}, {{t|ga|sona}}
+* Italian: {{t+|it|felice}}, {{t+|it|lieto}}, {{t+|it|contento}}
+* Japanese: {{t+|ja|幸せ|alt=幸せな|tr=しあわせな, shiawase na}}, {{t+|ja|幸福|alt=幸福な|tr=こうふくな, kōfuku na}}, {{t+|ja|嬉しい|tr=うれしい, ureshii}}
+* Kabuverdianu: {{t|kea|filís}}
+* Kaingang: {{t|kgp|mrir}}
+* Kazakh: {{t|kk|бақытты}}, {{t|kk|аруақты}}, {{t|kk|базарлы}}
+* Khmer: {{t+|km|រីករាយ}}
+* Komi:
+*: Komi-Zyrian: {{t|kpv|шуда}}
+* Korean: {{t+|ko|행복하다}}, {{t+|ko|기뻐하다}}, {{t+|ko|기쁘다}}
+* Kurdish:
+*: Central Kurdish: {{t|ckb|دڵ خۆش}}, {{t+|ckb|خەنی}}
+* Kyrgyz: {{t+|ky|бактылуу}}, {{t|ky|ырыстуу}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t|lad|felis}}, {{t|lad|alegre}}, {{t|lad|afortunado}}, {{t|lad|feliche}}
+* Lao: {{t|lo|ກະຈົວະກະຈວກ}}, {{t+|lo|ກະເຈາະກະຈອກ}}
+* Latgalian: {{t|ltg|laimeigs}}
+* Latin: {{t+|la|laetus}}, {{t|la|beatus}}
+* Latvian: {{t|lv|laimīgs}}, {{t|lv|priecīgs}}
+* Ligurian: {{t|lij|feliçe}}
+* Lithuanian: {{t+|lt|laimingas}}
+* Lombard: {{t|lmo|felice}}
+* Louisiana Creole: {{t|lou|gé}}, {{t|lou|èrè}}, {{t|lou|konten}}
+* Lutuv: {{t|clt|nuo}}
+* Luxembourgish: {{t+|lb|glécklech}}
+* Macedonian: {{t|mk|среќен}}, {{t|mk|радосен}}
+* Malay: {{t+|ms|bahagia}}, {{t+|ms|gembira}}, {{t+|ms|suka hati}}
+*: Brunei Malay: {{t|kxd|gumbira}}
+* Malayalam: {{t|ml|സന്തോഷിപ്പിക്കുന്ന}}
+* Maltese: {{t+|mt|kuntenti}}, {{t|mt|ferħan}}
+* Manx: {{t|gv|maynrey}}
+* Mazanderani: {{t|mzn|خار}}
+* Middle English: {{t|enm|wynne}}
+* Mizo: {{t|lus|hlim}}
+* Mongolian: {{t|mn|азтай}}, {{t+|mn|баяртай}}, {{t|mn|жаргалтай}}
+* Naga:
+*: Khiamniungan Naga: {{t|kix|mōnglīng}}
+* Norman: {{t|nrf|heûtheux}}
+* Norwegian: {{t+|no|glad}}, {{t|no|lykkelig}}
+* Occitan: {{t+|oc|urós}}, {{t+|oc|joiós}}, {{t+|oc|gaujós}}, {{t+|oc|content}}
+* Old English: {{t|ang|blīþe}}
+* Old Tupi: {{t|tpw|oryb}}, {{t|tpw|ory}}
+* Persian: {{t+|fa|شاد|tr=šâd}}, {{t+|fa|خوش|tr=xoš}}, {{t+|fa|خوشحال|tr=xošhâl}}, {{t+|fa|خرم|tr=xorram}}
+* Piedmontese: {{t|pms|felice}}
+* Plautdietsch: {{t|pdt|froo}}, {{t|pdt|freelich}}, {{t|pdt|schaftich}}
+* Polish: {{t+|pl|szczęśliwy}}, {{t+|pl|radosny}}
+* Portuguese: {{t+|pt|feliz}}
+* Quechua: {{t|qu|kusi}}, {{t|qu|kusisqa}}
+* Rohingya: {{t|rhg|kúci}}
+* Romagnol: {{t-needed|rgn}}
+* Romani: {{t|rom|baxtalo|m}}, {{t|rom|baxtali|m}}, {{t|rom|baxtale|m}}
+* Romanian: {{t+|ro|fericit}}, {{t+|ro|bucuros}}
+* Romansh: {{t|rm|legher}}, {{t|rm|alleger}}, {{t|rm|cuntent}}, {{t|rm|cuntaint}}, {{t|rm|ventiraivel}}
+* Russian: {{t+|ru|счастли́вый}}, {{t+|ru|ра́достный}}
+* Sanskrit: {{t+|sa|सुखिन्}}, {{t+|sa|प्रसन्न}}
+* Scots: {{t|sco|blithe}}
+* Scottish Gaelic: {{t|gd|sona}}, {{t|gd|toilichte}}, {{t|gd|àghmhor}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|срећан}} {{qualifier|Bosnia, Serbia}}, {{t|sh|сретан}} {{qualifier|Bosnia, Croatia}}
+*: Latin: {{t|sh|srećan}} {{qualifier|Bosnia, Serbia}}, {{t+|sh|sretan}} {{qualifier|Bosnia, Croatia}}
+* Shor: {{t|cjs|ырыстығ|tr=ırıstığ}}
+* Sicilian: {{t+|scn|filici}}
+* Slovak: {{t+|sk|šťastný}}, {{t|sk|radostný}}, {{t|sk|rád|m}}, {{t|sk|rada|f}}
+* Slovene: {{t+|sl|srečen}}
+* Spanish: {{t+|es|feliz}}, {{t+|es|alegre}}, {{t+|es|alacre}}
+* Swahili: {{t|sw|furahifu}}
+* Swedish: {{t+|sv|glad}}, {{t+|sv|lycklig}}
+* Sylheti: {{t-needed|syl}}
+* Tagalog: {{t|tl|masaya}}
+* Tajik: {{t+|tg|хушбахт}}, {{t+|tg|хушҳол}}
+* Tatar: {{t|tt|бәхетле}}
+* Telugu: {{t+|te|ప్రశాంతం}}, {{t+|te|ప్రసన్నత}}
+* Thai: {{t|th|[[มี]][[ความสุข]]|tr=mee kwaam sòok}}, {{t+|th|ดีใจ}}
+* Tocharian B: {{t|txb|sākre}}
+* Tongan: {{t|to|fiefia}}
+* Turkish: {{t+|tr|mutlu}}
+*: Ottoman Turkish: {{t|ota|سرخوش|tr=sarhoş}}
+* Turkmen: {{t|tk|hoşbagt}}
+* Ukrainian: {{t+|uk|щасли́вий}}, {{t|uk|ра́дісний}}
+* Urdu: {{t|ur|خوش|tr=xuś}}, {{t|ur|سکھی|tr=sukhī}}, {{t|ur|پرسن|tr=prasann}}
+* Uzbek: {{t+|uz|baxtiyor}}, {{t+|uz|baxtli}}, {{t+|uz|xushhol}}, {{t+|uz|xursand}}
+* Vietnamese: {{t+|vi|mừng}}, {{t+|vi|vui}}, {{t+|vi|hạnh phúc}}
+* Volapük: {{t+|vo|fredik}}
+* Welsh: {{t+|cy|dedwydd}}, {{t+|cy|hapus}}
+* Yiddish: {{t|yi|פֿריילעך}}, {{t|yi|גליקלעך}}, {{t|yi|באַגליקט}}, {{t|yi|צופֿרידן}}
+* Yucatec Maya: {{t|yua|kiimak ool}}
+{{trans-bottom}}
+
+{{trans-top|fortunate, lucky}}
+* Afrikaans: {{t|af|gelukkig}}
+* Altai:
+*: Southern Altai: {{t|alt|ырысту}}, {{t|alt|урматту}}
+* Arabic: {{t|ar|مَحْظُوظ}}
+* Azerbaijani: {{t|az|bəxtli}}, {{t|az|[[bəxt|bəxti]] [[gətirən]]}}, {{t+|az|bəxtəvər}}
+* Bulgarian: {{t+|bg|удачен}}
+* Catalan: {{t+|ca|feliç}}, {{t+|ca|afortunat}}
+* Chinese:
+*: Mandarin: {{t+|cmn|幸運|alt=幸運的|tr=xìngyùn de}}
+* Czech: {{t+|cs|šťastný}}
+* Danish: {{t|da|heldig}}
+* Dutch: {{t+|nl|gelukkig}}
+* Esperanto: {{t|eo|feliĉa}}
+* Estonian: {{t+|et|õnnelik}}
+* Finnish: {{t+|fi|hyvä}}, {{t+|fi|onnekas}}, {{t+|fi|onnellinen}}
+* French: {{t+|fr|heureux}}, {{t+|fr|chanceux}}
+* Galician: {{t|gl|afortunado|m}}
+* German: {{t+|de|glücklich}}
+* Greek: {{t+|el|ευτυχής}}, {{t+|el|ευτυχισμένος}}
+*: Ancient Greek: {{t|grc|εὐτυχής}}
+* Hindi: {{t|hi|ख़ुश}}, {{t+|hi|प्रसन्न}}
+* Hungarian: {{t+|hu|szerencsés}}
+* Icelandic: {{t+|is|heppilegur}}
+* Ido: {{t+|io|fortunoza}}
+* Indonesian: {{t+|id|untung}}, {{t+|id|mujur}}
+* Ingrian: {{t|izh|onnekas}}
+* Irish: {{t|ga|séanmhar}}, {{t|ga|sona}}, {{t|ga|sonasach}}
+* Italian: {{t+|it|fortunato}}
+* Japanese: {{t+|ja|幸運|tr=こううんな, kōun na|alt=幸運な}}, {{t|ja|運のよい|tr=うんのよい, un no yoi}}
+* Khmer: {{t+|km|សប្បាយ}}
+* Korean: {{t|ko|운좋은}}
+* Kurdish:
+*: Central Kurdish: {{t|ckb|بەختەوەر}}
+* Kyrgyz: {{t|ky|ырыстуу}}
+* Ladino: {{t|lad|mazalozo}}, {{t|lad|afortunado}}, {{t|lad|mazaludo}}, {{t|lad|felis}}
+* Latin: {{t|la|felix}}
+* Lithuanian: {{t+|lt|laimingas}}
+* Luxembourgish: {{t+|lb|glécklech}}
+* Mizo: {{t|lus|vannei}}
+* Norman: {{t|nrf|heûtheux}}
+* Norwegian: {{t+|no|heldig}}
+* Occitan: {{t+|oc|urós}}, {{t+|oc|astruc}}, {{t+|oc|aürós}}, {{t|oc|fortunat}}, {{t|oc|fortunós}}, {{t|oc|benastruc}}, {{t|oc|benastrat}}, {{t|oc|benaürat}}, {{t+|oc|satisfach}}
+* Old English: {{t|ang|ġesǣliġ}}
+* Old Turkic: {{t|otk|𐰴𐰆𐱃𐰞𐰆𐰍|tr=qutluɣ}}
+* Polish: {{t+|pl|szczęśliwy}}
+* Portuguese: {{t+|pt|feliz}}
+* Romanian: {{t+|ro|norocos}}
+* Russian: {{t+|ru|уда́чный}}, {{t+|ru|счастли́вый}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|срећан}} {{q|Bosnia, Serbia}}, {{t|sh|сретан}} {{q|Bosnia, Croatia}}
+*: Latin: {{t|sh|srećan}} {{q|Bosnia, Serbia}}, {{t+|sh|sretan}} {{q|Bosnia, Croatia}}
+* Slovak: {{t+|sk|šťastný}}
+* Slovene: {{t+|sl|srečen}}
+* Spanish: {{t+|es|afortunado}}, {{t+|es|feliz}}
+*: Old Spanish: {{t|osp|felix}}
+* Swedish: {{t+|sv|gynnsam}}, {{t+|sv|lyckad}}
+* Tagalog: {{t|tl|masaya}}, {{t|tl|suwerte}}
+* Telugu: {{t|te|అదృవ్ష్టవంతమైన}}
+* Turkish: {{t+|tr|şanslı}}, {{t+|tr|kutlu}}
+*: Ottoman Turkish: {{t|ota|قوتلو|tr=qutlu}}
+* Vietnamese: {{t+|vi|sướng}}, {{t+|vi|sung sướng}}, {{t+|vi|may}}, {{t+|vi|may mắn}}, {{t+|vi|hạnh phúc}}
+{{trans-bottom}}
+
+{{trans-top|content (to do something); having no objection (to something)}}
+* Afrikaans: {{t|af|tevrede}}, {{t|af|gelukkig}}
+* Bulgarian: {{t+|bg|доволен}}
+* Catalan: {{t+|ca|feliç}}, {{t+|ca|satisfet}}
+* Cornish: {{t|kw|lowen}}
+* Czech: {{t+|cs|spokojený}}
+* Dutch: {{t+|nl|tevreden}}
+* Esperanto: {{q|willingly}} {{t+|eo|vole}}, {{qualifier|with pleasure}} {{t|eo|kun plezuro}}, {{q|happy with}} {{t|eo|kontenta pri}}
+* Finnish: {{t+|fi|halukas}}, {{t+|fi|suostuvainen}}
+* French: {{t+|fr|satisfait|m}}, {{t+|fr|satisfaite|f}}, {{t+|fr|content|m}}, {{t+|fr|contente|f}}, {{qualifier|willingly}} {{t+|fr|prêt|m}}, {{qualifier|willingly}} {{t+|fr|prête|f}}
+* German: {{t-check|de|[[mit]] ([[etwas]]) [[einverstanden]] [[sein]]}}<!-- {{t}} if [[WT:IDIOM]] -->
+* Hungarian: {{t+|hu|elégedett}}, {{t|hu|[[megelégszik|meg]] [[van]] [[megelégszik|elégedve]]}}
+* Irish: {{t|ga|sásta}}
+* Italian: {{t+|it|contento}}, {{t+|it|soddisfatto}}
+* Korean: {{t+|ko|만족하다}}
+* Malayalam: {{t+|ml|സന്തുഷ്ട}}
+* Norwegian:
+*: Bokmål: {{t+|nb|fornøyd}}, {{t+|nb|tilfreds}}
+*: Nynorsk: {{t|nn|fornøgd}}
+* Occitan: {{t+|oc|content}}, {{t+|oc|satisfach}}, {{t|oc|satisfait}}, {{t+|oc|urós}}
+* Persian: {{t+|fa|خرسند|tr=xorsand}}, {{t+|fa|خشنود|tr=xošnud}}
+* Polish: {{t+|pl|zadowolony}}
+* Portuguese: {{t+|pt|feliz}}, {{t+|pt|contente}}
+* Romanian: {{t+|ro|mulțumit}}, {{t+|ro|satisfăcut}}
+* Scottish Gaelic: {{t|gd|toilichte}}, {{t|gd|sàsaichte}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|задовољан}}
+*: Latin: {{t+|sh|zadovoljan}}
+* Slovak: {{t|sk|spokojný}}
+* Swedish: {{t+|sv|nöjd}}, {{t+|sv|nöjd}}
+* Thai: {{t+|th|ยินดี}}
+* Vietnamese: {{t+|vi|vui lòng}}
+{{trans-bottom}}
+
+{{trans-top|apt, felicitous, fortunate, propitious}}
+* Afrikaans: {{t|af|handig}}, {{t|af|kundig}}, {{t|af|slim}}
+* Bulgarian: {{t+|bg|уда́чен}}
+* Dutch: {{t+|nl|handig}}, {{t+|nl|bedreven}}, {{t+|nl|kundig}}
+* Esperanto: {{t|eo|feliĉa}}
+* Finnish: {{t+|fi|kätevä}}, {{t+|fi|aulis}}
+* French: {{t+|fr|heureux}}
+* Georgian: {{t|ka|საბედნიერო}}
+* Greek: {{t+|el|ευτυχής}}, {{t+|el|ευτυχισμένος}}
+* Italian: {{t+|it|felice}}
+* Occitan: {{t+|oc|urós}}, {{t|oc|benastrat}}, {{t|oc|benaürat}}
+* Romanian: {{t+|ro|fericit}}
+* Slovak: {{t+|sk|šťastný}}
+* Ukrainian: {{t+|uk|щасли́вий}}
+* Vietnamese: {{t+|vi|tài tình}}
+{{trans-bottom}}
+
+{{trans-top|may you have a happy}}
+* Chinese:
+*: Mandarin: {{t+|cmn|快樂|tr=kuàilè}}
+* Finnish: {{t+|fi|hyvä}}
+* French: {{t+|fr|bon}}, {{t+|fr|joyeux}}
+* Romanian: {{t+|ro|fericit}}
+* Tagalog: {{t|tl|maligaya}}
+* Welsh: {{t+|cy|da|m}}, {{t|cy|dda|f}}
+{{trans-bottom}}
+
+{{checktrans-top}}
+* Konkani: {{t-check|kok|tr=khoxi}}
+* Tagalog: {{t-check|tl|maligaya}}, {{t-check|tl|masaya}}, {{t-check|tl|kagalakan}}
+* Welsh: {{t+check|cy|dedwydd}}, {{t+check|cy|gwynfydedig}}, {{t+check|cy|hapus}}, {{t-check|cy|swynedig}}
+* Woiwurrung: {{t-check|wyi|barrbon-neen}}
+{{trans-bottom}}
+
+===Noun===
+{{en-noun}}
+
+# {{lb|en|informal|rare}} A happy [[event]], [[thing]], [[person]], etc.
+#* {{quote-book|en|author=Lauri Coyle; w:Gail Hershatter; Emily Honig|chapter=‘Why Did I Put Up With It All These Years’: The Farah Strike|editor=Maxine Schwartz Seller|title=Immigrant Women|series=SUNY Series in Ethnicity and Race in American Life|edition=2nd rev.|location=Albany, N.Y.|publisher=[[w:SUNY Press|State University of New York Press]]|year=1994|page=290|isbn=978-0-7914-1903-8|passage=The strike split the Chicano community. Many workers at Farah crossed picket lines and continued to keep the plant operating. They were known as the "'''happies'''" because they wore buttons which featured a smiling face and the slogan, "I'm happy at Farah.&nbsp;…"}}
+
+===Verb===
+{{en-verb}}
+
+# {{lb|en|intransitive|informal}} ''Often followed by'' '''{{l|en|up}}''': to [[become]] happy; to [[brighten up]], to [[cheer up]].
+#: {{syn|en|blithen|cheer up|chirk|liven up|perk up}}
+#* {{quote-book|en|author=John L. Bullion|chapter=Jokes|title=In the Boat with [[w:Lyndon B. Johnson|LBJ]]|location=Plano, Tex.|publisher=Republic of Texas Press|year=2001|page=294|isbn=978-1-55622-880-3|passage=Whenever I started drinking again after abstaining for any period of time, it usually was an effort to relieve stress and to "'''happy''' up."}}
+#* {{quote-book|en|author=w:Wayne Kaatz|chapter=11|title=Stuck on Earth|location=Bloomington, Ind.|publisher=[[w:Simon & Schuster|Archway Publishing]]|date=18 July 2016|isbn=978-1-4808-3280-0|passage=[H]e smiled {{...}} then asked my name. He checked it against his clipboard then sadly shook his head as if he'd been rejected himself. Told him I was looking for employment and he '''happied''' up again, able to help by directing me to apply at the front office, that the doors were on the Gower Street side.}}
+# {{lb|en|transitive|informal}} ''Often followed by'' '''{{l|en|up}}''': to [[make]] happy; to [[brighten]], to [[cheer#Verb|cheer]], to [[enliven]].
+#: {{syn|en|bright|cheer up|happify|perk up|Thesaurus:gladden}}
+#* {{quote-book|en|author=w:Mireille Juchau|chapter=Sanctuary|title=Burning In|location=Artarmon, N.S.W.|publisher={{w|Giramondo Publishing}} for the Writing & Society Research Group, {{w|University of Western Sydney}}|year=2007|page=201|isbn=978-1-920882-27-3|passage=People really didn't want their Party Motivators in their photos, anonymous dancers, '''happying''' up the place. It spooked them.}}
+#* {{quote-book|en|author=Nickolas Martin|title=Ego Therapy: A Method for Healing Your Whole Self|location=Bloomington, Ind.|publisher=Balboa Press, {{w|Hay House}}|date=26 October 2015|isbn=978-1-5043-4282-7|passage={{...}} [[w:William Glasser|[William] Glasser]] would probably say that happy people are "'''happying'''" themselves by choosing behaviors that help them to feel happy (working at their relationships, engaging in productive work activities, participating in desired recreational activities, etc.).}}
+
+===Further reading===
+* {{pedia|Happy (disambiguation)}}
+
+{{C|en|Happiness|Personality}}
+
+==Chinese==
+
+===Etymology===
+From {{bor|zh|en|happy}}.
+
+===Pronunciation 1===
+{{zh-pron
+|c=hep1 pi2
+|cat=v,c:a,c:adv
+}}
+
+====Verb====
+{{head|zh|verb}}
+
+# {{lb|zh|Hong Kong Cantonese}} to [[amuse]] oneself
+# {{lb|zh|by extension in|_|Hong Kong Cantonese|neologism|_|elsewhere|euphemism}} to [[party]]; to [[make love]]
+
+====Adjective====
+{{head|zh|adjective}}
+
+# {{lb|zh|Hong Kong Cantonese}} [[#English|happy]]
+
+====Adverb====
+{{head|zh|adverb}}
+
+# {{lb|zh|Hong Kong Cantonese}} [[happily]]
+
+===Pronunciation 2===
+{{zh-pron
+|c=hep1 pi4
+|cat=c:a,c:adv
+}}
+
+====Adjective====
+{{head|zh|adjective}}
+
+# {{lb|zh|Hong Kong Cantonese}} [[#English|happy]]; [[delightful]]; [[delighted]]
+
+====Adverb====
+{{head|zh|adverb}}
+
+# {{lb|zh|Hong Kong Cantonese}} [[happily]]; [[delightfully]]; [[delightedly]]
+
+===References===
+* {{R:yue:Bauer 2021|page=434}}
+
+==German==
+
+===Etymology===
+{{ety|de|:bor|en:happy}}
+{{bor+|de|en|happy}}.
+
+===Pronunciation===
+* {{IPA|de|/ˈhɛpi/}}
+* {{audio|de|De-happy.ogg|a=<<Germany>> (<<Berlin>>)}}
+
+===Adjective===
+{{de-adj|comp}}
+
+# {{lb|de|colloquial|chiefly|predicative}} [[glad]]; [[satisfied]]; momentarily {{l|en|happy}}
+#* {{quote-journal|de|author=Johanna Pichler|title=Tausende protestieren gegen AfD-Parteitag: „Omas gegen rechts“ marschieren mit|work=Die Tageszeitung: taz|date=2023-07-30|url=https://taz.de/!5947743/|issn=0931-9085|passage=Dass so viele Menschen gekommen sind, mache ihn „mega '''happy'''“.|translation=That so many people came makes him “mega '''happy'''”.|archiveurl=https://web.archive.org/web/20261022133826/https://taz.de/Tausende-protestieren-gegen-AfD-Parteitag/!5947743/|archivedate=22 October 2026}}
+
+====Usage notes====
+* The German word is used as a synonym of {{m|de|froh||glad, momentarily happy}} rather than {{m|de|glücklich||happy, both momentarily and generally in life}}.
+* On the rare occasion that this adjective is used attributively, the positive form ''happy'' typically remains undeclined, whereas the comparison forms are declined in the normal fashion.
+
+==Middle English==
+
+===Alternative forms===
+* {{alter|enm|happi}}
+
+===Etymology===
+{{etymon|enm|:af|hap|-y<id:adjectives>}}
+{{suffix|enm|hap|y}}
+
+===Pronunciation===
+* {{IPA|enm|/ˈhapiː/}}
+
+===Adjective===
+{{enm-adj}}
+
+# [[fortunate]], [[prosperous]], [[lucky]]; [[blessed]]
+
+====Descendants====
+* {{desc|en|happy}} {{see desc}}
+* {{desc|yol|happie}}
+
+====References====
+* {{R:MED Online|entry=happī|pos=adj. & adv|id=MED19956}}

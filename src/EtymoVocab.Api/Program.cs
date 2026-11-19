@@ -51,12 +51,11 @@ api.AddEndpointFilter(async (context, next) =>
     }
     catch (UpstreamUnavailableException ex)
     {
-        if (ex.RetryAfter is { } retryAfter && retryAfter > TimeSpan.Zero)
-            context.HttpContext.Response.Headers.RetryAfter = ((int)Math.Ceiling(retryAfter.TotalSeconds)).ToString();
+        var error = RelatedLookupError.FromUpstream(ex);
+        if (error.RetryAfter is { } seconds)
+            context.HttpContext.Response.Headers.RetryAfter = seconds.ToString();
         return Results.Problem(
-            statusCode: StatusCodes.Status503ServiceUnavailable,
-            title: "Wiktionary 暫時無法使用",
-            detail: ex.Message);
+            statusCode: error.Status, title: error.Title, detail: error.Detail);
     }
 });
 
@@ -112,7 +111,8 @@ api.MapGet("/roots/family", async (string lang, string root, string? target, str
         family = await families.GetAsync(lang, root, target, id, ct);
         if (family is null)
             return Results.Problem(statusCode: StatusCodes.Status404NotFound, title: "Wiktionary 沒有這個詞根的分類", detail: root);
-        cache.Set(key, family, new MemoryCacheEntryOptions { AbsoluteExpirationRelativeToNow = resultCacheDuration, Size = 8 });
+        if (family.UpstreamError is null)
+            cache.Set(key, family, new MemoryCacheEntryOptions { AbsoluteExpirationRelativeToNow = resultCacheDuration, Size = 8 });
     }
     return Results.Ok(family);
 });

@@ -225,11 +225,19 @@ button:disabled { opacity: .55; cursor: default; }
 .map-buttons button.secondary { font-size: .75rem; padding: 5px 9px; }
 .map-related { padding: 12px 16px; border-bottom: 1px solid var(--border); }
 .map-related summary { cursor: pointer; font-weight: 600; }
+.map-related input[type="search"] {
+  width: min(100%, 24rem); min-height: 44px; margin-top: 8px; padding: 8px 10px;
+  font: inherit; color: var(--text); background: var(--bg);
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
 .map-related-options { max-height: 220px; overflow: auto; margin-top: 10px; }
 .map-related-group { margin-bottom: 14px; }
 .map-related-group h3 { margin: 0 0 8px; font-size: .8rem; color: var(--muted); }
 .map-related-group button { padding: 6px 10px; font-size: .8rem; }
 .map-related p { margin: 8px 0 0; }
+.reverse-discovery { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+.reverse-candidate-list { max-height: 180px; overflow: auto; margin: 10px 0; }
+.reverse-candidate-list button { min-height: 40px; }
 .zoom-label { font-size: .75rem; min-width: 36px; text-align: center; color: var(--muted); }
 .map-viewport { position: relative; height: min(68vh, 760px); min-height: 440px; overflow: auto; scrollbar-gutter: stable; cursor: grab; touch-action: pan-x pan-y; background-color: var(--bg); background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 20px 20px; }
 .map-viewport.dragging { cursor: grabbing; user-select: none; }

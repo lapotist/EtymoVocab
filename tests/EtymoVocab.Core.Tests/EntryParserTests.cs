@@ -58,14 +58,21 @@ public class EntryParserTests
     }
 
     [Fact]
-    public void Nice_skips_aside_mentions_but_keeps_their_word_formation()
+    public void Nice_keeps_the_translation_tables_sense_when_it_also_links_to_another_word()
+    {
+        var section = Parse("nice")[0];
+        var translation = section.PartsOfSpeech.SelectMany(p => p.Translations).First();
+        Assert.Equal("pleasant, satisfactory", translation.Sense);
+        Assert.Contains("美好", translation.Terms);
+    }
+
+    [Fact]
+    public void Nice_excludes_the_compared_words_formation()
     {
         var sections = Parse("nice");
 
         Assert.Equal("enm:nyce < fro:nice < la:nescius", Chain(sections[0]));
-        var plus = sections[0].Morphology.Single(m => m.Kind == "plus");
-        Assert.Equal(["ne", "sciō"], Terms(plus));
-        Assert.Equal(["not", "to know"], plus.Parts.Select(p => p.Gloss));
+        Assert.DoesNotContain(sections[0].Morphology, m => m.Kind == "plus");
         Assert.Empty(sections[1].Steps);
     }
 
@@ -80,10 +87,36 @@ public class EntryParserTests
             Chain(sections[0]));
         Assert.Equal("bank", sections[0].Steps[1].EtymonId); // copied from {{etymon}} frm:banque<id:bank>
         Assert.Equal(["bench", "banc", "banco"], sections[0].Doublets.Select(d => d.Term));
-        // "Probably from {{der|en|fr|banc}}. Of {{der|en|gem}} origin": a hedged step, then a language-only one.
+        // The separate sentence about Germanic origin does not identify the parent of French banc.
         Assert.True(sections[3].Uncertain);
-        Assert.Equal("fr:banc < gem:", Chain(sections[3]));
+        Assert.Equal("fr:banc", Chain(sections[3]));
         Assert.True(sections[3].Steps[0].Uncertain);
+    }
+
+    [Fact]
+    public void Telephone_keeps_component_histories_and_sense_specific_borrowings_out_of_the_chain()
+    {
+        var entry = Assert.Single(Parse("telephone"));
+        Assert.Empty(entry.Steps);
+        Assert.Contains("system of communication using musical notes", entry.RawEtymology);
+        Assert.Equal(["tele-", "-phone"], Assert.Single(entry.Morphology).Parts.Select(p => p.Term));
+    }
+
+    [Fact]
+    public void An_explicit_derivation_of_the_preceding_language_extends_the_chain()
+    {
+        var entry = Assert.Single(EntryParser.Parse("===Etymology===\nFrom {{bor|en|fr|forme}}, {{inh|fr|la|forma}}.", "en", Languages));
+        Assert.Equal("fr:forme < la:forma", Chain(entry));
+    }
+
+    [Fact]
+    public void Telephone_nested_definitions_inherit_their_labels()
+    {
+        var verb = Assert.Single(Parse("telephone").Single().PartsOfSpeech, p => p.Pos == "Verb");
+        Assert.StartsWith("(transitive) To convey", verb.Senses[0]);
+        Assert.Contains(verb.Senses, s => s.StartsWith("(transitive) To (attempt to) contact"));
+        Assert.Contains(verb.Senses, s => s.StartsWith("(transitive) (obsolete) To provide"));
+        Assert.DoesNotContain("(transitive)", verb.Senses);
     }
 
     [Fact]
