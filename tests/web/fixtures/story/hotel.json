@@ -1,0 +1,166 @@
+{
+ "word": "hotel",
+ "lang": "en",
+ "langName": "English",
+ "source": {
+  "title": "hotel",
+  "revisionId": 95539799,
+  "revisionTimestamp": "2026-11-12T20:13:03+00:00",
+  "url": "https://en.wiktionary.org/w/index.php?title=hotel&oldid=95539799#English",
+  "license": "CC BY-SA 4.0"
+ },
+ "etymologies": [
+  {
+   "number": 1,
+   "id": null,
+   "text": "Borrowed from French hôtel, from Middle French hostel, from Old French ostel, from Late Latin hospitālis (“hospice, shelter, guesthouse”), from Latin hospitālis (“hospitable”). Doublet of hostel and hospital.",
+   "uncertain": false,
+   "steps": [
+    {
+     "lang": "fr",
+     "langName": "French",
+     "term": "hôtel",
+     "display": "hôtel",
+     "gloss": "mansion, town house, hotel (in the sense of a town house or mansion)",
+     "glossSource": "definition",
+     "relation": "bor",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/h%C3%B4tel#French",
+     "morphology": []
+    },
+    {
+     "lang": "frm",
+     "langName": "Middle French",
+     "term": "hostel",
+     "display": "hostel",
+     "gloss": "shelter; living quarters; place to stay",
+     "glossSource": "definition",
+     "relation": "der",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/hostel#Middle_French",
+     "morphology": []
+    },
+    {
+     "lang": "fro",
+     "langName": "Old French",
+     "term": "ostel",
+     "display": "ostel",
+     "gloss": "shelter; place to stay",
+     "glossSource": "definition",
+     "relation": "der",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/ostel#Old_French",
+     "morphology": []
+    },
+    {
+     "lang": "la-lat",
+     "langName": "Late Latin",
+     "term": "hospitālis",
+     "display": "hospitālis",
+     "gloss": "hospice, shelter, guesthouse",
+     "glossSource": "etymology",
+     "relation": "der",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/hospitalis#Latin",
+     "morphology": [
+      {
+       "lang": "la",
+       "langName": "Latin",
+       "kind": "af",
+       "parts": [
+        {
+         "term": "hospes",
+         "gloss": "host; guest, stranger",
+         "hint": null,
+         "url": "https://en.wiktionary.org/wiki/hospes#Latin"
+        },
+        {
+         "term": "-ālis",
+         "gloss": "Suffixed to nouns or numerals creating adjectives of relationship.",
+         "hint": null,
+         "url": "https://en.wiktionary.org/wiki/-alis#Latin"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "lang": "la",
+     "langName": "Latin",
+     "term": "hospitālis",
+     "display": "hospitālis",
+     "gloss": "hospitable",
+     "glossSource": "etymology",
+     "relation": "der",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/hospitalis#Latin",
+     "morphology": [
+      {
+       "lang": "la",
+       "langName": "Latin",
+       "kind": "af",
+       "parts": [
+        {
+         "term": "hospes",
+         "gloss": "host; guest, stranger",
+         "hint": null,
+         "url": "https://en.wiktionary.org/wiki/hospes#Latin"
+        },
+        {
+         "term": "-ālis",
+         "gloss": "Suffixed to nouns or numerals creating adjectives of relationship.",
+         "hint": null,
+         "url": "https://en.wiktionary.org/wiki/-alis#Latin"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "morphology": [],
+   "roots": [],
+   "doublets": [
+    {
+     "lang": "en",
+     "term": "hostel",
+     "url": "https://en.wiktionary.org/wiki/hostel#English"
+    },
+    {
+     "lang": "en",
+     "term": "hospital",
+     "url": "https://en.wiktionary.org/wiki/hospital#English"
+    }
+   ],
+   "partsOfSpeech": [
+    {
+     "pos": "Noun",
+     "senses": [
+      "(now chiefly historical) A large town house or mansion; a grand private residence, especially in France.",
+      "An establishment that provides accommodation and other services for paying guests; normally larger than a guesthouse, and often one of a chain.",
+      "(Australia, western Canada) A public house or pub.",
+      "(South Asia) A restaurant; any dining establishment.",
+      "(international standards) from the NATO/ICAO Phonetic Alphabet.",
+      "The larger red property in the game of Monopoly, in contradistinction to houses.",
+      "The guest accommodation and dining section of a cruise ship."
+     ],
+     "translations": [],
+     "relations": []
+    }
+   ]
+  }
+ ],
+ "warnings": [],
+ "complete": true,
+ "resolvedFrom": null,
+ "baseForms": []
+}

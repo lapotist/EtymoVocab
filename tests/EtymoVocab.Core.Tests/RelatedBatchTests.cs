@@ -37,6 +37,7 @@ public class RelatedBatchTests
         }
 
         public Task<CategoryListing?> GetCategoryMembersAsync(string title, int limit, CancellationToken ct) => throw new NotSupportedException();
+        public Task<IReadOnlyList<CategorySize>> ListCategoriesAsync(string prefix, int limit, CancellationToken ct) => throw new NotSupportedException();
         public Task<IReadOnlyList<string>> SuggestAsync(string prefix, int limit, CancellationToken ct) => throw new NotSupportedException();
     }
 

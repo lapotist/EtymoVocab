@@ -502,3 +502,28 @@ main :is(h1, h2)[tabindex="-1"]:focus { outline: none; }
   .card:has(.map-panel) { padding: 8px; }
   .page-heading .primary-link { width: 100%; text-align: center; }
 }
+
+/* Answer-first story card: one headline, then the same three short answers for every word. */
+.story-card { border-left: 4px solid var(--accent); }
+.story-card h2 { font-size: 1.35rem; margin-bottom: 8px; }
+.story-headline { font-size: 1.1rem; line-height: 1.7; margin: 0 0 16px; }
+.story-answers { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.story-answers > li { border-top: 1px solid var(--border); padding-top: 12px; }
+.story-answers h3 { margin: 0 0 6px; font-size: .85rem; color: var(--muted); }
+.story-answers p { margin: 4px 0; }
+.story-term { font-weight: 600; overflow-wrap: anywhere; }
+.story-gloss { color: var(--muted); }
+.story-literal .plus { color: var(--muted); }
+.story-path { list-style: none; margin: 0; padding: 0; }
+.story-point { position: relative; padding: 4px 0 4px 18px; overflow-wrap: anywhere; }
+.story-point::before { content: ""; position: absolute; left: 4px; top: 0; bottom: 0; border-left: 2px solid var(--border); }
+.story-point::after { content: ""; position: absolute; left: 0; top: .85em; width: 10px; height: 10px; border-radius: 50%; background: var(--surface); border: 2px solid var(--muted); }
+.story-point.today::after { background: var(--accent); border-color: var(--accent); }
+.story-point:first-child::before { top: .85em; }
+.story-point:last-child::before { bottom: calc(100% - .85em); }
+.story-lang { display: inline-block; min-width: 4.5em; margin-right: 6px; font-size: .78rem; color: var(--muted); }
+.story-zh { margin-left: 8px; }
+.story-source { margin-top: 14px; }
+.evidence-title { font-size: 1rem; color: var(--muted); margin: 24px 0 10px; }
+.more-senses { margin-top: 16px; }
+.more-senses summary { cursor: pointer; color: var(--accent); }

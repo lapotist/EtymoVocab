@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { etymologicalGroups, addEtymologicalWord } from '../../src/EtymoVocab.Web/wwwroot/map-related.js';
+import { etymologicalGroups, addEtymologicalWord, familySource, familyHref, familyOrder } from '../../src/EtymoVocab.Web/wwwroot/map-related.js';
 
 const hostel = { lang: 'en', term: 'hostel', url: 'https://en.wiktionary.org/wiki/hostel#English' };
 const hospital = { lang: 'en', term: 'hospital', url: 'https://en.wiktionary.org/wiki/hospital#English' };
@@ -68,4 +68,35 @@ test('missing etymological evidence never falls back to synonyms or other senses
   const river = etymologicalGroups({ doublets: [] }, 'bank');
   assert.equal(finance[0].terms[0].term, 'bench');
   assert.deepEqual(river, []);
+});
+
+test('family sources are reconstructed roots and English prefixes, never suffixes or reconstructed words', () => {
+  // sacred: the chain ends in PIE *seh₂k-, which Wiktionary groups into an English root category.
+  assert.deepEqual(familySource({ lang: 'ine-pro', term: '*seh₂k-' }), { kind: 'root', lang: 'ine-pro', term: '*seh₂k-', id: null });
+  assert.deepEqual(familySource({ lang: 'ine-pro', term: '*per-', id: 'fare' }).id, 'fare');
+  // transport: the English breakdown trans- + port.
+  assert.deepEqual(familySource({ lang: 'en', term: 'trans-', id: 'across, beyond' }),
+    { kind: 'prefix', lang: 'en', term: 'trans-', id: 'across, beyond' });
+  for (const notAFamily of [
+    { lang: 'ine-pro', term: '*-tḗr' },     // reconstructed suffix
+    { lang: 'gem-pro', term: '*fadēr' },    // reconstructed word
+    { lang: 'ine-pro', term: '*sh₂krós' },  // reconstructed word
+    { lang: 'en', term: '-ed' },            // suffix
+    { lang: 'en', term: 'port' },           // base
+    { lang: 'la', term: 'trāns-' },         // Latin prefix: no English category
+    { lang: 'la', term: 'sacer' },
+  ]) assert.equal(familySource(notAFamily), null, JSON.stringify(notAFamily));
+});
+
+test('family routes carry the prefix kind and sense id only when needed', () => {
+  assert.equal(familyHref({ kind: 'root', lang: 'ine-pro', term: '*seh₂k-', id: null }), '#/root/ine-pro/*seh%E2%82%82k-');
+  assert.equal(familyHref({ kind: 'root', lang: 'ine-pro', term: '*per-', id: 'fare' }), '#/root/ine-pro/*per-?id=fare');
+  assert.equal(familyHref({ kind: 'prefix', lang: 'en', term: 'trans-', id: 'across, beyond' }),
+    '#/root/en/trans-?kind=prefix&id=across%2C+beyond');
+});
+
+test('family order puts plain words before names and phrases (real *seh₂k- members)', () => {
+  const members = ['Sánchez', 'Santa Fe', 'Sancho', 'sacrifice', 'sanction', 'santo', 'sacro-', 'sacration'];
+  assert.deepEqual([...members].sort(familyOrder),
+    ['santo', 'sanction', 'sacration', 'sacrifice', 'sacro-', 'Sancho', 'Sánchez', 'Santa Fe']);
 });

@@ -61,5 +61,6 @@ export async function lookupRelatedBatch(words) {
     error: { status: 500, title: '查詢結果缺少詞條', detail: word, retryAfter: null } });
 }
 export const lookupEntry = (lang, term, etymonId) => call('LookupEntry', lang, term, etymonId ?? null);
-export const rootFamily = (lang, root) => call('RootFamily', lang, root);
+export const rootFamily = (lang, root, id) => call('RootFamily', lang, root, id ?? null);
+export const prefixFamily = (lang, prefix, id) => call('PrefixFamily', lang, prefix, id ?? null);
 export const suggest = (prefix) => call('Suggest', prefix);

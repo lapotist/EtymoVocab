@@ -1,0 +1,321 @@
+{
+ "word": "nice",
+ "lang": "en",
+ "langName": "English",
+ "source": {
+  "title": "nice",
+  "revisionId": 95610423,
+  "revisionTimestamp": "2026-11-14T03:48:48+00:00",
+  "url": "https://en.wiktionary.org/w/index.php?title=nice&oldid=95610423#English",
+  "license": "CC BY-SA 4.0"
+ },
+ "etymologies": [
+  {
+   "number": 1,
+   "id": null,
+   "text": "From Middle English nyce, nice, nys, from Old French nice, niche, nisce (“simple, foolish, ignorant”), from Latin nescius (“ignorant, not knowing”); compare nesciō (“to know not, be ignorant of”), from ne (“not”) + sciō (“to know”).",
+   "uncertain": false,
+   "steps": [
+    {
+     "lang": "enm",
+     "langName": "Middle English",
+     "term": "nyce",
+     "display": "nyce",
+     "gloss": "foolish, simple, ignorant, naive",
+     "glossSource": "definition",
+     "relation": "inh",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/nyce#Middle_English",
+     "morphology": []
+    },
+    {
+     "lang": "fro",
+     "langName": "Old French",
+     "term": "nice",
+     "display": "nice",
+     "gloss": null,
+     "glossSource": null,
+     "relation": "der",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/nice#Old_French",
+     "morphology": []
+    },
+    {
+     "lang": "la",
+     "langName": "Latin",
+     "term": "nescius",
+     "display": "nescius",
+     "gloss": "ignorant, not knowing",
+     "glossSource": "etymology",
+     "relation": "der",
+     "note": null,
+     "uncertain": false,
+     "ambiguous": false,
+     "url": "https://en.wiktionary.org/wiki/nescius#Latin",
+     "morphology": [
+      {
+       "lang": "la",
+       "langName": "Latin",
+       "kind": "af",
+       "parts": [
+        {
+         "term": "nesciō",
+         "gloss": "not to know",
+         "hint": null,
+         "url": "https://en.wiktionary.org/wiki/nescio#Latin"
+        },
+        {
+         "term": "-us",
+         "gloss": null,
+         "hint": "deverbal adjective",
+         "url": "https://en.wiktionary.org/wiki/-us#Latin"
+        }
+       ]
+      },
+      {
+       "lang": "la",
+       "langName": "Latin",
+       "kind": "prefix",
+       "parts": [
+        {
+         "term": "ne-",
+         "gloss": "absolutely negates the principal meaning",
+         "hint": null,
+         "url": "https://en.wiktionary.org/wiki/ne-#Latin"
+        },
+        {
+         "term": "scius",
+         "gloss": "knowing, cognizant",
+         "hint": null,
+         "url": "https://en.wiktionary.org/wiki/scius#Latin"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "morphology": [
+    {
+     "lang": "la",
+     "langName": "Latin",
+     "kind": "plus",
+     "parts": [
+      {
+       "term": "ne",
+       "gloss": "not",
+       "hint": null,
+       "url": "https://en.wiktionary.org/wiki/ne#Latin"
+      },
+      {
+       "term": "sciō",
+       "gloss": "to know",
+       "hint": null,
+       "url": "https://en.wiktionary.org/wiki/scio#Latin"
+      }
+     ]
+    }
+   ],
+   "roots": [
+    {
+     "lang": "ine-pro",
+     "langName": "Proto-Indo-European",
+     "root": "*skey-",
+     "gloss": "to split, to dissect",
+     "url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/skey-#Proto-Indo-European"
+    }
+   ],
+   "doublets": [],
+   "partsOfSpeech": [
+    {
+     "pos": "Adjective",
+     "senses": [
+      "(chiefly informal) Pleasant, satisfactory, complimentary.",
+      "(chiefly informal) Of a person: friendly, attractive.",
+      "Respectable; virtuous.",
+      "(with and, chiefly informal) Shows that the given adjective is desirable, or acts as a mild intensifier; pleasantly, quite.",
+      "(chiefly informal) Giving a favorable review or having a favorable impression.",
+      "(chiefly informal) Showing refinement or delicacy, proper, seemly",
+      "(obsolete) Silly, ignorant; foolish.",
+      "(now rare) Particular in one's conduct; scrupulous, painstaking; choosy."
+     ],
+     "translations": [
+      {
+       "sense": "",
+       "mandarin": [
+        "美好"
+       ]
+      },
+      {
+       "sense": "",
+       "mandarin": [
+        "宜人的"
+       ]
+      }
+     ],
+     "relations": [
+      {
+       "kind": "synonym",
+       "sense": "easy to like: person",
+       "terms": [
+        "charming",
+        "delightful",
+        "friendly",
+        "kind",
+        "lovely",
+        "pleasant",
+        "sweet"
+       ]
+      },
+      {
+       "kind": "synonym",
+       "sense": "easy to like: thing",
+       "terms": [
+        "charming",
+        "delightful",
+        "lovely",
+        "pleasant"
+       ]
+      },
+      {
+       "kind": "synonym",
+       "sense": "having a pleasant taste or aroma",
+       "terms": [
+        "appetising",
+        "appetizing",
+        "delicious",
+        "moreish",
+        "scrummy",
+        "scrumptious",
+        "tasty"
+       ]
+      },
+      {
+       "kind": "synonym",
+       "sense": "subtle",
+       "terms": [
+        "fine",
+        "subtle"
+       ]
+      },
+      {
+       "kind": "antonym",
+       "sense": "easy to like: person",
+       "terms": [
+        "horrible",
+        "horrid",
+        "nasty"
+       ]
+      },
+      {
+       "kind": "antonym",
+       "sense": "easy to like: thing",
+       "terms": [
+        "horrible",
+        "horrid",
+        "nasty"
+       ]
+      },
+      {
+       "kind": "antonym",
+       "sense": "having a pleasant taste or aroma",
+       "terms": [
+        "awful",
+        "disgusting",
+        "foul",
+        "horrible",
+        "horrid",
+        "nasty",
+        "nauseating",
+        "putrid",
+        "rancid",
+        "rank",
+        "sickening",
+        "distasteful",
+        "gross",
+        "unsatisfactory"
+       ]
+      },
+      {
+       "kind": "antonym",
+       "sense": "respectable; virtuous",
+       "terms": [
+        "naughty"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": "Adverb",
+     "senses": [
+      "(flat adverb, colloquial) Nicely."
+     ],
+     "translations": [],
+     "relations": [
+      {
+       "kind": "synonym",
+       "sense": "(flat adverb, colloquial) Nicely.",
+       "terms": [
+        "nice-like"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": "Interjection",
+     "senses": [
+      "Used to signify a job well done.",
+      "Used to signify approval."
+     ],
+     "translations": [],
+     "relations": [
+      {
+       "kind": "synonym",
+       "sense": "Used to signify a job well done.",
+       "terms": [
+        "nice one",
+        "nice job",
+        "good job"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": "Noun",
+     "senses": [
+      "niceness."
+     ],
+     "translations": [],
+     "relations": []
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "id": null,
+   "text": "Name of a Unix program used to invoke a script or program with a specified priority, with the implication that running at a lower priority is \"nice\" (kind, etc.) because it leaves more resources for others.",
+   "uncertain": false,
+   "steps": [],
+   "morphology": [],
+   "roots": [],
+   "doublets": [],
+   "partsOfSpeech": [
+    {
+     "pos": "Verb",
+     "senses": [
+      "(transitive, computing, Unix) To run a process with a specified (usually lower) priority."
+     ],
+     "translations": [],
+     "relations": []
+    }
+   ]
+  }
+ ],
+ "warnings": [],
+ "complete": true,
+ "resolvedFrom": null,
+ "baseForms": []
+}
