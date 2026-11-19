@@ -205,7 +205,7 @@ button:disabled { opacity: .55; cursor: default; }
 .lookup-related { padding: 7px 9px; border-left: 1px solid var(--border); text-decoration: none; color: var(--muted); }
 .discovery-word a:hover { background: var(--border); border-radius: 6px; }
 .empty-state { padding: 32px 0; }
-.filter-row select { max-width: 100%; }
+.filter-row > label, .filter-row select { max-width: 100%; }
 
 .toolbar {
   display: flex;
@@ -223,6 +223,9 @@ button:disabled { opacity: .55; cursor: default; }
 .map-direction { font-size: .8rem; color: var(--muted); align-self: center; }
 .map-buttons { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .map-buttons button.secondary { font-size: .75rem; padding: 5px 9px; }
+@media (pointer: coarse) {
+  .map-buttons button.secondary { min-width: 44px; min-height: 44px; touch-action: manipulation; }
+}
 .map-related { padding: 12px 16px; border-bottom: 1px solid var(--border); }
 .map-related summary { cursor: pointer; font-weight: 600; }
 .map-related input[type="search"] {
@@ -255,8 +258,9 @@ button:disabled { opacity: .55; cursor: default; }
 .map-legend { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: .72rem; padding: 10px 16px; color: var(--muted); border-top: 1px solid var(--border); }
 .legend-origin::before, .legend-family::before { content: ''; display: inline-block; width: 22px; border-top: 1px solid var(--accent); margin-right: 7px; vertical-align: middle; }
 .legend-family::before { border-top: 1px dashed var(--proto); }
-.map-panel:fullscreen, .map-panel.map-expanded { display: flex; flex-direction: column; border-radius: 0; }
-.map-panel:fullscreen .map-viewport, .map-panel.map-expanded .map-viewport { flex: 1; height: auto; min-height: 0; }
+.map-panel:is(:fullscreen, .map-expanded) { display: flex; flex-direction: column; border-radius: 0; }
+.map-panel:is(:fullscreen, .map-expanded) .map-related { max-height: 25%; overflow: auto; }
+.map-panel:is(:fullscreen, .map-expanded) .map-viewport { flex: 1; height: auto; min-height: 0; }
 .map-panel.map-expanded { position: fixed; inset: 0; z-index: 10; }
 
 .tnode > .row {

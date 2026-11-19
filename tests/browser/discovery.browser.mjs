@@ -163,8 +163,9 @@ try {
     passed.push('Typing warms only the latest top result, Enter shares its lookup, and throttling pauses background work');
   }
 
-  async function session(fixtures, viewport = { width: 1280, height: 900 }) {
-    const context = await browser.newContext({ viewport, timezoneId: 'Asia/Taipei' });
+  const phone = { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true };
+  async function session(fixtures, options = {}) {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, timezoneId: 'Asia/Taipei', ...options });
     context.on('page', page => page.on('pageerror', error => errors.push(error.message)));
     await context.addInitScript(fixtures => {
       window.__discoveryFixtures = fixtures;
@@ -185,6 +186,84 @@ try {
   const complete = page => page.waitForFunction(() => document.querySelector('.bulk-status')?.textContent.startsWith('已完成'));
   const rowOrder = page => page.locator('.bulk-result').evaluateAll(nodes => nodes.map(node => node.dataset.query));
   const calls = page => page.evaluate(() => window.__discoveryCalls);
+
+  {
+    const relatives = Array.from({ length: 8 }, (_, i) => ({ kind: 'derived', lang: 'en', term: 'relative' + i }));
+    const steps = Array.from({ length: 12 }, (_, i) => ({ lang: 'la', langName: 'Latin', term: 'ancestor' + i, morphology: [] }));
+    const { context, page } = await session({ sample: { etymologicalRelations: relatives, steps } }, phone);
+    await page.goto(base + '#/explore/sample');
+    const viewport = page.locator('.map-viewport');
+    const card = page.locator('.map-node.kind-word');
+    const initialWidth = (await card.boundingBox()).width;
+    const zoom = page.locator('.zoom-label');
+    await page.getByRole('button', { name: '放大地圖' }).tap();
+    assert.equal(await zoom.innerText(), '120%');
+    assert.ok(Math.abs((await card.boundingBox()).width / initialWidth - 1.2) < 0.01);
+    await page.getByRole('button', { name: '縮小地圖' }).tap();
+    assert.equal(await zoom.innerText(), '100%');
+    await page.getByRole('button', { name: '顯示全圖' }).tap();
+    const fits = await viewport.evaluate(map => {
+      const stage = map.querySelector('.map-stage').getBoundingClientRect();
+      return stage.width <= map.clientWidth && stage.height <= map.clientHeight;
+    });
+    assert.ok(fits, 'Fit shows the entire tree even when the phone needs less than 12% scale');
+    const fittedWidth = (await card.boundingBox()).width;
+    await page.getByRole('button', { name: '放大地圖' }).tap();
+    assert.ok(Math.abs((await card.boundingBox()).width / fittedWidth - 1.2) < 0.01);
+    await page.getByRole('button', { name: '回到單字' }).tap();
+    assert.equal(await zoom.innerText(), '100%');
+
+    await viewport.scrollIntoViewIfNeeded();
+    await viewport.evaluate(map => map.scrollTo(160, 180));
+    const box = await viewport.boundingBox();
+    const x = Math.round(box.x + box.width * .38);
+    const y = Math.round(box.y + box.height * .4);
+    const treePoint = () => page.locator('.map-stage').evaluate((stage, [x, y]) => {
+      const bounds = stage.getBoundingClientRect();
+      const scale = bounds.width / stage.offsetWidth;
+      return { x: (x - bounds.x) / scale, y: (y - bounds.y) / scale, scale };
+    }, [x, y]);
+    const start = await treePoint();
+    const client = await context.newCDPSession(page);
+    const touch = (type, touchPoints) => client.send('Input.dispatchTouchEvent', { type, touchPoints });
+    const fingers = radius => [{ id: 1, x: x - radius, y }, { id: 2, x: x + radius, y }];
+    await touch('touchStart', fingers(40));
+    for (const radius of [48, 56, 64]) await touch('touchMove', fingers(radius));
+    const enlarged = await treePoint();
+    assert.ok(enlarged.scale > start.scale * 1.45, 'Spreading two fingers enlarges the tree');
+    assert.ok(Math.hypot(enlarged.x - start.x, enlarged.y - start.y) < 3, 'The tree point between the fingers stays in place');
+    for (const radius of [56, 48, 40]) await touch('touchMove', fingers(radius));
+    await touch('touchEnd', []);
+    const reduced = await treePoint();
+    assert.ok(Math.abs(reduced.scale - start.scale) < 0.03, 'Bringing the fingers back together restores the scale');
+    assert.ok(Math.hypot(reduced.x - start.x, reduced.y - start.y) < 3);
+    assert.equal(await page.evaluate(() => visualViewport.scale), 1, 'Pinching the tree leaves the page scale alone');
+
+    const beforePan = await viewport.evaluate(map => map.scrollLeft);
+    await touch('touchStart', [{ id: 1, x, y }]);
+    for (const delta of [20, 40, 60]) await touch('touchMove', [{ id: 1, x: x - delta, y }]);
+    await touch('touchEnd', []);
+    await page.waitForFunction(before => document.querySelector('.map-viewport').scrollLeft > before + 20, beforePan);
+    await context.close();
+    passed.push('A phone can fit a deep tree, zoom by button or pinch, and pan with one finger');
+  }
+
+  {
+    const nice = JSON.parse(await readFile(new URL('../web/fixtures/story/nice.json', import.meta.url), 'utf8'));
+    const { context, page } = await session({ nice: { data: nice } }, { ...phone, viewport: { width: 375, height: 667 } });
+    await page.goto(base + '#/explore/nice');
+    const viewport = page.locator('.map-viewport');
+    await viewport.waitFor();
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth),
+      'Multi-etymology controls fit the phone width');
+    await page.setViewportSize({ width: 667, height: 375 });
+    await page.getByRole('button', { name: '切換全螢幕' }).tap();
+    await page.locator('.map-panel:fullscreen, .map-panel.map-expanded').waitFor();
+    assert.ok((await viewport.boundingBox()).height >= 120,
+      'The open relatives list leaves room to see and pinch the tree in landscape fullscreen');
+    await context.close();
+    passed.push('Multi-etymology controls fit a phone and the fullscreen tree stays visible in landscape');
+  }
 
   {
     const { context, page } = await session({
@@ -420,7 +499,7 @@ try {
         { term: 'hap', url: 'https://en.wiktionary.org/wiki/hap#English' },
         { term: '-y', url: 'https://en.wiktionary.org/wiki/-y#English' },
       ] }],
-    }, hap: { etymologicalRelations: [{ kind: 'derived', lang: 'en', term: 'hapless' }] } }, { width: 390, height: 844 });
+    }, hap: { etymologicalRelations: [{ kind: 'derived', lang: 'en', term: 'hapless' }] } }, phone);
     await page.goto(base + '#/explore/happy');
     await page.locator('.map-panel').waitFor();
     await page.getByRole('button', { name: '全部展開', exact: true }).click();

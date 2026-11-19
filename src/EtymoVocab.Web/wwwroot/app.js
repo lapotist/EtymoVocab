@@ -1,6 +1,6 @@
 import * as engine from './engine.js';
 import { layoutTree, edgePath } from './map-layout.js';
-import { mapGeometry, zoomScroll } from './map-viewport.js';
+import { fitZoom, mapGeometry, zoomScroll } from './map-viewport.js';
 import { attachEtymologicalWords, addVerifiedOrigin, addEtymologicalWord, familySource, familyHref, familyComparator } from './map-related.js';
 import { loadFrequencyRanks } from './frequency.js';
 import { buildWordStory, feelLines, langZh } from './word-story.js';
@@ -278,7 +278,7 @@ class EtymologyMap {
     this.stage = el('div', { class: 'map-stage' });
     this.canvas = el('div', { class: 'map-canvas' }, this.stage);
     this.viewport = el('div', {
-      class: 'map-viewport', tabindex: '0', role: 'region', 'aria-label': '互動詞源地圖，可水平與垂直捲動、拖曳移動，方向鍵捲動，加減鍵縮放',
+      class: 'map-viewport', tabindex: '0', role: 'region', 'aria-label': '互動詞源地圖，可水平與垂直捲動、拖曳移動，方向鍵捲動，雙指或加減鍵縮放',
     }, this.canvas);
     this.zoomLabel = el('output', { class: 'zoom-label', 'aria-label': '地圖縮放比例' }, '100%');
     this.relatedOptions = el('div', { class: 'map-related-options' });
@@ -327,10 +327,11 @@ class EtymologyMap {
       this.relatedPanel,
       this.viewport,
       el('div', { class: 'map-legend' },
-        el('span', {}, '捲動、拖曳或方向鍵移動 · ＋／− 縮放'),
+        el('span', {}, '捲動、拖曳或方向鍵移動 · 雙指或 ＋／− 縮放'),
         el('span', { class: 'legend-origin' }, '實線：來源／構詞'),
         el('span', { class: 'legend-family' }, '虛線：詞源相關字（關係見分組標籤）')));
     this.stats = el('p', { class: 'muted small' });
+    this.enablePinchZoom();
     let drag;
     this.viewport.addEventListener('pointerdown', event => {
       if (event.pointerType === 'touch') return; // Let the browser handle touch scrolling.
@@ -363,6 +364,46 @@ class EtymologyMap {
       if (!event.ctrlKey && !event.metaKey) return;
       event.preventDefault();
       this.zoomBy(event.deltaY < 0 ? 1.1 : 1 / 1.1);
+    }, { passive: false });
+  }
+
+  enablePinchZoom() {
+    let start;
+    let suppressTap = false;
+    const measure = touches => {
+      const a = touches[0], b = touches[1];
+      const rect = this.viewport.getBoundingClientRect();
+      return {
+        distance: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY),
+        point: { x: (a.clientX + b.clientX) / 2 - rect.left - this.viewport.clientLeft,
+          y: (a.clientY + b.clientY) / 2 - rect.top - this.viewport.clientTop },
+      };
+    };
+    const onContactsChanged = event => {
+      start = null;
+      const touches = event.touches;
+      if (event.type === 'touchstart' && touches.length === 1) suppressTap = false;
+      if (touches.length !== 2 || !this.layout || !this.viewport.contains(touches[0].target) ||
+        !this.viewport.contains(touches[1].target)) return;
+      const gesture = measure(touches);
+      if (!gesture.distance) return;
+      if (event.cancelable) event.preventDefault();
+      suppressTap = true;
+      start = { ...gesture, zoom: this.zoom, scroll: { x: this.viewport.scrollLeft, y: this.viewport.scrollTop } };
+    };
+    this.viewport.addEventListener('touchstart', onContactsChanged, { passive: false });
+    this.viewport.addEventListener('touchend', event => {
+      // Lifting the last finger over a node control must not activate it after a pinch.
+      if (suppressTap && event.cancelable) event.preventDefault();
+      if (!event.touches.length) suppressTap = false;
+      onContactsChanged(event);
+    }, { passive: false });
+    this.viewport.addEventListener('touchcancel', () => { start = null; suppressTap = false; });
+    this.viewport.addEventListener('touchmove', event => {
+      if (!start || event.touches.length !== 2) return;
+      if (event.cancelable) event.preventDefault();
+      const current = measure(event.touches);
+      this.zoomBy(current.distance / start.distance, start, current.point);
     }, { passive: false });
   }
 
@@ -551,21 +592,24 @@ class EtymologyMap {
     this.stage.style.left = `${this.geometry.offsetX}px`;
     this.stage.style.top = `${this.geometry.offsetY}px`;
     this.stage.style.transform = `scale(${this.zoom})`;
-    this.zoomLabel.textContent = `${Math.round(this.zoom * 100)}%`;
+    this.zoomLabel.textContent = this.zoom < .01 ? '<1%' : `${Math.round(this.zoom * 100)}%`;
   }
 
-  zoomBy(factor) {
+  zoomBy(factor, start, point) {
     if (!this.layout) return;
-    const zoom = Math.min(1.8, Math.max(.12, this.zoom * factor));
-    const scroll = zoomScroll(this.layout, { width: this.viewport.clientWidth, height: this.viewport.clientHeight },
-      { x: this.viewport.scrollLeft, y: this.viewport.scrollTop }, this.zoom, zoom);
+    const fromZoom = start?.zoom ?? this.zoom;
+    const fromScroll = start?.scroll ?? { x: this.viewport.scrollLeft, y: this.viewport.scrollTop };
+    const viewport = { width: this.viewport.clientWidth, height: this.viewport.clientHeight };
+    const minZoom = Math.min(.12, fitZoom(this.layout, viewport));
+    const zoom = Math.min(1.8, Math.max(minZoom, fromZoom * factor));
+    const scroll = zoomScroll(this.layout, viewport, fromScroll, fromZoom, zoom, start?.point, point);
     this.zoom = zoom; this.transform();
     this.viewport.scrollTo(scroll.x, scroll.y);
   }
 
   fit() {
     if (!this.layout) return;
-    this.zoom = Math.max(.12, Math.min(1, (this.viewport.clientWidth - 32) / this.layout.width, (this.viewport.clientHeight - 32) / this.layout.height));
+    this.zoom = fitZoom(this.layout, { width: this.viewport.clientWidth, height: this.viewport.clientHeight });
     this.transform();
     this.viewport.scrollTo(0, 0);
   }
